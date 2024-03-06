@@ -365,7 +365,7 @@ maximum theta in degrees before stop
 
 - Units: deg
 
-- Range: 0 370
+- Range: -1 370
 
 ## POSTHETADEGMIN: POSTHETADEGMIN
 
@@ -375,7 +375,7 @@ minimum theta in degrees before stop
 
 - Units: deg
 
-- Range: -1 360
+- Range: -1 370
 
 ## LATERAL_NO_PASSES: LAT_NO_PASSES
 
@@ -498,7 +498,7 @@ maximum time to try to move when stuck //fixme, what unit/max?
 
 maximum throttle to try to move when stuck
 
-- Units: s
+- Units: %
 
 - Range: 0 100
 
@@ -560,7 +560,7 @@ delta throttle under which we can not be stuck as we are not trying to move : if
 
 - Units: %
 
-- Range: 0. 0.2
+- Range: 0 100
 
 ## PATTERN_Tolerance: Tolerance_degree
 
@@ -673,15 +673,13 @@ Which direction should the passes be offset (left or right); pattern to the left
 |1|Left|
 |2|Right|
 
-## reinit: reinit
+## reinit: Reinitialisation of Vertical Roll
 
 *Note: This parameter is for advanced users*
 
-reinitialisation of vertical roll = 1. Any value change causes reset
+reinitialisation of vertical roll. reset is triggered by a change in this value
 
-|Value|Meaning|
-|:---:|:---:|
-|1|reset|
+- Range: -254 255
 
 ## cur_posThetaDeg: cur_posThetaDeg
 
@@ -855,7 +853,9 @@ Time length of health check [seconds] ?
 
 *Note: This parameter is for advanced users*
 
-Time interval of status reporting [seconds] ?
+Time interval of status reporting
+
+- Units: s
 
 - Range: 0 600
 
@@ -891,7 +891,7 @@ nb of try of moving lateral of AVOID_OFFSET
 
 *Note: This parameter is for advanced users*
 
- Avoidance: nb try of whole pattern
+Avoidance: nb try of whole pattern
 
 - Range: 0 255
 
@@ -899,7 +899,7 @@ nb of try of moving lateral of AVOID_OFFSET
 
 *Note: This parameter is for advanced users*
 
- Stuck: nb try of whole pattern
+Stuck: nb try of whole pattern
 
 - Range: 0 255
 
@@ -927,7 +927,9 @@ turn angle for diagonal pattern
 
 *Note: This parameter is for advanced users*
 
-radius of the net at the surface  [m] ?
+radius of the net at the surface
+
+- Units: m
 
 - Range: 0 100
 
@@ -935,7 +937,9 @@ radius of the net at the surface  [m] ?
 
 *Note: This parameter is for advanced users*
 
-radius of the net at the depth DEPTH_1 [m] ?
+radius of the net at the depth DEPTH_1
+
+- Units: m
 
 - Range: 0 100
 
@@ -943,7 +947,9 @@ radius of the net at the depth DEPTH_1 [m] ?
 
 *Note: This parameter is for advanced users*
 
-depth corresponding to RADIUS_NET_1 [m] ?
+depth corresponding to RADIUS_NET_1
+
+- Units: m
 
 - Range: 0 100
 
@@ -952,6 +958,8 @@ depth corresponding to RADIUS_NET_1 [m] ?
 *Note: This parameter is for advanced users*
 
 depth corresponding to edge of the cone : radius = 0
+
+- Units: m
 
 - Range: 0 100
 
@@ -967,15 +975,19 @@ kp coefficient for pid POS control algorithm
 
 *Note: This parameter is for advanced users*
 
-TI coefficient for pid POS control algorithm [s] ?
+TI coefficient for pid POS control algorithm, negative values deactivate
 
-- Range: 0 100
+- Units: s
+
+- Range: -10 100
 
 ## PID_POS_TD: PID_POS_TD
 
 *Note: This parameter is for advanced users*
 
-Td coefficient for pid POS control algorithm  [s] ?
+Td coefficient for pid POS control algorithm, 0 = deactivate
+
+- Units: s
 
 - Range: 0 100
 
@@ -991,7 +1003,9 @@ number of repetition of backflush
 
 *Note: This parameter is for advanced users*
 
-backflush period [min] ?
+backflush period
+
+- Units: min
 
 - Range: 0 100
 
@@ -999,7 +1013,9 @@ backflush period [min] ?
 
 *Note: This parameter is for advanced users*
 
-time period for backflush  [s] ?
+time period for backflush
+
+- Units: s
 
 - Range: 0 1
 
@@ -1007,7 +1023,9 @@ time period for backflush  [s] ?
 
 *Note: This parameter is for advanced users*
 
-time period for reflush  [s] ?
+time period for reflush
+
+- Units: s
 
 - Range: 0 100
 
@@ -1015,7 +1033,9 @@ time period for reflush  [s] ?
 
 *Note: This parameter is for advanced users*
 
-throttle applied during backflush [] ?
+throttle applied during backflush
+
+- Units: %
 
 - Range: -100 0
 
@@ -1023,7 +1043,9 @@ throttle applied during backflush [] ?
 
 *Note: This parameter is for advanced users*
 
-throttle applied during reflush [] ?
+throttle applied during reflush
+
+- Units: %
 
 - Range: 0 100
 
@@ -1031,7 +1053,9 @@ throttle applied during reflush [] ?
 
 *Note: This parameter is for advanced users*
 
-depth interval to mid depth to allow backflush -BF_DELTA_DEPTH < current_depth-(0.5 (MAX_DEPTH + MIN_DEPTH) ) < BF_DELTA_DEPTH [m] ?
+depth interval to backflush depth to allow backflush -BF_DELTA_DEPTH < current_depth- ( ALPHA_BACKFLUSH * MAX_DEPTH + (1-ALPHA_BACKFLUSH)* MIN_DEPTH ) ) < BF_DELTA_DEPTH
+
+- Units: m
 
 - Range: 0 100
 
@@ -1039,7 +1063,9 @@ depth interval to mid depth to allow backflush -BF_DELTA_DEPTH < current_depth-(
 
 *Note: This parameter is for advanced users*
 
-backflush only when -BF_DELTA_ROLL < roll-VERTICAL_ROLL < BF_DELTA_ROLL [deg] ?
+backflush only when -BF_DELTA_ROLL < roll-VERTICAL_ROLL < BF_DELTA_ROLL
+
+- Units: deg
 
 - Range: 0 10
 
@@ -1069,7 +1095,7 @@ longitude of the pen center
 
 type of calculation for vertical velocity: 1 = baro change over 250 ms, 2 = filtered derivative of baro reading, 3 = ahrs velocity along z
 
-- Range: 0 100000
+- Range: 0 255
 
 ## THETA_CALC_TYPE: THETA_CALC_TYPE
 
@@ -1077,9 +1103,7 @@ type of calculation for vertical velocity: 1 = baro change over 250 ms, 2 = filt
 
 type of calculation for theta: 1 = netPosition.x/RadiusNet(z)*360/2pi, 2 = atan2(posNED.y,posNED.x)
 
-- Units: deg
-
-- Range: 0 360
+- Range: 0 255
 
 ## NB_TURN_MAX: NB_TURN_MAX
 
@@ -1103,6 +1127,8 @@ reset current nb turn every RESET_TURN_T minutes if <0 no reset
 
 throttle applied during half of test period
 
+- Units: %
+
 - Range: -100 100
 
 ## TEST_BELT_TH_2: TEST_BELT_TH_2
@@ -1110,6 +1136,8 @@ throttle applied during half of test period
 *Note: This parameter is for advanced users*
 
 throttle applied during second half of test period
+
+- Units: %
 
 - Range: -100 100
 
@@ -1119,7 +1147,9 @@ throttle applied during second half of test period
 
 test period for the belts in seconds if <0 no movement
 
-- Range: -254 255
+- Units: s
+
+- Range: -1 100000
 
 ## TEST_BELT_NBPER: TEST_BELT_NBPER
 
@@ -1127,13 +1157,15 @@ test period for the belts in seconds if <0 no movement
 
 maximum number of period for belt test if <0 no limit
 
-- Range: -254 255
+- Range: -1 100000
 
 ## TEST_THRUS_TH_1: TEST_THRUS_TH_1
 
 *Note: This parameter is for advanced users*
 
 thruster throttle applied during half of test period
+
+- Units: %
 
 - Range: -100 100
 
@@ -1143,6 +1175,8 @@ thruster throttle applied during half of test period
 
 thruster throttle applied during second half of test period
 
+- Units: %
+
 - Range: -100 100
 
 ## TEST_THRUS_PER: TEST_THRUS_PER
@@ -1151,7 +1185,9 @@ thruster throttle applied during second half of test period
 
 test period for the thruster in seconds if <0 no movement
 
-- Range: -254 255
+- Units: s
+
+- Range: -1 100000
 
 ## TEST_THRUS_NBPER: TEST_THRUS_NBPER
 
@@ -1159,13 +1195,15 @@ test period for the thruster in seconds if <0 no movement
 
 maximum number of period for thruster test if <0 no limit
 
-- Range: -254 255
+- Range: -1 100000
 
 ## TEST_BRUSH_TH_1: TEST_BRUSH_TH_1
 
 *Note: This parameter is for advanced users*
 
 brush throttle applied during half of test period
+
+- Units: %
 
 - Range: -100 100
 
@@ -1175,6 +1213,8 @@ brush throttle applied during half of test period
 
 brush throttle applied during second half of test period
 
+- Units: %
+
 - Range: -100 100
 
 ## TEST_BRUSH_PER: TEST_BRUSH_PER
@@ -1182,6 +1222,8 @@ brush throttle applied during second half of test period
 *Note: This parameter is for advanced users*
 
 test period for the brush in seconds if <0 no movement
+
+- Units: %
 
 - Range: -254 255
 
@@ -1191,7 +1233,7 @@ test period for the brush in seconds if <0 no movement
 
 maximum number of period for brush test if <0 no limit
 
-- Range: -254 255
+- Range: -1 100000
 
 ## GPS_DEPTH: GPS_DEPTH
 
@@ -1285,6 +1327,8 @@ Scalar for gain on the steering channel
 
 throttle applied to brush when going forward
 
+- Units: %
+
 - Range: -100 100
 
 ## BWD_BRUSH_TH: BWD_BRUSH_TH
@@ -1293,6 +1337,8 @@ throttle applied to brush when going forward
 
 throttle applied to brush when going backward
 
+- Units: %
+
 - Range: -100 100
 
 ## MAN_BRUSH_TH: MAN_BRUSH_TH
@@ -1300,6 +1346,8 @@ throttle applied to brush when going backward
 *Note: This parameter is for advanced users*
 
 throttle applied to brush when in manual mode
+
+- Units: %
 
 - Range: -100 100
 
@@ -1327,6 +1375,8 @@ Controls the number of steps between minimum and maximum brush gain when the gai
 
 hour at which the robot should automatically start acro mode, other values disable automatic start
 
+- Units: h
+
 - Range: 0 23
 
 ## AUTOSTART_MIN: AUTOSTART_MIN
@@ -1334,6 +1384,8 @@ hour at which the robot should automatically start acro mode, other values disab
 *Note: This parameter is for advanced users*
 
 minute at which the robot should automatically start acro mode. other values disable automatic start
+
+- Units: min
 
 - Range: 0 59
 
@@ -1397,17 +1449,23 @@ FS_MAX_DEPTH used in autostart
 
 throttle applied to the thruster when in manual mode
 
+- Units: %
+
 - Range: -100 100
 
 ## THRUST_GAIN_DEF: Default gain at boot for thruster
 
 Default gain at boot for thruster, must be in range [-THRUST_GAIN_MAX , THRUST_GAIN_MAX]
 
+- Units: %
+
 - Range: -100 100
 
 ## THRUST_GAIN_MAX: Maximum thruster gain when in manual
 
 Maximum thruster gain when in manual
+
+- Units: %
 
 - Range: 0 100
 
@@ -1423,17 +1481,23 @@ Controls the number of steps between minimum and maximum thruster gain when the 
 
 maximum distance to detect we are in the neighborhood of a waypoint
 
-- Values: ]0:1] m
+- Units: m
+
+- Range: 0 1
 
 ## LEASH_LENGTH: LEASH_LENGTH
 
-distance for position algorithm (M)
+distance for position algorithm
+
+- Units: m
 
 - Range: 0.1 1.5
 
 ## MAX_ANGLE_COR: MAX_ANGLE_COR
 
 maximum angle (degrees) correction for position algorithm
+
+- Units: deg
 
 - Range: 10 80
 
@@ -1468,151 +1532,203 @@ Number of steps in brightness between minimum and maximum brightness
 
 0 -> disabled, 1 -> switch to manual, 2 warn only
 
-- Range: 0 1
+|Value|Meaning|
+|:---:|:---:|
+|0|Disabled|
+|1|Switch To Manual|
+|2|Warning Only|
 
-## TEMP_MAX: threeshold to determine that temperature is too high
+## TEMP_MAX: Max Temperature
 
-temperature in degrees Celsius
+Temperature, threeshold to determine that temperature is too high
+
+- Units: degC
 
 - Range: 0 500
 
-## MON_GEAR_LEFT: nb seconds of usage of left gearbox
+## MON_PERIOD: Refreshing period for monitoring parameters
 
-nb seconds of usage, * (1000 hours)
+Refreshing period for monitoring parameters
 
-- Range: 0 1000
+- Units: s
+
+- Range: 0 100000
 
 ## MON_GEAR_LEFT: nb seconds of usage of left gearbox
 
 nb seconds of usage, * 3600 (1000 hours)
 
-- Range: 0 1000
+- Units: s
+
+- Range: 0 2147483647
 
 ## MON_GEAR_RIGHT: nb seconds of usage of left gearbox
 
 nb seconds of usage, * 3600 (1000 hours)
 
-- Range: 0 1000
+- Units: s
+
+- Range: 0 2147483647
 
 ## MON_GEAR_BRUSH: nb seconds of usage of left gearbox
 
 nb seconds of usage, * 3600 (1000 hours)
 
-- Range: 0 1000
+- Units: s
+
+- Range: 0 2147483647
 
 ## MON_MOT_LEFT: nb seconds of usage of left motor
 
 nb seconds of usage, * 3600 (1000 hours)
 
-- Range: 0 1000
+- Units: s
+
+- Range: 0 2147483647
 
 ## MON_MOT_RIGHT: nb seconds of usage of right motor
 
 nb seconds of usage, * 3600 (1000 hours)
 
-- Range: 0 1000
+- Units: s
+
+- Range: 0 2147483647
 
 ## MON_THRUSTER: nb seconds of usage of thruster motor
 
 nb seconds of usage, * 3600 (1000 hours)
 
-- Range: 0 1000
+- Units: s
+
+- Range: 0 2147483647
 
 ## MON_MOT_BRUSH: nb seconds of usage of brush motor
 
 nb seconds of usage, * 3600 (1000 hours)
 
-- Range: 0 1000
+- Units: s
+
+- Range: 0 2147483647
 
 ## MON_BBELT_LEFT: nb seconds of usage of left Brushing belt
 
 nb seconds of usage, * 3600 (1000 hours)
 
-- Range: 0 1000
+- Units: s
+
+- Range: 0 2147483647
 
 ## MON_BBELT_RIGHT: nb seconds of usage of right Brushing belt
 
 nb seconds of usage, * 3600 (1000 hours)
 
-- Range: 0 1000
+- Units: s
+
+- Range: 0 2147483647
 
 ## MON_NAVIGATOR: nb seconds of usage of navigator
 
 nb seconds of usage, * 3600 (1000 hours)
 
-- Range: 0 1000
+- Units: s
+
+- Range: 0 2147483647
 
 ## MON_BOARD: nb seconds of usage of board (pi4 for now)
 
 nb seconds of usage, * 3600 (1000 hours)
 
-- Range: 0 1000
+- Units: s
+
+- Range: 0 2147483647
 
 ## MON_MAIN_CONV: nb seconds of usage of main converter : 380V -> 24V
 
 nb seconds of usage, * 3600 (1000 hours)
 
-- Range: 0 1000
+- Units: s
+
+- Range: 0 2147483647
 
 ## MON_BRUSH_CTRL: nb seconds of usage of brush controller
 
 nb seconds of usage,  * 3600 (1000 hours)
 
-- Range: 0 1000
+- Units: s
+
+- Range: 0 2147483647
 
 ## MON_THRUST_CTRL: nb seconds of usage of thruster controller
 
 nb seconds of usage, * 3600 (1000 hours)
 
-- Range: 0 1000
+- Units: s
+
+- Range: 0 2147483647
 
 ## MON_LEFT_CTRL: nb seconds of usage of left controller
 
 nb seconds of usage, * 3600 (1000 hours)
 
-- Range: 0 1000
+- Units: s
+
+- Range: 0 2147483647
 
 ## MON_RIGHT_CTRL: nb seconds of usage of right controller
 
 nb seconds of usage, * 3600 (1000 hours)
 
-- Range: 0 1000
+- Units: s
+
+- Range: 0 2147483647
 
 ## MON_DEPTH_SNSOR: nb seconds of usage of depth sensor
 
 nb seconds of usage, * 3600 (1000 hours)
 
-- Range: 0 1000
+- Units: s
+
+- Range: 0 2147483647
 
 ## MON_FRONT_CAM: nb seconds of usage of front camera
 
 nb seconds of usage,  * 3600 (1000 hours)
 
-- Range: 0 1000
+- Units: s
+
+- Range: 0 2147483647
 
 ## MON_BACK_CAM: nb seconds of usage of back camera
 
 nb seconds of usage,  * 3600 (1000 hours)
 
-- Range: 0 1000
+- Units: s
+
+- Range: 0 2147483647
 
 ## MON_ROBOT_TOT: nb seconds of usage of robot
 
 nb seconds of usage, * 3600 (1000 hours)
 
-- Range: 0 1000
+- Units: s
+
+- Range: 0 2147483647
 
 ## MON_DBELT_LEFT: nb seconds of usage of left Driving belt
 
 nb seconds of usage, * 3600 (1000 hours)
 
-- Range: 0 1000
+- Units: s
+
+- Range: 0 2147483647
 
 ## MON_DBELT_RIGHT: nb seconds of usage of right Driving belt
 
 nb seconds of usage,  * 3600 (1000 hours)
 
-- Range: 0 1000
+- Units: s
+
+- Range: 0 2147483647
 
 ## ACRO_MOUNT_PAN: pwm value for camera #1 angle when entering acro
 
@@ -1626,23 +1742,179 @@ pwm value for camera #2 angle when entering acro
 
 - Range: 1000 2000
 
-## AVOIDANCE_TYPE: avoidance type: 1 = new, 0 = old
+## AVOIDANCE_TYPE: Avoidance type
 
-avoidance type: 1 = new, 0 = old
+Avoidance type
 
-- Range: 0 1
+|Value|Meaning|
+|:---:|:---:|
+|0|Old|
+|1|New|
 
 ## SAFETY_MARGIN: safety margin for MIN_DEPTH and MAX_DEPTH
 
 safety margin for MIN_DEPTH and MAX_DEPTH, if negative:disable safety [meter]
 
-- Range: 0 1
+- Units: m
+
+- Range: -1 10000
+
+## max_roll_run: max velocity in roll when running before next step in disarming
+
+max velocity in roll when running before next step in disarming
+
+- Units: rad/s
+
+- Range: 0 2
+
+## max_pitch_run: max velocity in pitch when running before next step in disarming
+
+max velocity in pitch when running before next step in disarming
+
+- Units: rad/s
+
+- Range: 0 2
+
+## max_yaw_run: max velocity in yaw when running before next step in disarming
+
+max velocity in yaw when running before next step in disarming
+
+- Units: rad/s
+
+- Range: 0 2
+
+## max_roll_still: max velocity in roll at standstill before disarming
+
+max velocity in roll at standstill before disarming
+
+- Units: rad/s
+
+- Range: 0 2
+
+## max_pitch_still: max velocity in pitch at standstill before disarming
+
+max velocity in pitch at standstill before disarming
+
+- Units: rad/s
+
+- Range: 0 2
+
+## max_yaw_still: max velocity in yaw at standstill before disarming
+
+max velocity in yaw at standstill before disarming
+
+- Units: rad/s
+
+- Range: 0 2
+
+## max_roll_still2: max velocity in roll at standstill before disarming
+
+max velocity in roll at standstill before disarming
+
+- Units: rad/s
+
+- Range: 0 2
+
+## max_pitch_still2: max velocity in pitch at standstill before disarming
+
+max velocity in pitch at standstill before disarming
+
+- Units: rad/s
+
+- Range: 0 2
+
+## max_yaw_still2: max velocity in yaw at standstill before disarming
+
+max velocity in yaw at standstill before disarming
+
+- Units: rad/s
+
+- Range: 0 2
+
+## sw_still_lim: switch limits between 1 and 2 in meter before disarming
+
+switch limits between 1 and 2 in meter before disarming
+
+- Units: m
+
+- Range: 0 2
+
+## max_mon_t: max time the robot are in monitoring state if on net
+
+max time the robot are in monitoring state if on net
+
+- Units: s
+
+- Range: 0 60
+
+## stand_still_t: time for the robot to comme to sandstill
+
+time for the robot to comme to sandstill
+
+- Units: s
+
+- Range: 0 5
+
+## starting_t: let the robot have time to accelerate
+
+let the robot have time to accelerate
+
+- Units: s
+
+- Range: 3 10
+
+## disable_mv: 1, disable monitoring for velocity spikes
+
+1, disable monitoring for velocity spikes
+
+|Value|Meaning|
+|:---:|:---:|
+|0|Not Disabled|
+|1|Disable Monitoring|
+
+## min_mon_depth: Don't stop and monitor if robot is on net above this H
+
+Don't stop and monitor if robot is on net above this H
+
+- Units: m
+
+- Range: -100 100
 
 ## DEC_THRUS_TH: thruster throttle applied when "stopping" the thruster in avoidance
 
-thruster throttle applied when "stopping" the thruster in avoidance, [meter] if negative:disable safety
+thruster throttle applied when "stopping" the thruster in avoidance
+
+- Units: %
+
+- Range: 0 100
+
+## SPEED_FREQ_CUTOF: cutoff frequency in the filtering of speed for VEL_CALC_TYP = 6
+
+speed is smoothed by a low pass filter whose frequency is SPEED_FREQ_CUTOF
+
+- Units: Hz
+
+- Range: 0 3
+
+## M33_LIMIT: minimum value for the M33 coef to avoid division by 0
+
+minimum value for the M33 coef to avoid division by 0
 
 - Range: 0 1
+
+## ALPHA_BACKFLUSH: ALPHA_BACKFLUSH
+
+backflush at depth = (1-ALPHA_BACKFLUSH) MIN_DEPTH + (ALPHA_BACKFLUSH) MAX_DEPTH so ALPHA_BACKFLUSH=0 means MIN_DEPTH, ALPHA_BACKFLUSH=1 means MAX_DEPTH
+
+- Range: 0. 1.
+
+## MOUNT_TIMEOUT: MOUNT_TIMEOUT
+
+timeout for joystick input before rotating camera to prescribed position
+
+- Units: s
+
+- Range: -1. 999.
 
 ## SYSID_ENFORCE: GCS sysid enforcement
 
@@ -6208,22 +6480,6 @@ Options for Pin 3. PWM input detects PWM above or below 1800/1200us instead of l
 Options for Pin 4. PWM input detects PWM above or below 1800/1200us instead of logic level. Invert changes HIGH state to be logic low voltage on pin, or below 1200us, if PWM input.
 
 - Bitmask: 0:PWM Input,1:InvertInput
-
-## BTN_FUNC1: Button Pin 1 RC Channel function
-
-Auxiliary RC Options function executed on pin change
-
-## BTN_FUNC2: Button Pin 2 RC Channel function
-
-Auxiliary RC Options function executed on pin change
-
-## BTN_FUNC3: Button Pin 3 RC Channel function
-
-Auxiliary RC Options function executed on pin change
-
-## BTN_FUNC4: Button Pin 4 RC Channel function
-
-Auxiliary RC Options function executed on pin change
 
 # CAM Parameters
 

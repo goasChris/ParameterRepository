@@ -247,12 +247,12 @@
       <param humanName="POSTHETADEGMAX" name="RemoraRover:POSTHETADEGMAX" documentation="maximum theta in degrees before stop" user="Advanced">
         <field name="Units">deg</field>
         <field name="UnitText">degrees</field>
-        <field name="Range">0 370</field>
+        <field name="Range">-1 370</field>
       </param>
       <param humanName="POSTHETADEGMIN" name="RemoraRover:POSTHETADEGMIN" documentation="minimum theta in degrees before stop" user="Advanced">
         <field name="Units">deg</field>
         <field name="UnitText">degrees</field>
-        <field name="Range">-1 360</field>
+        <field name="Range">-1 370</field>
       </param>
       <param humanName="LAT_NO_PASSES" name="RemoraRover:LATERAL_NO_PASSES" documentation="Number of passes before stop" user="Advanced">
         <field name="Range">0 999</field>
@@ -310,8 +310,8 @@
         <field name="Range">0 10</field>
       </param>
       <param humanName="STUCK_THROTTLE" name="RemoraRover:STUCK_THROTTLE" documentation="maximum throttle to try to move when stuck" user="Advanced">
-        <field name="Units">s</field>
-        <field name="UnitText">seconds</field>
+        <field name="Units">%</field>
+        <field name="UnitText">percent</field>
         <field name="Range">0 100</field>
       </param>
       <param humanName="STUCK_RAMP" name="RemoraRover:STUCK_RAMP" documentation="do we want a ramp when trying to move when stuck, 0=no, 1=yes" user="Advanced">
@@ -342,7 +342,7 @@
       <param humanName="DEAD_THROTTLE" name="RemoraRover:DEAD_THROTTLE" documentation="delta throttle under which we can not be stuck as we are not trying to move : if abs(throttle-0.5)&lt;dead_throttle" user="Advanced">
         <field name="Units">%</field>
         <field name="UnitText">percent</field>
-        <field name="Range">0. 0.2</field>
+        <field name="Range">0 100</field>
       </param>
       <param humanName="Tolerance_degree" name="RemoraRover:PATTERN_Tolerance" documentation="Error tolerence when straighting up the vehicle." user="Advanced">
         <field name="Units">deg</field>
@@ -395,10 +395,8 @@
           <value code="2">Right</value>
         </values>
       </param>
-      <param humanName="reinit" name="RemoraRover:reinit" documentation="reinitialisation of vertical roll = 1. Any value change causes reset" user="Advanced">
-        <values>
-          <value code="1">reset</value>
-        </values>
+      <param humanName="Reinitialisation of Vertical Roll" name="RemoraRover:reinit" documentation="reinitialisation of vertical roll. reset is triggered by a change in this value" user="Advanced">
+        <field name="Range">-254 255</field>
       </param>
       <param humanName="cur_posThetaDeg" name="RemoraRover:cur_posThetaDeg" documentation="current position along theta in degrees" user="Advanced">
         <field name="Units">deg</field>
@@ -483,7 +481,9 @@
       <param humanName="HC_LENGTH" name="RemoraRover:Health" documentation="Time length of health check [seconds] ?" user="Advanced">
         <field name="Range">0 60</field>
       </param>
-      <param humanName="REP_INTERVAL" name="RemoraRover:Reporting" documentation="Time interval of status reporting [seconds] ?" user="Advanced">
+      <param humanName="REP_INTERVAL" name="RemoraRover:Reporting" documentation="Time interval of status reporting" user="Advanced">
+        <field name="Units">s</field>
+        <field name="UnitText">seconds</field>
         <field name="Range">0 600</field>
       </param>
       <param humanName="AVOID_OFFSET" name="RemoraRover:Avoidance" documentation="offset when trying to avoid an obstacle" user="Advanced">
@@ -499,10 +499,10 @@
       <param humanName="AVOID_NB_OFFSET" name="RemoraRover:Avoidance" documentation="nb of try of moving lateral of AVOID_OFFSET" user="Advanced">
         <field name="Range">0 255</field>
       </param>
-      <param humanName="AVOID_NB_TIME" name="RemoraRover:Avoidance" documentation=" Avoidance: nb try of whole pattern" user="Advanced">
+      <param humanName="AVOID_NB_TIME" name="RemoraRover:Avoidance" documentation="Avoidance: nb try of whole pattern" user="Advanced">
         <field name="Range">0 255</field>
       </param>
-      <param humanName="STUCK_NB_TIME" name="RemoraRover:Stuck" documentation=" Stuck: nb try of whole pattern" user="Advanced">
+      <param humanName="STUCK_NB_TIME" name="RemoraRover:Stuck" documentation="Stuck: nb try of whole pattern" user="Advanced">
         <field name="Range">0 255</field>
       </param>
       <param humanName="DIAG_ANGLE" name="RemoraRover:Diagonal" documentation="base angle for diagonal pattern" user="Advanced">
@@ -515,49 +515,75 @@
         <field name="UnitText">degrees</field>
         <field name="Range">0 90</field>
       </param>
-      <param humanName="RADIUS_NET" name="RemoraRover:RADIUS_NET" documentation="radius of the net at the surface  [m] ?" user="Advanced">
+      <param humanName="RADIUS_NET" name="RemoraRover:RADIUS_NET" documentation="radius of the net at the surface" user="Advanced">
+        <field name="Units">m</field>
+        <field name="UnitText">meters</field>
         <field name="Range">0 100</field>
       </param>
-      <param humanName="RADIUS_NET_1" name="RemoraRover:RADIUS_NET_1" documentation="radius of the net at the depth DEPTH_1 [m] ?" user="Advanced">
+      <param humanName="RADIUS_NET_1" name="RemoraRover:RADIUS_NET_1" documentation="radius of the net at the depth DEPTH_1" user="Advanced">
+        <field name="Units">m</field>
+        <field name="UnitText">meters</field>
         <field name="Range">0 100</field>
       </param>
-      <param humanName="DEPTH_1" name="RemoraRover:DEPTH_1" documentation="depth corresponding to RADIUS_NET_1 [m] ?" user="Advanced">
+      <param humanName="DEPTH_1" name="RemoraRover:DEPTH_1" documentation="depth corresponding to RADIUS_NET_1" user="Advanced">
+        <field name="Units">m</field>
+        <field name="UnitText">meters</field>
         <field name="Range">0 100</field>
       </param>
       <param humanName="DEPTH_2" name="RemoraRover:DEPTH_2" documentation="depth corresponding to edge of the cone : radius = 0" user="Advanced">
+        <field name="Units">m</field>
+        <field name="UnitText">meters</field>
         <field name="Range">0 100</field>
       </param>
       <param humanName="PID_POS_KP" name="RemoraRover:PID_POS_KP" documentation="kp coefficient for pid POS control algorithm" user="Advanced">
         <field name="Range">0 10000</field>
       </param>
-      <param humanName="PID_POS_TI" name="RemoraRover:PID_POS_TI" documentation="TI coefficient for pid POS control algorithm [s] ?" user="Advanced">
-        <field name="Range">0 100</field>
+      <param humanName="PID_POS_TI" name="RemoraRover:PID_POS_TI" documentation="TI coefficient for pid POS control algorithm, negative values deactivate" user="Advanced">
+        <field name="Units">s</field>
+        <field name="UnitText">seconds</field>
+        <field name="Range">-10 100</field>
       </param>
-      <param humanName="PID_POS_TD" name="RemoraRover:PID_POS_TD" documentation="Td coefficient for pid POS control algorithm  [s] ?" user="Advanced">
+      <param humanName="PID_POS_TD" name="RemoraRover:PID_POS_TD" documentation="Td coefficient for pid POS control algorithm, 0 = deactivate" user="Advanced">
+        <field name="Units">s</field>
+        <field name="UnitText">seconds</field>
         <field name="Range">0 100</field>
       </param>
       <param humanName="BF_NB_REPETITION" name="RemoraRover:BF_NB_REPETITION" documentation="number of repetition of backflush" user="Advanced">
         <field name="Range">0 100</field>
       </param>
-      <param humanName="BF_PERIOD" name="RemoraRover:BF_PERIOD" documentation="backflush period [min] ?" user="Advanced">
+      <param humanName="BF_PERIOD" name="RemoraRover:BF_PERIOD" documentation="backflush period" user="Advanced">
+        <field name="Units">min</field>
+        <field name="UnitText">minutes</field>
         <field name="Range">0 100</field>
       </param>
-      <param humanName="BF_DELTAT_BACK" name="RemoraRover:BF_DELTAT_BACK" documentation="time period for backflush  [s] ?" user="Advanced">
+      <param humanName="BF_DELTAT_BACK" name="RemoraRover:BF_DELTAT_BACK" documentation="time period for backflush" user="Advanced">
+        <field name="Units">s</field>
+        <field name="UnitText">seconds</field>
         <field name="Range">0 1</field>
       </param>
-      <param humanName="BF_DELTAT_RE" name="RemoraRover:BF_DELTAT_RE" documentation="time period for reflush  [s] ?" user="Advanced">
+      <param humanName="BF_DELTAT_RE" name="RemoraRover:BF_DELTAT_RE" documentation="time period for reflush" user="Advanced">
+        <field name="Units">s</field>
+        <field name="UnitText">seconds</field>
         <field name="Range">0 100</field>
       </param>
-      <param humanName="BF_SPEED_TOP_B" name="RemoraRover:BF_SPEED_TOP_B" documentation="throttle applied during backflush [] ?" user="Advanced">
+      <param humanName="BF_SPEED_TOP_B" name="RemoraRover:BF_SPEED_TOP_B" documentation="throttle applied during backflush" user="Advanced">
+        <field name="Units">%</field>
+        <field name="UnitText">percent</field>
         <field name="Range">-100 0</field>
       </param>
-      <param humanName="BF_SPEED_TOP_R" name="RemoraRover:BF_SPEED_TOP_R" documentation="throttle applied during reflush [] ?" user="Advanced">
+      <param humanName="BF_SPEED_TOP_R" name="RemoraRover:BF_SPEED_TOP_R" documentation="throttle applied during reflush" user="Advanced">
+        <field name="Units">%</field>
+        <field name="UnitText">percent</field>
         <field name="Range">0 100</field>
       </param>
-      <param humanName="BF_DELTA_DEPTH" name="RemoraRover:BF_DELTA_DEPTH" documentation="depth interval to mid depth to allow backflush -BF_DELTA_DEPTH &lt; current_depth-(0.5 (MAX_DEPTH + MIN_DEPTH) ) &lt; BF_DELTA_DEPTH [m] ?" user="Advanced">
+      <param humanName="BF_DELTA_DEPTH" name="RemoraRover:BF_DELTA_DEPTH" documentation="depth interval to backflush depth to allow backflush -BF_DELTA_DEPTH &lt; current_depth- ( ALPHA_BACKFLUSH * MAX_DEPTH + (1-ALPHA_BACKFLUSH)* MIN_DEPTH ) ) &lt; BF_DELTA_DEPTH" user="Advanced">
+        <field name="Units">m</field>
+        <field name="UnitText">meters</field>
         <field name="Range">0 100</field>
       </param>
-      <param humanName="BF_DELTA_ROLL" name="RemoraRover:BF_DELTA_ROLL" documentation="backflush only when -BF_DELTA_ROLL &lt; roll-VERTICAL_ROLL &lt; BF_DELTA_ROLL [deg] ?" user="Advanced">
+      <param humanName="BF_DELTA_ROLL" name="RemoraRover:BF_DELTA_ROLL" documentation="backflush only when -BF_DELTA_ROLL &lt; roll-VERTICAL_ROLL &lt; BF_DELTA_ROLL" user="Advanced">
+        <field name="Units">deg</field>
+        <field name="UnitText">degrees</field>
         <field name="Range">0 10</field>
       </param>
       <param humanName="PEN_CENTER_LAT" name="RemoraRover:PEN_CENTER_LAT" documentation="latitude of the pen center" user="Advanced">
@@ -571,12 +597,10 @@
         <field name="Range">0 360</field>
       </param>
       <param humanName="VEL_CALC_TYPE" name="RemoraRover:VEL_CALC_TYPE" documentation="type of calculation for vertical velocity: 1 = baro change over 250 ms, 2 = filtered derivative of baro reading, 3 = ahrs velocity along z" user="Advanced">
-        <field name="Range">0 100000</field>
+        <field name="Range">0 255</field>
       </param>
       <param humanName="THETA_CALC_TYPE" name="RemoraRover:THETA_CALC_TYPE" documentation="type of calculation for theta: 1 = netPosition.x/RadiusNet(z)*360/2pi, 2 = atan2(posNED.y,posNED.x)" user="Advanced">
-        <field name="Units">deg</field>
-        <field name="UnitText">degrees</field>
-        <field name="Range">0 360</field>
+        <field name="Range">0 255</field>
       </param>
       <param humanName="NB_TURN_MAX" name="RemoraRover:NB_TURN_MAX" documentation="maximum number of turn before abort if &lt;0 no limit + reset current_turn_state to normal useful when too much turns were dealt with and you want to go back to normal" user="Advanced">
         <field name="Range">-254 255</field>
@@ -585,40 +609,58 @@
         <field name="Range">-32768 32767</field>
       </param>
       <param humanName="TEST_BELT_TH_1" name="RemoraRover:TEST_BELT_TH_1" documentation="throttle applied during half of test period" user="Advanced">
+        <field name="Units">%</field>
+        <field name="UnitText">percent</field>
         <field name="Range">-100 100</field>
       </param>
       <param humanName="TEST_BELT_TH_2" name="RemoraRover:TEST_BELT_TH_2" documentation="throttle applied during second half of test period" user="Advanced">
+        <field name="Units">%</field>
+        <field name="UnitText">percent</field>
         <field name="Range">-100 100</field>
       </param>
       <param humanName="TEST_BELT_PER" name="RemoraRover:TEST_BELT_PER" documentation="test period for the belts in seconds if &lt;0 no movement" user="Advanced">
-        <field name="Range">-254 255</field>
+        <field name="Units">s</field>
+        <field name="UnitText">seconds</field>
+        <field name="Range">-1 100000</field>
       </param>
       <param humanName="TEST_BELT_NBPER" name="RemoraRover:TEST_BELT_NBPER" documentation="maximum number of period for belt test if &lt;0 no limit" user="Advanced">
-        <field name="Range">-254 255</field>
+        <field name="Range">-1 100000</field>
       </param>
       <param humanName="TEST_THRUS_TH_1" name="RemoraRover:TEST_THRUS_TH_1" documentation="thruster throttle applied during half of test period" user="Advanced">
+        <field name="Units">%</field>
+        <field name="UnitText">percent</field>
         <field name="Range">-100 100</field>
       </param>
       <param humanName="TEST_THRUS_TH_2" name="RemoraRover:TEST_THRUS_TH_2" documentation="thruster throttle applied during second half of test period" user="Advanced">
+        <field name="Units">%</field>
+        <field name="UnitText">percent</field>
         <field name="Range">-100 100</field>
       </param>
       <param humanName="TEST_THRUS_PER" name="RemoraRover:TEST_THRUS_PER" documentation="test period for the thruster in seconds if &lt;0 no movement" user="Advanced">
-        <field name="Range">-254 255</field>
+        <field name="Units">s</field>
+        <field name="UnitText">seconds</field>
+        <field name="Range">-1 100000</field>
       </param>
       <param humanName="TEST_THRUS_NBPER" name="RemoraRover:TEST_THRUS_NBPER" documentation="maximum number of period for thruster test if &lt;0 no limit" user="Advanced">
-        <field name="Range">-254 255</field>
+        <field name="Range">-1 100000</field>
       </param>
       <param humanName="TEST_BRUSH_TH_1" name="RemoraRover:TEST_BRUSH_TH_1" documentation="brush throttle applied during half of test period" user="Advanced">
+        <field name="Units">%</field>
+        <field name="UnitText">percent</field>
         <field name="Range">-100 100</field>
       </param>
       <param humanName="TEST_BRUSH_TH_2" name="RemoraRover:TEST_BRUSH_TH_2" documentation="brush throttle applied during second half of test period" user="Advanced">
+        <field name="Units">%</field>
+        <field name="UnitText">percent</field>
         <field name="Range">-100 100</field>
       </param>
       <param humanName="TEST_BRUSH_PER" name="RemoraRover:TEST_BRUSH_PER" documentation="test period for the brush in seconds if &lt;0 no movement" user="Advanced">
+        <field name="Units">%</field>
+        <field name="UnitText">percent</field>
         <field name="Range">-254 255</field>
       </param>
       <param humanName="TEST_BRUSH_NBPER" name="RemoraRover:TEST_BRUSH_NBPER" documentation="maximum number of period for brush test if &lt;0 no limit" user="Advanced">
-        <field name="Range">-254 255</field>
+        <field name="Range">-1 100000</field>
       </param>
       <param humanName="GPS_DEPTH" name="RemoraRover:GPS_DEPTH" documentation="target depth for GPS mode" user="Advanced">
         <field name="Units">m</field>
@@ -664,12 +706,18 @@
         <field name="Range">0.5 4.0</field>
       </param>
       <param humanName="FWD_BRUSH_TH" name="RemoraRover:FWD_BRUSH_TH" documentation="throttle applied to brush when going forward" user="Advanced">
+        <field name="Units">%</field>
+        <field name="UnitText">percent</field>
         <field name="Range">-100 100</field>
       </param>
       <param humanName="BWD_BRUSH_TH" name="RemoraRover:BWD_BRUSH_TH" documentation="throttle applied to brush when going backward" user="Advanced">
+        <field name="Units">%</field>
+        <field name="UnitText">percent</field>
         <field name="Range">-100 100</field>
       </param>
       <param humanName="MAN_BRUSH_TH" name="RemoraRover:MAN_BRUSH_TH" documentation="throttle applied to brush when in manual mode" user="Advanced">
+        <field name="Units">%</field>
+        <field name="UnitText">percent</field>
         <field name="Range">-100 100</field>
       </param>
       <param humanName="Default gain at boot for brush" name="RemoraRover:BRUSH_GAIN_DEF" documentation="Default gain at boot for brush, must be in range [JS_GAIN_MIN , JS_GAIN_MAX]" user="Standard">
@@ -682,9 +730,13 @@
         <field name="Range">1 10</field>
       </param>
       <param humanName="AUTOSTART_HOUR" name="RemoraRover:AUTOSTART_HOUR" documentation="hour at which the robot should automatically start acro mode, other values disable automatic start" user="Advanced">
+        <field name="Units">h</field>
+        <field name="UnitText">hours</field>
         <field name="Range">0 23</field>
       </param>
       <param humanName="AUTOSTART_MIN" name="RemoraRover:AUTOSTART_MIN" documentation="minute at which the robot should automatically start acro mode. other values disable automatic start" user="Advanced">
+        <field name="Units">min</field>
+        <field name="UnitText">minutes</field>
         <field name="Range">0 59</field>
       </param>
       <param humanName="AUTOSTART_FORCE" name="RemoraRover:AUTOSTART_FORCE" documentation="set to 1 to force automatic start and disable conditionnal start" user="Advanced">
@@ -712,24 +764,36 @@
         <field name="Range">-999 0</field>
       </param>
       <param humanName="MAN_THRUSTER_TH" name="RemoraRover:MAN_THRUSTER_TH" documentation="throttle applied to the thruster when in manual mode" user="Advanced">
+        <field name="Units">%</field>
+        <field name="UnitText">percent</field>
         <field name="Range">-100 100</field>
       </param>
       <param humanName="Default gain at boot for thruster" name="RemoraRover:THRUST_GAIN_DEF" documentation="Default gain at boot for thruster, must be in range [-THRUST_GAIN_MAX , THRUST_GAIN_MAX]" user="Standard">
+        <field name="Units">%</field>
+        <field name="UnitText">percent</field>
         <field name="Range">-100 100</field>
       </param>
       <param humanName="Maximum thruster gain when in manual" name="RemoraRover:THRUST_GAIN_MAX" documentation="Maximum thruster gain when in manual" user="Standard">
+        <field name="Units">%</field>
+        <field name="UnitText">percent</field>
         <field name="Range">0 100</field>
       </param>
       <param humanName="Thruster Gain steps" name="RemoraRover:THRUSTER_G_STEP" documentation="Controls the number of steps between minimum and maximum thruster gain when the gain is adjusted using buttons. Set to 1 to always use THRUST_GAIN_DEF." user="Standard">
         <field name="Range">1 10</field>
       </param>
       <param humanName="WP_VICINITY" name="RemoraRover:WP_VICINITY" documentation="maximum distance to detect we are in the neighborhood of a waypoint" user="Advanced">
-        <field name="Values">]0:1] m</field>
+        <field name="Units">m</field>
+        <field name="UnitText">meters</field>
+        <field name="Range">0 1</field>
       </param>
-      <param humanName="LEASH_LENGTH" name="RemoraRover:LEASH_LENGTH" documentation="distance for position algorithm (M)" user="Standard">
+      <param humanName="LEASH_LENGTH" name="RemoraRover:LEASH_LENGTH" documentation="distance for position algorithm" user="Standard">
+        <field name="Units">m</field>
+        <field name="UnitText">meters</field>
         <field name="Range">0.1 1.5</field>
       </param>
       <param humanName="MAX_ANGLE_COR" name="RemoraRover:MAX_ANGLE_COR" documentation="maximum angle (degrees) correction for position algorithm" user="Standard">
+        <field name="Units">deg</field>
+        <field name="UnitText">degrees</field>
         <field name="Range">10 80</field>
       </param>
       <param humanName="Lights brightness steps" name="RemoraRover:JS_LIGHTS_STEPS" documentation="Number of steps in brightness between minimum and maximum brightness" user="Standard">
@@ -751,79 +815,131 @@
         </values>
       </param>
       <param humanName="determine what to do in case of temperature too high" name="RemoraRover:TEMP_CHECK" documentation="0 -&gt; disabled, 1 -&gt; switch to manual, 2 warn only" user="Standard">
-        <field name="Range">0 1</field>
+        <values>
+          <value code="0">Disabled</value>
+          <value code="1">Switch To Manual</value>
+          <value code="2">Warning Only</value>
+        </values>
       </param>
-      <param humanName="threeshold to determine that temperature is too high" name="RemoraRover:TEMP_MAX" documentation="temperature in degrees Celsius" user="Standard">
+      <param humanName="Max Temperature" name="RemoraRover:TEMP_MAX" documentation="Temperature, threeshold to determine that temperature is too high" user="Standard">
+        <field name="Units">degC</field>
+        <field name="UnitText">degrees Celsius</field>
         <field name="Range">0 500</field>
       </param>
-      <param humanName="nb seconds of usage of left gearbox" name="RemoraRover:MON_GEAR_LEFT" documentation="nb seconds of usage, * (1000 hours)" user="Standard">
-        <field name="Range">0 1000</field>
+      <param humanName="Refreshing period for monitoring parameters" name="RemoraRover:MON_PERIOD" documentation="Refreshing period for monitoring parameters" user="Standard">
+        <field name="Units">s</field>
+        <field name="UnitText">seconds</field>
+        <field name="Range">0 100000</field>
       </param>
       <param humanName="nb seconds of usage of left gearbox" name="RemoraRover:MON_GEAR_LEFT" documentation="nb seconds of usage, * 3600 (1000 hours)" user="Standard">
-        <field name="Range">0 1000</field>
+        <field name="Units">s</field>
+        <field name="UnitText">seconds</field>
+        <field name="Range">0 2147483647</field>
       </param>
       <param humanName="nb seconds of usage of left gearbox" name="RemoraRover:MON_GEAR_RIGHT" documentation="nb seconds of usage, * 3600 (1000 hours)" user="Standard">
-        <field name="Range">0 1000</field>
+        <field name="Units">s</field>
+        <field name="UnitText">seconds</field>
+        <field name="Range">0 2147483647</field>
       </param>
       <param humanName="nb seconds of usage of left gearbox" name="RemoraRover:MON_GEAR_BRUSH" documentation="nb seconds of usage, * 3600 (1000 hours)" user="Standard">
-        <field name="Range">0 1000</field>
+        <field name="Units">s</field>
+        <field name="UnitText">seconds</field>
+        <field name="Range">0 2147483647</field>
       </param>
       <param humanName="nb seconds of usage of left motor" name="RemoraRover:MON_MOT_LEFT" documentation="nb seconds of usage, * 3600 (1000 hours)" user="Standard">
-        <field name="Range">0 1000</field>
+        <field name="Units">s</field>
+        <field name="UnitText">seconds</field>
+        <field name="Range">0 2147483647</field>
       </param>
       <param humanName="nb seconds of usage of right motor" name="RemoraRover:MON_MOT_RIGHT" documentation="nb seconds of usage, * 3600 (1000 hours)" user="Standard">
-        <field name="Range">0 1000</field>
+        <field name="Units">s</field>
+        <field name="UnitText">seconds</field>
+        <field name="Range">0 2147483647</field>
       </param>
       <param humanName="nb seconds of usage of thruster motor" name="RemoraRover:MON_THRUSTER" documentation="nb seconds of usage, * 3600 (1000 hours)" user="Standard">
-        <field name="Range">0 1000</field>
+        <field name="Units">s</field>
+        <field name="UnitText">seconds</field>
+        <field name="Range">0 2147483647</field>
       </param>
       <param humanName="nb seconds of usage of brush motor" name="RemoraRover:MON_MOT_BRUSH" documentation="nb seconds of usage, * 3600 (1000 hours)" user="Standard">
-        <field name="Range">0 1000</field>
+        <field name="Units">s</field>
+        <field name="UnitText">seconds</field>
+        <field name="Range">0 2147483647</field>
       </param>
       <param humanName="nb seconds of usage of left Brushing belt" name="RemoraRover:MON_BBELT_LEFT" documentation="nb seconds of usage, * 3600 (1000 hours)" user="Standard">
-        <field name="Range">0 1000</field>
+        <field name="Units">s</field>
+        <field name="UnitText">seconds</field>
+        <field name="Range">0 2147483647</field>
       </param>
       <param humanName="nb seconds of usage of right Brushing belt" name="RemoraRover:MON_BBELT_RIGHT" documentation="nb seconds of usage, * 3600 (1000 hours)" user="Standard">
-        <field name="Range">0 1000</field>
+        <field name="Units">s</field>
+        <field name="UnitText">seconds</field>
+        <field name="Range">0 2147483647</field>
       </param>
       <param humanName="nb seconds of usage of navigator" name="RemoraRover:MON_NAVIGATOR" documentation="nb seconds of usage, * 3600 (1000 hours)" user="Standard">
-        <field name="Range">0 1000</field>
+        <field name="Units">s</field>
+        <field name="UnitText">seconds</field>
+        <field name="Range">0 2147483647</field>
       </param>
       <param humanName="nb seconds of usage of board (pi4 for now)" name="RemoraRover:MON_BOARD" documentation="nb seconds of usage, * 3600 (1000 hours)" user="Standard">
-        <field name="Range">0 1000</field>
+        <field name="Units">s</field>
+        <field name="UnitText">seconds</field>
+        <field name="Range">0 2147483647</field>
       </param>
       <param humanName="nb seconds of usage of main converter : 380V -&gt; 24V" name="RemoraRover:MON_MAIN_CONV" documentation="nb seconds of usage, * 3600 (1000 hours)" user="Standard">
-        <field name="Range">0 1000</field>
+        <field name="Units">s</field>
+        <field name="UnitText">seconds</field>
+        <field name="Range">0 2147483647</field>
       </param>
       <param humanName="nb seconds of usage of brush controller" name="RemoraRover:MON_BRUSH_CTRL" documentation="nb seconds of usage,  * 3600 (1000 hours)" user="Standard">
-        <field name="Range">0 1000</field>
+        <field name="Units">s</field>
+        <field name="UnitText">seconds</field>
+        <field name="Range">0 2147483647</field>
       </param>
       <param humanName="nb seconds of usage of thruster controller" name="RemoraRover:MON_THRUST_CTRL" documentation="nb seconds of usage, * 3600 (1000 hours)" user="Standard">
-        <field name="Range">0 1000</field>
+        <field name="Units">s</field>
+        <field name="UnitText">seconds</field>
+        <field name="Range">0 2147483647</field>
       </param>
       <param humanName="nb seconds of usage of left controller" name="RemoraRover:MON_LEFT_CTRL" documentation="nb seconds of usage, * 3600 (1000 hours)" user="Standard">
-        <field name="Range">0 1000</field>
+        <field name="Units">s</field>
+        <field name="UnitText">seconds</field>
+        <field name="Range">0 2147483647</field>
       </param>
       <param humanName="nb seconds of usage of right controller" name="RemoraRover:MON_RIGHT_CTRL" documentation="nb seconds of usage, * 3600 (1000 hours)" user="Standard">
-        <field name="Range">0 1000</field>
+        <field name="Units">s</field>
+        <field name="UnitText">seconds</field>
+        <field name="Range">0 2147483647</field>
       </param>
       <param humanName="nb seconds of usage of depth sensor" name="RemoraRover:MON_DEPTH_SNSOR" documentation="nb seconds of usage, * 3600 (1000 hours)" user="Standard">
-        <field name="Range">0 1000</field>
+        <field name="Units">s</field>
+        <field name="UnitText">seconds</field>
+        <field name="Range">0 2147483647</field>
       </param>
       <param humanName="nb seconds of usage of front camera" name="RemoraRover:MON_FRONT_CAM" documentation="nb seconds of usage,  * 3600 (1000 hours)" user="Standard">
-        <field name="Range">0 1000</field>
+        <field name="Units">s</field>
+        <field name="UnitText">seconds</field>
+        <field name="Range">0 2147483647</field>
       </param>
       <param humanName="nb seconds of usage of back camera" name="RemoraRover:MON_BACK_CAM" documentation="nb seconds of usage,  * 3600 (1000 hours)" user="Standard">
-        <field name="Range">0 1000</field>
+        <field name="Units">s</field>
+        <field name="UnitText">seconds</field>
+        <field name="Range">0 2147483647</field>
       </param>
       <param humanName="nb seconds of usage of robot" name="RemoraRover:MON_ROBOT_TOT" documentation="nb seconds of usage, * 3600 (1000 hours)" user="Standard">
-        <field name="Range">0 1000</field>
+        <field name="Units">s</field>
+        <field name="UnitText">seconds</field>
+        <field name="Range">0 2147483647</field>
       </param>
       <param humanName="nb seconds of usage of left Driving belt" name="RemoraRover:MON_DBELT_LEFT" documentation="nb seconds of usage, * 3600 (1000 hours)" user="Standard">
-        <field name="Range">0 1000</field>
+        <field name="Units">s</field>
+        <field name="UnitText">seconds</field>
+        <field name="Range">0 2147483647</field>
       </param>
       <param humanName="nb seconds of usage of right Driving belt" name="RemoraRover:MON_DBELT_RIGHT" documentation="nb seconds of usage,  * 3600 (1000 hours)" user="Standard">
-        <field name="Range">0 1000</field>
+        <field name="Units">s</field>
+        <field name="UnitText">seconds</field>
+        <field name="Range">0 2147483647</field>
       </param>
       <param humanName="pwm value for camera #1 angle when entering acro" name="RemoraRover:ACRO_MOUNT_PAN" documentation="pwm value for camera #1 angle when entering acro" user="Standard">
         <field name="Range">1000 2000</field>
@@ -831,14 +947,113 @@
       <param humanName="pwm value for camera #2 angle when entering acro" name="RemoraRover:ACRO_MOUNT_TILT" documentation="pwm value for camera #2 angle when entering acro" user="Standard">
         <field name="Range">1000 2000</field>
       </param>
-      <param humanName="avoidance type: 1 = new, 0 = old" name="RemoraRover:AVOIDANCE_TYPE" documentation="avoidance type: 1 = new, 0 = old" user="Standard">
-        <field name="Range">0 1</field>
+      <param humanName="Avoidance type" name="RemoraRover:AVOIDANCE_TYPE" documentation="Avoidance type" user="Standard">
+        <values>
+          <value code="0">Old</value>
+          <value code="1">New</value>
+        </values>
       </param>
       <param humanName="safety margin for MIN_DEPTH and MAX_DEPTH" name="RemoraRover:SAFETY_MARGIN" documentation="safety margin for MIN_DEPTH and MAX_DEPTH, if negative:disable safety [meter]" user="Standard">
+        <field name="Units">m</field>
+        <field name="UnitText">meters</field>
+        <field name="Range">-1 10000</field>
+      </param>
+      <param humanName="max velocity in roll when running before next step in disarming" name="RemoraRover:max_roll_run" documentation="max velocity in roll when running before next step in disarming" user="Standard">
+        <field name="Units">rad/s</field>
+        <field name="UnitText">radians per second</field>
+        <field name="Range">0 2</field>
+      </param>
+      <param humanName="max velocity in pitch when running before next step in disarming" name="RemoraRover:max_pitch_run" documentation="max velocity in pitch when running before next step in disarming" user="Standard">
+        <field name="Units">rad/s</field>
+        <field name="UnitText">radians per second</field>
+        <field name="Range">0 2</field>
+      </param>
+      <param humanName="max velocity in yaw when running before next step in disarming" name="RemoraRover:max_yaw_run" documentation="max velocity in yaw when running before next step in disarming" user="Standard">
+        <field name="Units">rad/s</field>
+        <field name="UnitText">radians per second</field>
+        <field name="Range">0 2</field>
+      </param>
+      <param humanName="max velocity in roll at standstill before disarming" name="RemoraRover:max_roll_still" documentation="max velocity in roll at standstill before disarming" user="Standard">
+        <field name="Units">rad/s</field>
+        <field name="UnitText">radians per second</field>
+        <field name="Range">0 2</field>
+      </param>
+      <param humanName="max velocity in pitch at standstill before disarming" name="RemoraRover:max_pitch_still" documentation="max velocity in pitch at standstill before disarming" user="Standard">
+        <field name="Units">rad/s</field>
+        <field name="UnitText">radians per second</field>
+        <field name="Range">0 2</field>
+      </param>
+      <param humanName="max velocity in yaw at standstill before disarming" name="RemoraRover:max_yaw_still" documentation="max velocity in yaw at standstill before disarming" user="Standard">
+        <field name="Units">rad/s</field>
+        <field name="UnitText">radians per second</field>
+        <field name="Range">0 2</field>
+      </param>
+      <param humanName="max velocity in roll at standstill before disarming" name="RemoraRover:max_roll_still2" documentation="max velocity in roll at standstill before disarming" user="Standard">
+        <field name="Units">rad/s</field>
+        <field name="UnitText">radians per second</field>
+        <field name="Range">0 2</field>
+      </param>
+      <param humanName="max velocity in pitch at standstill before disarming" name="RemoraRover:max_pitch_still2" documentation="max velocity in pitch at standstill before disarming" user="Standard">
+        <field name="Units">rad/s</field>
+        <field name="UnitText">radians per second</field>
+        <field name="Range">0 2</field>
+      </param>
+      <param humanName="max velocity in yaw at standstill before disarming" name="RemoraRover:max_yaw_still2" documentation="max velocity in yaw at standstill before disarming" user="Standard">
+        <field name="Units">rad/s</field>
+        <field name="UnitText">radians per second</field>
+        <field name="Range">0 2</field>
+      </param>
+      <param humanName="switch limits between 1 and 2 in meter before disarming" name="RemoraRover:sw_still_lim" documentation="switch limits between 1 and 2 in meter before disarming" user="Standard">
+        <field name="Units">m</field>
+        <field name="UnitText">meters</field>
+        <field name="Range">0 2</field>
+      </param>
+      <param humanName="max time the robot are in monitoring state if on net" name="RemoraRover:max_mon_t" documentation="max time the robot are in monitoring state if on net" user="Standard">
+        <field name="Units">s</field>
+        <field name="UnitText">seconds</field>
+        <field name="Range">0 60</field>
+      </param>
+      <param humanName="time for the robot to comme to sandstill" name="RemoraRover:stand_still_t" documentation="time for the robot to comme to sandstill" user="Standard">
+        <field name="Units">s</field>
+        <field name="UnitText">seconds</field>
+        <field name="Range">0 5</field>
+      </param>
+      <param humanName="let the robot have time to accelerate" name="RemoraRover:starting_t" documentation="let the robot have time to accelerate" user="Standard">
+        <field name="Units">s</field>
+        <field name="UnitText">seconds</field>
+        <field name="Range">3 10</field>
+      </param>
+      <param humanName="1, disable monitoring for velocity spikes" name="RemoraRover:disable_mv" documentation="1, disable monitoring for velocity spikes" user="Standard">
+        <values>
+          <value code="0">Not Disabled</value>
+          <value code="1">Disable Monitoring</value>
+        </values>
+      </param>
+      <param humanName="Don't stop and monitor if robot is on net above this H" name="RemoraRover:min_mon_depth" documentation="Don't stop and monitor if robot is on net above this H" user="Standard">
+        <field name="Units">m</field>
+        <field name="UnitText">meters</field>
+        <field name="Range">-100 100</field>
+      </param>
+      <param humanName="thruster throttle applied when &quot;stopping&quot; the thruster in avoidance" name="RemoraRover:DEC_THRUS_TH" documentation="thruster throttle applied when &quot;stopping&quot; the thruster in avoidance" user="Standard">
+        <field name="Units">%</field>
+        <field name="UnitText">percent</field>
+        <field name="Range">0 100</field>
+      </param>
+      <param humanName="cutoff frequency in the filtering of speed for VEL_CALC_TYP = 6" name="RemoraRover:SPEED_FREQ_CUTOF" documentation="speed is smoothed by a low pass filter whose frequency is SPEED_FREQ_CUTOF" user="Standard">
+        <field name="Units">Hz</field>
+        <field name="UnitText">hertz</field>
+        <field name="Range">0 3</field>
+      </param>
+      <param humanName="minimum value for the M33 coef to avoid division by 0" name="RemoraRover:M33_LIMIT" documentation="minimum value for the M33 coef to avoid division by 0" user="Standard">
         <field name="Range">0 1</field>
       </param>
-      <param humanName="thruster throttle applied when &quot;stopping&quot; the thruster in avoidance" name="RemoraRover:DEC_THRUS_TH" documentation="thruster throttle applied when &quot;stopping&quot; the thruster in avoidance, [meter] if negative:disable safety" user="Standard">
-        <field name="Range">0 1</field>
+      <param humanName="ALPHA_BACKFLUSH" name="RemoraRover:ALPHA_BACKFLUSH" documentation="backflush at depth = (1-ALPHA_BACKFLUSH) MIN_DEPTH + (ALPHA_BACKFLUSH) MAX_DEPTH so ALPHA_BACKFLUSH=0 means MIN_DEPTH, ALPHA_BACKFLUSH=1 means MAX_DEPTH" user="Standard">
+        <field name="Range">0. 1.</field>
+      </param>
+      <param humanName="MOUNT_TIMEOUT" name="RemoraRover:MOUNT_TIMEOUT" documentation="timeout for joystick input before rotating camera to prescribed position" user="Standard">
+        <field name="Units">s</field>
+        <field name="UnitText">seconds</field>
+        <field name="Range">-1. 999.</field>
       </param>
       <param humanName="GCS sysid enforcement" name="RemoraRover:SYSID_ENFORCE" documentation="This controls whether packets from other than the expected GCS system ID will be accepted" user="Advanced">
         <values>
@@ -6204,14 +6419,6 @@
       <param humanName="Button Pin 4 Options" name="BTN_OPTIONS4" documentation="Options for Pin 4. PWM input detects PWM above or below 1800/1200us instead of logic level. Invert changes HIGH state to be logic low voltage on pin, or below 1200us, if PWM input." user="Standard">
         <field name="Bitmask">0:PWM Input,1:InvertInput</field>
       </param>
-      <param humanName="Button Pin 1 RC Channel function" name="BTN_FUNC1" documentation="Auxiliary RC Options function executed on pin change" user="Standard">
-</param>
-      <param humanName="Button Pin 2 RC Channel function" name="BTN_FUNC2" documentation="Auxiliary RC Options function executed on pin change" user="Standard">
-</param>
-      <param humanName="Button Pin 3 RC Channel function" name="BTN_FUNC3" documentation="Auxiliary RC Options function executed on pin change" user="Standard">
-</param>
-      <param humanName="Button Pin 4 RC Channel function" name="BTN_FUNC4" documentation="Auxiliary RC Options function executed on pin change" user="Standard">
-</param>
     </parameters>
     <parameters name="CAM_">
       <param humanName="Camera shutter (trigger) type" name="CAM_TRIGG_TYPE" documentation="how to trigger the camera to take a picture" user="Standard">
