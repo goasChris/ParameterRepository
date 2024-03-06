@@ -404,7 +404,7 @@ DO NOT EDIT
 <p>maximum theta in degrees before stop</p>
 <ul>
 <li>Units: degrees</li>
-<li>Range: 0 370</li>
+<li>Range: -1 370</li>
 </ul>
 
 
@@ -413,7 +413,7 @@ DO NOT EDIT
 <p>minimum theta in degrees before stop</p>
 <ul>
 <li>Units: degrees</li>
-<li>Range: -1 360</li>
+<li>Range: -1 370</li>
 </ul>
 
 
@@ -528,7 +528,7 @@ DO NOT EDIT
 
 <p>maximum throttle to try to move when stuck</p>
 <ul>
-<li>Units: seconds</li>
+<li>Units: percent</li>
 <li>Range: 0 100</li>
 </ul>
 
@@ -585,7 +585,7 @@ DO NOT EDIT
 <p>delta throttle under which we can not be stuck as we are not trying to move : if abs(throttle-0.5)&lt;dead_throttle</p>
 <ul>
 <li>Units: percent</li>
-<li>Range: 0. 0.2</li>
+<li>Range: 0 100</li>
 </ul>
 
 
@@ -695,13 +695,11 @@ DO NOT EDIT
 </ul>
 
 
-<h2>reinit (RemoraRover:reinit)</h2><em>Note: This parameter is for advanced users</em><br>
+<h2>Reinitialisation of Vertical Roll (RemoraRover:reinit)</h2><em>Note: This parameter is for advanced users</em><br>
 
-<p>reinitialisation of vertical roll = 1. Any value change causes reset</p>
+<p>reinitialisation of vertical roll. reset is triggered by a change in this value</p>
 <ul>
-<table><th>Value</th><th>Meaning</th>
-<tr><td>1</td><td>reset</td></tr>
-</table>
+<li>Range: -254 255</li>
 </ul>
 
 
@@ -865,8 +863,9 @@ DO NOT EDIT
 
 <h2>REP_INTERVAL (RemoraRover:Reporting)</h2><em>Note: This parameter is for advanced users</em><br>
 
-<p>Time interval of status reporting [seconds] ?</p>
+<p>Time interval of status reporting</p>
 <ul>
+<li>Units: seconds</li>
 <li>Range: 0 600</li>
 </ul>
 
@@ -899,7 +898,7 @@ DO NOT EDIT
 
 <h2>AVOID_NB_TIME (RemoraRover:Avoidance)</h2><em>Note: This parameter is for advanced users</em><br>
 
-<p> Avoidance: nb try of whole pattern</p>
+<p>Avoidance: nb try of whole pattern</p>
 <ul>
 <li>Range: 0 255</li>
 </ul>
@@ -907,7 +906,7 @@ DO NOT EDIT
 
 <h2>STUCK_NB_TIME (RemoraRover:Stuck)</h2><em>Note: This parameter is for advanced users</em><br>
 
-<p> Stuck: nb try of whole pattern</p>
+<p>Stuck: nb try of whole pattern</p>
 <ul>
 <li>Range: 0 255</li>
 </ul>
@@ -933,24 +932,27 @@ DO NOT EDIT
 
 <h2>RADIUS_NET (RemoraRover:RADIUS_NET)</h2><em>Note: This parameter is for advanced users</em><br>
 
-<p>radius of the net at the surface  [m] ?</p>
+<p>radius of the net at the surface</p>
 <ul>
+<li>Units: meters</li>
 <li>Range: 0 100</li>
 </ul>
 
 
 <h2>RADIUS_NET_1 (RemoraRover:RADIUS_NET_1)</h2><em>Note: This parameter is for advanced users</em><br>
 
-<p>radius of the net at the depth DEPTH_1 [m] ?</p>
+<p>radius of the net at the depth DEPTH_1</p>
 <ul>
+<li>Units: meters</li>
 <li>Range: 0 100</li>
 </ul>
 
 
 <h2>DEPTH_1 (RemoraRover:DEPTH_1)</h2><em>Note: This parameter is for advanced users</em><br>
 
-<p>depth corresponding to RADIUS_NET_1 [m] ?</p>
+<p>depth corresponding to RADIUS_NET_1</p>
 <ul>
+<li>Units: meters</li>
 <li>Range: 0 100</li>
 </ul>
 
@@ -959,6 +961,7 @@ DO NOT EDIT
 
 <p>depth corresponding to edge of the cone : radius = 0</p>
 <ul>
+<li>Units: meters</li>
 <li>Range: 0 100</li>
 </ul>
 
@@ -973,16 +976,18 @@ DO NOT EDIT
 
 <h2>PID_POS_TI (RemoraRover:PID_POS_TI)</h2><em>Note: This parameter is for advanced users</em><br>
 
-<p>TI coefficient for pid POS control algorithm [s] ?</p>
+<p>TI coefficient for pid POS control algorithm, negative values deactivate</p>
 <ul>
-<li>Range: 0 100</li>
+<li>Units: seconds</li>
+<li>Range: -10 100</li>
 </ul>
 
 
 <h2>PID_POS_TD (RemoraRover:PID_POS_TD)</h2><em>Note: This parameter is for advanced users</em><br>
 
-<p>Td coefficient for pid POS control algorithm  [s] ?</p>
+<p>Td coefficient for pid POS control algorithm, 0 = deactivate</p>
 <ul>
+<li>Units: seconds</li>
 <li>Range: 0 100</li>
 </ul>
 
@@ -997,56 +1002,63 @@ DO NOT EDIT
 
 <h2>BF_PERIOD (RemoraRover:BF_PERIOD)</h2><em>Note: This parameter is for advanced users</em><br>
 
-<p>backflush period [min] ?</p>
+<p>backflush period</p>
 <ul>
+<li>Units: minutes</li>
 <li>Range: 0 100</li>
 </ul>
 
 
 <h2>BF_DELTAT_BACK (RemoraRover:BF_DELTAT_BACK)</h2><em>Note: This parameter is for advanced users</em><br>
 
-<p>time period for backflush  [s] ?</p>
+<p>time period for backflush</p>
 <ul>
+<li>Units: seconds</li>
 <li>Range: 0 1</li>
 </ul>
 
 
 <h2>BF_DELTAT_RE (RemoraRover:BF_DELTAT_RE)</h2><em>Note: This parameter is for advanced users</em><br>
 
-<p>time period for reflush  [s] ?</p>
+<p>time period for reflush</p>
 <ul>
+<li>Units: seconds</li>
 <li>Range: 0 100</li>
 </ul>
 
 
 <h2>BF_SPEED_TOP_B (RemoraRover:BF_SPEED_TOP_B)</h2><em>Note: This parameter is for advanced users</em><br>
 
-<p>throttle applied during backflush [] ?</p>
+<p>throttle applied during backflush</p>
 <ul>
+<li>Units: percent</li>
 <li>Range: -100 0</li>
 </ul>
 
 
 <h2>BF_SPEED_TOP_R (RemoraRover:BF_SPEED_TOP_R)</h2><em>Note: This parameter is for advanced users</em><br>
 
-<p>throttle applied during reflush [] ?</p>
+<p>throttle applied during reflush</p>
 <ul>
+<li>Units: percent</li>
 <li>Range: 0 100</li>
 </ul>
 
 
 <h2>BF_DELTA_DEPTH (RemoraRover:BF_DELTA_DEPTH)</h2><em>Note: This parameter is for advanced users</em><br>
 
-<p>depth interval to mid depth to allow backflush -BF_DELTA_DEPTH &lt; current_depth-(0.5 (MAX_DEPTH + MIN_DEPTH) ) &lt; BF_DELTA_DEPTH [m] ?</p>
+<p>depth interval to backflush depth to allow backflush -BF_DELTA_DEPTH &lt; current_depth- ( ALPHA_BACKFLUSH * MAX_DEPTH + (1-ALPHA_BACKFLUSH)* MIN_DEPTH ) ) &lt; BF_DELTA_DEPTH</p>
 <ul>
+<li>Units: meters</li>
 <li>Range: 0 100</li>
 </ul>
 
 
 <h2>BF_DELTA_ROLL (RemoraRover:BF_DELTA_ROLL)</h2><em>Note: This parameter is for advanced users</em><br>
 
-<p>backflush only when -BF_DELTA_ROLL &lt; roll-VERTICAL_ROLL &lt; BF_DELTA_ROLL [deg] ?</p>
+<p>backflush only when -BF_DELTA_ROLL &lt; roll-VERTICAL_ROLL &lt; BF_DELTA_ROLL</p>
 <ul>
+<li>Units: degrees</li>
 <li>Range: 0 10</li>
 </ul>
 
@@ -1073,7 +1085,7 @@ DO NOT EDIT
 
 <p>type of calculation for vertical velocity: 1 = baro change over 250 ms, 2 = filtered derivative of baro reading, 3 = ahrs velocity along z</p>
 <ul>
-<li>Range: 0 100000</li>
+<li>Range: 0 255</li>
 </ul>
 
 
@@ -1081,8 +1093,7 @@ DO NOT EDIT
 
 <p>type of calculation for theta: 1 = netPosition.x/RadiusNet(z)*360/2pi, 2 = atan2(posNED.y,posNED.x)</p>
 <ul>
-<li>Units: degrees</li>
-<li>Range: 0 360</li>
+<li>Range: 0 255</li>
 </ul>
 
 
@@ -1106,6 +1117,7 @@ DO NOT EDIT
 
 <p>throttle applied during half of test period</p>
 <ul>
+<li>Units: percent</li>
 <li>Range: -100 100</li>
 </ul>
 
@@ -1114,6 +1126,7 @@ DO NOT EDIT
 
 <p>throttle applied during second half of test period</p>
 <ul>
+<li>Units: percent</li>
 <li>Range: -100 100</li>
 </ul>
 
@@ -1122,7 +1135,8 @@ DO NOT EDIT
 
 <p>test period for the belts in seconds if &lt;0 no movement</p>
 <ul>
-<li>Range: -254 255</li>
+<li>Units: seconds</li>
+<li>Range: -1 100000</li>
 </ul>
 
 
@@ -1130,7 +1144,7 @@ DO NOT EDIT
 
 <p>maximum number of period for belt test if &lt;0 no limit</p>
 <ul>
-<li>Range: -254 255</li>
+<li>Range: -1 100000</li>
 </ul>
 
 
@@ -1138,6 +1152,7 @@ DO NOT EDIT
 
 <p>thruster throttle applied during half of test period</p>
 <ul>
+<li>Units: percent</li>
 <li>Range: -100 100</li>
 </ul>
 
@@ -1146,6 +1161,7 @@ DO NOT EDIT
 
 <p>thruster throttle applied during second half of test period</p>
 <ul>
+<li>Units: percent</li>
 <li>Range: -100 100</li>
 </ul>
 
@@ -1154,7 +1170,8 @@ DO NOT EDIT
 
 <p>test period for the thruster in seconds if &lt;0 no movement</p>
 <ul>
-<li>Range: -254 255</li>
+<li>Units: seconds</li>
+<li>Range: -1 100000</li>
 </ul>
 
 
@@ -1162,7 +1179,7 @@ DO NOT EDIT
 
 <p>maximum number of period for thruster test if &lt;0 no limit</p>
 <ul>
-<li>Range: -254 255</li>
+<li>Range: -1 100000</li>
 </ul>
 
 
@@ -1170,6 +1187,7 @@ DO NOT EDIT
 
 <p>brush throttle applied during half of test period</p>
 <ul>
+<li>Units: percent</li>
 <li>Range: -100 100</li>
 </ul>
 
@@ -1178,6 +1196,7 @@ DO NOT EDIT
 
 <p>brush throttle applied during second half of test period</p>
 <ul>
+<li>Units: percent</li>
 <li>Range: -100 100</li>
 </ul>
 
@@ -1186,6 +1205,7 @@ DO NOT EDIT
 
 <p>test period for the brush in seconds if &lt;0 no movement</p>
 <ul>
+<li>Units: percent</li>
 <li>Range: -254 255</li>
 </ul>
 
@@ -1194,7 +1214,7 @@ DO NOT EDIT
 
 <p>maximum number of period for brush test if &lt;0 no limit</p>
 <ul>
-<li>Range: -254 255</li>
+<li>Range: -1 100000</li>
 </ul>
 
 
@@ -1295,6 +1315,7 @@ DO NOT EDIT
 
 <p>throttle applied to brush when going forward</p>
 <ul>
+<li>Units: percent</li>
 <li>Range: -100 100</li>
 </ul>
 
@@ -1303,6 +1324,7 @@ DO NOT EDIT
 
 <p>throttle applied to brush when going backward</p>
 <ul>
+<li>Units: percent</li>
 <li>Range: -100 100</li>
 </ul>
 
@@ -1311,6 +1333,7 @@ DO NOT EDIT
 
 <p>throttle applied to brush when in manual mode</p>
 <ul>
+<li>Units: percent</li>
 <li>Range: -100 100</li>
 </ul>
 
@@ -1343,6 +1366,7 @@ DO NOT EDIT
 
 <p>hour at which the robot should automatically start acro mode, other values disable automatic start</p>
 <ul>
+<li>Units: hours</li>
 <li>Range: 0 23</li>
 </ul>
 
@@ -1351,6 +1375,7 @@ DO NOT EDIT
 
 <p>minute at which the robot should automatically start acro mode. other values disable automatic start</p>
 <ul>
+<li>Units: minutes</li>
 <li>Range: 0 59</li>
 </ul>
 
@@ -1410,6 +1435,7 @@ DO NOT EDIT
 
 <p>throttle applied to the thruster when in manual mode</p>
 <ul>
+<li>Units: percent</li>
 <li>Range: -100 100</li>
 </ul>
 
@@ -1418,6 +1444,7 @@ DO NOT EDIT
 
 <p>Default gain at boot for thruster, must be in range [-THRUST_GAIN_MAX , THRUST_GAIN_MAX]</p>
 <ul>
+<li>Units: percent</li>
 <li>Range: -100 100</li>
 </ul>
 
@@ -1426,6 +1453,7 @@ DO NOT EDIT
 
 <p>Maximum thruster gain when in manual</p>
 <ul>
+<li>Units: percent</li>
 <li>Range: 0 100</li>
 </ul>
 
@@ -1442,14 +1470,16 @@ DO NOT EDIT
 
 <p>maximum distance to detect we are in the neighborhood of a waypoint</p>
 <ul>
-<li>Values: ]0:1] m</li>
+<li>Units: meters</li>
+<li>Range: 0 1</li>
 </ul>
 
 
 <h2>LEASH_LENGTH (RemoraRover:LEASH_LENGTH)</h2>
 
-<p>distance for position algorithm (M)</p>
+<p>distance for position algorithm</p>
 <ul>
+<li>Units: meters</li>
 <li>Range: 0.1 1.5</li>
 </ul>
 
@@ -1458,6 +1488,7 @@ DO NOT EDIT
 
 <p>maximum angle (degrees) correction for position algorithm</p>
 <ul>
+<li>Units: degrees</li>
 <li>Range: 10 80</li>
 </ul>
 
@@ -1498,23 +1529,29 @@ DO NOT EDIT
 
 <p>0 -&gt; disabled, 1 -&gt; switch to manual, 2 warn only</p>
 <ul>
-<li>Range: 0 1</li>
+<table><th>Value</th><th>Meaning</th>
+<tr><td>0</td><td>Disabled</td></tr>
+<tr><td>1</td><td>Switch To Manual</td></tr>
+<tr><td>2</td><td>Warning Only</td></tr>
+</table>
 </ul>
 
 
-<h2>threeshold to determine that temperature is too high (RemoraRover:TEMP_MAX)</h2>
+<h2>Max Temperature (RemoraRover:TEMP_MAX)</h2>
 
-<p>temperature in degrees Celsius</p>
+<p>Temperature, threeshold to determine that temperature is too high</p>
 <ul>
+<li>Units: degrees Celsius</li>
 <li>Range: 0 500</li>
 </ul>
 
 
-<h2>nb seconds of usage of left gearbox (RemoraRover:MON_GEAR_LEFT)</h2>
+<h2>Refreshing period for monitoring parameters (RemoraRover:MON_PERIOD)</h2>
 
-<p>nb seconds of usage, * (1000 hours)</p>
+<p>Refreshing period for monitoring parameters</p>
 <ul>
-<li>Range: 0 1000</li>
+<li>Units: seconds</li>
+<li>Range: 0 100000</li>
 </ul>
 
 
@@ -1522,7 +1559,8 @@ DO NOT EDIT
 
 <p>nb seconds of usage, * 3600 (1000 hours)</p>
 <ul>
-<li>Range: 0 1000</li>
+<li>Units: seconds</li>
+<li>Range: 0 2147483647</li>
 </ul>
 
 
@@ -1530,7 +1568,8 @@ DO NOT EDIT
 
 <p>nb seconds of usage, * 3600 (1000 hours)</p>
 <ul>
-<li>Range: 0 1000</li>
+<li>Units: seconds</li>
+<li>Range: 0 2147483647</li>
 </ul>
 
 
@@ -1538,7 +1577,8 @@ DO NOT EDIT
 
 <p>nb seconds of usage, * 3600 (1000 hours)</p>
 <ul>
-<li>Range: 0 1000</li>
+<li>Units: seconds</li>
+<li>Range: 0 2147483647</li>
 </ul>
 
 
@@ -1546,7 +1586,8 @@ DO NOT EDIT
 
 <p>nb seconds of usage, * 3600 (1000 hours)</p>
 <ul>
-<li>Range: 0 1000</li>
+<li>Units: seconds</li>
+<li>Range: 0 2147483647</li>
 </ul>
 
 
@@ -1554,7 +1595,8 @@ DO NOT EDIT
 
 <p>nb seconds of usage, * 3600 (1000 hours)</p>
 <ul>
-<li>Range: 0 1000</li>
+<li>Units: seconds</li>
+<li>Range: 0 2147483647</li>
 </ul>
 
 
@@ -1562,7 +1604,8 @@ DO NOT EDIT
 
 <p>nb seconds of usage, * 3600 (1000 hours)</p>
 <ul>
-<li>Range: 0 1000</li>
+<li>Units: seconds</li>
+<li>Range: 0 2147483647</li>
 </ul>
 
 
@@ -1570,7 +1613,8 @@ DO NOT EDIT
 
 <p>nb seconds of usage, * 3600 (1000 hours)</p>
 <ul>
-<li>Range: 0 1000</li>
+<li>Units: seconds</li>
+<li>Range: 0 2147483647</li>
 </ul>
 
 
@@ -1578,7 +1622,8 @@ DO NOT EDIT
 
 <p>nb seconds of usage, * 3600 (1000 hours)</p>
 <ul>
-<li>Range: 0 1000</li>
+<li>Units: seconds</li>
+<li>Range: 0 2147483647</li>
 </ul>
 
 
@@ -1586,7 +1631,8 @@ DO NOT EDIT
 
 <p>nb seconds of usage, * 3600 (1000 hours)</p>
 <ul>
-<li>Range: 0 1000</li>
+<li>Units: seconds</li>
+<li>Range: 0 2147483647</li>
 </ul>
 
 
@@ -1594,7 +1640,8 @@ DO NOT EDIT
 
 <p>nb seconds of usage, * 3600 (1000 hours)</p>
 <ul>
-<li>Range: 0 1000</li>
+<li>Units: seconds</li>
+<li>Range: 0 2147483647</li>
 </ul>
 
 
@@ -1602,7 +1649,8 @@ DO NOT EDIT
 
 <p>nb seconds of usage, * 3600 (1000 hours)</p>
 <ul>
-<li>Range: 0 1000</li>
+<li>Units: seconds</li>
+<li>Range: 0 2147483647</li>
 </ul>
 
 
@@ -1610,7 +1658,8 @@ DO NOT EDIT
 
 <p>nb seconds of usage, * 3600 (1000 hours)</p>
 <ul>
-<li>Range: 0 1000</li>
+<li>Units: seconds</li>
+<li>Range: 0 2147483647</li>
 </ul>
 
 
@@ -1618,7 +1667,8 @@ DO NOT EDIT
 
 <p>nb seconds of usage,  * 3600 (1000 hours)</p>
 <ul>
-<li>Range: 0 1000</li>
+<li>Units: seconds</li>
+<li>Range: 0 2147483647</li>
 </ul>
 
 
@@ -1626,7 +1676,8 @@ DO NOT EDIT
 
 <p>nb seconds of usage, * 3600 (1000 hours)</p>
 <ul>
-<li>Range: 0 1000</li>
+<li>Units: seconds</li>
+<li>Range: 0 2147483647</li>
 </ul>
 
 
@@ -1634,7 +1685,8 @@ DO NOT EDIT
 
 <p>nb seconds of usage, * 3600 (1000 hours)</p>
 <ul>
-<li>Range: 0 1000</li>
+<li>Units: seconds</li>
+<li>Range: 0 2147483647</li>
 </ul>
 
 
@@ -1642,7 +1694,8 @@ DO NOT EDIT
 
 <p>nb seconds of usage, * 3600 (1000 hours)</p>
 <ul>
-<li>Range: 0 1000</li>
+<li>Units: seconds</li>
+<li>Range: 0 2147483647</li>
 </ul>
 
 
@@ -1650,7 +1703,8 @@ DO NOT EDIT
 
 <p>nb seconds of usage, * 3600 (1000 hours)</p>
 <ul>
-<li>Range: 0 1000</li>
+<li>Units: seconds</li>
+<li>Range: 0 2147483647</li>
 </ul>
 
 
@@ -1658,7 +1712,8 @@ DO NOT EDIT
 
 <p>nb seconds of usage,  * 3600 (1000 hours)</p>
 <ul>
-<li>Range: 0 1000</li>
+<li>Units: seconds</li>
+<li>Range: 0 2147483647</li>
 </ul>
 
 
@@ -1666,7 +1721,8 @@ DO NOT EDIT
 
 <p>nb seconds of usage,  * 3600 (1000 hours)</p>
 <ul>
-<li>Range: 0 1000</li>
+<li>Units: seconds</li>
+<li>Range: 0 2147483647</li>
 </ul>
 
 
@@ -1674,7 +1730,8 @@ DO NOT EDIT
 
 <p>nb seconds of usage, * 3600 (1000 hours)</p>
 <ul>
-<li>Range: 0 1000</li>
+<li>Units: seconds</li>
+<li>Range: 0 2147483647</li>
 </ul>
 
 
@@ -1682,7 +1739,8 @@ DO NOT EDIT
 
 <p>nb seconds of usage, * 3600 (1000 hours)</p>
 <ul>
-<li>Range: 0 1000</li>
+<li>Units: seconds</li>
+<li>Range: 0 2147483647</li>
 </ul>
 
 
@@ -1690,7 +1748,8 @@ DO NOT EDIT
 
 <p>nb seconds of usage,  * 3600 (1000 hours)</p>
 <ul>
-<li>Range: 0 1000</li>
+<li>Units: seconds</li>
+<li>Range: 0 2147483647</li>
 </ul>
 
 
@@ -1710,11 +1769,14 @@ DO NOT EDIT
 </ul>
 
 
-<h2>avoidance type: 1 = new, 0 = old (RemoraRover:AVOIDANCE_TYPE)</h2>
+<h2>Avoidance type (RemoraRover:AVOIDANCE_TYPE)</h2>
 
-<p>avoidance type: 1 = new, 0 = old</p>
+<p>Avoidance type</p>
 <ul>
-<li>Range: 0 1</li>
+<table><th>Value</th><th>Meaning</th>
+<tr><td>0</td><td>Old</td></tr>
+<tr><td>1</td><td>New</td></tr>
+</table>
 </ul>
 
 
@@ -1722,15 +1784,188 @@ DO NOT EDIT
 
 <p>safety margin for MIN_DEPTH and MAX_DEPTH, if negative:disable safety [meter]</p>
 <ul>
-<li>Range: 0 1</li>
+<li>Units: meters</li>
+<li>Range: -1 10000</li>
+</ul>
+
+
+<h2>max velocity in roll when running before next step in disarming (RemoraRover:max_roll_run)</h2>
+
+<p>max velocity in roll when running before next step in disarming</p>
+<ul>
+<li>Units: radians per second</li>
+<li>Range: 0 2</li>
+</ul>
+
+
+<h2>max velocity in pitch when running before next step in disarming (RemoraRover:max_pitch_run)</h2>
+
+<p>max velocity in pitch when running before next step in disarming</p>
+<ul>
+<li>Units: radians per second</li>
+<li>Range: 0 2</li>
+</ul>
+
+
+<h2>max velocity in yaw when running before next step in disarming (RemoraRover:max_yaw_run)</h2>
+
+<p>max velocity in yaw when running before next step in disarming</p>
+<ul>
+<li>Units: radians per second</li>
+<li>Range: 0 2</li>
+</ul>
+
+
+<h2>max velocity in roll at standstill before disarming (RemoraRover:max_roll_still)</h2>
+
+<p>max velocity in roll at standstill before disarming</p>
+<ul>
+<li>Units: radians per second</li>
+<li>Range: 0 2</li>
+</ul>
+
+
+<h2>max velocity in pitch at standstill before disarming (RemoraRover:max_pitch_still)</h2>
+
+<p>max velocity in pitch at standstill before disarming</p>
+<ul>
+<li>Units: radians per second</li>
+<li>Range: 0 2</li>
+</ul>
+
+
+<h2>max velocity in yaw at standstill before disarming (RemoraRover:max_yaw_still)</h2>
+
+<p>max velocity in yaw at standstill before disarming</p>
+<ul>
+<li>Units: radians per second</li>
+<li>Range: 0 2</li>
+</ul>
+
+
+<h2>max velocity in roll at standstill before disarming (RemoraRover:max_roll_still2)</h2>
+
+<p>max velocity in roll at standstill before disarming</p>
+<ul>
+<li>Units: radians per second</li>
+<li>Range: 0 2</li>
+</ul>
+
+
+<h2>max velocity in pitch at standstill before disarming (RemoraRover:max_pitch_still2)</h2>
+
+<p>max velocity in pitch at standstill before disarming</p>
+<ul>
+<li>Units: radians per second</li>
+<li>Range: 0 2</li>
+</ul>
+
+
+<h2>max velocity in yaw at standstill before disarming (RemoraRover:max_yaw_still2)</h2>
+
+<p>max velocity in yaw at standstill before disarming</p>
+<ul>
+<li>Units: radians per second</li>
+<li>Range: 0 2</li>
+</ul>
+
+
+<h2>switch limits between 1 and 2 in meter before disarming (RemoraRover:sw_still_lim)</h2>
+
+<p>switch limits between 1 and 2 in meter before disarming</p>
+<ul>
+<li>Units: meters</li>
+<li>Range: 0 2</li>
+</ul>
+
+
+<h2>max time the robot are in monitoring state if on net (RemoraRover:max_mon_t)</h2>
+
+<p>max time the robot are in monitoring state if on net</p>
+<ul>
+<li>Units: seconds</li>
+<li>Range: 0 60</li>
+</ul>
+
+
+<h2>time for the robot to comme to sandstill (RemoraRover:stand_still_t)</h2>
+
+<p>time for the robot to comme to sandstill</p>
+<ul>
+<li>Units: seconds</li>
+<li>Range: 0 5</li>
+</ul>
+
+
+<h2>let the robot have time to accelerate (RemoraRover:starting_t)</h2>
+
+<p>let the robot have time to accelerate</p>
+<ul>
+<li>Units: seconds</li>
+<li>Range: 3 10</li>
+</ul>
+
+
+<h2>1, disable monitoring for velocity spikes (RemoraRover:disable_mv)</h2>
+
+<p>1, disable monitoring for velocity spikes</p>
+<ul>
+<table><th>Value</th><th>Meaning</th>
+<tr><td>0</td><td>Not Disabled</td></tr>
+<tr><td>1</td><td>Disable Monitoring</td></tr>
+</table>
+</ul>
+
+
+<h2>Don't stop and monitor if robot is on net above this H (RemoraRover:min_mon_depth)</h2>
+
+<p>Don&#x27;t stop and monitor if robot is on net above this H</p>
+<ul>
+<li>Units: meters</li>
+<li>Range: -100 100</li>
 </ul>
 
 
 <h2>thruster throttle applied when "stopping" the thruster in avoidance (RemoraRover:DEC_THRUS_TH)</h2>
 
-<p>thruster throttle applied when &quot;stopping&quot; the thruster in avoidance, [meter] if negative:disable safety</p>
+<p>thruster throttle applied when &quot;stopping&quot; the thruster in avoidance</p>
+<ul>
+<li>Units: percent</li>
+<li>Range: 0 100</li>
+</ul>
+
+
+<h2>cutoff frequency in the filtering of speed for VEL_CALC_TYP = 6 (RemoraRover:SPEED_FREQ_CUTOF)</h2>
+
+<p>speed is smoothed by a low pass filter whose frequency is SPEED_FREQ_CUTOF</p>
+<ul>
+<li>Units: hertz</li>
+<li>Range: 0 3</li>
+</ul>
+
+
+<h2>minimum value for the M33 coef to avoid division by 0 (RemoraRover:M33_LIMIT)</h2>
+
+<p>minimum value for the M33 coef to avoid division by 0</p>
 <ul>
 <li>Range: 0 1</li>
+</ul>
+
+
+<h2>ALPHA_BACKFLUSH (RemoraRover:ALPHA_BACKFLUSH)</h2>
+
+<p>backflush at depth = (1-ALPHA_BACKFLUSH) MIN_DEPTH + (ALPHA_BACKFLUSH) MAX_DEPTH so ALPHA_BACKFLUSH=0 means MIN_DEPTH, ALPHA_BACKFLUSH=1 means MAX_DEPTH</p>
+<ul>
+<li>Range: 0. 1.</li>
+</ul>
+
+
+<h2>MOUNT_TIMEOUT (RemoraRover:MOUNT_TIMEOUT)</h2>
+
+<p>timeout for joystick input before rotating camera to prescribed position</p>
+<ul>
+<li>Units: seconds</li>
+<li>Range: -1. 999.</li>
 </ul>
 
 
@@ -9268,34 +9503,6 @@ DO NOT EDIT
 <p>Options for Pin 4. PWM input detects PWM above or below 1800/1200us instead of logic level. Invert changes HIGH state to be logic low voltage on pin, or below 1200us, if PWM input.</p>
 <ul>
 <li>Bitmask: 0:PWM Input,1:InvertInput</li>
-</ul>
-
-
-<h2>Button Pin 1 RC Channel function (BTN_FUNC1)</h2>
-
-<p>Auxiliary RC Options function executed on pin change</p>
-<ul>
-</ul>
-
-
-<h2>Button Pin 2 RC Channel function (BTN_FUNC2)</h2>
-
-<p>Auxiliary RC Options function executed on pin change</p>
-<ul>
-</ul>
-
-
-<h2>Button Pin 3 RC Channel function (BTN_FUNC3)</h2>
-
-<p>Auxiliary RC Options function executed on pin change</p>
-<ul>
-</ul>
-
-
-<h2>Button Pin 4 RC Channel function (BTN_FUNC4)</h2>
-
-<p>Auxiliary RC Options function executed on pin change</p>
-<ul>
 </ul>
 
 

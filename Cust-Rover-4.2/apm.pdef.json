@@ -6964,26 +6964,6 @@
         "1": "Enabled"
       }
     },
-    "BTN_FUNC1": {
-      "Description": "Auxiliary RC Options function executed on pin change",
-      "DisplayName": "Button Pin 1 RC Channel function",
-      "User": "Standard"
-    },
-    "BTN_FUNC2": {
-      "Description": "Auxiliary RC Options function executed on pin change",
-      "DisplayName": "Button Pin 2 RC Channel function",
-      "User": "Standard"
-    },
-    "BTN_FUNC3": {
-      "Description": "Auxiliary RC Options function executed on pin change",
-      "DisplayName": "Button Pin 3 RC Channel function",
-      "User": "Standard"
-    },
-    "BTN_FUNC4": {
-      "Description": "Auxiliary RC Options function executed on pin change",
-      "DisplayName": "Button Pin 4 RC Channel function",
-      "User": "Standard"
-    },
     "BTN_OPTIONS1": {
       "Bitmask": {
         "0": "PWM Input",
@@ -25384,6 +25364,15 @@
         "1": "vertDirSearch"
       }
     },
+    "ALPHA_BACKFLUSH": {
+      "Description": "backflush at depth = (1-ALPHA_BACKFLUSH) MIN_DEPTH + (ALPHA_BACKFLUSH) MAX_DEPTH so ALPHA_BACKFLUSH=0 means MIN_DEPTH, ALPHA_BACKFLUSH=1 means MAX_DEPTH",
+      "DisplayName": "ALPHA_BACKFLUSH",
+      "Range": {
+        "high": "1.",
+        "low": "0."
+      },
+      "User": "Standard"
+    },
     "AUTOSTART_FORCE": {
       "Description": "set to 1 to force automatic start and disable conditionnal start",
       "DisplayName": "AUTOSTART_FORCE",
@@ -25400,6 +25389,7 @@
         "high": "23",
         "low": "0"
       },
+      "Units": "h",
       "User": "Advanced"
     },
     "AUTOSTART_MIN": {
@@ -25409,6 +25399,7 @@
         "high": "59",
         "low": "0"
       },
+      "Units": "min",
       "User": "Advanced"
     },
     "AUTOST_FS_DEPTH": {
@@ -25499,16 +25490,16 @@
       "User": "Advanced"
     },
     "AVOIDANCE_TYPE": {
-      "Description": "avoidance type: 1 = new, 0 = old",
-      "DisplayName": "avoidance type: 1 = new, 0 = old",
-      "Range": {
-        "high": "1",
-        "low": "0"
-      },
-      "User": "Standard"
+      "Description": "Avoidance type",
+      "DisplayName": "Avoidance type",
+      "User": "Standard",
+      "Values": {
+        "0": "Old",
+        "1": "New"
+      }
     },
     "Avoidance": {
-      "Description": " Avoidance: nb try of whole pattern",
+      "Description": "Avoidance: nb try of whole pattern",
       "DisplayName": "AVOID_NB_TIME",
       "Range": {
         "high": "255",
@@ -25539,39 +25530,43 @@
       "User": "Standard"
     },
     "BF_DELTAT_BACK": {
-      "Description": "time period for backflush  [s] ?",
+      "Description": "time period for backflush",
       "DisplayName": "BF_DELTAT_BACK",
       "Range": {
         "high": "1",
         "low": "0"
       },
+      "Units": "s",
       "User": "Advanced"
     },
     "BF_DELTAT_RE": {
-      "Description": "time period for reflush  [s] ?",
+      "Description": "time period for reflush",
       "DisplayName": "BF_DELTAT_RE",
       "Range": {
         "high": "100",
         "low": "0"
       },
+      "Units": "s",
       "User": "Advanced"
     },
     "BF_DELTA_DEPTH": {
-      "Description": "depth interval to mid depth to allow backflush -BF_DELTA_DEPTH < current_depth-(0.5 (MAX_DEPTH + MIN_DEPTH) ) < BF_DELTA_DEPTH [m] ?",
+      "Description": "depth interval to backflush depth to allow backflush -BF_DELTA_DEPTH < current_depth- ( ALPHA_BACKFLUSH * MAX_DEPTH + (1-ALPHA_BACKFLUSH)* MIN_DEPTH ) ) < BF_DELTA_DEPTH",
       "DisplayName": "BF_DELTA_DEPTH",
       "Range": {
         "high": "100",
         "low": "0"
       },
+      "Units": "m",
       "User": "Advanced"
     },
     "BF_DELTA_ROLL": {
-      "Description": "backflush only when -BF_DELTA_ROLL < roll-VERTICAL_ROLL < BF_DELTA_ROLL [deg] ?",
+      "Description": "backflush only when -BF_DELTA_ROLL < roll-VERTICAL_ROLL < BF_DELTA_ROLL",
       "DisplayName": "BF_DELTA_ROLL",
       "Range": {
         "high": "10",
         "low": "0"
       },
+      "Units": "deg",
       "User": "Advanced"
     },
     "BF_NB_REPETITION": {
@@ -25584,30 +25579,33 @@
       "User": "Advanced"
     },
     "BF_PERIOD": {
-      "Description": "backflush period [min] ?",
+      "Description": "backflush period",
       "DisplayName": "BF_PERIOD",
       "Range": {
         "high": "100",
         "low": "0"
       },
+      "Units": "min",
       "User": "Advanced"
     },
     "BF_SPEED_TOP_B": {
-      "Description": "throttle applied during backflush [] ?",
+      "Description": "throttle applied during backflush",
       "DisplayName": "BF_SPEED_TOP_B",
       "Range": {
         "high": "0",
         "low": "-100"
       },
+      "Units": "%",
       "User": "Advanced"
     },
     "BF_SPEED_TOP_R": {
-      "Description": "throttle applied during reflush [] ?",
+      "Description": "throttle applied during reflush",
       "DisplayName": "BF_SPEED_TOP_R",
       "Range": {
         "high": "100",
         "low": "0"
       },
+      "Units": "%",
       "User": "Advanced"
     },
     "BRUSH_GAIN_DEF": {
@@ -25644,6 +25642,7 @@
         "high": "100",
         "low": "-100"
       },
+      "Units": "%",
       "User": "Advanced"
     },
     "BWD_DIST": {
@@ -25728,28 +25727,30 @@
       "Description": "delta throttle under which we can not be stuck as we are not trying to move : if abs(throttle-0.5)<dead_throttle",
       "DisplayName": "DEAD_THROTTLE",
       "Range": {
-        "high": "0.2",
-        "low": "0."
+        "high": "100",
+        "low": "0"
       },
       "Units": "%",
       "User": "Advanced"
     },
     "DEC_THRUS_TH": {
-      "Description": "thruster throttle applied when \"stopping\" the thruster in avoidance, [meter] if negative:disable safety",
+      "Description": "thruster throttle applied when \"stopping\" the thruster in avoidance",
       "DisplayName": "thruster throttle applied when \"stopping\" the thruster in avoidance",
       "Range": {
-        "high": "1",
+        "high": "100",
         "low": "0"
       },
+      "Units": "%",
       "User": "Standard"
     },
     "DEPTH_1": {
-      "Description": "depth corresponding to RADIUS_NET_1 [m] ?",
+      "Description": "depth corresponding to RADIUS_NET_1",
       "DisplayName": "DEPTH_1",
       "Range": {
         "high": "100",
         "low": "0"
       },
+      "Units": "m",
       "User": "Advanced"
     },
     "DEPTH_2": {
@@ -25759,6 +25760,7 @@
         "high": "100",
         "low": "0"
       },
+      "Units": "m",
       "User": "Advanced"
     },
     "DIAG_TYPE": {
@@ -25938,6 +25940,7 @@
         "high": "100",
         "low": "-100"
       },
+      "Units": "%",
       "User": "Advanced"
     },
     "FWD_DIST": {
@@ -26153,12 +26156,13 @@
       "User": "Advanced"
     },
     "LEASH_LENGTH": {
-      "Description": "distance for position algorithm (M)",
+      "Description": "distance for position algorithm",
       "DisplayName": "LEASH_LENGTH",
       "Range": {
         "high": "1.5",
         "low": "0.1"
       },
+      "Units": "m",
       "User": "Standard"
     },
     "LOG_BITMASK": {
@@ -26216,6 +26220,15 @@
         "2": "Always face stern towards target point"
       }
     },
+    "M33_LIMIT": {
+      "Description": "minimum value for the M33 coef to avoid division by 0",
+      "DisplayName": "minimum value for the M33 coef to avoid division by 0",
+      "Range": {
+        "high": "1",
+        "low": "0"
+      },
+      "User": "Standard"
+    },
     "MANUAL1_PARK2": {
       "Description": "when acro pattern is finished, switch to manual mode or parking mode ?",
       "DisplayName": "MANUAL1_PARK2",
@@ -26232,6 +26245,7 @@
         "high": "100",
         "low": "-100"
       },
+      "Units": "%",
       "User": "Advanced"
     },
     "MAN_THRUSTER_TH": {
@@ -26241,6 +26255,7 @@
         "high": "100",
         "low": "-100"
       },
+      "Units": "%",
       "User": "Advanced"
     },
     "MAX_ANGLE_COR": {
@@ -26250,6 +26265,7 @@
         "high": "80",
         "low": "10"
       },
+      "Units": "deg",
       "User": "Standard"
     },
     "MAX_HORIZ_DIST": {
@@ -26400,198 +26416,240 @@
       "Description": "nb seconds of usage,  * 3600 (1000 hours)",
       "DisplayName": "nb seconds of usage of back camera",
       "Range": {
-        "high": "1000",
+        "high": "2147483647",
         "low": "0"
       },
+      "Units": "s",
       "User": "Standard"
     },
     "MON_BBELT_LEFT": {
       "Description": "nb seconds of usage, * 3600 (1000 hours)",
       "DisplayName": "nb seconds of usage of left Brushing belt",
       "Range": {
-        "high": "1000",
+        "high": "2147483647",
         "low": "0"
       },
+      "Units": "s",
       "User": "Standard"
     },
     "MON_BBELT_RIGHT": {
       "Description": "nb seconds of usage, * 3600 (1000 hours)",
       "DisplayName": "nb seconds of usage of right Brushing belt",
       "Range": {
-        "high": "1000",
+        "high": "2147483647",
         "low": "0"
       },
+      "Units": "s",
       "User": "Standard"
     },
     "MON_BOARD": {
       "Description": "nb seconds of usage, * 3600 (1000 hours)",
       "DisplayName": "nb seconds of usage of board (pi4 for now)",
       "Range": {
-        "high": "1000",
+        "high": "2147483647",
         "low": "0"
       },
+      "Units": "s",
       "User": "Standard"
     },
     "MON_BRUSH_CTRL": {
       "Description": "nb seconds of usage,  * 3600 (1000 hours)",
       "DisplayName": "nb seconds of usage of brush controller",
       "Range": {
-        "high": "1000",
+        "high": "2147483647",
         "low": "0"
       },
+      "Units": "s",
       "User": "Standard"
     },
     "MON_DBELT_LEFT": {
       "Description": "nb seconds of usage, * 3600 (1000 hours)",
       "DisplayName": "nb seconds of usage of left Driving belt",
       "Range": {
-        "high": "1000",
+        "high": "2147483647",
         "low": "0"
       },
+      "Units": "s",
       "User": "Standard"
     },
     "MON_DBELT_RIGHT": {
       "Description": "nb seconds of usage,  * 3600 (1000 hours)",
       "DisplayName": "nb seconds of usage of right Driving belt",
       "Range": {
-        "high": "1000",
+        "high": "2147483647",
         "low": "0"
       },
+      "Units": "s",
       "User": "Standard"
     },
     "MON_DEPTH_SNSOR": {
       "Description": "nb seconds of usage, * 3600 (1000 hours)",
       "DisplayName": "nb seconds of usage of depth sensor",
       "Range": {
-        "high": "1000",
+        "high": "2147483647",
         "low": "0"
       },
+      "Units": "s",
       "User": "Standard"
     },
     "MON_FRONT_CAM": {
       "Description": "nb seconds of usage,  * 3600 (1000 hours)",
       "DisplayName": "nb seconds of usage of front camera",
       "Range": {
-        "high": "1000",
+        "high": "2147483647",
         "low": "0"
       },
+      "Units": "s",
       "User": "Standard"
     },
     "MON_GEAR_BRUSH": {
       "Description": "nb seconds of usage, * 3600 (1000 hours)",
       "DisplayName": "nb seconds of usage of left gearbox",
       "Range": {
-        "high": "1000",
+        "high": "2147483647",
         "low": "0"
       },
+      "Units": "s",
       "User": "Standard"
     },
     "MON_GEAR_LEFT": {
       "Description": "nb seconds of usage, * 3600 (1000 hours)",
       "DisplayName": "nb seconds of usage of left gearbox",
       "Range": {
-        "high": "1000",
+        "high": "2147483647",
         "low": "0"
       },
+      "Units": "s",
       "User": "Standard"
     },
     "MON_GEAR_RIGHT": {
       "Description": "nb seconds of usage, * 3600 (1000 hours)",
       "DisplayName": "nb seconds of usage of left gearbox",
       "Range": {
-        "high": "1000",
+        "high": "2147483647",
         "low": "0"
       },
+      "Units": "s",
       "User": "Standard"
     },
     "MON_LEFT_CTRL": {
       "Description": "nb seconds of usage, * 3600 (1000 hours)",
       "DisplayName": "nb seconds of usage of left controller",
       "Range": {
-        "high": "1000",
+        "high": "2147483647",
         "low": "0"
       },
+      "Units": "s",
       "User": "Standard"
     },
     "MON_MAIN_CONV": {
       "Description": "nb seconds of usage, * 3600 (1000 hours)",
       "DisplayName": "nb seconds of usage of main converter : 380V -> 24V",
       "Range": {
-        "high": "1000",
+        "high": "2147483647",
         "low": "0"
       },
+      "Units": "s",
       "User": "Standard"
     },
     "MON_MOT_BRUSH": {
       "Description": "nb seconds of usage, * 3600 (1000 hours)",
       "DisplayName": "nb seconds of usage of brush motor",
       "Range": {
-        "high": "1000",
+        "high": "2147483647",
         "low": "0"
       },
+      "Units": "s",
       "User": "Standard"
     },
     "MON_MOT_LEFT": {
       "Description": "nb seconds of usage, * 3600 (1000 hours)",
       "DisplayName": "nb seconds of usage of left motor",
       "Range": {
-        "high": "1000",
+        "high": "2147483647",
         "low": "0"
       },
+      "Units": "s",
       "User": "Standard"
     },
     "MON_MOT_RIGHT": {
       "Description": "nb seconds of usage, * 3600 (1000 hours)",
       "DisplayName": "nb seconds of usage of right motor",
       "Range": {
-        "high": "1000",
+        "high": "2147483647",
         "low": "0"
       },
+      "Units": "s",
       "User": "Standard"
     },
     "MON_NAVIGATOR": {
       "Description": "nb seconds of usage, * 3600 (1000 hours)",
       "DisplayName": "nb seconds of usage of navigator",
       "Range": {
-        "high": "1000",
+        "high": "2147483647",
         "low": "0"
       },
+      "Units": "s",
+      "User": "Standard"
+    },
+    "MON_PERIOD": {
+      "Description": "Refreshing period for monitoring parameters",
+      "DisplayName": "Refreshing period for monitoring parameters",
+      "Range": {
+        "high": "100000",
+        "low": "0"
+      },
+      "Units": "s",
       "User": "Standard"
     },
     "MON_RIGHT_CTRL": {
       "Description": "nb seconds of usage, * 3600 (1000 hours)",
       "DisplayName": "nb seconds of usage of right controller",
       "Range": {
-        "high": "1000",
+        "high": "2147483647",
         "low": "0"
       },
+      "Units": "s",
       "User": "Standard"
     },
     "MON_ROBOT_TOT": {
       "Description": "nb seconds of usage, * 3600 (1000 hours)",
       "DisplayName": "nb seconds of usage of robot",
       "Range": {
-        "high": "1000",
+        "high": "2147483647",
         "low": "0"
       },
+      "Units": "s",
       "User": "Standard"
     },
     "MON_THRUSTER": {
       "Description": "nb seconds of usage, * 3600 (1000 hours)",
       "DisplayName": "nb seconds of usage of thruster motor",
       "Range": {
-        "high": "1000",
+        "high": "2147483647",
         "low": "0"
       },
+      "Units": "s",
       "User": "Standard"
     },
     "MON_THRUST_CTRL": {
       "Description": "nb seconds of usage, * 3600 (1000 hours)",
       "DisplayName": "nb seconds of usage of thruster controller",
       "Range": {
-        "high": "1000",
+        "high": "2147483647",
         "low": "0"
       },
+      "Units": "s",
+      "User": "Standard"
+    },
+    "MOUNT_TIMEOUT": {
+      "Description": "timeout for joystick input before rotating camera to prescribed position",
+      "DisplayName": "MOUNT_TIMEOUT",
+      "Range": {
+        "high": "999.",
+        "low": "-1."
+      },
+      "Units": "s",
       "User": "Standard"
     },
     "NB_TURN_MAX": {
@@ -26797,21 +26855,23 @@
       "User": "Advanced"
     },
     "PID_POS_TD": {
-      "Description": "Td coefficient for pid POS control algorithm  [s] ?",
+      "Description": "Td coefficient for pid POS control algorithm, 0 = deactivate",
       "DisplayName": "PID_POS_TD",
       "Range": {
         "high": "100",
         "low": "0"
       },
+      "Units": "s",
       "User": "Advanced"
     },
     "PID_POS_TI": {
-      "Description": "TI coefficient for pid POS control algorithm [s] ?",
+      "Description": "TI coefficient for pid POS control algorithm, negative values deactivate",
       "DisplayName": "PID_POS_TI",
       "Range": {
         "high": "100",
-        "low": "0"
+        "low": "-10"
       },
+      "Units": "s",
       "User": "Advanced"
     },
     "PILOT_STEER_TYPE": {
@@ -26852,7 +26912,7 @@
       "DisplayName": "POSTHETADEGMAX",
       "Range": {
         "high": "370",
-        "low": "0"
+        "low": "-1"
       },
       "Units": "deg",
       "User": "Advanced"
@@ -26861,7 +26921,7 @@
       "Description": "minimum theta in degrees before stop",
       "DisplayName": "POSTHETADEGMIN",
       "Range": {
-        "high": "360",
+        "high": "370",
         "low": "-1"
       },
       "Units": "deg",
@@ -26876,21 +26936,23 @@
       }
     },
     "RADIUS_NET": {
-      "Description": "radius of the net at the surface  [m] ?",
+      "Description": "radius of the net at the surface",
       "DisplayName": "RADIUS_NET",
       "Range": {
         "high": "100",
         "low": "0"
       },
+      "Units": "m",
       "User": "Advanced"
     },
     "RADIUS_NET_1": {
-      "Description": "radius of the net at the depth DEPTH_1 [m] ?",
+      "Description": "radius of the net at the depth DEPTH_1",
       "DisplayName": "RADIUS_NET_1",
       "Range": {
         "high": "100",
         "low": "0"
       },
+      "Units": "m",
       "User": "Advanced"
     },
     "RESET_TURN_T": {
@@ -26938,21 +27000,23 @@
       "User": "Standard"
     },
     "Reporting": {
-      "Description": "Time interval of status reporting [seconds] ?",
+      "Description": "Time interval of status reporting",
       "DisplayName": "REP_INTERVAL",
       "Range": {
         "high": "600",
         "low": "0"
       },
+      "Units": "s",
       "User": "Advanced"
     },
     "SAFETY_MARGIN": {
       "Description": "safety margin for MIN_DEPTH and MAX_DEPTH, if negative:disable safety [meter]",
       "DisplayName": "safety margin for MIN_DEPTH and MAX_DEPTH",
       "Range": {
-        "high": "1",
-        "low": "0"
+        "high": "10000",
+        "low": "-1"
       },
+      "Units": "m",
       "User": "Standard"
     },
     "SIMPLE_TYPE": {
@@ -26964,6 +27028,16 @@
         "0": "InitialHeading",
         "1": "CardinalDirections"
       }
+    },
+    "SPEED_FREQ_CUTOF": {
+      "Description": "speed is smoothed by a low pass filter whose frequency is SPEED_FREQ_CUTOF",
+      "DisplayName": "cutoff frequency in the filtering of speed for VEL_CALC_TYP = 6",
+      "Range": {
+        "high": "3",
+        "low": "0"
+      },
+      "Units": "Hz",
+      "User": "Standard"
     },
     "SPEED_MAX": {
       "Description": "Maximum speed vehicle can obtain at full throttle. If 0, it will be estimated based on CRUISE_SPEED and CRUISE_THROTTLE.",
@@ -27028,7 +27102,7 @@
         "high": "100",
         "low": "0"
       },
-      "Units": "s",
+      "Units": "%",
       "User": "Advanced"
     },
     "SYSID_ENFORCE": {
@@ -27059,7 +27133,7 @@
       "User": "Advanced"
     },
     "Stuck": {
-      "Description": " Stuck: nb try of whole pattern",
+      "Description": "Stuck: nb try of whole pattern",
       "DisplayName": "STUCK_NB_TIME",
       "Range": {
         "high": "255",
@@ -27081,27 +27155,29 @@
     "TEMP_CHECK": {
       "Description": "0 -> disabled, 1 -> switch to manual, 2 warn only",
       "DisplayName": "determine what to do in case of temperature too high",
-      "Range": {
-        "high": "1",
-        "low": "0"
-      },
-      "User": "Standard"
+      "User": "Standard",
+      "Values": {
+        "0": "Disabled",
+        "1": "Switch To Manual",
+        "2": "Warning Only"
+      }
     },
     "TEMP_MAX": {
-      "Description": "temperature in degrees Celsius",
-      "DisplayName": "threeshold to determine that temperature is too high",
+      "Description": "Temperature, threeshold to determine that temperature is too high",
+      "DisplayName": "Max Temperature",
       "Range": {
         "high": "500",
         "low": "0"
       },
+      "Units": "degC",
       "User": "Standard"
     },
     "TEST_BELT_NBPER": {
       "Description": "maximum number of period for belt test if <0 no limit",
       "DisplayName": "TEST_BELT_NBPER",
       "Range": {
-        "high": "255",
-        "low": "-254"
+        "high": "100000",
+        "low": "-1"
       },
       "User": "Advanced"
     },
@@ -27109,9 +27185,10 @@
       "Description": "test period for the belts in seconds if <0 no movement",
       "DisplayName": "TEST_BELT_PER",
       "Range": {
-        "high": "255",
-        "low": "-254"
+        "high": "100000",
+        "low": "-1"
       },
+      "Units": "s",
       "User": "Advanced"
     },
     "TEST_BELT_TH_1": {
@@ -27121,6 +27198,7 @@
         "high": "100",
         "low": "-100"
       },
+      "Units": "%",
       "User": "Advanced"
     },
     "TEST_BELT_TH_2": {
@@ -27130,14 +27208,15 @@
         "high": "100",
         "low": "-100"
       },
+      "Units": "%",
       "User": "Advanced"
     },
     "TEST_BRUSH_NBPER": {
       "Description": "maximum number of period for brush test if <0 no limit",
       "DisplayName": "TEST_BRUSH_NBPER",
       "Range": {
-        "high": "255",
-        "low": "-254"
+        "high": "100000",
+        "low": "-1"
       },
       "User": "Advanced"
     },
@@ -27148,6 +27227,7 @@
         "high": "255",
         "low": "-254"
       },
+      "Units": "%",
       "User": "Advanced"
     },
     "TEST_BRUSH_TH_1": {
@@ -27157,6 +27237,7 @@
         "high": "100",
         "low": "-100"
       },
+      "Units": "%",
       "User": "Advanced"
     },
     "TEST_BRUSH_TH_2": {
@@ -27166,14 +27247,15 @@
         "high": "100",
         "low": "-100"
       },
+      "Units": "%",
       "User": "Advanced"
     },
     "TEST_THRUS_NBPER": {
       "Description": "maximum number of period for thruster test if <0 no limit",
       "DisplayName": "TEST_THRUS_NBPER",
       "Range": {
-        "high": "255",
-        "low": "-254"
+        "high": "100000",
+        "low": "-1"
       },
       "User": "Advanced"
     },
@@ -27181,9 +27263,10 @@
       "Description": "test period for the thruster in seconds if <0 no movement",
       "DisplayName": "TEST_THRUS_PER",
       "Range": {
-        "high": "255",
-        "low": "-254"
+        "high": "100000",
+        "low": "-1"
       },
+      "Units": "s",
       "User": "Advanced"
     },
     "TEST_THRUS_TH_1": {
@@ -27193,6 +27276,7 @@
         "high": "100",
         "low": "-100"
       },
+      "Units": "%",
       "User": "Advanced"
     },
     "TEST_THRUS_TH_2": {
@@ -27202,16 +27286,16 @@
         "high": "100",
         "low": "-100"
       },
+      "Units": "%",
       "User": "Advanced"
     },
     "THETA_CALC_TYPE": {
       "Description": "type of calculation for theta: 1 = netPosition.x/RadiusNet(z)*360/2pi, 2 = atan2(posNED.y,posNED.x)",
       "DisplayName": "THETA_CALC_TYPE",
       "Range": {
-        "high": "360",
+        "high": "255",
         "low": "0"
       },
-      "Units": "deg",
       "User": "Advanced"
     },
     "THRUSTER_G_STEP": {
@@ -27230,6 +27314,7 @@
         "high": "100",
         "low": "-100"
       },
+      "Units": "%",
       "User": "Standard"
     },
     "THRUST_GAIN_MAX": {
@@ -27239,6 +27324,7 @@
         "high": "100",
         "low": "0"
       },
+      "Units": "%",
       "User": "Standard"
     },
     "THRUS_TRANSIT_T": {
@@ -27276,7 +27362,7 @@
       "Description": "type of calculation for vertical velocity: 1 = baro change over 250 ms, 2 = filtered derivative of baro reading, 3 = ahrs velocity along z",
       "DisplayName": "VEL_CALC_TYPE",
       "Range": {
-        "high": "100000",
+        "high": "255",
         "low": "0"
       },
       "User": "Advanced"
@@ -27303,10 +27389,12 @@
     "WP_VICINITY": {
       "Description": "maximum distance to detect we are in the neighborhood of a waypoint",
       "DisplayName": "WP_VICINITY",
-      "User": "Advanced",
-      "Values": {
-        "]0": "1] m"
-      }
+      "Range": {
+        "high": "1",
+        "low": "0"
+      },
+      "Units": "m",
+      "User": "Advanced"
     },
     "cur_posThetaDeg": {
       "Description": "current position along theta in degrees",
@@ -27318,6 +27406,15 @@
       "Units": "deg",
       "User": "Advanced"
     },
+    "disable_mv": {
+      "Description": "1, disable monitoring for velocity spikes",
+      "DisplayName": "1, disable monitoring for velocity spikes",
+      "User": "Standard",
+      "Values": {
+        "0": "Not Disabled",
+        "1": "Disable Monitoring"
+      }
+    },
     "left_right": {
       "Description": "Which direction should the passes be offset (left or right); pattern to the left = 1, to the right =2",
       "DisplayName": "left_right",
@@ -27327,13 +27424,154 @@
         "2": "Right"
       }
     },
+    "max_mon_t": {
+      "Description": "max time the robot are in monitoring state if on net",
+      "DisplayName": "max time the robot are in monitoring state if on net",
+      "Range": {
+        "high": "60",
+        "low": "0"
+      },
+      "Units": "s",
+      "User": "Standard"
+    },
+    "max_pitch_run": {
+      "Description": "max velocity in pitch when running before next step in disarming",
+      "DisplayName": "max velocity in pitch when running before next step in disarming",
+      "Range": {
+        "high": "2",
+        "low": "0"
+      },
+      "Units": "rad/s",
+      "User": "Standard"
+    },
+    "max_pitch_still": {
+      "Description": "max velocity in pitch at standstill before disarming",
+      "DisplayName": "max velocity in pitch at standstill before disarming",
+      "Range": {
+        "high": "2",
+        "low": "0"
+      },
+      "Units": "rad/s",
+      "User": "Standard"
+    },
+    "max_pitch_still2": {
+      "Description": "max velocity in pitch at standstill before disarming",
+      "DisplayName": "max velocity in pitch at standstill before disarming",
+      "Range": {
+        "high": "2",
+        "low": "0"
+      },
+      "Units": "rad/s",
+      "User": "Standard"
+    },
+    "max_roll_run": {
+      "Description": "max velocity in roll when running before next step in disarming",
+      "DisplayName": "max velocity in roll when running before next step in disarming",
+      "Range": {
+        "high": "2",
+        "low": "0"
+      },
+      "Units": "rad/s",
+      "User": "Standard"
+    },
+    "max_roll_still": {
+      "Description": "max velocity in roll at standstill before disarming",
+      "DisplayName": "max velocity in roll at standstill before disarming",
+      "Range": {
+        "high": "2",
+        "low": "0"
+      },
+      "Units": "rad/s",
+      "User": "Standard"
+    },
+    "max_roll_still2": {
+      "Description": "max velocity in roll at standstill before disarming",
+      "DisplayName": "max velocity in roll at standstill before disarming",
+      "Range": {
+        "high": "2",
+        "low": "0"
+      },
+      "Units": "rad/s",
+      "User": "Standard"
+    },
+    "max_yaw_run": {
+      "Description": "max velocity in yaw when running before next step in disarming",
+      "DisplayName": "max velocity in yaw when running before next step in disarming",
+      "Range": {
+        "high": "2",
+        "low": "0"
+      },
+      "Units": "rad/s",
+      "User": "Standard"
+    },
+    "max_yaw_still": {
+      "Description": "max velocity in yaw at standstill before disarming",
+      "DisplayName": "max velocity in yaw at standstill before disarming",
+      "Range": {
+        "high": "2",
+        "low": "0"
+      },
+      "Units": "rad/s",
+      "User": "Standard"
+    },
+    "max_yaw_still2": {
+      "Description": "max velocity in yaw at standstill before disarming",
+      "DisplayName": "max velocity in yaw at standstill before disarming",
+      "Range": {
+        "high": "2",
+        "low": "0"
+      },
+      "Units": "rad/s",
+      "User": "Standard"
+    },
+    "min_mon_depth": {
+      "Description": "Don't stop and monitor if robot is on net above this H",
+      "DisplayName": "Don't stop and monitor if robot is on net above this H",
+      "Range": {
+        "high": "100",
+        "low": "-100"
+      },
+      "Units": "m",
+      "User": "Standard"
+    },
     "reinit": {
-      "Description": "reinitialisation of vertical roll = 1. Any value change causes reset",
-      "DisplayName": "reinit",
-      "User": "Advanced",
-      "Values": {
-        "1": "reset"
-      }
+      "Description": "reinitialisation of vertical roll. reset is triggered by a change in this value",
+      "DisplayName": "Reinitialisation of Vertical Roll",
+      "Range": {
+        "high": "255",
+        "low": "-254"
+      },
+      "User": "Advanced"
+    },
+    "stand_still_t": {
+      "Description": "time for the robot to comme to sandstill",
+      "DisplayName": "time for the robot to comme to sandstill",
+      "Range": {
+        "high": "5",
+        "low": "0"
+      },
+      "Units": "s",
+      "User": "Standard"
+    },
+    "starting_t": {
+      "Description": "let the robot have time to accelerate",
+      "DisplayName": "let the robot have time to accelerate",
+      "Range": {
+        "high": "10",
+        "low": "3"
+      },
+      "Units": "s",
+      "User": "Standard"
+    },
+    "sw_still_lim": {
+      "Description": "switch limits between 1 and 2 in meter before disarming",
+      "DisplayName": "switch limits between 1 and 2 in meter before disarming",
+      "Range": {
+        "high": "2",
+        "low": "0"
+      },
+      "Units": "m",
+      "User": "Standard"
     }
   },
   "SAIL_": {

@@ -805,11 +805,11 @@ POSTHETADEGMAX: POSTHETADEGMAX
 maximum theta in degrees before stop
 
 
-+---------+---------+
-| Range   | Units   |
-+=========+=========+
-| 0 - 370 | degrees |
-+---------+---------+
++----------+---------+
+| Range    | Units   |
++==========+=========+
+| -1 - 370 | degrees |
++----------+---------+
 
 
 
@@ -827,7 +827,7 @@ minimum theta in degrees before stop
 +----------+---------+
 | Range    | Units   |
 +==========+=========+
-| -1 - 360 | degrees |
+| -1 - 370 | degrees |
 +----------+---------+
 
 
@@ -1076,7 +1076,7 @@ maximum throttle to try to move when stuck
 +---------+---------+
 | Range   | Units   |
 +=========+=========+
-| 0 - 100 | seconds |
+| 0 - 100 | percent |
 +---------+---------+
 
 
@@ -1187,11 +1187,11 @@ DEAD\_THROTTLE: DEAD\_THROTTLE
 delta throttle under which we can not be stuck as we are not trying to move \: if abs\(throttle\-0\.5\)\<dead\_throttle
 
 
-+----------+---------+
-| Range    | Units   |
-+==========+=========+
-| 0. - 0.2 | percent |
-+----------+---------+
++---------+---------+
+| Range   | Units   |
++=========+=========+
+| 0 - 100 | percent |
++---------+---------+
 
 
 
@@ -1428,19 +1428,19 @@ Which direction should the passes be offset \(left or right\)\; pattern to the l
 
 .. _reinit:
 
-reinit: reinit
-~~~~~~~~~~~~~~
+reinit: Reinitialisation of Vertical Roll
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 | *Note: This parameter is for advanced users*
 
-reinitialisation of vertical roll \= 1\. Any value change causes reset
+reinitialisation of vertical roll\. reset is triggered by a change in this value
 
 
-+-------+---------+
-| Value | Meaning |
-+=======+=========+
-| 1     | reset   |
-+-------+---------+
++------------+
+| Range      |
++============+
+| -254 - 255 |
++------------+
 
 
 
@@ -1791,14 +1791,14 @@ Reporting: REP\_INTERVAL
 
 | *Note: This parameter is for advanced users*
 
-Time interval of status reporting \[seconds\] \?
+Time interval of status reporting
 
 
-+---------+
-| Range   |
-+=========+
-| 0 - 600 |
-+---------+
++---------+---------+
+| Range   | Units   |
++=========+=========+
+| 0 - 600 | seconds |
++---------+---------+
 
 
 
@@ -1867,7 +1867,7 @@ Avoidance: AVOID\_NB\_TIME
 
 | *Note: This parameter is for advanced users*
 
- Avoidance\: nb try of whole pattern
+Avoidance\: nb try of whole pattern
 
 
 +---------+
@@ -1886,7 +1886,7 @@ Stuck: STUCK\_NB\_TIME
 
 | *Note: This parameter is for advanced users*
 
- Stuck\: nb try of whole pattern
+Stuck\: nb try of whole pattern
 
 
 +---------+
@@ -1943,14 +1943,14 @@ RADIUS\_NET: RADIUS\_NET
 
 | *Note: This parameter is for advanced users*
 
-radius of the net at the surface  \[m\] \?
+radius of the net at the surface
 
 
-+---------+
-| Range   |
-+=========+
-| 0 - 100 |
-+---------+
++---------+--------+
+| Range   | Units  |
++=========+========+
+| 0 - 100 | meters |
++---------+--------+
 
 
 
@@ -1962,14 +1962,14 @@ RADIUS\_NET\_1: RADIUS\_NET\_1
 
 | *Note: This parameter is for advanced users*
 
-radius of the net at the depth DEPTH\_1 \[m\] \?
+radius of the net at the depth DEPTH\_1
 
 
-+---------+
-| Range   |
-+=========+
-| 0 - 100 |
-+---------+
++---------+--------+
+| Range   | Units  |
++=========+========+
+| 0 - 100 | meters |
++---------+--------+
 
 
 
@@ -1981,14 +1981,14 @@ DEPTH\_1: DEPTH\_1
 
 | *Note: This parameter is for advanced users*
 
-depth corresponding to RADIUS\_NET\_1 \[m\] \?
+depth corresponding to RADIUS\_NET\_1
 
 
-+---------+
-| Range   |
-+=========+
-| 0 - 100 |
-+---------+
++---------+--------+
+| Range   | Units  |
++=========+========+
+| 0 - 100 | meters |
++---------+--------+
 
 
 
@@ -2003,11 +2003,11 @@ DEPTH\_2: DEPTH\_2
 depth corresponding to edge of the cone \: radius \= 0
 
 
-+---------+
-| Range   |
-+=========+
-| 0 - 100 |
-+---------+
++---------+--------+
+| Range   | Units  |
++=========+========+
+| 0 - 100 | meters |
++---------+--------+
 
 
 
@@ -2038,14 +2038,14 @@ PID\_POS\_TI: PID\_POS\_TI
 
 | *Note: This parameter is for advanced users*
 
-TI coefficient for pid POS control algorithm \[s\] \?
+TI coefficient for pid POS control algorithm\, negative values deactivate
 
 
-+---------+
-| Range   |
-+=========+
-| 0 - 100 |
-+---------+
++-----------+---------+
+| Range     | Units   |
++===========+=========+
+| -10 - 100 | seconds |
++-----------+---------+
 
 
 
@@ -2057,14 +2057,14 @@ PID\_POS\_TD: PID\_POS\_TD
 
 | *Note: This parameter is for advanced users*
 
-Td coefficient for pid POS control algorithm  \[s\] \?
+Td coefficient for pid POS control algorithm\, 0 \= deactivate
 
 
-+---------+
-| Range   |
-+=========+
-| 0 - 100 |
-+---------+
++---------+---------+
+| Range   | Units   |
++=========+=========+
+| 0 - 100 | seconds |
++---------+---------+
 
 
 
@@ -2095,14 +2095,14 @@ BF\_PERIOD: BF\_PERIOD
 
 | *Note: This parameter is for advanced users*
 
-backflush period \[min\] \?
+backflush period
 
 
-+---------+
-| Range   |
-+=========+
-| 0 - 100 |
-+---------+
++---------+---------+
+| Range   | Units   |
++=========+=========+
+| 0 - 100 | minutes |
++---------+---------+
 
 
 
@@ -2114,14 +2114,14 @@ BF\_DELTAT\_BACK: BF\_DELTAT\_BACK
 
 | *Note: This parameter is for advanced users*
 
-time period for backflush  \[s\] \?
+time period for backflush
 
 
-+-------+
-| Range |
-+=======+
-| 0 - 1 |
-+-------+
++-------+---------+
+| Range | Units   |
++=======+=========+
+| 0 - 1 | seconds |
++-------+---------+
 
 
 
@@ -2133,14 +2133,14 @@ BF\_DELTAT\_RE: BF\_DELTAT\_RE
 
 | *Note: This parameter is for advanced users*
 
-time period for reflush  \[s\] \?
+time period for reflush
 
 
-+---------+
-| Range   |
-+=========+
-| 0 - 100 |
-+---------+
++---------+---------+
+| Range   | Units   |
++=========+=========+
+| 0 - 100 | seconds |
++---------+---------+
 
 
 
@@ -2152,14 +2152,14 @@ BF\_SPEED\_TOP\_B: BF\_SPEED\_TOP\_B
 
 | *Note: This parameter is for advanced users*
 
-throttle applied during backflush \[\] \?
+throttle applied during backflush
 
 
-+----------+
-| Range    |
-+==========+
-| -100 - 0 |
-+----------+
++----------+---------+
+| Range    | Units   |
++==========+=========+
+| -100 - 0 | percent |
++----------+---------+
 
 
 
@@ -2171,14 +2171,14 @@ BF\_SPEED\_TOP\_R: BF\_SPEED\_TOP\_R
 
 | *Note: This parameter is for advanced users*
 
-throttle applied during reflush \[\] \?
+throttle applied during reflush
 
 
-+---------+
-| Range   |
-+=========+
-| 0 - 100 |
-+---------+
++---------+---------+
+| Range   | Units   |
++=========+=========+
+| 0 - 100 | percent |
++---------+---------+
 
 
 
@@ -2190,14 +2190,14 @@ BF\_DELTA\_DEPTH: BF\_DELTA\_DEPTH
 
 | *Note: This parameter is for advanced users*
 
-depth interval to mid depth to allow backflush \-BF\_DELTA\_DEPTH \< current\_depth\-\(0\.5 \(MAX\_DEPTH \+ MIN\_DEPTH\) \) \< BF\_DELTA\_DEPTH \[m\] \?
+depth interval to backflush depth to allow backflush \-BF\_DELTA\_DEPTH \< current\_depth\- \( ALPHA\_BACKFLUSH \* MAX\_DEPTH \+ \(1\-ALPHA\_BACKFLUSH\)\* MIN\_DEPTH \) \) \< BF\_DELTA\_DEPTH
 
 
-+---------+
-| Range   |
-+=========+
-| 0 - 100 |
-+---------+
++---------+--------+
+| Range   | Units  |
++=========+========+
+| 0 - 100 | meters |
++---------+--------+
 
 
 
@@ -2209,14 +2209,14 @@ BF\_DELTA\_ROLL: BF\_DELTA\_ROLL
 
 | *Note: This parameter is for advanced users*
 
-backflush only when \-BF\_DELTA\_ROLL \< roll\-VERTICAL\_ROLL \< BF\_DELTA\_ROLL \[deg\] \?
+backflush only when \-BF\_DELTA\_ROLL \< roll\-VERTICAL\_ROLL \< BF\_DELTA\_ROLL
 
 
-+--------+
-| Range  |
-+========+
-| 0 - 10 |
-+--------+
++--------+---------+
+| Range  | Units   |
++========+=========+
+| 0 - 10 | degrees |
++--------+---------+
 
 
 
@@ -2269,11 +2269,11 @@ VEL\_CALC\_TYPE: VEL\_CALC\_TYPE
 type of calculation for vertical velocity\: 1 \= baro change over 250 ms\, 2 \= filtered derivative of baro reading\, 3 \= ahrs velocity along z
 
 
-+------------+
-| Range      |
-+============+
-| 0 - 100000 |
-+------------+
++---------+
+| Range   |
++=========+
+| 0 - 255 |
++---------+
 
 
 
@@ -2288,11 +2288,11 @@ THETA\_CALC\_TYPE: THETA\_CALC\_TYPE
 type of calculation for theta\: 1 \= netPosition\.x\/RadiusNet\(z\)\*360\/2pi\, 2 \= atan2\(posNED\.y\,posNED\.x\)
 
 
-+---------+---------+
-| Range   | Units   |
-+=========+=========+
-| 0 - 360 | degrees |
-+---------+---------+
++---------+
+| Range   |
++=========+
+| 0 - 255 |
++---------+
 
 
 
@@ -2345,11 +2345,11 @@ TEST\_BELT\_TH\_1: TEST\_BELT\_TH\_1
 throttle applied during half of test period
 
 
-+------------+
-| Range      |
-+============+
-| -100 - 100 |
-+------------+
++------------+---------+
+| Range      | Units   |
++============+=========+
+| -100 - 100 | percent |
++------------+---------+
 
 
 
@@ -2364,11 +2364,11 @@ TEST\_BELT\_TH\_2: TEST\_BELT\_TH\_2
 throttle applied during second half of test period
 
 
-+------------+
-| Range      |
-+============+
-| -100 - 100 |
-+------------+
++------------+---------+
+| Range      | Units   |
++============+=========+
+| -100 - 100 | percent |
++------------+---------+
 
 
 
@@ -2383,11 +2383,11 @@ TEST\_BELT\_PER: TEST\_BELT\_PER
 test period for the belts in seconds if \<0 no movement
 
 
-+------------+
-| Range      |
-+============+
-| -254 - 255 |
-+------------+
++-------------+---------+
+| Range       | Units   |
++=============+=========+
+| -1 - 100000 | seconds |
++-------------+---------+
 
 
 
@@ -2402,11 +2402,11 @@ TEST\_BELT\_NBPER: TEST\_BELT\_NBPER
 maximum number of period for belt test if \<0 no limit
 
 
-+------------+
-| Range      |
-+============+
-| -254 - 255 |
-+------------+
++-------------+
+| Range       |
++=============+
+| -1 - 100000 |
++-------------+
 
 
 
@@ -2421,11 +2421,11 @@ TEST\_THRUS\_TH\_1: TEST\_THRUS\_TH\_1
 thruster throttle applied during half of test period
 
 
-+------------+
-| Range      |
-+============+
-| -100 - 100 |
-+------------+
++------------+---------+
+| Range      | Units   |
++============+=========+
+| -100 - 100 | percent |
++------------+---------+
 
 
 
@@ -2440,11 +2440,11 @@ TEST\_THRUS\_TH\_2: TEST\_THRUS\_TH\_2
 thruster throttle applied during second half of test period
 
 
-+------------+
-| Range      |
-+============+
-| -100 - 100 |
-+------------+
++------------+---------+
+| Range      | Units   |
++============+=========+
+| -100 - 100 | percent |
++------------+---------+
 
 
 
@@ -2459,11 +2459,11 @@ TEST\_THRUS\_PER: TEST\_THRUS\_PER
 test period for the thruster in seconds if \<0 no movement
 
 
-+------------+
-| Range      |
-+============+
-| -254 - 255 |
-+------------+
++-------------+---------+
+| Range       | Units   |
++=============+=========+
+| -1 - 100000 | seconds |
++-------------+---------+
 
 
 
@@ -2478,11 +2478,11 @@ TEST\_THRUS\_NBPER: TEST\_THRUS\_NBPER
 maximum number of period for thruster test if \<0 no limit
 
 
-+------------+
-| Range      |
-+============+
-| -254 - 255 |
-+------------+
++-------------+
+| Range       |
++=============+
+| -1 - 100000 |
++-------------+
 
 
 
@@ -2497,11 +2497,11 @@ TEST\_BRUSH\_TH\_1: TEST\_BRUSH\_TH\_1
 brush throttle applied during half of test period
 
 
-+------------+
-| Range      |
-+============+
-| -100 - 100 |
-+------------+
++------------+---------+
+| Range      | Units   |
++============+=========+
+| -100 - 100 | percent |
++------------+---------+
 
 
 
@@ -2516,11 +2516,11 @@ TEST\_BRUSH\_TH\_2: TEST\_BRUSH\_TH\_2
 brush throttle applied during second half of test period
 
 
-+------------+
-| Range      |
-+============+
-| -100 - 100 |
-+------------+
++------------+---------+
+| Range      | Units   |
++============+=========+
+| -100 - 100 | percent |
++------------+---------+
 
 
 
@@ -2535,11 +2535,11 @@ TEST\_BRUSH\_PER: TEST\_BRUSH\_PER
 test period for the brush in seconds if \<0 no movement
 
 
-+------------+
-| Range      |
-+============+
-| -254 - 255 |
-+------------+
++------------+---------+
+| Range      | Units   |
++============+=========+
+| -254 - 255 | percent |
++------------+---------+
 
 
 
@@ -2554,11 +2554,11 @@ TEST\_BRUSH\_NBPER: TEST\_BRUSH\_NBPER
 maximum number of period for brush test if \<0 no limit
 
 
-+------------+
-| Range      |
-+============+
-| -254 - 255 |
-+------------+
++-------------+
+| Range       |
++=============+
+| -1 - 100000 |
++-------------+
 
 
 
@@ -2776,11 +2776,11 @@ FWD\_BRUSH\_TH: FWD\_BRUSH\_TH
 throttle applied to brush when going forward
 
 
-+------------+
-| Range      |
-+============+
-| -100 - 100 |
-+------------+
++------------+---------+
+| Range      | Units   |
++============+=========+
+| -100 - 100 | percent |
++------------+---------+
 
 
 
@@ -2795,11 +2795,11 @@ BWD\_BRUSH\_TH: BWD\_BRUSH\_TH
 throttle applied to brush when going backward
 
 
-+------------+
-| Range      |
-+============+
-| -100 - 100 |
-+------------+
++------------+---------+
+| Range      | Units   |
++============+=========+
+| -100 - 100 | percent |
++------------+---------+
 
 
 
@@ -2814,11 +2814,11 @@ MAN\_BRUSH\_TH: MAN\_BRUSH\_TH
 throttle applied to brush when in manual mode
 
 
-+------------+
-| Range      |
-+============+
-| -100 - 100 |
-+------------+
++------------+---------+
+| Range      | Units   |
++============+=========+
+| -100 - 100 | percent |
++------------+---------+
 
 
 
@@ -2887,11 +2887,11 @@ AUTOSTART\_HOUR: AUTOSTART\_HOUR
 hour at which the robot should automatically start acro mode\, other values disable automatic start
 
 
-+--------+
-| Range  |
-+========+
-| 0 - 23 |
-+--------+
++--------+-------+
+| Range  | Units |
++========+=======+
+| 0 - 23 | hours |
++--------+-------+
 
 
 
@@ -2906,11 +2906,11 @@ AUTOSTART\_MIN: AUTOSTART\_MIN
 minute at which the robot should automatically start acro mode\. other values disable automatic start
 
 
-+--------+
-| Range  |
-+========+
-| 0 - 59 |
-+--------+
++--------+---------+
+| Range  | Units   |
++========+=========+
+| 0 - 59 | minutes |
++--------+---------+
 
 
 
@@ -3039,11 +3039,11 @@ MAN\_THRUSTER\_TH: MAN\_THRUSTER\_TH
 throttle applied to the thruster when in manual mode
 
 
-+------------+
-| Range      |
-+============+
-| -100 - 100 |
-+------------+
++------------+---------+
+| Range      | Units   |
++============+=========+
+| -100 - 100 | percent |
++------------+---------+
 
 
 
@@ -3057,11 +3057,11 @@ THRUST\_GAIN\_DEF: Default gain at boot for thruster
 Default gain at boot for thruster\, must be in range \[\-THRUST\_GAIN\_MAX \, THRUST\_GAIN\_MAX\]
 
 
-+------------+
-| Range      |
-+============+
-| -100 - 100 |
-+------------+
++------------+---------+
+| Range      | Units   |
++============+=========+
+| -100 - 100 | percent |
++------------+---------+
 
 
 
@@ -3075,11 +3075,11 @@ THRUST\_GAIN\_MAX: Maximum thruster gain when in manual
 Maximum thruster gain when in manual
 
 
-+---------+
-| Range   |
-+=========+
-| 0 - 100 |
-+---------+
++---------+---------+
+| Range   | Units   |
++=========+=========+
+| 0 - 100 | percent |
++---------+---------+
 
 
 
@@ -3112,11 +3112,11 @@ WP\_VICINITY: WP\_VICINITY
 maximum distance to detect we are in the neighborhood of a waypoint
 
 
-+---------+
-| Values  |
-+=========+
-| ]0:1] m |
-+---------+
++-------+--------+
+| Range | Units  |
++=======+========+
+| 0 - 1 | meters |
++-------+--------+
 
 
 
@@ -3127,14 +3127,14 @@ LEASH\_LENGTH: LEASH\_LENGTH
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-distance for position algorithm \(M\)
+distance for position algorithm
 
 
-+-----------+
-| Range     |
-+===========+
-| 0.1 - 1.5 |
-+-----------+
++-----------+--------+
+| Range     | Units  |
++===========+========+
+| 0.1 - 1.5 | meters |
++-----------+--------+
 
 
 
@@ -3148,11 +3148,11 @@ MAX\_ANGLE\_COR: MAX\_ANGLE\_COR
 maximum angle \(degrees\) correction for position algorithm
 
 
-+---------+
-| Range   |
-+=========+
-| 10 - 80 |
-+---------+
++---------+---------+
+| Range   | Units   |
++=========+=========+
+| 10 - 80 | degrees |
++---------+---------+
 
 
 
@@ -3226,47 +3226,51 @@ TEMP\_CHECK: determine what to do in case of temperature too high
 0 \-\> disabled\, 1 \-\> switch to manual\, 2 warn only
 
 
-+-------+
-| Range |
-+=======+
-| 0 - 1 |
-+-------+
++-------+------------------+
+| Value | Meaning          |
++=======+==================+
+| 0     | Disabled         |
++-------+------------------+
+| 1     | Switch To Manual |
++-------+------------------+
+| 2     | Warning Only     |
++-------+------------------+
 
 
 
 
 .. _TEMP_MAX:
 
-TEMP\_MAX: threeshold to determine that temperature is too high
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+TEMP\_MAX: Max Temperature
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-temperature in degrees Celsius
+Temperature\, threeshold to determine that temperature is too high
 
 
-+---------+
-| Range   |
-+=========+
-| 0 - 500 |
-+---------+
++---------+-----------------+
+| Range   | Units           |
++=========+=================+
+| 0 - 500 | degrees Celsius |
++---------+-----------------+
 
 
 
 
-.. _MON_GEAR_LEFT:
+.. _MON_PERIOD:
 
-MON\_GEAR\_LEFT: nb seconds of usage of left gearbox
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-nb seconds of usage\, \* \(1000 hours\)
+MON\_PERIOD: Refreshing period for monitoring parameters
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-+----------+
-| Range    |
-+==========+
-| 0 - 1000 |
-+----------+
+Refreshing period for monitoring parameters
+
+
++------------+---------+
+| Range      | Units   |
++============+=========+
+| 0 - 100000 | seconds |
++------------+---------+
 
 
 
@@ -3280,11 +3284,11 @@ MON\_GEAR\_LEFT: nb seconds of usage of left gearbox
 nb seconds of usage\, \* 3600 \(1000 hours\)
 
 
-+----------+
-| Range    |
-+==========+
-| 0 - 1000 |
-+----------+
++----------------+---------+
+| Range          | Units   |
++================+=========+
+| 0 - 2147483647 | seconds |
++----------------+---------+
 
 
 
@@ -3298,11 +3302,11 @@ MON\_GEAR\_RIGHT: nb seconds of usage of left gearbox
 nb seconds of usage\, \* 3600 \(1000 hours\)
 
 
-+----------+
-| Range    |
-+==========+
-| 0 - 1000 |
-+----------+
++----------------+---------+
+| Range          | Units   |
++================+=========+
+| 0 - 2147483647 | seconds |
++----------------+---------+
 
 
 
@@ -3316,11 +3320,11 @@ MON\_GEAR\_BRUSH: nb seconds of usage of left gearbox
 nb seconds of usage\, \* 3600 \(1000 hours\)
 
 
-+----------+
-| Range    |
-+==========+
-| 0 - 1000 |
-+----------+
++----------------+---------+
+| Range          | Units   |
++================+=========+
+| 0 - 2147483647 | seconds |
++----------------+---------+
 
 
 
@@ -3334,11 +3338,11 @@ MON\_MOT\_LEFT: nb seconds of usage of left motor
 nb seconds of usage\, \* 3600 \(1000 hours\)
 
 
-+----------+
-| Range    |
-+==========+
-| 0 - 1000 |
-+----------+
++----------------+---------+
+| Range          | Units   |
++================+=========+
+| 0 - 2147483647 | seconds |
++----------------+---------+
 
 
 
@@ -3352,11 +3356,11 @@ MON\_MOT\_RIGHT: nb seconds of usage of right motor
 nb seconds of usage\, \* 3600 \(1000 hours\)
 
 
-+----------+
-| Range    |
-+==========+
-| 0 - 1000 |
-+----------+
++----------------+---------+
+| Range          | Units   |
++================+=========+
+| 0 - 2147483647 | seconds |
++----------------+---------+
 
 
 
@@ -3370,11 +3374,11 @@ MON\_THRUSTER: nb seconds of usage of thruster motor
 nb seconds of usage\, \* 3600 \(1000 hours\)
 
 
-+----------+
-| Range    |
-+==========+
-| 0 - 1000 |
-+----------+
++----------------+---------+
+| Range          | Units   |
++================+=========+
+| 0 - 2147483647 | seconds |
++----------------+---------+
 
 
 
@@ -3388,11 +3392,11 @@ MON\_MOT\_BRUSH: nb seconds of usage of brush motor
 nb seconds of usage\, \* 3600 \(1000 hours\)
 
 
-+----------+
-| Range    |
-+==========+
-| 0 - 1000 |
-+----------+
++----------------+---------+
+| Range          | Units   |
++================+=========+
+| 0 - 2147483647 | seconds |
++----------------+---------+
 
 
 
@@ -3406,11 +3410,11 @@ MON\_BBELT\_LEFT: nb seconds of usage of left Brushing belt
 nb seconds of usage\, \* 3600 \(1000 hours\)
 
 
-+----------+
-| Range    |
-+==========+
-| 0 - 1000 |
-+----------+
++----------------+---------+
+| Range          | Units   |
++================+=========+
+| 0 - 2147483647 | seconds |
++----------------+---------+
 
 
 
@@ -3424,11 +3428,11 @@ MON\_BBELT\_RIGHT: nb seconds of usage of right Brushing belt
 nb seconds of usage\, \* 3600 \(1000 hours\)
 
 
-+----------+
-| Range    |
-+==========+
-| 0 - 1000 |
-+----------+
++----------------+---------+
+| Range          | Units   |
++================+=========+
+| 0 - 2147483647 | seconds |
++----------------+---------+
 
 
 
@@ -3442,11 +3446,11 @@ MON\_NAVIGATOR: nb seconds of usage of navigator
 nb seconds of usage\, \* 3600 \(1000 hours\)
 
 
-+----------+
-| Range    |
-+==========+
-| 0 - 1000 |
-+----------+
++----------------+---------+
+| Range          | Units   |
++================+=========+
+| 0 - 2147483647 | seconds |
++----------------+---------+
 
 
 
@@ -3460,11 +3464,11 @@ MON\_BOARD: nb seconds of usage of board \(pi4 for now\)
 nb seconds of usage\, \* 3600 \(1000 hours\)
 
 
-+----------+
-| Range    |
-+==========+
-| 0 - 1000 |
-+----------+
++----------------+---------+
+| Range          | Units   |
++================+=========+
+| 0 - 2147483647 | seconds |
++----------------+---------+
 
 
 
@@ -3478,11 +3482,11 @@ MON\_MAIN\_CONV: nb seconds of usage of main converter \: 380V \-\> 24V
 nb seconds of usage\, \* 3600 \(1000 hours\)
 
 
-+----------+
-| Range    |
-+==========+
-| 0 - 1000 |
-+----------+
++----------------+---------+
+| Range          | Units   |
++================+=========+
+| 0 - 2147483647 | seconds |
++----------------+---------+
 
 
 
@@ -3496,11 +3500,11 @@ MON\_BRUSH\_CTRL: nb seconds of usage of brush controller
 nb seconds of usage\,  \* 3600 \(1000 hours\)
 
 
-+----------+
-| Range    |
-+==========+
-| 0 - 1000 |
-+----------+
++----------------+---------+
+| Range          | Units   |
++================+=========+
+| 0 - 2147483647 | seconds |
++----------------+---------+
 
 
 
@@ -3514,11 +3518,11 @@ MON\_THRUST\_CTRL: nb seconds of usage of thruster controller
 nb seconds of usage\, \* 3600 \(1000 hours\)
 
 
-+----------+
-| Range    |
-+==========+
-| 0 - 1000 |
-+----------+
++----------------+---------+
+| Range          | Units   |
++================+=========+
+| 0 - 2147483647 | seconds |
++----------------+---------+
 
 
 
@@ -3532,11 +3536,11 @@ MON\_LEFT\_CTRL: nb seconds of usage of left controller
 nb seconds of usage\, \* 3600 \(1000 hours\)
 
 
-+----------+
-| Range    |
-+==========+
-| 0 - 1000 |
-+----------+
++----------------+---------+
+| Range          | Units   |
++================+=========+
+| 0 - 2147483647 | seconds |
++----------------+---------+
 
 
 
@@ -3550,11 +3554,11 @@ MON\_RIGHT\_CTRL: nb seconds of usage of right controller
 nb seconds of usage\, \* 3600 \(1000 hours\)
 
 
-+----------+
-| Range    |
-+==========+
-| 0 - 1000 |
-+----------+
++----------------+---------+
+| Range          | Units   |
++================+=========+
+| 0 - 2147483647 | seconds |
++----------------+---------+
 
 
 
@@ -3568,11 +3572,11 @@ MON\_DEPTH\_SNSOR: nb seconds of usage of depth sensor
 nb seconds of usage\, \* 3600 \(1000 hours\)
 
 
-+----------+
-| Range    |
-+==========+
-| 0 - 1000 |
-+----------+
++----------------+---------+
+| Range          | Units   |
++================+=========+
+| 0 - 2147483647 | seconds |
++----------------+---------+
 
 
 
@@ -3586,11 +3590,11 @@ MON\_FRONT\_CAM: nb seconds of usage of front camera
 nb seconds of usage\,  \* 3600 \(1000 hours\)
 
 
-+----------+
-| Range    |
-+==========+
-| 0 - 1000 |
-+----------+
++----------------+---------+
+| Range          | Units   |
++================+=========+
+| 0 - 2147483647 | seconds |
++----------------+---------+
 
 
 
@@ -3604,11 +3608,11 @@ MON\_BACK\_CAM: nb seconds of usage of back camera
 nb seconds of usage\,  \* 3600 \(1000 hours\)
 
 
-+----------+
-| Range    |
-+==========+
-| 0 - 1000 |
-+----------+
++----------------+---------+
+| Range          | Units   |
++================+=========+
+| 0 - 2147483647 | seconds |
++----------------+---------+
 
 
 
@@ -3622,11 +3626,11 @@ MON\_ROBOT\_TOT: nb seconds of usage of robot
 nb seconds of usage\, \* 3600 \(1000 hours\)
 
 
-+----------+
-| Range    |
-+==========+
-| 0 - 1000 |
-+----------+
++----------------+---------+
+| Range          | Units   |
++================+=========+
+| 0 - 2147483647 | seconds |
++----------------+---------+
 
 
 
@@ -3640,11 +3644,11 @@ MON\_DBELT\_LEFT: nb seconds of usage of left Driving belt
 nb seconds of usage\, \* 3600 \(1000 hours\)
 
 
-+----------+
-| Range    |
-+==========+
-| 0 - 1000 |
-+----------+
++----------------+---------+
+| Range          | Units   |
++================+=========+
+| 0 - 2147483647 | seconds |
++----------------+---------+
 
 
 
@@ -3658,11 +3662,11 @@ MON\_DBELT\_RIGHT: nb seconds of usage of right Driving belt
 nb seconds of usage\,  \* 3600 \(1000 hours\)
 
 
-+----------+
-| Range    |
-+==========+
-| 0 - 1000 |
-+----------+
++----------------+---------+
+| Range          | Units   |
++================+=========+
+| 0 - 2147483647 | seconds |
++----------------+---------+
 
 
 
@@ -3705,18 +3709,20 @@ pwm value for camera \#2 angle when entering acro
 
 .. _AVOIDANCE_TYPE:
 
-AVOIDANCE\_TYPE: avoidance type\: 1 \= new\, 0 \= old
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+AVOIDANCE\_TYPE: Avoidance type
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-avoidance type\: 1 \= new\, 0 \= old
+Avoidance type
 
 
-+-------+
-| Range |
-+=======+
-| 0 - 1 |
-+-------+
++-------+---------+
+| Value | Meaning |
++=======+=========+
+| 0     | Old     |
++-------+---------+
+| 1     | New     |
++-------+---------+
 
 
 
@@ -3730,11 +3736,283 @@ SAFETY\_MARGIN: safety margin for MIN\_DEPTH and MAX\_DEPTH
 safety margin for MIN\_DEPTH and MAX\_DEPTH\, if negative\:disable safety \[meter\]
 
 
-+-------+
-| Range |
-+=======+
-| 0 - 1 |
-+-------+
++------------+--------+
+| Range      | Units  |
++============+========+
+| -1 - 10000 | meters |
++------------+--------+
+
+
+
+
+.. _max_roll_run:
+
+max\_roll\_run: max velocity in roll when running before next step in disarming
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+max velocity in roll when running before next step in disarming
+
+
++-------+--------------------+
+| Range | Units              |
++=======+====================+
+| 0 - 2 | radians per second |
++-------+--------------------+
+
+
+
+
+.. _max_pitch_run:
+
+max\_pitch\_run: max velocity in pitch when running before next step in disarming
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+max velocity in pitch when running before next step in disarming
+
+
++-------+--------------------+
+| Range | Units              |
++=======+====================+
+| 0 - 2 | radians per second |
++-------+--------------------+
+
+
+
+
+.. _max_yaw_run:
+
+max\_yaw\_run: max velocity in yaw when running before next step in disarming
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+max velocity in yaw when running before next step in disarming
+
+
++-------+--------------------+
+| Range | Units              |
++=======+====================+
+| 0 - 2 | radians per second |
++-------+--------------------+
+
+
+
+
+.. _max_roll_still:
+
+max\_roll\_still: max velocity in roll at standstill before disarming
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+max velocity in roll at standstill before disarming
+
+
++-------+--------------------+
+| Range | Units              |
++=======+====================+
+| 0 - 2 | radians per second |
++-------+--------------------+
+
+
+
+
+.. _max_pitch_still:
+
+max\_pitch\_still: max velocity in pitch at standstill before disarming
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+max velocity in pitch at standstill before disarming
+
+
++-------+--------------------+
+| Range | Units              |
++=======+====================+
+| 0 - 2 | radians per second |
++-------+--------------------+
+
+
+
+
+.. _max_yaw_still:
+
+max\_yaw\_still: max velocity in yaw at standstill before disarming
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+max velocity in yaw at standstill before disarming
+
+
++-------+--------------------+
+| Range | Units              |
++=======+====================+
+| 0 - 2 | radians per second |
++-------+--------------------+
+
+
+
+
+.. _max_roll_still2:
+
+max\_roll\_still2: max velocity in roll at standstill before disarming
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+max velocity in roll at standstill before disarming
+
+
++-------+--------------------+
+| Range | Units              |
++=======+====================+
+| 0 - 2 | radians per second |
++-------+--------------------+
+
+
+
+
+.. _max_pitch_still2:
+
+max\_pitch\_still2: max velocity in pitch at standstill before disarming
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+max velocity in pitch at standstill before disarming
+
+
++-------+--------------------+
+| Range | Units              |
++=======+====================+
+| 0 - 2 | radians per second |
++-------+--------------------+
+
+
+
+
+.. _max_yaw_still2:
+
+max\_yaw\_still2: max velocity in yaw at standstill before disarming
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+max velocity in yaw at standstill before disarming
+
+
++-------+--------------------+
+| Range | Units              |
++=======+====================+
+| 0 - 2 | radians per second |
++-------+--------------------+
+
+
+
+
+.. _sw_still_lim:
+
+sw\_still\_lim: switch limits between 1 and 2 in meter before disarming
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+switch limits between 1 and 2 in meter before disarming
+
+
++-------+--------+
+| Range | Units  |
++=======+========+
+| 0 - 2 | meters |
++-------+--------+
+
+
+
+
+.. _max_mon_t:
+
+max\_mon\_t: max time the robot are in monitoring state if on net
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+max time the robot are in monitoring state if on net
+
+
++--------+---------+
+| Range  | Units   |
++========+=========+
+| 0 - 60 | seconds |
++--------+---------+
+
+
+
+
+.. _stand_still_t:
+
+stand\_still\_t: time for the robot to comme to sandstill
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+time for the robot to comme to sandstill
+
+
++-------+---------+
+| Range | Units   |
++=======+=========+
+| 0 - 5 | seconds |
++-------+---------+
+
+
+
+
+.. _starting_t:
+
+starting\_t: let the robot have time to accelerate
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+let the robot have time to accelerate
+
+
++--------+---------+
+| Range  | Units   |
++========+=========+
+| 3 - 10 | seconds |
++--------+---------+
+
+
+
+
+.. _disable_mv:
+
+disable\_mv: 1\, disable monitoring for velocity spikes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+1\, disable monitoring for velocity spikes
+
+
++-------+--------------------+
+| Value | Meaning            |
++=======+====================+
+| 0     | Not Disabled       |
++-------+--------------------+
+| 1     | Disable Monitoring |
++-------+--------------------+
+
+
+
+
+.. _min_mon_depth:
+
+min\_mon\_depth: Don\'t stop and monitor if robot is on net above this H
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Don\'t stop and monitor if robot is on net above this H
+
+
++------------+--------+
+| Range      | Units  |
++============+========+
+| -100 - 100 | meters |
++------------+--------+
 
 
 
@@ -3745,7 +4023,43 @@ DEC\_THRUS\_TH: thruster throttle applied when \"stopping\" the thruster in avoi
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-thruster throttle applied when \"stopping\" the thruster in avoidance\, \[meter\] if negative\:disable safety
+thruster throttle applied when \"stopping\" the thruster in avoidance
+
+
++---------+---------+
+| Range   | Units   |
++=========+=========+
+| 0 - 100 | percent |
++---------+---------+
+
+
+
+
+.. _SPEED_FREQ_CUTOF:
+
+SPEED\_FREQ\_CUTOF: cutoff frequency in the filtering of speed for VEL\_CALC\_TYP \= 6
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+speed is smoothed by a low pass filter whose frequency is SPEED\_FREQ\_CUTOF
+
+
++-------+-------+
+| Range | Units |
++=======+=======+
+| 0 - 3 | hertz |
++-------+-------+
+
+
+
+
+.. _M33_LIMIT:
+
+M33\_LIMIT: minimum value for the M33 coef to avoid division by 0
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+minimum value for the M33 coef to avoid division by 0
 
 
 +-------+
@@ -3753,6 +4067,42 @@ thruster throttle applied when \"stopping\" the thruster in avoidance\, \[meter\
 +=======+
 | 0 - 1 |
 +-------+
+
+
+
+
+.. _ALPHA_BACKFLUSH:
+
+ALPHA\_BACKFLUSH: ALPHA\_BACKFLUSH
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+backflush at depth \= \(1\-ALPHA\_BACKFLUSH\) MIN\_DEPTH \+ \(ALPHA\_BACKFLUSH\) MAX\_DEPTH so ALPHA\_BACKFLUSH\=0 means MIN\_DEPTH\, ALPHA\_BACKFLUSH\=1 means MAX\_DEPTH
+
+
++---------+
+| Range   |
++=========+
+| 0. - 1. |
++---------+
+
+
+
+
+.. _MOUNT_TIMEOUT:
+
+MOUNT\_TIMEOUT: MOUNT\_TIMEOUT
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+timeout for joystick input before rotating camera to prescribed position
+
+
++------------+---------+
+| Range      | Units   |
++============+=========+
+| -1. - 999. | seconds |
++------------+---------+
 
 
 
@@ -19119,42 +19469,6 @@ Options for Pin 4\. PWM input detects PWM above or below 1800\/1200us instead of
 +-----+-------------+
 
 
-
-
-.. _BTN_FUNC1:
-
-BTN\_FUNC1: Button Pin 1 RC Channel function
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Auxiliary RC Options function executed on pin change
-
-
-.. _BTN_FUNC2:
-
-BTN\_FUNC2: Button Pin 2 RC Channel function
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Auxiliary RC Options function executed on pin change
-
-
-.. _BTN_FUNC3:
-
-BTN\_FUNC3: Button Pin 3 RC Channel function
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Auxiliary RC Options function executed on pin change
-
-
-.. _BTN_FUNC4:
-
-BTN\_FUNC4: Button Pin 4 RC Channel function
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Auxiliary RC Options function executed on pin change
 
 
 

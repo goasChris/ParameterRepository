@@ -270,6 +270,12 @@
       <User>Standard</User>
       <Values>0:None,1:NMEA AIVDM message</Values>
     </AIS_TYPE>
+    <ALPHA_BACKFLUSH>
+      <Description>backflush at depth = (1-ALPHA_BACKFLUSH) MIN_DEPTH + (ALPHA_BACKFLUSH) MAX_DEPTH so ALPHA_BACKFLUSH=0 means MIN_DEPTH, ALPHA_BACKFLUSH=1 means MAX_DEPTH</Description>
+      <DisplayName>ALPHA_BACKFLUSH</DisplayName>
+      <Range>0. 1.</Range>
+      <User>Standard</User>
+    </ALPHA_BACKFLUSH>
     <ARMING_ACCTHRESH>
       <Description>Accelerometer error threshold used to determine inconsistent accelerometers. Compares this error range to other accelerometers to detect a hardware or calibration error. Lower value means tighter check and harder to pass arming check. Not all accelerometers are created equal.</Description>
       <DisplayName>Accelerometer error threshold</DisplayName>
@@ -819,12 +825,14 @@
       <Description>hour at which the robot should automatically start acro mode, other values disable automatic start</Description>
       <DisplayName>AUTOSTART_HOUR</DisplayName>
       <Range>0 23</Range>
+      <Units>h</Units>
       <User>Advanced</User>
     </AUTOSTART_HOUR>
     <AUTOSTART_MIN>
       <Description>minute at which the robot should automatically start acro mode. other values disable automatic start</Description>
       <DisplayName>AUTOSTART_MIN</DisplayName>
       <Range>0 59</Range>
+      <Units>min</Units>
       <User>Advanced</User>
     </AUTOSTART_MIN>
     <AUTOST_FS_DEPTH>
@@ -880,10 +888,10 @@
       <User>Advanced</User>
     </AUX_CH>
     <AVOIDANCE_TYPE>
-      <Description>avoidance type: 1 = new, 0 = old</Description>
-      <DisplayName>avoidance type: 1 = new, 0 = old</DisplayName>
-      <Range>0 1</Range>
+      <Description>Avoidance type</Description>
+      <DisplayName>Avoidance type</DisplayName>
       <User>Standard</User>
+      <Values>0:Old,1:New</Values>
     </AVOIDANCE_TYPE>
     <AVOID_ACCEL_MAX>
       <Description>Maximum acceleration with which obstacles will be avoided with. Set zero to disable acceleration limits</Description>
@@ -940,7 +948,7 @@
       <User>Advanced</User>
     </Avoidance>
     <Avoidance>
-      <Description> Avoidance: nb try of whole pattern</Description>
+      <Description>Avoidance: nb try of whole pattern</Description>
       <DisplayName>AVOID_NB_TIME</DisplayName>
       <Range>0 255</Range>
       <User>Advanced</User>
@@ -2488,27 +2496,31 @@
       <Values>0:None,1:Pozyx,2:Marvelmind,3:Nooploop,10:SITL</Values>
     </BCN_TYPE>
     <BF_DELTAT_BACK>
-      <Description>time period for backflush  [s] ?</Description>
+      <Description>time period for backflush</Description>
       <DisplayName>BF_DELTAT_BACK</DisplayName>
       <Range>0 1</Range>
+      <Units>s</Units>
       <User>Advanced</User>
     </BF_DELTAT_BACK>
     <BF_DELTAT_RE>
-      <Description>time period for reflush  [s] ?</Description>
+      <Description>time period for reflush</Description>
       <DisplayName>BF_DELTAT_RE</DisplayName>
       <Range>0 100</Range>
+      <Units>s</Units>
       <User>Advanced</User>
     </BF_DELTAT_RE>
     <BF_DELTA_DEPTH>
-      <Description>depth interval to mid depth to allow backflush -BF_DELTA_DEPTH &lt; current_depth-(0.5 (MAX_DEPTH + MIN_DEPTH) ) &lt; BF_DELTA_DEPTH [m] ?</Description>
+      <Description>depth interval to backflush depth to allow backflush -BF_DELTA_DEPTH &lt; current_depth- ( ALPHA_BACKFLUSH * MAX_DEPTH + (1-ALPHA_BACKFLUSH)* MIN_DEPTH ) ) &lt; BF_DELTA_DEPTH</Description>
       <DisplayName>BF_DELTA_DEPTH</DisplayName>
       <Range>0 100</Range>
+      <Units>m</Units>
       <User>Advanced</User>
     </BF_DELTA_DEPTH>
     <BF_DELTA_ROLL>
-      <Description>backflush only when -BF_DELTA_ROLL &lt; roll-VERTICAL_ROLL &lt; BF_DELTA_ROLL [deg] ?</Description>
+      <Description>backflush only when -BF_DELTA_ROLL &lt; roll-VERTICAL_ROLL &lt; BF_DELTA_ROLL</Description>
       <DisplayName>BF_DELTA_ROLL</DisplayName>
       <Range>0 10</Range>
+      <Units>deg</Units>
       <User>Advanced</User>
     </BF_DELTA_ROLL>
     <BF_NB_REPETITION>
@@ -2518,21 +2530,24 @@
       <User>Advanced</User>
     </BF_NB_REPETITION>
     <BF_PERIOD>
-      <Description>backflush period [min] ?</Description>
+      <Description>backflush period</Description>
       <DisplayName>BF_PERIOD</DisplayName>
       <Range>0 100</Range>
+      <Units>min</Units>
       <User>Advanced</User>
     </BF_PERIOD>
     <BF_SPEED_TOP_B>
-      <Description>throttle applied during backflush [] ?</Description>
+      <Description>throttle applied during backflush</Description>
       <DisplayName>BF_SPEED_TOP_B</DisplayName>
       <Range>-100 0</Range>
+      <Units>%</Units>
       <User>Advanced</User>
     </BF_SPEED_TOP_B>
     <BF_SPEED_TOP_R>
-      <Description>throttle applied during reflush [] ?</Description>
+      <Description>throttle applied during reflush</Description>
       <DisplayName>BF_SPEED_TOP_R</DisplayName>
       <Range>0 100</Range>
+      <Units>%</Units>
       <User>Advanced</User>
     </BF_SPEED_TOP_R>
     <BRD_ALT_CONFIG>
@@ -3038,26 +3053,6 @@
       <User>Advanced</User>
       <Values>0:Disabled,1:Enabled</Values>
     </BTN_ENABLE>
-    <BTN_FUNC1>
-      <Description>Auxiliary RC Options function executed on pin change</Description>
-      <DisplayName>Button Pin 1 RC Channel function</DisplayName>
-      <User>Standard</User>
-    </BTN_FUNC1>
-    <BTN_FUNC2>
-      <Description>Auxiliary RC Options function executed on pin change</Description>
-      <DisplayName>Button Pin 2 RC Channel function</DisplayName>
-      <User>Standard</User>
-    </BTN_FUNC2>
-    <BTN_FUNC3>
-      <Description>Auxiliary RC Options function executed on pin change</Description>
-      <DisplayName>Button Pin 3 RC Channel function</DisplayName>
-      <User>Standard</User>
-    </BTN_FUNC3>
-    <BTN_FUNC4>
-      <Description>Auxiliary RC Options function executed on pin change</Description>
-      <DisplayName>Button Pin 4 RC Channel function</DisplayName>
-      <User>Standard</User>
-    </BTN_FUNC4>
     <BTN_OPTIONS1>
       <Bitmask>0:PWM Input,1:InvertInput</Bitmask>
       <Description>Options for Pin 1. PWM input detects PWM above or below 1800/1200us instead of logic level. Invert changes HIGH state to be logic low voltage on pin, or below 1200us, if PWM input.</Description>
@@ -3115,6 +3110,7 @@
       <Description>throttle applied to brush when going backward</Description>
       <DisplayName>BWD_BRUSH_TH</DisplayName>
       <Range>-100 100</Range>
+      <Units>%</Units>
       <User>Advanced</User>
     </BWD_BRUSH_TH>
     <BWD_DIST>
@@ -4214,26 +4210,29 @@
     <DEAD_THROTTLE>
       <Description>delta throttle under which we can not be stuck as we are not trying to move : if abs(throttle-0.5)&lt;dead_throttle</Description>
       <DisplayName>DEAD_THROTTLE</DisplayName>
-      <Range>0. 0.2</Range>
+      <Range>0 100</Range>
       <Units>%</Units>
       <User>Advanced</User>
     </DEAD_THROTTLE>
     <DEC_THRUS_TH>
-      <Description>thruster throttle applied when "stopping" the thruster in avoidance, [meter] if negative:disable safety</Description>
+      <Description>thruster throttle applied when "stopping" the thruster in avoidance</Description>
       <DisplayName>thruster throttle applied when "stopping" the thruster in avoidance</DisplayName>
-      <Range>0 1</Range>
+      <Range>0 100</Range>
+      <Units>%</Units>
       <User>Standard</User>
     </DEC_THRUS_TH>
     <DEPTH_1>
-      <Description>depth corresponding to RADIUS_NET_1 [m] ?</Description>
+      <Description>depth corresponding to RADIUS_NET_1</Description>
       <DisplayName>DEPTH_1</DisplayName>
       <Range>0 100</Range>
+      <Units>m</Units>
       <User>Advanced</User>
     </DEPTH_1>
     <DEPTH_2>
       <Description>depth corresponding to edge of the cone : radius = 0</Description>
       <DisplayName>DEPTH_2</DisplayName>
       <Range>0 100</Range>
+      <Units>m</Units>
       <User>Advanced</User>
     </DEPTH_2>
     <DIAG_TYPE>
@@ -5598,6 +5597,7 @@
       <Description>throttle applied to brush when going forward</Description>
       <DisplayName>FWD_BRUSH_TH</DisplayName>
       <Range>-100 100</Range>
+      <Units>%</Units>
       <User>Advanced</User>
     </FWD_BRUSH_TH>
     <FWD_DIST>
@@ -7048,9 +7048,10 @@
       <User>Advanced</User>
     </LATERAL_min_depth>
     <LEASH_LENGTH>
-      <Description>distance for position algorithm (M)</Description>
+      <Description>distance for position algorithm</Description>
       <DisplayName>LEASH_LENGTH</DisplayName>
       <Range>0.1 1.5</Range>
+      <Units>m</Units>
       <User>Standard</User>
     </LEASH_LENGTH>
     <LOG_BACKEND_TYPE>
@@ -7149,6 +7150,12 @@
       <User>Standard</User>
       <Values>0:Forward or reverse to target point,1:Always face bow towards target point,2:Always face stern towards target point</Values>
     </LOIT_TYPE>
+    <M33_LIMIT>
+      <Description>minimum value for the M33 coef to avoid division by 0</Description>
+      <DisplayName>minimum value for the M33 coef to avoid division by 0</DisplayName>
+      <Range>0 1</Range>
+      <User>Standard</User>
+    </M33_LIMIT>
     <MANUAL1_PARK2>
       <Description>when acro pattern is finished, switch to manual mode or parking mode ?</Description>
       <DisplayName>MANUAL1_PARK2</DisplayName>
@@ -7159,18 +7166,21 @@
       <Description>throttle applied to brush when in manual mode</Description>
       <DisplayName>MAN_BRUSH_TH</DisplayName>
       <Range>-100 100</Range>
+      <Units>%</Units>
       <User>Advanced</User>
     </MAN_BRUSH_TH>
     <MAN_THRUSTER_TH>
       <Description>throttle applied to the thruster when in manual mode</Description>
       <DisplayName>MAN_THRUSTER_TH</DisplayName>
       <Range>-100 100</Range>
+      <Units>%</Units>
       <User>Advanced</User>
     </MAN_THRUSTER_TH>
     <MAX_ANGLE_COR>
       <Description>maximum angle (degrees) correction for position algorithm</Description>
       <DisplayName>MAX_ANGLE_COR</DisplayName>
       <Range>10 80</Range>
+      <Units>deg</Units>
       <User>Standard</User>
     </MAX_ANGLE_COR>
     <MAX_HORIZ_DIST>
@@ -7585,139 +7595,162 @@
     <MON_BACK_CAM>
       <Description>nb seconds of usage,  * 3600 (1000 hours)</Description>
       <DisplayName>nb seconds of usage of back camera</DisplayName>
-      <Range>0 1000</Range>
+      <Range>0 2147483647</Range>
+      <Units>s</Units>
       <User>Standard</User>
     </MON_BACK_CAM>
     <MON_BBELT_LEFT>
       <Description>nb seconds of usage, * 3600 (1000 hours)</Description>
       <DisplayName>nb seconds of usage of left Brushing belt</DisplayName>
-      <Range>0 1000</Range>
+      <Range>0 2147483647</Range>
+      <Units>s</Units>
       <User>Standard</User>
     </MON_BBELT_LEFT>
     <MON_BBELT_RIGHT>
       <Description>nb seconds of usage, * 3600 (1000 hours)</Description>
       <DisplayName>nb seconds of usage of right Brushing belt</DisplayName>
-      <Range>0 1000</Range>
+      <Range>0 2147483647</Range>
+      <Units>s</Units>
       <User>Standard</User>
     </MON_BBELT_RIGHT>
     <MON_BOARD>
       <Description>nb seconds of usage, * 3600 (1000 hours)</Description>
       <DisplayName>nb seconds of usage of board (pi4 for now)</DisplayName>
-      <Range>0 1000</Range>
+      <Range>0 2147483647</Range>
+      <Units>s</Units>
       <User>Standard</User>
     </MON_BOARD>
     <MON_BRUSH_CTRL>
       <Description>nb seconds of usage,  * 3600 (1000 hours)</Description>
       <DisplayName>nb seconds of usage of brush controller</DisplayName>
-      <Range>0 1000</Range>
+      <Range>0 2147483647</Range>
+      <Units>s</Units>
       <User>Standard</User>
     </MON_BRUSH_CTRL>
     <MON_DBELT_LEFT>
       <Description>nb seconds of usage, * 3600 (1000 hours)</Description>
       <DisplayName>nb seconds of usage of left Driving belt</DisplayName>
-      <Range>0 1000</Range>
+      <Range>0 2147483647</Range>
+      <Units>s</Units>
       <User>Standard</User>
     </MON_DBELT_LEFT>
     <MON_DBELT_RIGHT>
       <Description>nb seconds of usage,  * 3600 (1000 hours)</Description>
       <DisplayName>nb seconds of usage of right Driving belt</DisplayName>
-      <Range>0 1000</Range>
+      <Range>0 2147483647</Range>
+      <Units>s</Units>
       <User>Standard</User>
     </MON_DBELT_RIGHT>
     <MON_DEPTH_SNSOR>
       <Description>nb seconds of usage, * 3600 (1000 hours)</Description>
       <DisplayName>nb seconds of usage of depth sensor</DisplayName>
-      <Range>0 1000</Range>
+      <Range>0 2147483647</Range>
+      <Units>s</Units>
       <User>Standard</User>
     </MON_DEPTH_SNSOR>
     <MON_FRONT_CAM>
       <Description>nb seconds of usage,  * 3600 (1000 hours)</Description>
       <DisplayName>nb seconds of usage of front camera</DisplayName>
-      <Range>0 1000</Range>
+      <Range>0 2147483647</Range>
+      <Units>s</Units>
       <User>Standard</User>
     </MON_FRONT_CAM>
     <MON_GEAR_BRUSH>
       <Description>nb seconds of usage, * 3600 (1000 hours)</Description>
       <DisplayName>nb seconds of usage of left gearbox</DisplayName>
-      <Range>0 1000</Range>
+      <Range>0 2147483647</Range>
+      <Units>s</Units>
       <User>Standard</User>
     </MON_GEAR_BRUSH>
     <MON_GEAR_LEFT>
-      <Description>nb seconds of usage, * (1000 hours)</Description>
-      <DisplayName>nb seconds of usage of left gearbox</DisplayName>
-      <Range>0 1000</Range>
-      <User>Standard</User>
-    </MON_GEAR_LEFT>
-    <MON_GEAR_LEFT>
       <Description>nb seconds of usage, * 3600 (1000 hours)</Description>
       <DisplayName>nb seconds of usage of left gearbox</DisplayName>
-      <Range>0 1000</Range>
+      <Range>0 2147483647</Range>
+      <Units>s</Units>
       <User>Standard</User>
     </MON_GEAR_LEFT>
     <MON_GEAR_RIGHT>
       <Description>nb seconds of usage, * 3600 (1000 hours)</Description>
       <DisplayName>nb seconds of usage of left gearbox</DisplayName>
-      <Range>0 1000</Range>
+      <Range>0 2147483647</Range>
+      <Units>s</Units>
       <User>Standard</User>
     </MON_GEAR_RIGHT>
     <MON_LEFT_CTRL>
       <Description>nb seconds of usage, * 3600 (1000 hours)</Description>
       <DisplayName>nb seconds of usage of left controller</DisplayName>
-      <Range>0 1000</Range>
+      <Range>0 2147483647</Range>
+      <Units>s</Units>
       <User>Standard</User>
     </MON_LEFT_CTRL>
     <MON_MAIN_CONV>
       <Description>nb seconds of usage, * 3600 (1000 hours)</Description>
       <DisplayName>nb seconds of usage of main converter : 380V -&gt; 24V</DisplayName>
-      <Range>0 1000</Range>
+      <Range>0 2147483647</Range>
+      <Units>s</Units>
       <User>Standard</User>
     </MON_MAIN_CONV>
     <MON_MOT_BRUSH>
       <Description>nb seconds of usage, * 3600 (1000 hours)</Description>
       <DisplayName>nb seconds of usage of brush motor</DisplayName>
-      <Range>0 1000</Range>
+      <Range>0 2147483647</Range>
+      <Units>s</Units>
       <User>Standard</User>
     </MON_MOT_BRUSH>
     <MON_MOT_LEFT>
       <Description>nb seconds of usage, * 3600 (1000 hours)</Description>
       <DisplayName>nb seconds of usage of left motor</DisplayName>
-      <Range>0 1000</Range>
+      <Range>0 2147483647</Range>
+      <Units>s</Units>
       <User>Standard</User>
     </MON_MOT_LEFT>
     <MON_MOT_RIGHT>
       <Description>nb seconds of usage, * 3600 (1000 hours)</Description>
       <DisplayName>nb seconds of usage of right motor</DisplayName>
-      <Range>0 1000</Range>
+      <Range>0 2147483647</Range>
+      <Units>s</Units>
       <User>Standard</User>
     </MON_MOT_RIGHT>
     <MON_NAVIGATOR>
       <Description>nb seconds of usage, * 3600 (1000 hours)</Description>
       <DisplayName>nb seconds of usage of navigator</DisplayName>
-      <Range>0 1000</Range>
+      <Range>0 2147483647</Range>
+      <Units>s</Units>
       <User>Standard</User>
     </MON_NAVIGATOR>
+    <MON_PERIOD>
+      <Description>Refreshing period for monitoring parameters</Description>
+      <DisplayName>Refreshing period for monitoring parameters</DisplayName>
+      <Range>0 100000</Range>
+      <Units>s</Units>
+      <User>Standard</User>
+    </MON_PERIOD>
     <MON_RIGHT_CTRL>
       <Description>nb seconds of usage, * 3600 (1000 hours)</Description>
       <DisplayName>nb seconds of usage of right controller</DisplayName>
-      <Range>0 1000</Range>
+      <Range>0 2147483647</Range>
+      <Units>s</Units>
       <User>Standard</User>
     </MON_RIGHT_CTRL>
     <MON_ROBOT_TOT>
       <Description>nb seconds of usage, * 3600 (1000 hours)</Description>
       <DisplayName>nb seconds of usage of robot</DisplayName>
-      <Range>0 1000</Range>
+      <Range>0 2147483647</Range>
+      <Units>s</Units>
       <User>Standard</User>
     </MON_ROBOT_TOT>
     <MON_THRUSTER>
       <Description>nb seconds of usage, * 3600 (1000 hours)</Description>
       <DisplayName>nb seconds of usage of thruster motor</DisplayName>
-      <Range>0 1000</Range>
+      <Range>0 2147483647</Range>
+      <Units>s</Units>
       <User>Standard</User>
     </MON_THRUSTER>
     <MON_THRUST_CTRL>
       <Description>nb seconds of usage, * 3600 (1000 hours)</Description>
       <DisplayName>nb seconds of usage of thruster controller</DisplayName>
-      <Range>0 1000</Range>
+      <Range>0 2147483647</Range>
+      <Units>s</Units>
       <User>Standard</User>
     </MON_THRUST_CTRL>
     <MOT_PWM_FREQ>
@@ -7792,6 +7825,13 @@
       <Units>deg</Units>
       <User>Standard</User>
     </MOT_VEC_ANGLEMAX>
+    <MOUNT_TIMEOUT>
+      <Description>timeout for joystick input before rotating camera to prescribed position</Description>
+      <DisplayName>MOUNT_TIMEOUT</DisplayName>
+      <Range>-1. 999.</Range>
+      <Units>s</Units>
+      <User>Standard</User>
+    </MOUNT_TIMEOUT>
     <MSP_OPTIONS>
       <Bitmask>0:EnableTelemetryMode, 1: DisableDJIWorkarounds, 2:EnableBTFLFonts</Bitmask>
       <Description>A bitmask to set some MSP specific options</Description>
@@ -12810,15 +12850,17 @@
       <User>Advanced</User>
     </PID_POS_KP>
     <PID_POS_TD>
-      <Description>Td coefficient for pid POS control algorithm  [s] ?</Description>
+      <Description>Td coefficient for pid POS control algorithm, 0 = deactivate</Description>
       <DisplayName>PID_POS_TD</DisplayName>
       <Range>0 100</Range>
+      <Units>s</Units>
       <User>Advanced</User>
     </PID_POS_TD>
     <PID_POS_TI>
-      <Description>TI coefficient for pid POS control algorithm [s] ?</Description>
+      <Description>TI coefficient for pid POS control algorithm, negative values deactivate</Description>
       <DisplayName>PID_POS_TI</DisplayName>
-      <Range>0 100</Range>
+      <Range>-10 100</Range>
+      <Units>s</Units>
       <User>Advanced</User>
     </PID_POS_TI>
     <PILOT_STEER_TYPE>
@@ -12846,14 +12888,14 @@
     <POSTHETADEGMAX>
       <Description>maximum theta in degrees before stop</Description>
       <DisplayName>POSTHETADEGMAX</DisplayName>
-      <Range>0 370</Range>
+      <Range>-1 370</Range>
       <Units>deg</Units>
       <User>Advanced</User>
     </POSTHETADEGMAX>
     <POSTHETADEGMIN>
       <Description>minimum theta in degrees before stop</Description>
       <DisplayName>POSTHETADEGMIN</DisplayName>
-      <Range>-1 360</Range>
+      <Range>-1 370</Range>
       <Units>deg</Units>
       <User>Advanced</User>
     </POSTHETADEGMIN>
@@ -12995,15 +13037,17 @@
       <User>Standard</User>
     </PRX_YAW_CORR>
     <RADIUS_NET>
-      <Description>radius of the net at the surface  [m] ?</Description>
+      <Description>radius of the net at the surface</Description>
       <DisplayName>RADIUS_NET</DisplayName>
       <Range>0 100</Range>
+      <Units>m</Units>
       <User>Advanced</User>
     </RADIUS_NET>
     <RADIUS_NET_1>
-      <Description>radius of the net at the depth DEPTH_1 [m] ?</Description>
+      <Description>radius of the net at the depth DEPTH_1</Description>
       <DisplayName>RADIUS_NET_1</DisplayName>
       <Range>0 100</Range>
+      <Units>m</Units>
       <User>Advanced</User>
     </RADIUS_NET_1>
     <RALLY_INCL_HOME>
@@ -15454,15 +15498,17 @@
       <User>Standard</User>
     </RTL_SPEED>
     <Reporting>
-      <Description>Time interval of status reporting [seconds] ?</Description>
+      <Description>Time interval of status reporting</Description>
       <DisplayName>REP_INTERVAL</DisplayName>
       <Range>0 600</Range>
+      <Units>s</Units>
       <User>Advanced</User>
     </Reporting>
     <SAFETY_MARGIN>
       <Description>safety margin for MIN_DEPTH and MAX_DEPTH, if negative:disable safety [meter]</Description>
       <DisplayName>safety margin for MIN_DEPTH and MAX_DEPTH</DisplayName>
-      <Range>0 1</Range>
+      <Range>-1 10000</Range>
+      <Units>m</Units>
       <User>Standard</User>
     </SAFETY_MARGIN>
     <SAIL_ANGLE_IDEAL>
@@ -16566,6 +16612,13 @@
       <User>Standard</User>
       <Values>0:InitialHeading,1:CardinalDirections</Values>
     </SIMPLE_TYPE>
+    <SPEED_FREQ_CUTOF>
+      <Description>speed is smoothed by a low pass filter whose frequency is SPEED_FREQ_CUTOF</Description>
+      <DisplayName>cutoff frequency in the filtering of speed for VEL_CALC_TYP = 6</DisplayName>
+      <Range>0 3</Range>
+      <Units>Hz</Units>
+      <User>Standard</User>
+    </SPEED_FREQ_CUTOF>
     <SPEED_MAX>
       <Description>Maximum speed vehicle can obtain at full throttle. If 0, it will be estimated based on CRUISE_SPEED and CRUISE_THROTTLE.</Description>
       <DisplayName>Speed maximum</DisplayName>
@@ -17251,7 +17304,7 @@
       <Description>maximum throttle to try to move when stuck</Description>
       <DisplayName>STUCK_THROTTLE</DisplayName>
       <Range>0 100</Range>
-      <Units>s</Units>
+      <Units>%</Units>
       <User>Advanced</User>
     </STUCK_THROTTLE>
     <SYSID_ENFORCE>
@@ -17273,7 +17326,7 @@
       <User>Advanced</User>
     </SYSID_THISMAV>
     <Stuck>
-      <Description> Stuck: nb try of whole pattern</Description>
+      <Description>Stuck: nb try of whole pattern</Description>
       <DisplayName>STUCK_NB_TIME</DisplayName>
       <Range>0 255</Range>
       <User>Advanced</User>
@@ -17289,92 +17342,101 @@
     <TEMP_CHECK>
       <Description>0 -&gt; disabled, 1 -&gt; switch to manual, 2 warn only</Description>
       <DisplayName>determine what to do in case of temperature too high</DisplayName>
-      <Range>0 1</Range>
       <User>Standard</User>
+      <Values>0:Disabled,1:Switch To Manual,2:Warning Only</Values>
     </TEMP_CHECK>
     <TEMP_MAX>
-      <Description>temperature in degrees Celsius</Description>
-      <DisplayName>threeshold to determine that temperature is too high</DisplayName>
+      <Description>Temperature, threeshold to determine that temperature is too high</Description>
+      <DisplayName>Max Temperature</DisplayName>
       <Range>0 500</Range>
+      <Units>degC</Units>
       <User>Standard</User>
     </TEMP_MAX>
     <TEST_BELT_NBPER>
       <Description>maximum number of period for belt test if &lt;0 no limit</Description>
       <DisplayName>TEST_BELT_NBPER</DisplayName>
-      <Range>-254 255</Range>
+      <Range>-1 100000</Range>
       <User>Advanced</User>
     </TEST_BELT_NBPER>
     <TEST_BELT_PER>
       <Description>test period for the belts in seconds if &lt;0 no movement</Description>
       <DisplayName>TEST_BELT_PER</DisplayName>
-      <Range>-254 255</Range>
+      <Range>-1 100000</Range>
+      <Units>s</Units>
       <User>Advanced</User>
     </TEST_BELT_PER>
     <TEST_BELT_TH_1>
       <Description>throttle applied during half of test period</Description>
       <DisplayName>TEST_BELT_TH_1</DisplayName>
       <Range>-100 100</Range>
+      <Units>%</Units>
       <User>Advanced</User>
     </TEST_BELT_TH_1>
     <TEST_BELT_TH_2>
       <Description>throttle applied during second half of test period</Description>
       <DisplayName>TEST_BELT_TH_2</DisplayName>
       <Range>-100 100</Range>
+      <Units>%</Units>
       <User>Advanced</User>
     </TEST_BELT_TH_2>
     <TEST_BRUSH_NBPER>
       <Description>maximum number of period for brush test if &lt;0 no limit</Description>
       <DisplayName>TEST_BRUSH_NBPER</DisplayName>
-      <Range>-254 255</Range>
+      <Range>-1 100000</Range>
       <User>Advanced</User>
     </TEST_BRUSH_NBPER>
     <TEST_BRUSH_PER>
       <Description>test period for the brush in seconds if &lt;0 no movement</Description>
       <DisplayName>TEST_BRUSH_PER</DisplayName>
       <Range>-254 255</Range>
+      <Units>%</Units>
       <User>Advanced</User>
     </TEST_BRUSH_PER>
     <TEST_BRUSH_TH_1>
       <Description>brush throttle applied during half of test period</Description>
       <DisplayName>TEST_BRUSH_TH_1</DisplayName>
       <Range>-100 100</Range>
+      <Units>%</Units>
       <User>Advanced</User>
     </TEST_BRUSH_TH_1>
     <TEST_BRUSH_TH_2>
       <Description>brush throttle applied during second half of test period</Description>
       <DisplayName>TEST_BRUSH_TH_2</DisplayName>
       <Range>-100 100</Range>
+      <Units>%</Units>
       <User>Advanced</User>
     </TEST_BRUSH_TH_2>
     <TEST_THRUS_NBPER>
       <Description>maximum number of period for thruster test if &lt;0 no limit</Description>
       <DisplayName>TEST_THRUS_NBPER</DisplayName>
-      <Range>-254 255</Range>
+      <Range>-1 100000</Range>
       <User>Advanced</User>
     </TEST_THRUS_NBPER>
     <TEST_THRUS_PER>
       <Description>test period for the thruster in seconds if &lt;0 no movement</Description>
       <DisplayName>TEST_THRUS_PER</DisplayName>
-      <Range>-254 255</Range>
+      <Range>-1 100000</Range>
+      <Units>s</Units>
       <User>Advanced</User>
     </TEST_THRUS_PER>
     <TEST_THRUS_TH_1>
       <Description>thruster throttle applied during half of test period</Description>
       <DisplayName>TEST_THRUS_TH_1</DisplayName>
       <Range>-100 100</Range>
+      <Units>%</Units>
       <User>Advanced</User>
     </TEST_THRUS_TH_1>
     <TEST_THRUS_TH_2>
       <Description>thruster throttle applied during second half of test period</Description>
       <DisplayName>TEST_THRUS_TH_2</DisplayName>
       <Range>-100 100</Range>
+      <Units>%</Units>
       <User>Advanced</User>
     </TEST_THRUS_TH_2>
     <THETA_CALC_TYPE>
       <Description>type of calculation for theta: 1 = netPosition.x/RadiusNet(z)*360/2pi, 2 = atan2(posNED.y,posNED.x)</Description>
       <DisplayName>THETA_CALC_TYPE</DisplayName>
-      <Range>0 360</Range>
-      <Units>deg</Units>
+      <Range>0 255</Range>
       <User>Advanced</User>
     </THETA_CALC_TYPE>
     <THRUSTER_G_STEP>
@@ -17387,12 +17449,14 @@
       <Description>Default gain at boot for thruster, must be in range [-THRUST_GAIN_MAX , THRUST_GAIN_MAX]</Description>
       <DisplayName>Default gain at boot for thruster</DisplayName>
       <Range>-100 100</Range>
+      <Units>%</Units>
       <User>Standard</User>
     </THRUST_GAIN_DEF>
     <THRUST_GAIN_MAX>
       <Description>Maximum thruster gain when in manual</Description>
       <DisplayName>Maximum thruster gain when in manual</DisplayName>
       <Range>0 100</Range>
+      <Units>%</Units>
       <User>Standard</User>
     </THRUST_GAIN_MAX>
     <THRUS_TRANSIT_T>
@@ -17471,7 +17535,7 @@
     <VEL_CALC_TYPE>
       <Description>type of calculation for vertical velocity: 1 = baro change over 250 ms, 2 = filtered derivative of baro reading, 3 = ahrs velocity along z</Description>
       <DisplayName>VEL_CALC_TYPE</DisplayName>
-      <Range>0 100000</Range>
+      <Range>0 255</Range>
       <User>Advanced</User>
     </VEL_CALC_TYPE>
     <VEL_TOL>
@@ -17870,8 +17934,9 @@
     <WP_VICINITY>
       <Description>maximum distance to detect we are in the neighborhood of a waypoint</Description>
       <DisplayName>WP_VICINITY</DisplayName>
+      <Range>0 1</Range>
+      <Units>m</Units>
       <User>Advanced</User>
-      <Values>]0:1] m</Values>
     </WP_VICINITY>
     <WRC2_RATE_D>
       <Description>Wheel rate control D gain.  Compensates for short-term change in desired rate vs actual</Description>
@@ -18029,17 +18094,121 @@
       <Units>deg</Units>
       <User>Advanced</User>
     </cur_posThetaDeg>
+    <disable_mv>
+      <Description>1, disable monitoring for velocity spikes</Description>
+      <DisplayName>1, disable monitoring for velocity spikes</DisplayName>
+      <User>Standard</User>
+      <Values>0:Not Disabled,1:Disable Monitoring</Values>
+    </disable_mv>
     <left_right>
       <Description>Which direction should the passes be offset (left or right); pattern to the left = 1, to the right =2</Description>
       <DisplayName>left_right</DisplayName>
       <User>Advanced</User>
       <Values>1:Left,2:Right</Values>
     </left_right>
+    <max_mon_t>
+      <Description>max time the robot are in monitoring state if on net</Description>
+      <DisplayName>max time the robot are in monitoring state if on net</DisplayName>
+      <Range>0 60</Range>
+      <Units>s</Units>
+      <User>Standard</User>
+    </max_mon_t>
+    <max_pitch_run>
+      <Description>max velocity in pitch when running before next step in disarming</Description>
+      <DisplayName>max velocity in pitch when running before next step in disarming</DisplayName>
+      <Range>0 2</Range>
+      <Units>rad/s</Units>
+      <User>Standard</User>
+    </max_pitch_run>
+    <max_pitch_still>
+      <Description>max velocity in pitch at standstill before disarming</Description>
+      <DisplayName>max velocity in pitch at standstill before disarming</DisplayName>
+      <Range>0 2</Range>
+      <Units>rad/s</Units>
+      <User>Standard</User>
+    </max_pitch_still>
+    <max_pitch_still2>
+      <Description>max velocity in pitch at standstill before disarming</Description>
+      <DisplayName>max velocity in pitch at standstill before disarming</DisplayName>
+      <Range>0 2</Range>
+      <Units>rad/s</Units>
+      <User>Standard</User>
+    </max_pitch_still2>
+    <max_roll_run>
+      <Description>max velocity in roll when running before next step in disarming</Description>
+      <DisplayName>max velocity in roll when running before next step in disarming</DisplayName>
+      <Range>0 2</Range>
+      <Units>rad/s</Units>
+      <User>Standard</User>
+    </max_roll_run>
+    <max_roll_still>
+      <Description>max velocity in roll at standstill before disarming</Description>
+      <DisplayName>max velocity in roll at standstill before disarming</DisplayName>
+      <Range>0 2</Range>
+      <Units>rad/s</Units>
+      <User>Standard</User>
+    </max_roll_still>
+    <max_roll_still2>
+      <Description>max velocity in roll at standstill before disarming</Description>
+      <DisplayName>max velocity in roll at standstill before disarming</DisplayName>
+      <Range>0 2</Range>
+      <Units>rad/s</Units>
+      <User>Standard</User>
+    </max_roll_still2>
+    <max_yaw_run>
+      <Description>max velocity in yaw when running before next step in disarming</Description>
+      <DisplayName>max velocity in yaw when running before next step in disarming</DisplayName>
+      <Range>0 2</Range>
+      <Units>rad/s</Units>
+      <User>Standard</User>
+    </max_yaw_run>
+    <max_yaw_still>
+      <Description>max velocity in yaw at standstill before disarming</Description>
+      <DisplayName>max velocity in yaw at standstill before disarming</DisplayName>
+      <Range>0 2</Range>
+      <Units>rad/s</Units>
+      <User>Standard</User>
+    </max_yaw_still>
+    <max_yaw_still2>
+      <Description>max velocity in yaw at standstill before disarming</Description>
+      <DisplayName>max velocity in yaw at standstill before disarming</DisplayName>
+      <Range>0 2</Range>
+      <Units>rad/s</Units>
+      <User>Standard</User>
+    </max_yaw_still2>
+    <min_mon_depth>
+      <Description>Don't stop and monitor if robot is on net above this H</Description>
+      <DisplayName>Don't stop and monitor if robot is on net above this H</DisplayName>
+      <Range>-100 100</Range>
+      <Units>m</Units>
+      <User>Standard</User>
+    </min_mon_depth>
     <reinit>
-      <Description>reinitialisation of vertical roll = 1. Any value change causes reset</Description>
-      <DisplayName>reinit</DisplayName>
+      <Description>reinitialisation of vertical roll. reset is triggered by a change in this value</Description>
+      <DisplayName>Reinitialisation of Vertical Roll</DisplayName>
+      <Range>-254 255</Range>
       <User>Advanced</User>
-      <Values>1:reset</Values>
     </reinit>
+    <stand_still_t>
+      <Description>time for the robot to comme to sandstill</Description>
+      <DisplayName>time for the robot to comme to sandstill</DisplayName>
+      <Range>0 5</Range>
+      <Units>s</Units>
+      <User>Standard</User>
+    </stand_still_t>
+    <starting_t>
+      <Description>let the robot have time to accelerate</Description>
+      <DisplayName>let the robot have time to accelerate</DisplayName>
+      <Range>3 10</Range>
+      <Units>s</Units>
+      <User>Standard</User>
+    </starting_t>
+    <sw_still_lim>
+      <Description>switch limits between 1 and 2 in meter before disarming</Description>
+      <DisplayName>switch limits between 1 and 2 in meter before disarming</DisplayName>
+      <Range>0 2</Range>
+      <Units>m</Units>
+      <User>Standard</User>
+    </sw_still_lim>
   </RemoraRover>
 </Params>
