@@ -1184,7 +1184,7 @@ DEAD\_THROTTLE: DEAD\_THROTTLE
 
 | *Note: This parameter is for advanced users*
 
-delta throttle under which we can not be stuck as we are not trying to move \: if abs\(throttle\-0\.5\)\<dead\_throttle
+delta throttle under which we can not be stuck as we are not trying to move \: if abs\(throttle\)\<dead\_throttle
 
 
 +---------+---------+
@@ -3295,8 +3295,8 @@ nb seconds of usage\, \* 3600 \(1000 hours\)
 
 .. _MON_GEAR_RIGHT:
 
-MON\_GEAR\_RIGHT: nb seconds of usage of left gearbox
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+MON\_GEAR\_RIGHT: nb seconds of usage of right gearbox
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 nb seconds of usage\, \* 3600 \(1000 hours\)
@@ -3313,8 +3313,8 @@ nb seconds of usage\, \* 3600 \(1000 hours\)
 
 .. _MON_GEAR_BRUSH:
 
-MON\_GEAR\_BRUSH: nb seconds of usage of left gearbox
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+MON\_GEAR\_BRUSH: nb seconds of usage of brush gearbox
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 nb seconds of usage\, \* 3600 \(1000 hours\)
@@ -3671,6 +3671,42 @@ nb seconds of usage\,  \* 3600 \(1000 hours\)
 
 
 
+.. _MON_BRIST_LEFT:
+
+MON\_BRIST\_LEFT: nb seconds of usage of bristles  on the left brushing belt
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+nb seconds of usage\, \* 3600 \(1000 hours\)
+
+
++----------------+---------+
+| Range          | Units   |
++================+=========+
+| 0 - 2147483647 | seconds |
++----------------+---------+
+
+
+
+
+.. _MON_BRIST_RIGHT:
+
+MON\_BRIST\_RIGHT: nb seconds of usage of bristles  on the right brushing belt
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+nb seconds of usage\, \* 3600 \(1000 hours\)
+
+
++----------------+---------+
+| Range          | Units   |
++================+=========+
+| 0 - 2147483647 | seconds |
++----------------+---------+
+
+
+
+
 .. _ACRO_MOUNT_PAN:
 
 ACRO\_MOUNT\_PAN: pwm value for camera \#1 angle when entering acro
@@ -3680,11 +3716,11 @@ ACRO\_MOUNT\_PAN: pwm value for camera \#1 angle when entering acro
 pwm value for camera \#1 angle when entering acro
 
 
-+-------------+
-| Range       |
-+=============+
-| 1000 - 2000 |
-+-------------+
++-------------+---------------------+
+| Range       | Units               |
++=============+=====================+
+| 1000 - 2000 | PWM in microseconds |
++-------------+---------------------+
 
 
 
@@ -3698,11 +3734,11 @@ ACRO\_MOUNT\_TILT: pwm value for camera \#2 angle when entering acro
 pwm value for camera \#2 angle when entering acro
 
 
-+-------------+
-| Range       |
-+=============+
-| 1000 - 2000 |
-+-------------+
++-------------+---------------------+
+| Range       | Units               |
++=============+=====================+
+| 1000 - 2000 | PWM in microseconds |
++-------------+---------------------+
 
 
 
@@ -3853,60 +3889,6 @@ max velocity in yaw at standstill before disarming
 
 
 
-.. _max_roll_still2:
-
-max\_roll\_still2: max velocity in roll at standstill before disarming
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-max velocity in roll at standstill before disarming
-
-
-+-------+--------------------+
-| Range | Units              |
-+=======+====================+
-| 0 - 2 | radians per second |
-+-------+--------------------+
-
-
-
-
-.. _max_pitch_still2:
-
-max\_pitch\_still2: max velocity in pitch at standstill before disarming
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-max velocity in pitch at standstill before disarming
-
-
-+-------+--------------------+
-| Range | Units              |
-+=======+====================+
-| 0 - 2 | radians per second |
-+-------+--------------------+
-
-
-
-
-.. _max_yaw_still2:
-
-max\_yaw\_still2: max velocity in yaw at standstill before disarming
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-max velocity in yaw at standstill before disarming
-
-
-+-------+--------------------+
-| Range | Units              |
-+=======+====================+
-| 0 - 2 | radians per second |
-+-------+--------------------+
-
-
-
-
 .. _sw_still_lim:
 
 sw\_still\_lim: switch limits between 1 and 2 in meter before disarming
@@ -4017,6 +3999,60 @@ Don\'t stop and monitor if robot is on net above this H
 
 
 
+.. _min_mon_thrus:
+
+min\_mon\_thrus: min thruster throttle applied when \"stopping\" checking if robot is on net
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+min thruster throttle applied when \"stopping\" checking if robot is on net
+
+
++---------+---------+
+| Range   | Units   |
++=========+=========+
+| 0 - 100 | percent |
++---------+---------+
+
+
+
+
+.. _gps_stuck_off:
+
+gps\_stuck\_off: GPS\_STUCK\_OFF
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+in gps measurment mode\, turn off stuck avoidanec at this depth and up
+
+
++--------+--------+
+| Range  | Units  |
++========+========+
+| -5 - 0 | meters |
++--------+--------+
+
+
+
+
+.. _max_depth_change:
+
+max\_depth\_change: MAX\_DEPTH\_CHANGE
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+when monitoring for off net\, robot will disarm if depth change is more
+
+
++---------+--------+
+| Range   | Units  |
++=========+========+
+| 0 - 0.5 | meters |
++---------+--------+
+
+
+
+
 .. _DEC_THRUS_TH:
 
 DEC\_THRUS\_TH: thruster throttle applied when \"stopping\" the thruster in avoidance
@@ -4103,6 +4139,348 @@ timeout for joystick input before rotating camera to prescribed position
 +============+=========+
 | -1. - 999. | seconds |
 +------------+---------+
+
+
+
+
+.. _MOT_I_TIMEOUT:
+
+MOT\_I\_TIMEOUT: MOT\_I\_TIMEOUT
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+timeout for motor intensity monitoring
+
+
++-----------+---------+
+| Range     | Units   |
++===========+=========+
+| 0. - 999. | seconds |
++-----------+---------+
+
+
+
+
+.. _SLID_BELT_COEF:
+
+SLID\_BELT\_COEF: SLID\_BELT\_COEF
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+coef for sliding belt detection\; if negative\, deactivate sliding belts detection
+
+
++------------+
+| Range      |
++============+
+| -1. - 999. |
++------------+
+
+
+
+
+.. _SLID_BELT_VMIN:
+
+SLID\_BELT\_VMIN: SLID\_BELT\_VMIN
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+minimum velocity for sliding belts detection
+
+
++-----------+-------------------+
+| Range     | Units             |
++===========+===================+
+| 0. - 999. | meters per second |
++-----------+-------------------+
+
+
+
+
+.. _SLID_BELT_TOUT:
+
+SLID\_BELT\_TOUT: SLID\_BELT\_TOUT
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+timeout for sliding belt detection
+
+
++------------+---------+
+| Range      | Units   |
++============+=========+
+| -1. - 999. | seconds |
++------------+---------+
+
+
+
+
+.. _SLID_BELT_DEPT:
+
+SLID\_BELT\_DEPT: SLID\_BELT\_DEPT
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+max depth for sliding belt detection
+
+
++---------+--------+
+| Range   | Units  |
++=========+========+
+| -50 - 0 | meters |
++---------+--------+
+
+
+
+
+.. _LOW_BRUSH_THROT:
+
+LOW\_BRUSH\_THROT: LOW\_BRUSH\_THROT
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+limit on brush throttle below which it is considered too low for acro
+
+
++-----------+---------+
+| Range     | Units   |
++===========+=========+
+| 0. - 100. | percent |
++-----------+---------+
+
+
+
+
+.. _BRUSH_THR_TOUT:
+
+BRUSH\_THR\_TOUT: BRUSH\_THR\_TOUT
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+delay between warning message when limit on brush throttle is crossed in acro
+
+
++-----------+---------+
+| Range     | Units   |
++===========+=========+
+| 0. - 100. | seconds |
++-----------+---------+
+
+
+
+
+.. _LOW_BRUSH_RPM:
+
+LOW\_BRUSH\_RPM: LOW\_BRUSH\_RPM
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+rpm below which it is considered too low in acro
+
+
++-----------+------------------+
+| Range     | Units            |
++===========+==================+
+| 0. - 100. | round per minute |
++-----------+------------------+
+
+
+
+
+.. _BRUSH_RPM_TOUT:
+
+BRUSH\_RPM\_TOUT: BRUSH\_RPM\_TOUT
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+delay between warning message when limit on brush rpm is crossed in acro
+
+
++-----------+---------+
+| Range     | Units   |
++===========+=========+
+| 0. - 100. | seconds |
++-----------+---------+
+
+
+
+
+.. _MANU_MOUNT_PAN:
+
+MANU\_MOUNT\_PAN: pwm value for camera \#1 angle when in manual
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+pwm value for camera \#1 angle when in manual
+
+
++-------------+---------------------+
+| Range       | Units               |
++=============+=====================+
+| 1000 - 2000 | PWM in microseconds |
++-------------+---------------------+
+
+
+
+
+.. _MANU_MOUNT_TILT:
+
+MANU\_MOUNT\_TILT: pwm value for camera \#2 angle when in manual
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+pwm value for camera \#2 angle when in manual
+
+
++-------------+---------------------+
+| Range       | Units               |
++=============+=====================+
+| 1000 - 2000 | PWM in microseconds |
++-------------+---------------------+
+
+
+
+
+.. _MANU_MOUNT_TOUT:
+
+MANU\_MOUNT\_TOUT: MANU\_MOUNT\_TOUT
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+timeout for joystick input before rotating camera to prescribed position in manual
+
+
++------------+---------+
+| Range      | Units   |
++============+=========+
+| -1. - 999. | seconds |
++------------+---------+
+
+
+
+
+.. _ALPHA_TURN:
+
+ALPHA\_TURN: ALPHA\_TURN
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+position of the turn for changing line\: alpha \= 0 means around MIN\_DEPTH\, alpha\=0\.5 means around \(MAX\_DEPTH\+MIN\_DEPTH\)\/2\, alpha \= 1 means around MAX\_DEPTH
+
+
++-------------+
+| Range       |
++=============+
+| 0.05 - 0.95 |
++-------------+
+
+
+
+
+.. _ALPHA_THRUSTER:
+
+ALPHA\_THRUSTER: ALPHA\_THRUSTER
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+position below which the \"reduce thruster\" step is skipped in avoidance\: alpha \= 0 means around MIN\_DEPTH\, alpha\=0\.5 means around \(MAX\_DEPTH\+MIN\_DEPTH\)\/2\, alpha \= 1 means around MAX\_DEPTH
+
+
++-------------+
+| Range       |
++=============+
+| 0.05 - 0.95 |
++-------------+
+
+
+
+
+.. _AVOID_H_DISTANCE:
+
+AVOID\_H\_DISTANCE: AVOID\_H\_DISTANCE
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+in new avoidance pattern\, horizontal distance below which we try another whole pattern
+
+
++----------+--------+
+| Range    | Units  |
++==========+========+
+| 0. - 2.0 | meters |
++----------+--------+
+
+
+
+
+.. _AVOIDAN_MARGIN:
+
+AVOIDAN\_MARGIN: AVOIDAN\_MARGIN
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+in new avoidance pattern\, margin for depth in stuck and avoidance
+
+
++----------+--------+
+| Range    | Units  |
++==========+========+
+| 0. - 5.0 | meters |
++----------+--------+
+
+
+
+
+.. _AVOID_SPEED_UP:
+
+AVOID\_SPEED\_UP: AVOID\_SPEED\_UP
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+in new avoidance pattern\, speed being applied when trying to go up
+
+
++-----------+---------+
+| Range     | Units   |
++===========+=========+
+| 0. - 100. | percent |
++-----------+---------+
+
+
+
+
+.. _AVOID_SPEED_DW:
+
+AVOID\_SPEED\_DW: AVOID\_SPEED\_DW
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+in new avoidance pattern\, speed being applied when trying to go down
+
+
++-----------+---------+
+| Range     | Units   |
++===========+=========+
+| 0. - 100. | percent |
++-----------+---------+
+
+
+
+
+.. _ALPHA_AVOIDANCE:
+
+ALPHA\_AVOIDANCE: ALPHA\_AVOIDANCE
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+in new avoidance pattern\, position below which we first try to go up\: alpha \= 0 means around MIN\_DEPTH\, alpha\=0\.5 means around \(MAX\_DEPTH\+MIN\_DEPTH\)\/2\, alpha \= 1 means around MAX\_DEPTH
+
+
++---------+
+| Range   |
++=========+
+| 0. - 1. |
++---------+
 
 
 
@@ -59455,6 +59833,8 @@ Control what protocol to use on the Telem1 port\. Note that the Frsky options re
 +-------+----------------------------------+
 | 42    | DisplayPort                      |
 +-------+----------------------------------+
+| 43    | VESC telemetry                   |
++-------+----------------------------------+
 
 
 
@@ -59599,6 +59979,8 @@ Control what protocol to use on the Telem2 port\. Note that the Frsky options re
 | 41    | CoDevESC                         |
 +-------+----------------------------------+
 | 42    | DisplayPort                      |
++-------+----------------------------------+
+| 43    | VESC telemetry                   |
 +-------+----------------------------------+
 
 
@@ -59745,6 +60127,8 @@ Control what protocol Serial 3 \(GPS\) should be used for\. Note that the Frsky 
 +-------+----------------------------------+
 | 42    | DisplayPort                      |
 +-------+----------------------------------+
+| 43    | VESC telemetry                   |
++-------+----------------------------------+
 
 
 
@@ -59889,6 +60273,8 @@ Control what protocol Serial4 port should be used for\. Note that the Frsky opti
 | 41    | CoDevESC                         |
 +-------+----------------------------------+
 | 42    | DisplayPort                      |
++-------+----------------------------------+
+| 43    | VESC telemetry                   |
 +-------+----------------------------------+
 
 
@@ -60035,6 +60421,8 @@ Control what protocol Serial5 port should be used for\. Note that the Frsky opti
 +-------+----------------------------------+
 | 42    | DisplayPort                      |
 +-------+----------------------------------+
+| 43    | VESC telemetry                   |
++-------+----------------------------------+
 
 
 
@@ -60179,6 +60567,8 @@ Control what protocol Serial6 port should be used for\. Note that the Frsky opti
 | 41    | CoDevESC                         |
 +-------+----------------------------------+
 | 42    | DisplayPort                      |
++-------+----------------------------------+
+| 43    | VESC telemetry                   |
 +-------+----------------------------------+
 
 
@@ -60674,6 +61064,8 @@ Control what protocol Serial7 port should be used for\. Note that the Frsky opti
 +-------+----------------------------------+
 | 42    | DisplayPort                      |
 +-------+----------------------------------+
+| 43    | VESC telemetry                   |
++-------+----------------------------------+
 
 
 
@@ -60863,6 +61255,8 @@ Control what protocol Serial8 port should be used for\. Note that the Frsky opti
 +-------+----------------------------------+
 | 42    | DisplayPort                      |
 +-------+----------------------------------+
+| 43    | VESC telemetry                   |
++-------+----------------------------------+
 
 
 
@@ -61051,6 +61445,8 @@ Control what protocol Serial9 port should be used for\. Note that the Frsky opti
 | 41    | CoDevESC                         |
 +-------+----------------------------------+
 | 42    | DisplayPort                      |
++-------+----------------------------------+
+| 43    | VESC telemetry                   |
 +-------+----------------------------------+
 
 

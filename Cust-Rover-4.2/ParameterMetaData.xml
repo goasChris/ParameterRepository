@@ -5,12 +5,14 @@
       <Description>pwm value for camera #1 angle when entering acro</Description>
       <DisplayName>pwm value for camera #1 angle when entering acro</DisplayName>
       <Range>1000 2000</Range>
+      <Units>PWM</Units>
       <User>Standard</User>
     </ACRO_MOUNT_PAN>
     <ACRO_MOUNT_TILT>
       <Description>pwm value for camera #2 angle when entering acro</Description>
       <DisplayName>pwm value for camera #2 angle when entering acro</DisplayName>
       <Range>1000 2000</Range>
+      <Units>PWM</Units>
       <User>Standard</User>
     </ACRO_MOUNT_TILT>
     <ACRO_ROTAT_PAT>
@@ -270,12 +272,30 @@
       <User>Standard</User>
       <Values>0:None,1:NMEA AIVDM message</Values>
     </AIS_TYPE>
+    <ALPHA_AVOIDANCE>
+      <Description>in new avoidance pattern, position below which we first try to go up: alpha = 0 means around MIN_DEPTH, alpha=0.5 means around (MAX_DEPTH+MIN_DEPTH)/2, alpha = 1 means around MAX_DEPTH</Description>
+      <DisplayName>ALPHA_AVOIDANCE</DisplayName>
+      <Range>0. 1.</Range>
+      <User>Standard</User>
+    </ALPHA_AVOIDANCE>
     <ALPHA_BACKFLUSH>
       <Description>backflush at depth = (1-ALPHA_BACKFLUSH) MIN_DEPTH + (ALPHA_BACKFLUSH) MAX_DEPTH so ALPHA_BACKFLUSH=0 means MIN_DEPTH, ALPHA_BACKFLUSH=1 means MAX_DEPTH</Description>
       <DisplayName>ALPHA_BACKFLUSH</DisplayName>
       <Range>0. 1.</Range>
       <User>Standard</User>
     </ALPHA_BACKFLUSH>
+    <ALPHA_THRUSTER>
+      <Description>position below which the "reduce thruster" step is skipped in avoidance: alpha = 0 means around MIN_DEPTH, alpha=0.5 means around (MAX_DEPTH+MIN_DEPTH)/2, alpha = 1 means around MAX_DEPTH</Description>
+      <DisplayName>ALPHA_THRUSTER</DisplayName>
+      <Range>0.05 0.95</Range>
+      <User>Standard</User>
+    </ALPHA_THRUSTER>
+    <ALPHA_TURN>
+      <Description>position of the turn for changing line: alpha = 0 means around MIN_DEPTH, alpha=0.5 means around (MAX_DEPTH+MIN_DEPTH)/2, alpha = 1 means around MAX_DEPTH</Description>
+      <DisplayName>ALPHA_TURN</DisplayName>
+      <Range>0.05 0.95</Range>
+      <User>Standard</User>
+    </ALPHA_TURN>
     <ARMING_ACCTHRESH>
       <Description>Accelerometer error threshold used to determine inconsistent accelerometers. Compares this error range to other accelerometers to detect a hardware or calibration error. Lower value means tighter check and harder to pass arming check. Not all accelerometers are created equal.</Description>
       <DisplayName>Accelerometer error threshold</DisplayName>
@@ -893,6 +913,13 @@
       <User>Standard</User>
       <Values>0:Old,1:New</Values>
     </AVOIDANCE_TYPE>
+    <AVOIDAN_MARGIN>
+      <Description>in new avoidance pattern, margin for depth in stuck and avoidance</Description>
+      <DisplayName>AVOIDAN_MARGIN</DisplayName>
+      <Range>0. 5.0</Range>
+      <Units>m</Units>
+      <User>Standard</User>
+    </AVOIDAN_MARGIN>
     <AVOID_ACCEL_MAX>
       <Description>Maximum acceleration with which obstacles will be avoided with. Set zero to disable acceleration limits</Description>
       <DisplayName>Avoidance maximum acceleration</DisplayName>
@@ -920,6 +947,13 @@
       <DisplayName>Avoidance control enable/disable</DisplayName>
       <User>Standard</User>
     </AVOID_ENABLE>
+    <AVOID_H_DISTANCE>
+      <Description>in new avoidance pattern, horizontal distance below which we try another whole pattern</Description>
+      <DisplayName>AVOID_H_DISTANCE</DisplayName>
+      <Range>0. 2.0</Range>
+      <Units>m</Units>
+      <User>Standard</User>
+    </AVOID_H_DISTANCE>
     <AVOID_MARGIN>
       <Description>Vehicle will attempt to stay at least this distance (in meters) from objects while in GPS modes</Description>
       <DisplayName>Avoidance distance margin in GPS modes</DisplayName>
@@ -927,6 +961,20 @@
       <Units>m</Units>
       <User>Standard</User>
     </AVOID_MARGIN>
+    <AVOID_SPEED_DW>
+      <Description>in new avoidance pattern, speed being applied when trying to go down</Description>
+      <DisplayName>AVOID_SPEED_DW</DisplayName>
+      <Range>0. 100.</Range>
+      <Units>%</Units>
+      <User>Standard</User>
+    </AVOID_SPEED_DW>
+    <AVOID_SPEED_UP>
+      <Description>in new avoidance pattern, speed being applied when trying to go up</Description>
+      <DisplayName>AVOID_SPEED_UP</DisplayName>
+      <Range>0. 100.</Range>
+      <Units>%</Units>
+      <User>Standard</User>
+    </AVOID_SPEED_UP>
     <Avoidance>
       <Description>offset when trying to avoid an obstacle</Description>
       <DisplayName>AVOID_OFFSET</DisplayName>
@@ -2855,6 +2903,20 @@
       <Range>1 10</Range>
       <User>Standard</User>
     </BRUSH_GAIN_STEP>
+    <BRUSH_RPM_TOUT>
+      <Description>delay between warning message when limit on brush rpm is crossed in acro</Description>
+      <DisplayName>BRUSH_RPM_TOUT</DisplayName>
+      <Range>0. 100.</Range>
+      <Units>s</Units>
+      <User>Standard</User>
+    </BRUSH_RPM_TOUT>
+    <BRUSH_THR_TOUT>
+      <Description>delay between warning message when limit on brush throttle is crossed in acro</Description>
+      <DisplayName>BRUSH_THR_TOUT</DisplayName>
+      <Range>0. 100.</Range>
+      <Units>s</Units>
+      <User>Standard</User>
+    </BRUSH_THR_TOUT>
     <BTN0_FUNCTION>
       <Description>Set to 0 to disable or choose a function</Description>
       <DisplayName>Function for button</DisplayName>
@@ -4208,7 +4270,7 @@
       <Values>1:verticalOneWay L/R,2:lateral L/R,3:vertTwoWay L/R,4:horizontal,5:horizontal PostContAlgo,6:vert PostContAlgo 2way,7:vert PostContAlgo 1way,8:diagonal</Values>
     </CURRENT_PATTERN>
     <DEAD_THROTTLE>
-      <Description>delta throttle under which we can not be stuck as we are not trying to move : if abs(throttle-0.5)&lt;dead_throttle</Description>
+      <Description>delta throttle under which we can not be stuck as we are not trying to move : if abs(throttle)&lt;dead_throttle</Description>
       <DisplayName>DEAD_THROTTLE</DisplayName>
       <Range>0 100</Range>
       <Units>%</Units>
@@ -7150,6 +7212,20 @@
       <User>Standard</User>
       <Values>0:Forward or reverse to target point,1:Always face bow towards target point,2:Always face stern towards target point</Values>
     </LOIT_TYPE>
+    <LOW_BRUSH_RPM>
+      <Description>rpm below which it is considered too low in acro</Description>
+      <DisplayName>LOW_BRUSH_RPM</DisplayName>
+      <Range>0. 100.</Range>
+      <Units>rpm</Units>
+      <User>Standard</User>
+    </LOW_BRUSH_RPM>
+    <LOW_BRUSH_THROT>
+      <Description>limit on brush throttle below which it is considered too low for acro</Description>
+      <DisplayName>LOW_BRUSH_THROT</DisplayName>
+      <Range>0. 100.</Range>
+      <Units>%</Units>
+      <User>Standard</User>
+    </LOW_BRUSH_THROT>
     <M33_LIMIT>
       <Description>minimum value for the M33 coef to avoid division by 0</Description>
       <DisplayName>minimum value for the M33 coef to avoid division by 0</DisplayName>
@@ -7162,6 +7238,27 @@
       <User>Advanced</User>
       <Values>1:Manual,2:Park</Values>
     </MANUAL1_PARK2>
+    <MANU_MOUNT_PAN>
+      <Description>pwm value for camera #1 angle when in manual</Description>
+      <DisplayName>pwm value for camera #1 angle when in manual</DisplayName>
+      <Range>1000 2000</Range>
+      <Units>PWM</Units>
+      <User>Standard</User>
+    </MANU_MOUNT_PAN>
+    <MANU_MOUNT_TILT>
+      <Description>pwm value for camera #2 angle when in manual</Description>
+      <DisplayName>pwm value for camera #2 angle when in manual</DisplayName>
+      <Range>1000 2000</Range>
+      <Units>PWM</Units>
+      <User>Standard</User>
+    </MANU_MOUNT_TILT>
+    <MANU_MOUNT_TOUT>
+      <Description>timeout for joystick input before rotating camera to prescribed position in manual</Description>
+      <DisplayName>MANU_MOUNT_TOUT</DisplayName>
+      <Range>-1. 999.</Range>
+      <Units>s</Units>
+      <User>Standard</User>
+    </MANU_MOUNT_TOUT>
     <MAN_BRUSH_TH>
       <Description>throttle applied to brush when in manual mode</Description>
       <DisplayName>MAN_BRUSH_TH</DisplayName>
@@ -7620,6 +7717,20 @@
       <Units>s</Units>
       <User>Standard</User>
     </MON_BOARD>
+    <MON_BRIST_LEFT>
+      <Description>nb seconds of usage, * 3600 (1000 hours)</Description>
+      <DisplayName>nb seconds of usage of bristles  on the left brushing belt</DisplayName>
+      <Range>0 2147483647</Range>
+      <Units>s</Units>
+      <User>Standard</User>
+    </MON_BRIST_LEFT>
+    <MON_BRIST_RIGHT>
+      <Description>nb seconds of usage, * 3600 (1000 hours)</Description>
+      <DisplayName>nb seconds of usage of bristles  on the right brushing belt</DisplayName>
+      <Range>0 2147483647</Range>
+      <Units>s</Units>
+      <User>Standard</User>
+    </MON_BRIST_RIGHT>
     <MON_BRUSH_CTRL>
       <Description>nb seconds of usage,  * 3600 (1000 hours)</Description>
       <DisplayName>nb seconds of usage of brush controller</DisplayName>
@@ -7657,7 +7768,7 @@
     </MON_FRONT_CAM>
     <MON_GEAR_BRUSH>
       <Description>nb seconds of usage, * 3600 (1000 hours)</Description>
-      <DisplayName>nb seconds of usage of left gearbox</DisplayName>
+      <DisplayName>nb seconds of usage of brush gearbox</DisplayName>
       <Range>0 2147483647</Range>
       <Units>s</Units>
       <User>Standard</User>
@@ -7671,7 +7782,7 @@
     </MON_GEAR_LEFT>
     <MON_GEAR_RIGHT>
       <Description>nb seconds of usage, * 3600 (1000 hours)</Description>
-      <DisplayName>nb seconds of usage of left gearbox</DisplayName>
+      <DisplayName>nb seconds of usage of right gearbox</DisplayName>
       <Range>0 2147483647</Range>
       <Units>s</Units>
       <User>Standard</User>
@@ -7753,6 +7864,13 @@
       <Units>s</Units>
       <User>Standard</User>
     </MON_THRUST_CTRL>
+    <MOT_I_TIMEOUT>
+      <Description>timeout for motor intensity monitoring</Description>
+      <DisplayName>MOT_I_TIMEOUT</DisplayName>
+      <Range>0. 999.</Range>
+      <Units>s</Units>
+      <User>Standard</User>
+    </MOT_I_TIMEOUT>
     <MOT_PWM_FREQ>
       <Description>Motor Output PWM freq for brushed motors</Description>
       <DisplayName>Motor Output PWM freq for brushed motors</DisplayName>
@@ -15697,7 +15815,7 @@
       <DisplayName>Telem1 protocol selection</DisplayName>
       <RebootRequired>True</RebootRequired>
       <User>Standard</User>
-      <Values>-1:None,1:MAVLink1,2:MAVLink2,3:Frsky D,4:Frsky SPort,5:GPS,7:Alexmos Gimbal Serial,8:SToRM32 Gimbal Serial,9:Rangefinder,10:FrSky SPort Passthrough (OpenTX),11:Lidar360,13:Beacon,14:Volz servo out,15:SBus servo out,16:ESC Telemetry,17:Devo Telemetry,18:OpticalFlow,19:RobotisServo,20:NMEA Output,21:WindVane,22:SLCAN,23:RCIN,24:MegaSquirt EFI,25:LTM,26:RunCam,27:HottTelem,28:Scripting,29:Crossfire VTX,30:Generator,31:Winch,32:MSP,33:DJI FPV,34:AirSpeed,35:ADSB,36:AHRS,37:SmartAudio,38:FETtecOneWire,39:Torqeedo,40:AIS,41:CoDevESC,42:DisplayPort</Values>
+      <Values>-1:None,1:MAVLink1,2:MAVLink2,3:Frsky D,4:Frsky SPort,5:GPS,7:Alexmos Gimbal Serial,8:SToRM32 Gimbal Serial,9:Rangefinder,10:FrSky SPort Passthrough (OpenTX),11:Lidar360,13:Beacon,14:Volz servo out,15:SBus servo out,16:ESC Telemetry,17:Devo Telemetry,18:OpticalFlow,19:RobotisServo,20:NMEA Output,21:WindVane,22:SLCAN,23:RCIN,24:MegaSquirt EFI,25:LTM,26:RunCam,27:HottTelem,28:Scripting,29:Crossfire VTX,30:Generator,31:Winch,32:MSP,33:DJI FPV,34:AirSpeed,35:ADSB,36:AHRS,37:SmartAudio,38:FETtecOneWire,39:Torqeedo,40:AIS,41:CoDevESC,42:DisplayPort,43:VESC telemetry</Values>
     </SERIAL1_PROTOCOL>
     <SERIAL2_BAUD>
       <Description>The baud rate of the Telem2 port. Most stm32-based boards can support rates of up to 1500. If you setup a rate you cannot support and then can't connect to your board you should load a firmware from a different vehicle type. That will reset all your parameters to defaults.</Description>
@@ -15717,7 +15835,7 @@
       <DisplayName>Telemetry 2 protocol selection</DisplayName>
       <RebootRequired>True</RebootRequired>
       <User>Standard</User>
-      <Values>-1:None,1:MAVLink1,2:MAVLink2,3:Frsky D,4:Frsky SPort,5:GPS,7:Alexmos Gimbal Serial,8:SToRM32 Gimbal Serial,9:Rangefinder,10:FrSky SPort Passthrough (OpenTX),11:Lidar360,13:Beacon,14:Volz servo out,15:SBus servo out,16:ESC Telemetry,17:Devo Telemetry,18:OpticalFlow,19:RobotisServo,20:NMEA Output,21:WindVane,22:SLCAN,23:RCIN,24:MegaSquirt EFI,25:LTM,26:RunCam,27:HottTelem,28:Scripting,29:Crossfire VTX,30:Generator,31:Winch,32:MSP,33:DJI FPV,34:AirSpeed,35:ADSB,36:AHRS,37:SmartAudio,38:FETtecOneWire,39:Torqeedo,40:AIS,41:CoDevESC,42:DisplayPort</Values>
+      <Values>-1:None,1:MAVLink1,2:MAVLink2,3:Frsky D,4:Frsky SPort,5:GPS,7:Alexmos Gimbal Serial,8:SToRM32 Gimbal Serial,9:Rangefinder,10:FrSky SPort Passthrough (OpenTX),11:Lidar360,13:Beacon,14:Volz servo out,15:SBus servo out,16:ESC Telemetry,17:Devo Telemetry,18:OpticalFlow,19:RobotisServo,20:NMEA Output,21:WindVane,22:SLCAN,23:RCIN,24:MegaSquirt EFI,25:LTM,26:RunCam,27:HottTelem,28:Scripting,29:Crossfire VTX,30:Generator,31:Winch,32:MSP,33:DJI FPV,34:AirSpeed,35:ADSB,36:AHRS,37:SmartAudio,38:FETtecOneWire,39:Torqeedo,40:AIS,41:CoDevESC,42:DisplayPort,43:VESC telemetry</Values>
     </SERIAL2_PROTOCOL>
     <SERIAL3_BAUD>
       <Description>The baud rate used for the Serial 3 (GPS). Most stm32-based boards can support rates of up to 1500. If you setup a rate you cannot support and then can't connect to your board you should load a firmware from a different vehicle type. That will reset all your parameters to defaults.</Description>
@@ -15737,7 +15855,7 @@
       <DisplayName>Serial 3 (GPS) protocol selection</DisplayName>
       <RebootRequired>True</RebootRequired>
       <User>Standard</User>
-      <Values>-1:None,1:MAVLink1,2:MAVLink2,3:Frsky D,4:Frsky SPort,5:GPS,7:Alexmos Gimbal Serial,8:SToRM32 Gimbal Serial,9:Rangefinder,10:FrSky SPort Passthrough (OpenTX),11:Lidar360,13:Beacon,14:Volz servo out,15:SBus servo out,16:ESC Telemetry,17:Devo Telemetry,18:OpticalFlow,19:RobotisServo,20:NMEA Output,21:WindVane,22:SLCAN,23:RCIN,24:MegaSquirt EFI,25:LTM,26:RunCam,27:HottTelem,28:Scripting,29:Crossfire VTX,30:Generator,31:Winch,32:MSP,33:DJI FPV,34:AirSpeed,35:ADSB,36:AHRS,37:SmartAudio,38:FETtecOneWire,39:Torqeedo,40:AIS,41:CoDevESC,42:DisplayPort</Values>
+      <Values>-1:None,1:MAVLink1,2:MAVLink2,3:Frsky D,4:Frsky SPort,5:GPS,7:Alexmos Gimbal Serial,8:SToRM32 Gimbal Serial,9:Rangefinder,10:FrSky SPort Passthrough (OpenTX),11:Lidar360,13:Beacon,14:Volz servo out,15:SBus servo out,16:ESC Telemetry,17:Devo Telemetry,18:OpticalFlow,19:RobotisServo,20:NMEA Output,21:WindVane,22:SLCAN,23:RCIN,24:MegaSquirt EFI,25:LTM,26:RunCam,27:HottTelem,28:Scripting,29:Crossfire VTX,30:Generator,31:Winch,32:MSP,33:DJI FPV,34:AirSpeed,35:ADSB,36:AHRS,37:SmartAudio,38:FETtecOneWire,39:Torqeedo,40:AIS,41:CoDevESC,42:DisplayPort,43:VESC telemetry</Values>
     </SERIAL3_PROTOCOL>
     <SERIAL4_BAUD>
       <Description>The baud rate used for Serial4. Most stm32-based boards can support rates of up to 1500. If you setup a rate you cannot support and then can't connect to your board you should load a firmware from a different vehicle type. That will reset all your parameters to defaults.</Description>
@@ -15757,7 +15875,7 @@
       <DisplayName>Serial4 protocol selection</DisplayName>
       <RebootRequired>True</RebootRequired>
       <User>Standard</User>
-      <Values>-1:None,1:MAVLink1,2:MAVLink2,3:Frsky D,4:Frsky SPort,5:GPS,7:Alexmos Gimbal Serial,8:SToRM32 Gimbal Serial,9:Rangefinder,10:FrSky SPort Passthrough (OpenTX),11:Lidar360,13:Beacon,14:Volz servo out,15:SBus servo out,16:ESC Telemetry,17:Devo Telemetry,18:OpticalFlow,19:RobotisServo,20:NMEA Output,21:WindVane,22:SLCAN,23:RCIN,24:MegaSquirt EFI,25:LTM,26:RunCam,27:HottTelem,28:Scripting,29:Crossfire VTX,30:Generator,31:Winch,32:MSP,33:DJI FPV,34:AirSpeed,35:ADSB,36:AHRS,37:SmartAudio,38:FETtecOneWire,39:Torqeedo,40:AIS,41:CoDevESC,42:DisplayPort</Values>
+      <Values>-1:None,1:MAVLink1,2:MAVLink2,3:Frsky D,4:Frsky SPort,5:GPS,7:Alexmos Gimbal Serial,8:SToRM32 Gimbal Serial,9:Rangefinder,10:FrSky SPort Passthrough (OpenTX),11:Lidar360,13:Beacon,14:Volz servo out,15:SBus servo out,16:ESC Telemetry,17:Devo Telemetry,18:OpticalFlow,19:RobotisServo,20:NMEA Output,21:WindVane,22:SLCAN,23:RCIN,24:MegaSquirt EFI,25:LTM,26:RunCam,27:HottTelem,28:Scripting,29:Crossfire VTX,30:Generator,31:Winch,32:MSP,33:DJI FPV,34:AirSpeed,35:ADSB,36:AHRS,37:SmartAudio,38:FETtecOneWire,39:Torqeedo,40:AIS,41:CoDevESC,42:DisplayPort,43:VESC telemetry</Values>
     </SERIAL4_PROTOCOL>
     <SERIAL5_BAUD>
       <Description>The baud rate used for Serial5. Most stm32-based boards can support rates of up to 1500. If you setup a rate you cannot support and then can't connect to your board you should load a firmware from a different vehicle type. That will reset all your parameters to defaults.</Description>
@@ -15777,7 +15895,7 @@
       <DisplayName>Serial5 protocol selection</DisplayName>
       <RebootRequired>True</RebootRequired>
       <User>Standard</User>
-      <Values>-1:None,1:MAVLink1,2:MAVLink2,3:Frsky D,4:Frsky SPort,5:GPS,7:Alexmos Gimbal Serial,8:SToRM32 Gimbal Serial,9:Rangefinder,10:FrSky SPort Passthrough (OpenTX),11:Lidar360,13:Beacon,14:Volz servo out,15:SBus servo out,16:ESC Telemetry,17:Devo Telemetry,18:OpticalFlow,19:RobotisServo,20:NMEA Output,21:WindVane,22:SLCAN,23:RCIN,24:MegaSquirt EFI,25:LTM,26:RunCam,27:HottTelem,28:Scripting,29:Crossfire VTX,30:Generator,31:Winch,32:MSP,33:DJI FPV,34:AirSpeed,35:ADSB,36:AHRS,37:SmartAudio,38:FETtecOneWire,39:Torqeedo,40:AIS,41:CoDevESC,42:DisplayPort</Values>
+      <Values>-1:None,1:MAVLink1,2:MAVLink2,3:Frsky D,4:Frsky SPort,5:GPS,7:Alexmos Gimbal Serial,8:SToRM32 Gimbal Serial,9:Rangefinder,10:FrSky SPort Passthrough (OpenTX),11:Lidar360,13:Beacon,14:Volz servo out,15:SBus servo out,16:ESC Telemetry,17:Devo Telemetry,18:OpticalFlow,19:RobotisServo,20:NMEA Output,21:WindVane,22:SLCAN,23:RCIN,24:MegaSquirt EFI,25:LTM,26:RunCam,27:HottTelem,28:Scripting,29:Crossfire VTX,30:Generator,31:Winch,32:MSP,33:DJI FPV,34:AirSpeed,35:ADSB,36:AHRS,37:SmartAudio,38:FETtecOneWire,39:Torqeedo,40:AIS,41:CoDevESC,42:DisplayPort,43:VESC telemetry</Values>
     </SERIAL5_PROTOCOL>
     <SERIAL6_BAUD>
       <Description>The baud rate used for Serial6. Most stm32-based boards can support rates of up to 1500. If you setup a rate you cannot support and then can't connect to your board you should load a firmware from a different vehicle type. That will reset all your parameters to defaults.</Description>
@@ -15797,7 +15915,7 @@
       <DisplayName>Serial6 protocol selection</DisplayName>
       <RebootRequired>True</RebootRequired>
       <User>Standard</User>
-      <Values>-1:None,1:MAVLink1,2:MAVLink2,3:Frsky D,4:Frsky SPort,5:GPS,7:Alexmos Gimbal Serial,8:SToRM32 Gimbal Serial,9:Rangefinder,10:FrSky SPort Passthrough (OpenTX),11:Lidar360,13:Beacon,14:Volz servo out,15:SBus servo out,16:ESC Telemetry,17:Devo Telemetry,18:OpticalFlow,19:RobotisServo,20:NMEA Output,21:WindVane,22:SLCAN,23:RCIN,24:MegaSquirt EFI,25:LTM,26:RunCam,27:HottTelem,28:Scripting,29:Crossfire VTX,30:Generator,31:Winch,32:MSP,33:DJI FPV,34:AirSpeed,35:ADSB,36:AHRS,37:SmartAudio,38:FETtecOneWire,39:Torqeedo,40:AIS,41:CoDevESC,42:DisplayPort</Values>
+      <Values>-1:None,1:MAVLink1,2:MAVLink2,3:Frsky D,4:Frsky SPort,5:GPS,7:Alexmos Gimbal Serial,8:SToRM32 Gimbal Serial,9:Rangefinder,10:FrSky SPort Passthrough (OpenTX),11:Lidar360,13:Beacon,14:Volz servo out,15:SBus servo out,16:ESC Telemetry,17:Devo Telemetry,18:OpticalFlow,19:RobotisServo,20:NMEA Output,21:WindVane,22:SLCAN,23:RCIN,24:MegaSquirt EFI,25:LTM,26:RunCam,27:HottTelem,28:Scripting,29:Crossfire VTX,30:Generator,31:Winch,32:MSP,33:DJI FPV,34:AirSpeed,35:ADSB,36:AHRS,37:SmartAudio,38:FETtecOneWire,39:Torqeedo,40:AIS,41:CoDevESC,42:DisplayPort,43:VESC telemetry</Values>
     </SERIAL6_PROTOCOL>
     <SERIAL7_BAUD>
       <Description>The baud rate used for Serial7. Most stm32-based boards can support rates of up to 1500. If you setup a rate you cannot support and then can't connect to your board you should load a firmware from a different vehicle type. That will reset all your parameters to defaults.</Description>
@@ -15817,7 +15935,7 @@
       <DisplayName>Serial7 protocol selection</DisplayName>
       <RebootRequired>True</RebootRequired>
       <User>Standard</User>
-      <Values>-1:None,1:MAVLink1,2:MAVLink2,3:Frsky D,4:Frsky SPort,5:GPS,7:Alexmos Gimbal Serial,8:SToRM32 Gimbal Serial,9:Rangefinder,10:FrSky SPort Passthrough (OpenTX),11:Lidar360,13:Beacon,14:Volz servo out,15:SBus servo out,16:ESC Telemetry,17:Devo Telemetry,18:OpticalFlow,19:RobotisServo,20:NMEA Output,21:WindVane,22:SLCAN,23:RCIN,24:MegaSquirt EFI,25:LTM,26:RunCam,27:HottTelem,28:Scripting,29:Crossfire VTX,30:Generator,31:Winch,32:MSP,33:DJI FPV,34:AirSpeed,35:ADSB,36:AHRS,37:SmartAudio,38:FETtecOneWire,39:Torqeedo,40:AIS,41:CoDevESC,42:DisplayPort</Values>
+      <Values>-1:None,1:MAVLink1,2:MAVLink2,3:Frsky D,4:Frsky SPort,5:GPS,7:Alexmos Gimbal Serial,8:SToRM32 Gimbal Serial,9:Rangefinder,10:FrSky SPort Passthrough (OpenTX),11:Lidar360,13:Beacon,14:Volz servo out,15:SBus servo out,16:ESC Telemetry,17:Devo Telemetry,18:OpticalFlow,19:RobotisServo,20:NMEA Output,21:WindVane,22:SLCAN,23:RCIN,24:MegaSquirt EFI,25:LTM,26:RunCam,27:HottTelem,28:Scripting,29:Crossfire VTX,30:Generator,31:Winch,32:MSP,33:DJI FPV,34:AirSpeed,35:ADSB,36:AHRS,37:SmartAudio,38:FETtecOneWire,39:Torqeedo,40:AIS,41:CoDevESC,42:DisplayPort,43:VESC telemetry</Values>
     </SERIAL7_PROTOCOL>
     <SERIAL8_BAUD>
       <Description>The baud rate used for Serial8. Most stm32-based boards can support rates of up to 1500. If you setup a rate you cannot support and then can't connect to your board you should load a firmware from a different vehicle type. That will reset all your parameters to defaults.</Description>
@@ -15837,7 +15955,7 @@
       <DisplayName>Serial8 protocol selection</DisplayName>
       <RebootRequired>True</RebootRequired>
       <User>Standard</User>
-      <Values>-1:None,1:MAVLink1,2:MAVLink2,3:Frsky D,4:Frsky SPort,5:GPS,7:Alexmos Gimbal Serial,8:SToRM32 Gimbal Serial,9:Rangefinder,10:FrSky SPort Passthrough (OpenTX),11:Lidar360,13:Beacon,14:Volz servo out,15:SBus servo out,16:ESC Telemetry,17:Devo Telemetry,18:OpticalFlow,19:RobotisServo,20:NMEA Output,21:WindVane,22:SLCAN,23:RCIN,24:MegaSquirt EFI,25:LTM,26:RunCam,27:HottTelem,28:Scripting,29:Crossfire VTX,30:Generator,31:Winch,32:MSP,33:DJI FPV,34:AirSpeed,35:ADSB,36:AHRS,37:SmartAudio,38:FETtecOneWire,39:Torqeedo,40:AIS,41:CoDevESC,42:DisplayPort</Values>
+      <Values>-1:None,1:MAVLink1,2:MAVLink2,3:Frsky D,4:Frsky SPort,5:GPS,7:Alexmos Gimbal Serial,8:SToRM32 Gimbal Serial,9:Rangefinder,10:FrSky SPort Passthrough (OpenTX),11:Lidar360,13:Beacon,14:Volz servo out,15:SBus servo out,16:ESC Telemetry,17:Devo Telemetry,18:OpticalFlow,19:RobotisServo,20:NMEA Output,21:WindVane,22:SLCAN,23:RCIN,24:MegaSquirt EFI,25:LTM,26:RunCam,27:HottTelem,28:Scripting,29:Crossfire VTX,30:Generator,31:Winch,32:MSP,33:DJI FPV,34:AirSpeed,35:ADSB,36:AHRS,37:SmartAudio,38:FETtecOneWire,39:Torqeedo,40:AIS,41:CoDevESC,42:DisplayPort,43:VESC telemetry</Values>
     </SERIAL8_PROTOCOL>
     <SERIAL9_BAUD>
       <Description>The baud rate used for Serial8. Most stm32-based boards can support rates of up to 1500. If you setup a rate you cannot support and then can't connect to your board you should load a firmware from a different vehicle type. That will reset all your parameters to defaults.</Description>
@@ -15857,7 +15975,7 @@
       <DisplayName>Serial9 protocol selection</DisplayName>
       <RebootRequired>True</RebootRequired>
       <User>Standard</User>
-      <Values>-1:None,1:MAVLink1,2:MAVLink2,3:Frsky D,4:Frsky SPort,5:GPS,7:Alexmos Gimbal Serial,8:SToRM32 Gimbal Serial,9:Rangefinder,10:FrSky SPort Passthrough (OpenTX),11:Lidar360,13:Beacon,14:Volz servo out,15:SBus servo out,16:ESC Telemetry,17:Devo Telemetry,18:OpticalFlow,19:RobotisServo,20:NMEA Output,21:WindVane,22:SLCAN,23:RCIN,24:MegaSquirt EFI,25:LTM,26:RunCam,27:HottTelem,28:Scripting,29:Crossfire VTX,30:Generator,31:Winch,32:MSP,33:DJI FPV,34:AirSpeed,35:ADSB,36:AHRS,37:SmartAudio,38:FETtecOneWire,39:Torqeedo,40:AIS,41:CoDevESC,42:DisplayPort</Values>
+      <Values>-1:None,1:MAVLink1,2:MAVLink2,3:Frsky D,4:Frsky SPort,5:GPS,7:Alexmos Gimbal Serial,8:SToRM32 Gimbal Serial,9:Rangefinder,10:FrSky SPort Passthrough (OpenTX),11:Lidar360,13:Beacon,14:Volz servo out,15:SBus servo out,16:ESC Telemetry,17:Devo Telemetry,18:OpticalFlow,19:RobotisServo,20:NMEA Output,21:WindVane,22:SLCAN,23:RCIN,24:MegaSquirt EFI,25:LTM,26:RunCam,27:HottTelem,28:Scripting,29:Crossfire VTX,30:Generator,31:Winch,32:MSP,33:DJI FPV,34:AirSpeed,35:ADSB,36:AHRS,37:SmartAudio,38:FETtecOneWire,39:Torqeedo,40:AIS,41:CoDevESC,42:DisplayPort,43:VESC telemetry</Values>
     </SERIAL9_PROTOCOL>
     <SERIAL_PASS1>
       <Description>This sets one side of pass-through between two serial ports. Once both sides are set then all data received on either port will be passed to the other port</Description>
@@ -16612,6 +16730,33 @@
       <User>Standard</User>
       <Values>0:InitialHeading,1:CardinalDirections</Values>
     </SIMPLE_TYPE>
+    <SLID_BELT_COEF>
+      <Description>coef for sliding belt detection; if negative, deactivate sliding belts detection</Description>
+      <DisplayName>SLID_BELT_COEF</DisplayName>
+      <Range>-1. 999.</Range>
+      <User>Standard</User>
+    </SLID_BELT_COEF>
+    <SLID_BELT_DEPT>
+      <Description>max depth for sliding belt detection</Description>
+      <DisplayName>SLID_BELT_DEPT</DisplayName>
+      <Range>-50 0</Range>
+      <Units>m</Units>
+      <User>Standard</User>
+    </SLID_BELT_DEPT>
+    <SLID_BELT_TOUT>
+      <Description>timeout for sliding belt detection</Description>
+      <DisplayName>SLID_BELT_TOUT</DisplayName>
+      <Range>-1. 999.</Range>
+      <Units>s</Units>
+      <User>Standard</User>
+    </SLID_BELT_TOUT>
+    <SLID_BELT_VMIN>
+      <Description>minimum velocity for sliding belts detection</Description>
+      <DisplayName>SLID_BELT_VMIN</DisplayName>
+      <Range>0. 999.</Range>
+      <Units>m/s</Units>
+      <User>Standard</User>
+    </SLID_BELT_VMIN>
     <SPEED_FREQ_CUTOF>
       <Description>speed is smoothed by a low pass filter whose frequency is SPEED_FREQ_CUTOF</Description>
       <DisplayName>cutoff frequency in the filtering of speed for VEL_CALC_TYP = 6</DisplayName>
@@ -18100,12 +18245,26 @@
       <User>Standard</User>
       <Values>0:Not Disabled,1:Disable Monitoring</Values>
     </disable_mv>
+    <gps_stuck_off>
+      <Description>in gps measurment mode, turn off stuck avoidanec at this depth and up</Description>
+      <DisplayName>GPS_STUCK_OFF</DisplayName>
+      <Range>-5 0</Range>
+      <Units>m</Units>
+      <User>Standard</User>
+    </gps_stuck_off>
     <left_right>
       <Description>Which direction should the passes be offset (left or right); pattern to the left = 1, to the right =2</Description>
       <DisplayName>left_right</DisplayName>
       <User>Advanced</User>
       <Values>1:Left,2:Right</Values>
     </left_right>
+    <max_depth_change>
+      <Description>when monitoring for off net, robot will disarm if depth change is more</Description>
+      <DisplayName>MAX_DEPTH_CHANGE</DisplayName>
+      <Range>0 0.5</Range>
+      <Units>m</Units>
+      <User>Standard</User>
+    </max_depth_change>
     <max_mon_t>
       <Description>max time the robot are in monitoring state if on net</Description>
       <DisplayName>max time the robot are in monitoring state if on net</DisplayName>
@@ -18127,13 +18286,6 @@
       <Units>rad/s</Units>
       <User>Standard</User>
     </max_pitch_still>
-    <max_pitch_still2>
-      <Description>max velocity in pitch at standstill before disarming</Description>
-      <DisplayName>max velocity in pitch at standstill before disarming</DisplayName>
-      <Range>0 2</Range>
-      <Units>rad/s</Units>
-      <User>Standard</User>
-    </max_pitch_still2>
     <max_roll_run>
       <Description>max velocity in roll when running before next step in disarming</Description>
       <DisplayName>max velocity in roll when running before next step in disarming</DisplayName>
@@ -18148,13 +18300,6 @@
       <Units>rad/s</Units>
       <User>Standard</User>
     </max_roll_still>
-    <max_roll_still2>
-      <Description>max velocity in roll at standstill before disarming</Description>
-      <DisplayName>max velocity in roll at standstill before disarming</DisplayName>
-      <Range>0 2</Range>
-      <Units>rad/s</Units>
-      <User>Standard</User>
-    </max_roll_still2>
     <max_yaw_run>
       <Description>max velocity in yaw when running before next step in disarming</Description>
       <DisplayName>max velocity in yaw when running before next step in disarming</DisplayName>
@@ -18169,13 +18314,6 @@
       <Units>rad/s</Units>
       <User>Standard</User>
     </max_yaw_still>
-    <max_yaw_still2>
-      <Description>max velocity in yaw at standstill before disarming</Description>
-      <DisplayName>max velocity in yaw at standstill before disarming</DisplayName>
-      <Range>0 2</Range>
-      <Units>rad/s</Units>
-      <User>Standard</User>
-    </max_yaw_still2>
     <min_mon_depth>
       <Description>Don't stop and monitor if robot is on net above this H</Description>
       <DisplayName>Don't stop and monitor if robot is on net above this H</DisplayName>
@@ -18183,6 +18321,13 @@
       <Units>m</Units>
       <User>Standard</User>
     </min_mon_depth>
+    <min_mon_thrus>
+      <Description>min thruster throttle applied when "stopping" checking if robot is on net</Description>
+      <DisplayName>min thruster throttle applied when "stopping" checking if robot is on net</DisplayName>
+      <Range>0 100</Range>
+      <Units>%</Units>
+      <User>Standard</User>
+    </min_mon_thrus>
     <reinit>
       <Description>reinitialisation of vertical roll. reset is triggered by a change in this value</Description>
       <DisplayName>Reinitialisation of Vertical Roll</DisplayName>

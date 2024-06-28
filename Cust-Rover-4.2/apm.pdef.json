@@ -25323,6 +25323,7 @@
         "high": "2000",
         "low": "1000"
       },
+      "Units": "PWM",
       "User": "Standard"
     },
     "ACRO_MOUNT_TILT": {
@@ -25332,6 +25333,7 @@
         "high": "2000",
         "low": "1000"
       },
+      "Units": "PWM",
       "User": "Standard"
     },
     "ACRO_ROTAT_PAT": {
@@ -25364,12 +25366,39 @@
         "1": "vertDirSearch"
       }
     },
+    "ALPHA_AVOIDANCE": {
+      "Description": "in new avoidance pattern, position below which we first try to go up: alpha = 0 means around MIN_DEPTH, alpha=0.5 means around (MAX_DEPTH+MIN_DEPTH)/2, alpha = 1 means around MAX_DEPTH",
+      "DisplayName": "ALPHA_AVOIDANCE",
+      "Range": {
+        "high": "1.",
+        "low": "0."
+      },
+      "User": "Standard"
+    },
     "ALPHA_BACKFLUSH": {
       "Description": "backflush at depth = (1-ALPHA_BACKFLUSH) MIN_DEPTH + (ALPHA_BACKFLUSH) MAX_DEPTH so ALPHA_BACKFLUSH=0 means MIN_DEPTH, ALPHA_BACKFLUSH=1 means MAX_DEPTH",
       "DisplayName": "ALPHA_BACKFLUSH",
       "Range": {
         "high": "1.",
         "low": "0."
+      },
+      "User": "Standard"
+    },
+    "ALPHA_THRUSTER": {
+      "Description": "position below which the \"reduce thruster\" step is skipped in avoidance: alpha = 0 means around MIN_DEPTH, alpha=0.5 means around (MAX_DEPTH+MIN_DEPTH)/2, alpha = 1 means around MAX_DEPTH",
+      "DisplayName": "ALPHA_THRUSTER",
+      "Range": {
+        "high": "0.95",
+        "low": "0.05"
+      },
+      "User": "Standard"
+    },
+    "ALPHA_TURN": {
+      "Description": "position of the turn for changing line: alpha = 0 means around MIN_DEPTH, alpha=0.5 means around (MAX_DEPTH+MIN_DEPTH)/2, alpha = 1 means around MAX_DEPTH",
+      "DisplayName": "ALPHA_TURN",
+      "Range": {
+        "high": "0.95",
+        "low": "0.05"
       },
       "User": "Standard"
     },
@@ -25497,6 +25526,46 @@
         "0": "Old",
         "1": "New"
       }
+    },
+    "AVOIDAN_MARGIN": {
+      "Description": "in new avoidance pattern, margin for depth in stuck and avoidance",
+      "DisplayName": "AVOIDAN_MARGIN",
+      "Range": {
+        "high": "5.0",
+        "low": "0."
+      },
+      "Units": "m",
+      "User": "Standard"
+    },
+    "AVOID_H_DISTANCE": {
+      "Description": "in new avoidance pattern, horizontal distance below which we try another whole pattern",
+      "DisplayName": "AVOID_H_DISTANCE",
+      "Range": {
+        "high": "2.0",
+        "low": "0."
+      },
+      "Units": "m",
+      "User": "Standard"
+    },
+    "AVOID_SPEED_DW": {
+      "Description": "in new avoidance pattern, speed being applied when trying to go down",
+      "DisplayName": "AVOID_SPEED_DW",
+      "Range": {
+        "high": "100.",
+        "low": "0."
+      },
+      "Units": "%",
+      "User": "Standard"
+    },
+    "AVOID_SPEED_UP": {
+      "Description": "in new avoidance pattern, speed being applied when trying to go up",
+      "DisplayName": "AVOID_SPEED_UP",
+      "Range": {
+        "high": "100.",
+        "low": "0."
+      },
+      "Units": "%",
+      "User": "Standard"
     },
     "Avoidance": {
       "Description": "Avoidance: nb try of whole pattern",
@@ -25635,6 +25704,26 @@
       },
       "User": "Standard"
     },
+    "BRUSH_RPM_TOUT": {
+      "Description": "delay between warning message when limit on brush rpm is crossed in acro",
+      "DisplayName": "BRUSH_RPM_TOUT",
+      "Range": {
+        "high": "100.",
+        "low": "0."
+      },
+      "Units": "s",
+      "User": "Standard"
+    },
+    "BRUSH_THR_TOUT": {
+      "Description": "delay between warning message when limit on brush throttle is crossed in acro",
+      "DisplayName": "BRUSH_THR_TOUT",
+      "Range": {
+        "high": "100.",
+        "low": "0."
+      },
+      "Units": "s",
+      "User": "Standard"
+    },
     "BWD_BRUSH_TH": {
       "Description": "throttle applied to brush when going backward",
       "DisplayName": "BWD_BRUSH_TH",
@@ -25724,7 +25813,7 @@
       }
     },
     "DEAD_THROTTLE": {
-      "Description": "delta throttle under which we can not be stuck as we are not trying to move : if abs(throttle-0.5)<dead_throttle",
+      "Description": "delta throttle under which we can not be stuck as we are not trying to move : if abs(throttle)<dead_throttle",
       "DisplayName": "DEAD_THROTTLE",
       "Range": {
         "high": "100",
@@ -26220,6 +26309,26 @@
         "2": "Always face stern towards target point"
       }
     },
+    "LOW_BRUSH_RPM": {
+      "Description": "rpm below which it is considered too low in acro",
+      "DisplayName": "LOW_BRUSH_RPM",
+      "Range": {
+        "high": "100.",
+        "low": "0."
+      },
+      "Units": "rpm",
+      "User": "Standard"
+    },
+    "LOW_BRUSH_THROT": {
+      "Description": "limit on brush throttle below which it is considered too low for acro",
+      "DisplayName": "LOW_BRUSH_THROT",
+      "Range": {
+        "high": "100.",
+        "low": "0."
+      },
+      "Units": "%",
+      "User": "Standard"
+    },
     "M33_LIMIT": {
       "Description": "minimum value for the M33 coef to avoid division by 0",
       "DisplayName": "minimum value for the M33 coef to avoid division by 0",
@@ -26237,6 +26346,36 @@
         "1": "Manual",
         "2": "Park"
       }
+    },
+    "MANU_MOUNT_PAN": {
+      "Description": "pwm value for camera #1 angle when in manual",
+      "DisplayName": "pwm value for camera #1 angle when in manual",
+      "Range": {
+        "high": "2000",
+        "low": "1000"
+      },
+      "Units": "PWM",
+      "User": "Standard"
+    },
+    "MANU_MOUNT_TILT": {
+      "Description": "pwm value for camera #2 angle when in manual",
+      "DisplayName": "pwm value for camera #2 angle when in manual",
+      "Range": {
+        "high": "2000",
+        "low": "1000"
+      },
+      "Units": "PWM",
+      "User": "Standard"
+    },
+    "MANU_MOUNT_TOUT": {
+      "Description": "timeout for joystick input before rotating camera to prescribed position in manual",
+      "DisplayName": "MANU_MOUNT_TOUT",
+      "Range": {
+        "high": "999.",
+        "low": "-1."
+      },
+      "Units": "s",
+      "User": "Standard"
     },
     "MAN_BRUSH_TH": {
       "Description": "throttle applied to brush when in manual mode",
@@ -26452,6 +26591,26 @@
       "Units": "s",
       "User": "Standard"
     },
+    "MON_BRIST_LEFT": {
+      "Description": "nb seconds of usage, * 3600 (1000 hours)",
+      "DisplayName": "nb seconds of usage of bristles  on the left brushing belt",
+      "Range": {
+        "high": "2147483647",
+        "low": "0"
+      },
+      "Units": "s",
+      "User": "Standard"
+    },
+    "MON_BRIST_RIGHT": {
+      "Description": "nb seconds of usage, * 3600 (1000 hours)",
+      "DisplayName": "nb seconds of usage of bristles  on the right brushing belt",
+      "Range": {
+        "high": "2147483647",
+        "low": "0"
+      },
+      "Units": "s",
+      "User": "Standard"
+    },
     "MON_BRUSH_CTRL": {
       "Description": "nb seconds of usage,  * 3600 (1000 hours)",
       "DisplayName": "nb seconds of usage of brush controller",
@@ -26504,7 +26663,7 @@
     },
     "MON_GEAR_BRUSH": {
       "Description": "nb seconds of usage, * 3600 (1000 hours)",
-      "DisplayName": "nb seconds of usage of left gearbox",
+      "DisplayName": "nb seconds of usage of brush gearbox",
       "Range": {
         "high": "2147483647",
         "low": "0"
@@ -26524,7 +26683,7 @@
     },
     "MON_GEAR_RIGHT": {
       "Description": "nb seconds of usage, * 3600 (1000 hours)",
-      "DisplayName": "nb seconds of usage of left gearbox",
+      "DisplayName": "nb seconds of usage of right gearbox",
       "Range": {
         "high": "2147483647",
         "low": "0"
@@ -26638,6 +26797,16 @@
       "Range": {
         "high": "2147483647",
         "low": "0"
+      },
+      "Units": "s",
+      "User": "Standard"
+    },
+    "MOT_I_TIMEOUT": {
+      "Description": "timeout for motor intensity monitoring",
+      "DisplayName": "MOT_I_TIMEOUT",
+      "Range": {
+        "high": "999.",
+        "low": "0."
       },
       "Units": "s",
       "User": "Standard"
@@ -27029,6 +27198,45 @@
         "1": "CardinalDirections"
       }
     },
+    "SLID_BELT_COEF": {
+      "Description": "coef for sliding belt detection; if negative, deactivate sliding belts detection",
+      "DisplayName": "SLID_BELT_COEF",
+      "Range": {
+        "high": "999.",
+        "low": "-1."
+      },
+      "User": "Standard"
+    },
+    "SLID_BELT_DEPT": {
+      "Description": "max depth for sliding belt detection",
+      "DisplayName": "SLID_BELT_DEPT",
+      "Range": {
+        "high": "0",
+        "low": "-50"
+      },
+      "Units": "m",
+      "User": "Standard"
+    },
+    "SLID_BELT_TOUT": {
+      "Description": "timeout for sliding belt detection",
+      "DisplayName": "SLID_BELT_TOUT",
+      "Range": {
+        "high": "999.",
+        "low": "-1."
+      },
+      "Units": "s",
+      "User": "Standard"
+    },
+    "SLID_BELT_VMIN": {
+      "Description": "minimum velocity for sliding belts detection",
+      "DisplayName": "SLID_BELT_VMIN",
+      "Range": {
+        "high": "999.",
+        "low": "0."
+      },
+      "Units": "m/s",
+      "User": "Standard"
+    },
     "SPEED_FREQ_CUTOF": {
       "Description": "speed is smoothed by a low pass filter whose frequency is SPEED_FREQ_CUTOF",
       "DisplayName": "cutoff frequency in the filtering of speed for VEL_CALC_TYP = 6",
@@ -27415,6 +27623,16 @@
         "1": "Disable Monitoring"
       }
     },
+    "gps_stuck_off": {
+      "Description": "in gps measurment mode, turn off stuck avoidanec at this depth and up",
+      "DisplayName": "GPS_STUCK_OFF",
+      "Range": {
+        "high": "0",
+        "low": "-5"
+      },
+      "Units": "m",
+      "User": "Standard"
+    },
     "left_right": {
       "Description": "Which direction should the passes be offset (left or right); pattern to the left = 1, to the right =2",
       "DisplayName": "left_right",
@@ -27423,6 +27641,16 @@
         "1": "Left",
         "2": "Right"
       }
+    },
+    "max_depth_change": {
+      "Description": "when monitoring for off net, robot will disarm if depth change is more",
+      "DisplayName": "MAX_DEPTH_CHANGE",
+      "Range": {
+        "high": "0.5",
+        "low": "0"
+      },
+      "Units": "m",
+      "User": "Standard"
     },
     "max_mon_t": {
       "Description": "max time the robot are in monitoring state if on net",
@@ -27454,16 +27682,6 @@
       "Units": "rad/s",
       "User": "Standard"
     },
-    "max_pitch_still2": {
-      "Description": "max velocity in pitch at standstill before disarming",
-      "DisplayName": "max velocity in pitch at standstill before disarming",
-      "Range": {
-        "high": "2",
-        "low": "0"
-      },
-      "Units": "rad/s",
-      "User": "Standard"
-    },
     "max_roll_run": {
       "Description": "max velocity in roll when running before next step in disarming",
       "DisplayName": "max velocity in roll when running before next step in disarming",
@@ -27475,16 +27693,6 @@
       "User": "Standard"
     },
     "max_roll_still": {
-      "Description": "max velocity in roll at standstill before disarming",
-      "DisplayName": "max velocity in roll at standstill before disarming",
-      "Range": {
-        "high": "2",
-        "low": "0"
-      },
-      "Units": "rad/s",
-      "User": "Standard"
-    },
-    "max_roll_still2": {
       "Description": "max velocity in roll at standstill before disarming",
       "DisplayName": "max velocity in roll at standstill before disarming",
       "Range": {
@@ -27514,16 +27722,6 @@
       "Units": "rad/s",
       "User": "Standard"
     },
-    "max_yaw_still2": {
-      "Description": "max velocity in yaw at standstill before disarming",
-      "DisplayName": "max velocity in yaw at standstill before disarming",
-      "Range": {
-        "high": "2",
-        "low": "0"
-      },
-      "Units": "rad/s",
-      "User": "Standard"
-    },
     "min_mon_depth": {
       "Description": "Don't stop and monitor if robot is on net above this H",
       "DisplayName": "Don't stop and monitor if robot is on net above this H",
@@ -27532,6 +27730,16 @@
         "low": "-100"
       },
       "Units": "m",
+      "User": "Standard"
+    },
+    "min_mon_thrus": {
+      "Description": "min thruster throttle applied when \"stopping\" checking if robot is on net",
+      "DisplayName": "min thruster throttle applied when \"stopping\" checking if robot is on net",
+      "Range": {
+        "high": "100",
+        "low": "0"
+      },
+      "Units": "%",
       "User": "Standard"
     },
     "reinit": {
@@ -27911,6 +28119,7 @@
         "40": "AIS",
         "41": "CoDevESC",
         "42": "DisplayPort",
+        "43": "VESC telemetry",
         "5": "GPS",
         "7": "Alexmos Gimbal Serial",
         "8": "SToRM32 Gimbal Serial",
@@ -28003,6 +28212,7 @@
         "40": "AIS",
         "41": "CoDevESC",
         "42": "DisplayPort",
+        "43": "VESC telemetry",
         "5": "GPS",
         "7": "Alexmos Gimbal Serial",
         "8": "SToRM32 Gimbal Serial",
@@ -28095,6 +28305,7 @@
         "40": "AIS",
         "41": "CoDevESC",
         "42": "DisplayPort",
+        "43": "VESC telemetry",
         "5": "GPS",
         "7": "Alexmos Gimbal Serial",
         "8": "SToRM32 Gimbal Serial",
@@ -28187,6 +28398,7 @@
         "40": "AIS",
         "41": "CoDevESC",
         "42": "DisplayPort",
+        "43": "VESC telemetry",
         "5": "GPS",
         "7": "Alexmos Gimbal Serial",
         "8": "SToRM32 Gimbal Serial",
@@ -28279,6 +28491,7 @@
         "40": "AIS",
         "41": "CoDevESC",
         "42": "DisplayPort",
+        "43": "VESC telemetry",
         "5": "GPS",
         "7": "Alexmos Gimbal Serial",
         "8": "SToRM32 Gimbal Serial",
@@ -28371,6 +28584,7 @@
         "40": "AIS",
         "41": "CoDevESC",
         "42": "DisplayPort",
+        "43": "VESC telemetry",
         "5": "GPS",
         "7": "Alexmos Gimbal Serial",
         "8": "SToRM32 Gimbal Serial",
@@ -28463,6 +28677,7 @@
         "40": "AIS",
         "41": "CoDevESC",
         "42": "DisplayPort",
+        "43": "VESC telemetry",
         "5": "GPS",
         "7": "Alexmos Gimbal Serial",
         "8": "SToRM32 Gimbal Serial",
@@ -28555,6 +28770,7 @@
         "40": "AIS",
         "41": "CoDevESC",
         "42": "DisplayPort",
+        "43": "VESC telemetry",
         "5": "GPS",
         "7": "Alexmos Gimbal Serial",
         "8": "SToRM32 Gimbal Serial",
@@ -28647,6 +28863,7 @@
         "40": "AIS",
         "41": "CoDevESC",
         "42": "DisplayPort",
+        "43": "VESC telemetry",
         "5": "GPS",
         "7": "Alexmos Gimbal Serial",
         "8": "SToRM32 Gimbal Serial",

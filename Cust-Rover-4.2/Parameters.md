@@ -556,7 +556,7 @@ maximum time to determine we are really stuck
 
 *Note: This parameter is for advanced users*
 
-delta throttle under which we can not be stuck as we are not trying to move : if abs(throttle-0.5)<dead_throttle
+delta throttle under which we can not be stuck as we are not trying to move : if abs(throttle)<dead_throttle
 
 - Units: %
 
@@ -1562,7 +1562,7 @@ nb seconds of usage, * 3600 (1000 hours)
 
 - Range: 0 2147483647
 
-## MON_GEAR_RIGHT: nb seconds of usage of left gearbox
+## MON_GEAR_RIGHT: nb seconds of usage of right gearbox
 
 nb seconds of usage, * 3600 (1000 hours)
 
@@ -1570,7 +1570,7 @@ nb seconds of usage, * 3600 (1000 hours)
 
 - Range: 0 2147483647
 
-## MON_GEAR_BRUSH: nb seconds of usage of left gearbox
+## MON_GEAR_BRUSH: nb seconds of usage of brush gearbox
 
 nb seconds of usage, * 3600 (1000 hours)
 
@@ -1730,15 +1730,35 @@ nb seconds of usage,  * 3600 (1000 hours)
 
 - Range: 0 2147483647
 
+## MON_BRIST_LEFT: nb seconds of usage of bristles  on the left brushing belt
+
+nb seconds of usage, * 3600 (1000 hours)
+
+- Units: s
+
+- Range: 0 2147483647
+
+## MON_BRIST_RIGHT: nb seconds of usage of bristles  on the right brushing belt
+
+nb seconds of usage, * 3600 (1000 hours)
+
+- Units: s
+
+- Range: 0 2147483647
+
 ## ACRO_MOUNT_PAN: pwm value for camera #1 angle when entering acro
 
 pwm value for camera #1 angle when entering acro
+
+- Units: PWM
 
 - Range: 1000 2000
 
 ## ACRO_MOUNT_TILT: pwm value for camera #2 angle when entering acro
 
 pwm value for camera #2 angle when entering acro
+
+- Units: PWM
 
 - Range: 1000 2000
 
@@ -1807,30 +1827,6 @@ max velocity in yaw at standstill before disarming
 
 - Range: 0 2
 
-## max_roll_still2: max velocity in roll at standstill before disarming
-
-max velocity in roll at standstill before disarming
-
-- Units: rad/s
-
-- Range: 0 2
-
-## max_pitch_still2: max velocity in pitch at standstill before disarming
-
-max velocity in pitch at standstill before disarming
-
-- Units: rad/s
-
-- Range: 0 2
-
-## max_yaw_still2: max velocity in yaw at standstill before disarming
-
-max velocity in yaw at standstill before disarming
-
-- Units: rad/s
-
-- Range: 0 2
-
 ## sw_still_lim: switch limits between 1 and 2 in meter before disarming
 
 switch limits between 1 and 2 in meter before disarming
@@ -1880,6 +1876,30 @@ Don't stop and monitor if robot is on net above this H
 
 - Range: -100 100
 
+## min_mon_thrus: min thruster throttle applied when "stopping" checking if robot is on net
+
+min thruster throttle applied when "stopping" checking if robot is on net
+
+- Units: %
+
+- Range: 0 100
+
+## gps_stuck_off: GPS_STUCK_OFF
+
+in gps measurment mode, turn off stuck avoidanec at this depth and up
+
+- Units: m
+
+- Range: -5 0
+
+## max_depth_change: MAX_DEPTH_CHANGE
+
+when monitoring for off net, robot will disarm if depth change is more
+
+- Units: m
+
+- Range: 0 0.5
+
 ## DEC_THRUS_TH: thruster throttle applied when "stopping" the thruster in avoidance
 
 thruster throttle applied when "stopping" the thruster in avoidance
@@ -1915,6 +1935,150 @@ timeout for joystick input before rotating camera to prescribed position
 - Units: s
 
 - Range: -1. 999.
+
+## MOT_I_TIMEOUT: MOT_I_TIMEOUT
+
+timeout for motor intensity monitoring
+
+- Units: s
+
+- Range: 0. 999.
+
+## SLID_BELT_COEF: SLID_BELT_COEF
+
+coef for sliding belt detection; if negative, deactivate sliding belts detection
+
+- Range: -1. 999.
+
+## SLID_BELT_VMIN: SLID_BELT_VMIN
+
+minimum velocity for sliding belts detection
+
+- Units: m/s
+
+- Range: 0. 999.
+
+## SLID_BELT_TOUT: SLID_BELT_TOUT
+
+timeout for sliding belt detection
+
+- Units: s
+
+- Range: -1. 999.
+
+## SLID_BELT_DEPT: SLID_BELT_DEPT
+
+max depth for sliding belt detection
+
+- Units: m
+
+- Range: -50 0
+
+## LOW_BRUSH_THROT: LOW_BRUSH_THROT
+
+limit on brush throttle below which it is considered too low for acro
+
+- Units: %
+
+- Range: 0. 100.
+
+## BRUSH_THR_TOUT: BRUSH_THR_TOUT
+
+delay between warning message when limit on brush throttle is crossed in acro
+
+- Units: s
+
+- Range: 0. 100.
+
+## LOW_BRUSH_RPM: LOW_BRUSH_RPM
+
+rpm below which it is considered too low in acro
+
+- Units: rpm
+
+- Range: 0. 100.
+
+## BRUSH_RPM_TOUT: BRUSH_RPM_TOUT
+
+delay between warning message when limit on brush rpm is crossed in acro
+
+- Units: s
+
+- Range: 0. 100.
+
+## MANU_MOUNT_PAN: pwm value for camera #1 angle when in manual
+
+pwm value for camera #1 angle when in manual
+
+- Units: PWM
+
+- Range: 1000 2000
+
+## MANU_MOUNT_TILT: pwm value for camera #2 angle when in manual
+
+pwm value for camera #2 angle when in manual
+
+- Units: PWM
+
+- Range: 1000 2000
+
+## MANU_MOUNT_TOUT: MANU_MOUNT_TOUT
+
+timeout for joystick input before rotating camera to prescribed position in manual
+
+- Units: s
+
+- Range: -1. 999.
+
+## ALPHA_TURN: ALPHA_TURN
+
+position of the turn for changing line: alpha = 0 means around MIN_DEPTH, alpha=0.5 means around (MAX_DEPTH+MIN_DEPTH)/2, alpha = 1 means around MAX_DEPTH
+
+- Range: 0.05 0.95
+
+## ALPHA_THRUSTER: ALPHA_THRUSTER
+
+position below which the "reduce thruster" step is skipped in avoidance: alpha = 0 means around MIN_DEPTH, alpha=0.5 means around (MAX_DEPTH+MIN_DEPTH)/2, alpha = 1 means around MAX_DEPTH
+
+- Range: 0.05 0.95
+
+## AVOID_H_DISTANCE: AVOID_H_DISTANCE
+
+in new avoidance pattern, horizontal distance below which we try another whole pattern
+
+- Units: m
+
+- Range: 0. 2.0
+
+## AVOIDAN_MARGIN: AVOIDAN_MARGIN
+
+in new avoidance pattern, margin for depth in stuck and avoidance
+
+- Units: m
+
+- Range: 0. 5.0
+
+## AVOID_SPEED_UP: AVOID_SPEED_UP
+
+in new avoidance pattern, speed being applied when trying to go up
+
+- Units: %
+
+- Range: 0. 100.
+
+## AVOID_SPEED_DW: AVOID_SPEED_DW
+
+in new avoidance pattern, speed being applied when trying to go down
+
+- Units: %
+
+- Range: 0. 100.
+
+## ALPHA_AVOIDANCE: ALPHA_AVOIDANCE
+
+in new avoidance pattern, position below which we first try to go up: alpha = 0 means around MIN_DEPTH, alpha=0.5 means around (MAX_DEPTH+MIN_DEPTH)/2, alpha = 1 means around MAX_DEPTH
+
+- Range: 0. 1.
 
 ## SYSID_ENFORCE: GCS sysid enforcement
 
@@ -23273,6 +23437,7 @@ Control what protocol to use on the Telem1 port. Note that the Frsky options req
 |40|AIS|
 |41|CoDevESC|
 |42|DisplayPort|
+|43|VESC telemetry|
 
 - RebootRequired: True
 
@@ -23347,6 +23512,7 @@ Control what protocol to use on the Telem2 port. Note that the Frsky options req
 |40|AIS|
 |41|CoDevESC|
 |42|DisplayPort|
+|43|VESC telemetry|
 
 ## SERIAL2_BAUD: Telemetry 2 Baud Rate
 
@@ -23419,6 +23585,7 @@ Control what protocol Serial 3 (GPS) should be used for. Note that the Frsky opt
 |40|AIS|
 |41|CoDevESC|
 |42|DisplayPort|
+|43|VESC telemetry|
 
 ## SERIAL3_BAUD: Serial 3 (GPS) Baud Rate
 
@@ -23491,6 +23658,7 @@ Control what protocol Serial4 port should be used for. Note that the Frsky optio
 |40|AIS|
 |41|CoDevESC|
 |42|DisplayPort|
+|43|VESC telemetry|
 
 ## SERIAL4_BAUD: Serial 4 Baud Rate
 
@@ -23563,6 +23731,7 @@ Control what protocol Serial5 port should be used for. Note that the Frsky optio
 |40|AIS|
 |41|CoDevESC|
 |42|DisplayPort|
+|43|VESC telemetry|
 
 ## SERIAL5_BAUD: Serial 5 Baud Rate
 
@@ -23635,6 +23804,7 @@ Control what protocol Serial6 port should be used for. Note that the Frsky optio
 |40|AIS|
 |41|CoDevESC|
 |42|DisplayPort|
+|43|VESC telemetry|
 
 ## SERIAL6_BAUD: Serial 6 Baud Rate
 
@@ -23811,6 +23981,7 @@ Control what protocol Serial7 port should be used for. Note that the Frsky optio
 |40|AIS|
 |41|CoDevESC|
 |42|DisplayPort|
+|43|VESC telemetry|
 
 ## SERIAL7_BAUD: Serial 7 Baud Rate
 
@@ -23893,6 +24064,7 @@ Control what protocol Serial8 port should be used for. Note that the Frsky optio
 |40|AIS|
 |41|CoDevESC|
 |42|DisplayPort|
+|43|VESC telemetry|
 
 ## SERIAL8_BAUD: Serial 8 Baud Rate
 
@@ -23975,6 +24147,7 @@ Control what protocol Serial9 port should be used for. Note that the Frsky optio
 |40|AIS|
 |41|CoDevESC|
 |42|DisplayPort|
+|43|VESC telemetry|
 
 ## SERIAL9_BAUD: Serial 9 Baud Rate
 

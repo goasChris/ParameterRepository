@@ -582,7 +582,7 @@ DO NOT EDIT
 
 <h2>DEAD_THROTTLE (RemoraRover:DEAD_THROTTLE)</h2><em>Note: This parameter is for advanced users</em><br>
 
-<p>delta throttle under which we can not be stuck as we are not trying to move : if abs(throttle-0.5)&lt;dead_throttle</p>
+<p>delta throttle under which we can not be stuck as we are not trying to move : if abs(throttle)&lt;dead_throttle</p>
 <ul>
 <li>Units: percent</li>
 <li>Range: 0 100</li>
@@ -1564,7 +1564,7 @@ DO NOT EDIT
 </ul>
 
 
-<h2>nb seconds of usage of left gearbox (RemoraRover:MON_GEAR_RIGHT)</h2>
+<h2>nb seconds of usage of right gearbox (RemoraRover:MON_GEAR_RIGHT)</h2>
 
 <p>nb seconds of usage, * 3600 (1000 hours)</p>
 <ul>
@@ -1573,7 +1573,7 @@ DO NOT EDIT
 </ul>
 
 
-<h2>nb seconds of usage of left gearbox (RemoraRover:MON_GEAR_BRUSH)</h2>
+<h2>nb seconds of usage of brush gearbox (RemoraRover:MON_GEAR_BRUSH)</h2>
 
 <p>nb seconds of usage, * 3600 (1000 hours)</p>
 <ul>
@@ -1753,10 +1753,29 @@ DO NOT EDIT
 </ul>
 
 
+<h2>nb seconds of usage of bristles  on the left brushing belt (RemoraRover:MON_BRIST_LEFT)</h2>
+
+<p>nb seconds of usage, * 3600 (1000 hours)</p>
+<ul>
+<li>Units: seconds</li>
+<li>Range: 0 2147483647</li>
+</ul>
+
+
+<h2>nb seconds of usage of bristles  on the right brushing belt (RemoraRover:MON_BRIST_RIGHT)</h2>
+
+<p>nb seconds of usage, * 3600 (1000 hours)</p>
+<ul>
+<li>Units: seconds</li>
+<li>Range: 0 2147483647</li>
+</ul>
+
+
 <h2>pwm value for camera #1 angle when entering acro (RemoraRover:ACRO_MOUNT_PAN)</h2>
 
 <p>pwm value for camera #1 angle when entering acro</p>
 <ul>
+<li>Units: PWM in microseconds</li>
 <li>Range: 1000 2000</li>
 </ul>
 
@@ -1765,6 +1784,7 @@ DO NOT EDIT
 
 <p>pwm value for camera #2 angle when entering acro</p>
 <ul>
+<li>Units: PWM in microseconds</li>
 <li>Range: 1000 2000</li>
 </ul>
 
@@ -1843,33 +1863,6 @@ DO NOT EDIT
 </ul>
 
 
-<h2>max velocity in roll at standstill before disarming (RemoraRover:max_roll_still2)</h2>
-
-<p>max velocity in roll at standstill before disarming</p>
-<ul>
-<li>Units: radians per second</li>
-<li>Range: 0 2</li>
-</ul>
-
-
-<h2>max velocity in pitch at standstill before disarming (RemoraRover:max_pitch_still2)</h2>
-
-<p>max velocity in pitch at standstill before disarming</p>
-<ul>
-<li>Units: radians per second</li>
-<li>Range: 0 2</li>
-</ul>
-
-
-<h2>max velocity in yaw at standstill before disarming (RemoraRover:max_yaw_still2)</h2>
-
-<p>max velocity in yaw at standstill before disarming</p>
-<ul>
-<li>Units: radians per second</li>
-<li>Range: 0 2</li>
-</ul>
-
-
 <h2>switch limits between 1 and 2 in meter before disarming (RemoraRover:sw_still_lim)</h2>
 
 <p>switch limits between 1 and 2 in meter before disarming</p>
@@ -1926,6 +1919,33 @@ DO NOT EDIT
 </ul>
 
 
+<h2>min thruster throttle applied when "stopping" checking if robot is on net (RemoraRover:min_mon_thrus)</h2>
+
+<p>min thruster throttle applied when &quot;stopping&quot; checking if robot is on net</p>
+<ul>
+<li>Units: percent</li>
+<li>Range: 0 100</li>
+</ul>
+
+
+<h2>GPS_STUCK_OFF (RemoraRover:gps_stuck_off)</h2>
+
+<p>in gps measurment mode, turn off stuck avoidanec at this depth and up</p>
+<ul>
+<li>Units: meters</li>
+<li>Range: -5 0</li>
+</ul>
+
+
+<h2>MAX_DEPTH_CHANGE (RemoraRover:max_depth_change)</h2>
+
+<p>when monitoring for off net, robot will disarm if depth change is more</p>
+<ul>
+<li>Units: meters</li>
+<li>Range: 0 0.5</li>
+</ul>
+
+
 <h2>thruster throttle applied when "stopping" the thruster in avoidance (RemoraRover:DEC_THRUS_TH)</h2>
 
 <p>thruster throttle applied when &quot;stopping&quot; the thruster in avoidance</p>
@@ -1966,6 +1986,173 @@ DO NOT EDIT
 <ul>
 <li>Units: seconds</li>
 <li>Range: -1. 999.</li>
+</ul>
+
+
+<h2>MOT_I_TIMEOUT (RemoraRover:MOT_I_TIMEOUT)</h2>
+
+<p>timeout for motor intensity monitoring</p>
+<ul>
+<li>Units: seconds</li>
+<li>Range: 0. 999.</li>
+</ul>
+
+
+<h2>SLID_BELT_COEF (RemoraRover:SLID_BELT_COEF)</h2>
+
+<p>coef for sliding belt detection; if negative, deactivate sliding belts detection</p>
+<ul>
+<li>Range: -1. 999.</li>
+</ul>
+
+
+<h2>SLID_BELT_VMIN (RemoraRover:SLID_BELT_VMIN)</h2>
+
+<p>minimum velocity for sliding belts detection</p>
+<ul>
+<li>Units: meters per second</li>
+<li>Range: 0. 999.</li>
+</ul>
+
+
+<h2>SLID_BELT_TOUT (RemoraRover:SLID_BELT_TOUT)</h2>
+
+<p>timeout for sliding belt detection</p>
+<ul>
+<li>Units: seconds</li>
+<li>Range: -1. 999.</li>
+</ul>
+
+
+<h2>SLID_BELT_DEPT (RemoraRover:SLID_BELT_DEPT)</h2>
+
+<p>max depth for sliding belt detection</p>
+<ul>
+<li>Units: meters</li>
+<li>Range: -50 0</li>
+</ul>
+
+
+<h2>LOW_BRUSH_THROT (RemoraRover:LOW_BRUSH_THROT)</h2>
+
+<p>limit on brush throttle below which it is considered too low for acro</p>
+<ul>
+<li>Units: percent</li>
+<li>Range: 0. 100.</li>
+</ul>
+
+
+<h2>BRUSH_THR_TOUT (RemoraRover:BRUSH_THR_TOUT)</h2>
+
+<p>delay between warning message when limit on brush throttle is crossed in acro</p>
+<ul>
+<li>Units: seconds</li>
+<li>Range: 0. 100.</li>
+</ul>
+
+
+<h2>LOW_BRUSH_RPM (RemoraRover:LOW_BRUSH_RPM)</h2>
+
+<p>rpm below which it is considered too low in acro</p>
+<ul>
+<li>Units: round per minute</li>
+<li>Range: 0. 100.</li>
+</ul>
+
+
+<h2>BRUSH_RPM_TOUT (RemoraRover:BRUSH_RPM_TOUT)</h2>
+
+<p>delay between warning message when limit on brush rpm is crossed in acro</p>
+<ul>
+<li>Units: seconds</li>
+<li>Range: 0. 100.</li>
+</ul>
+
+
+<h2>pwm value for camera #1 angle when in manual (RemoraRover:MANU_MOUNT_PAN)</h2>
+
+<p>pwm value for camera #1 angle when in manual</p>
+<ul>
+<li>Units: PWM in microseconds</li>
+<li>Range: 1000 2000</li>
+</ul>
+
+
+<h2>pwm value for camera #2 angle when in manual (RemoraRover:MANU_MOUNT_TILT)</h2>
+
+<p>pwm value for camera #2 angle when in manual</p>
+<ul>
+<li>Units: PWM in microseconds</li>
+<li>Range: 1000 2000</li>
+</ul>
+
+
+<h2>MANU_MOUNT_TOUT (RemoraRover:MANU_MOUNT_TOUT)</h2>
+
+<p>timeout for joystick input before rotating camera to prescribed position in manual</p>
+<ul>
+<li>Units: seconds</li>
+<li>Range: -1. 999.</li>
+</ul>
+
+
+<h2>ALPHA_TURN (RemoraRover:ALPHA_TURN)</h2>
+
+<p>position of the turn for changing line: alpha = 0 means around MIN_DEPTH, alpha=0.5 means around (MAX_DEPTH+MIN_DEPTH)/2, alpha = 1 means around MAX_DEPTH</p>
+<ul>
+<li>Range: 0.05 0.95</li>
+</ul>
+
+
+<h2>ALPHA_THRUSTER (RemoraRover:ALPHA_THRUSTER)</h2>
+
+<p>position below which the &quot;reduce thruster&quot; step is skipped in avoidance: alpha = 0 means around MIN_DEPTH, alpha=0.5 means around (MAX_DEPTH+MIN_DEPTH)/2, alpha = 1 means around MAX_DEPTH</p>
+<ul>
+<li>Range: 0.05 0.95</li>
+</ul>
+
+
+<h2>AVOID_H_DISTANCE (RemoraRover:AVOID_H_DISTANCE)</h2>
+
+<p>in new avoidance pattern, horizontal distance below which we try another whole pattern</p>
+<ul>
+<li>Units: meters</li>
+<li>Range: 0. 2.0</li>
+</ul>
+
+
+<h2>AVOIDAN_MARGIN (RemoraRover:AVOIDAN_MARGIN)</h2>
+
+<p>in new avoidance pattern, margin for depth in stuck and avoidance</p>
+<ul>
+<li>Units: meters</li>
+<li>Range: 0. 5.0</li>
+</ul>
+
+
+<h2>AVOID_SPEED_UP (RemoraRover:AVOID_SPEED_UP)</h2>
+
+<p>in new avoidance pattern, speed being applied when trying to go up</p>
+<ul>
+<li>Units: percent</li>
+<li>Range: 0. 100.</li>
+</ul>
+
+
+<h2>AVOID_SPEED_DW (RemoraRover:AVOID_SPEED_DW)</h2>
+
+<p>in new avoidance pattern, speed being applied when trying to go down</p>
+<ul>
+<li>Units: percent</li>
+<li>Range: 0. 100.</li>
+</ul>
+
+
+<h2>ALPHA_AVOIDANCE (RemoraRover:ALPHA_AVOIDANCE)</h2>
+
+<p>in new avoidance pattern, position below which we first try to go up: alpha = 0 means around MIN_DEPTH, alpha=0.5 means around (MAX_DEPTH+MIN_DEPTH)/2, alpha = 1 means around MAX_DEPTH</p>
+<ul>
+<li>Range: 0. 1.</li>
 </ul>
 
 
@@ -29057,6 +29244,7 @@ DO NOT EDIT
 <tr><td>40</td><td>AIS</td></tr>
 <tr><td>41</td><td>CoDevESC</td></tr>
 <tr><td>42</td><td>DisplayPort</td></tr>
+<tr><td>43</td><td>VESC telemetry</td></tr>
 </table>
 <li>RebootRequired: True</li>
 </ul>
@@ -29133,6 +29321,7 @@ DO NOT EDIT
 <tr><td>40</td><td>AIS</td></tr>
 <tr><td>41</td><td>CoDevESC</td></tr>
 <tr><td>42</td><td>DisplayPort</td></tr>
+<tr><td>43</td><td>VESC telemetry</td></tr>
 </table>
 </ul>
 
@@ -29208,6 +29397,7 @@ DO NOT EDIT
 <tr><td>40</td><td>AIS</td></tr>
 <tr><td>41</td><td>CoDevESC</td></tr>
 <tr><td>42</td><td>DisplayPort</td></tr>
+<tr><td>43</td><td>VESC telemetry</td></tr>
 </table>
 </ul>
 
@@ -29283,6 +29473,7 @@ DO NOT EDIT
 <tr><td>40</td><td>AIS</td></tr>
 <tr><td>41</td><td>CoDevESC</td></tr>
 <tr><td>42</td><td>DisplayPort</td></tr>
+<tr><td>43</td><td>VESC telemetry</td></tr>
 </table>
 </ul>
 
@@ -29358,6 +29549,7 @@ DO NOT EDIT
 <tr><td>40</td><td>AIS</td></tr>
 <tr><td>41</td><td>CoDevESC</td></tr>
 <tr><td>42</td><td>DisplayPort</td></tr>
+<tr><td>43</td><td>VESC telemetry</td></tr>
 </table>
 </ul>
 
@@ -29433,6 +29625,7 @@ DO NOT EDIT
 <tr><td>40</td><td>AIS</td></tr>
 <tr><td>41</td><td>CoDevESC</td></tr>
 <tr><td>42</td><td>DisplayPort</td></tr>
+<tr><td>43</td><td>VESC telemetry</td></tr>
 </table>
 </ul>
 
@@ -29605,6 +29798,7 @@ DO NOT EDIT
 <tr><td>40</td><td>AIS</td></tr>
 <tr><td>41</td><td>CoDevESC</td></tr>
 <tr><td>42</td><td>DisplayPort</td></tr>
+<tr><td>43</td><td>VESC telemetry</td></tr>
 </table>
 </ul>
 
@@ -29689,6 +29883,7 @@ DO NOT EDIT
 <tr><td>40</td><td>AIS</td></tr>
 <tr><td>41</td><td>CoDevESC</td></tr>
 <tr><td>42</td><td>DisplayPort</td></tr>
+<tr><td>43</td><td>VESC telemetry</td></tr>
 </table>
 </ul>
 
@@ -29773,6 +29968,7 @@ DO NOT EDIT
 <tr><td>40</td><td>AIS</td></tr>
 <tr><td>41</td><td>CoDevESC</td></tr>
 <tr><td>42</td><td>DisplayPort</td></tr>
+<tr><td>43</td><td>VESC telemetry</td></tr>
 </table>
 </ul>
 
