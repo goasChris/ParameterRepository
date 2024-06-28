@@ -339,7 +339,7 @@
         <field name="UnitText">seconds</field>
         <field name="Range">0 999</field>
       </param>
-      <param humanName="DEAD_THROTTLE" name="RemoraRover:DEAD_THROTTLE" documentation="delta throttle under which we can not be stuck as we are not trying to move : if abs(throttle-0.5)&lt;dead_throttle" user="Advanced">
+      <param humanName="DEAD_THROTTLE" name="RemoraRover:DEAD_THROTTLE" documentation="delta throttle under which we can not be stuck as we are not trying to move : if abs(throttle)&lt;dead_throttle" user="Advanced">
         <field name="Units">%</field>
         <field name="UnitText">percent</field>
         <field name="Range">0 100</field>
@@ -836,12 +836,12 @@
         <field name="UnitText">seconds</field>
         <field name="Range">0 2147483647</field>
       </param>
-      <param humanName="nb seconds of usage of left gearbox" name="RemoraRover:MON_GEAR_RIGHT" documentation="nb seconds of usage, * 3600 (1000 hours)" user="Standard">
+      <param humanName="nb seconds of usage of right gearbox" name="RemoraRover:MON_GEAR_RIGHT" documentation="nb seconds of usage, * 3600 (1000 hours)" user="Standard">
         <field name="Units">s</field>
         <field name="UnitText">seconds</field>
         <field name="Range">0 2147483647</field>
       </param>
-      <param humanName="nb seconds of usage of left gearbox" name="RemoraRover:MON_GEAR_BRUSH" documentation="nb seconds of usage, * 3600 (1000 hours)" user="Standard">
+      <param humanName="nb seconds of usage of brush gearbox" name="RemoraRover:MON_GEAR_BRUSH" documentation="nb seconds of usage, * 3600 (1000 hours)" user="Standard">
         <field name="Units">s</field>
         <field name="UnitText">seconds</field>
         <field name="Range">0 2147483647</field>
@@ -941,10 +941,24 @@
         <field name="UnitText">seconds</field>
         <field name="Range">0 2147483647</field>
       </param>
+      <param humanName="nb seconds of usage of bristles  on the left brushing belt" name="RemoraRover:MON_BRIST_LEFT" documentation="nb seconds of usage, * 3600 (1000 hours)" user="Standard">
+        <field name="Units">s</field>
+        <field name="UnitText">seconds</field>
+        <field name="Range">0 2147483647</field>
+      </param>
+      <param humanName="nb seconds of usage of bristles  on the right brushing belt" name="RemoraRover:MON_BRIST_RIGHT" documentation="nb seconds of usage, * 3600 (1000 hours)" user="Standard">
+        <field name="Units">s</field>
+        <field name="UnitText">seconds</field>
+        <field name="Range">0 2147483647</field>
+      </param>
       <param humanName="pwm value for camera #1 angle when entering acro" name="RemoraRover:ACRO_MOUNT_PAN" documentation="pwm value for camera #1 angle when entering acro" user="Standard">
+        <field name="Units">PWM</field>
+        <field name="UnitText">PWM in microseconds</field>
         <field name="Range">1000 2000</field>
       </param>
       <param humanName="pwm value for camera #2 angle when entering acro" name="RemoraRover:ACRO_MOUNT_TILT" documentation="pwm value for camera #2 angle when entering acro" user="Standard">
+        <field name="Units">PWM</field>
+        <field name="UnitText">PWM in microseconds</field>
         <field name="Range">1000 2000</field>
       </param>
       <param humanName="Avoidance type" name="RemoraRover:AVOIDANCE_TYPE" documentation="Avoidance type" user="Standard">
@@ -988,21 +1002,6 @@
         <field name="UnitText">radians per second</field>
         <field name="Range">0 2</field>
       </param>
-      <param humanName="max velocity in roll at standstill before disarming" name="RemoraRover:max_roll_still2" documentation="max velocity in roll at standstill before disarming" user="Standard">
-        <field name="Units">rad/s</field>
-        <field name="UnitText">radians per second</field>
-        <field name="Range">0 2</field>
-      </param>
-      <param humanName="max velocity in pitch at standstill before disarming" name="RemoraRover:max_pitch_still2" documentation="max velocity in pitch at standstill before disarming" user="Standard">
-        <field name="Units">rad/s</field>
-        <field name="UnitText">radians per second</field>
-        <field name="Range">0 2</field>
-      </param>
-      <param humanName="max velocity in yaw at standstill before disarming" name="RemoraRover:max_yaw_still2" documentation="max velocity in yaw at standstill before disarming" user="Standard">
-        <field name="Units">rad/s</field>
-        <field name="UnitText">radians per second</field>
-        <field name="Range">0 2</field>
-      </param>
       <param humanName="switch limits between 1 and 2 in meter before disarming" name="RemoraRover:sw_still_lim" documentation="switch limits between 1 and 2 in meter before disarming" user="Standard">
         <field name="Units">m</field>
         <field name="UnitText">meters</field>
@@ -1034,6 +1033,21 @@
         <field name="UnitText">meters</field>
         <field name="Range">-100 100</field>
       </param>
+      <param humanName="min thruster throttle applied when &quot;stopping&quot; checking if robot is on net" name="RemoraRover:min_mon_thrus" documentation="min thruster throttle applied when &quot;stopping&quot; checking if robot is on net" user="Standard">
+        <field name="Units">%</field>
+        <field name="UnitText">percent</field>
+        <field name="Range">0 100</field>
+      </param>
+      <param humanName="GPS_STUCK_OFF" name="RemoraRover:gps_stuck_off" documentation="in gps measurment mode, turn off stuck avoidanec at this depth and up" user="Standard">
+        <field name="Units">m</field>
+        <field name="UnitText">meters</field>
+        <field name="Range">-5 0</field>
+      </param>
+      <param humanName="MAX_DEPTH_CHANGE" name="RemoraRover:max_depth_change" documentation="when monitoring for off net, robot will disarm if depth change is more" user="Standard">
+        <field name="Units">m</field>
+        <field name="UnitText">meters</field>
+        <field name="Range">0 0.5</field>
+      </param>
       <param humanName="thruster throttle applied when &quot;stopping&quot; the thruster in avoidance" name="RemoraRover:DEC_THRUS_TH" documentation="thruster throttle applied when &quot;stopping&quot; the thruster in avoidance" user="Standard">
         <field name="Units">%</field>
         <field name="UnitText">percent</field>
@@ -1054,6 +1068,93 @@
         <field name="Units">s</field>
         <field name="UnitText">seconds</field>
         <field name="Range">-1. 999.</field>
+      </param>
+      <param humanName="MOT_I_TIMEOUT" name="RemoraRover:MOT_I_TIMEOUT" documentation="timeout for motor intensity monitoring" user="Standard">
+        <field name="Units">s</field>
+        <field name="UnitText">seconds</field>
+        <field name="Range">0. 999.</field>
+      </param>
+      <param humanName="SLID_BELT_COEF" name="RemoraRover:SLID_BELT_COEF" documentation="coef for sliding belt detection; if negative, deactivate sliding belts detection" user="Standard">
+        <field name="Range">-1. 999.</field>
+      </param>
+      <param humanName="SLID_BELT_VMIN" name="RemoraRover:SLID_BELT_VMIN" documentation="minimum velocity for sliding belts detection" user="Standard">
+        <field name="Units">m/s</field>
+        <field name="UnitText">meters per second</field>
+        <field name="Range">0. 999.</field>
+      </param>
+      <param humanName="SLID_BELT_TOUT" name="RemoraRover:SLID_BELT_TOUT" documentation="timeout for sliding belt detection" user="Standard">
+        <field name="Units">s</field>
+        <field name="UnitText">seconds</field>
+        <field name="Range">-1. 999.</field>
+      </param>
+      <param humanName="SLID_BELT_DEPT" name="RemoraRover:SLID_BELT_DEPT" documentation="max depth for sliding belt detection" user="Standard">
+        <field name="Units">m</field>
+        <field name="UnitText">meters</field>
+        <field name="Range">-50 0</field>
+      </param>
+      <param humanName="LOW_BRUSH_THROT" name="RemoraRover:LOW_BRUSH_THROT" documentation="limit on brush throttle below which it is considered too low for acro" user="Standard">
+        <field name="Units">%</field>
+        <field name="UnitText">percent</field>
+        <field name="Range">0. 100.</field>
+      </param>
+      <param humanName="BRUSH_THR_TOUT" name="RemoraRover:BRUSH_THR_TOUT" documentation="delay between warning message when limit on brush throttle is crossed in acro" user="Standard">
+        <field name="Units">s</field>
+        <field name="UnitText">seconds</field>
+        <field name="Range">0. 100.</field>
+      </param>
+      <param humanName="LOW_BRUSH_RPM" name="RemoraRover:LOW_BRUSH_RPM" documentation="rpm below which it is considered too low in acro" user="Standard">
+        <field name="Units">rpm</field>
+        <field name="UnitText">round per minute</field>
+        <field name="Range">0. 100.</field>
+      </param>
+      <param humanName="BRUSH_RPM_TOUT" name="RemoraRover:BRUSH_RPM_TOUT" documentation="delay between warning message when limit on brush rpm is crossed in acro" user="Standard">
+        <field name="Units">s</field>
+        <field name="UnitText">seconds</field>
+        <field name="Range">0. 100.</field>
+      </param>
+      <param humanName="pwm value for camera #1 angle when in manual" name="RemoraRover:MANU_MOUNT_PAN" documentation="pwm value for camera #1 angle when in manual" user="Standard">
+        <field name="Units">PWM</field>
+        <field name="UnitText">PWM in microseconds</field>
+        <field name="Range">1000 2000</field>
+      </param>
+      <param humanName="pwm value for camera #2 angle when in manual" name="RemoraRover:MANU_MOUNT_TILT" documentation="pwm value for camera #2 angle when in manual" user="Standard">
+        <field name="Units">PWM</field>
+        <field name="UnitText">PWM in microseconds</field>
+        <field name="Range">1000 2000</field>
+      </param>
+      <param humanName="MANU_MOUNT_TOUT" name="RemoraRover:MANU_MOUNT_TOUT" documentation="timeout for joystick input before rotating camera to prescribed position in manual" user="Standard">
+        <field name="Units">s</field>
+        <field name="UnitText">seconds</field>
+        <field name="Range">-1. 999.</field>
+      </param>
+      <param humanName="ALPHA_TURN" name="RemoraRover:ALPHA_TURN" documentation="position of the turn for changing line: alpha = 0 means around MIN_DEPTH, alpha=0.5 means around (MAX_DEPTH+MIN_DEPTH)/2, alpha = 1 means around MAX_DEPTH" user="Standard">
+        <field name="Range">0.05 0.95</field>
+      </param>
+      <param humanName="ALPHA_THRUSTER" name="RemoraRover:ALPHA_THRUSTER" documentation="position below which the &quot;reduce thruster&quot; step is skipped in avoidance: alpha = 0 means around MIN_DEPTH, alpha=0.5 means around (MAX_DEPTH+MIN_DEPTH)/2, alpha = 1 means around MAX_DEPTH" user="Standard">
+        <field name="Range">0.05 0.95</field>
+      </param>
+      <param humanName="AVOID_H_DISTANCE" name="RemoraRover:AVOID_H_DISTANCE" documentation="in new avoidance pattern, horizontal distance below which we try another whole pattern" user="Standard">
+        <field name="Units">m</field>
+        <field name="UnitText">meters</field>
+        <field name="Range">0. 2.0</field>
+      </param>
+      <param humanName="AVOIDAN_MARGIN" name="RemoraRover:AVOIDAN_MARGIN" documentation="in new avoidance pattern, margin for depth in stuck and avoidance" user="Standard">
+        <field name="Units">m</field>
+        <field name="UnitText">meters</field>
+        <field name="Range">0. 5.0</field>
+      </param>
+      <param humanName="AVOID_SPEED_UP" name="RemoraRover:AVOID_SPEED_UP" documentation="in new avoidance pattern, speed being applied when trying to go up" user="Standard">
+        <field name="Units">%</field>
+        <field name="UnitText">percent</field>
+        <field name="Range">0. 100.</field>
+      </param>
+      <param humanName="AVOID_SPEED_DW" name="RemoraRover:AVOID_SPEED_DW" documentation="in new avoidance pattern, speed being applied when trying to go down" user="Standard">
+        <field name="Units">%</field>
+        <field name="UnitText">percent</field>
+        <field name="Range">0. 100.</field>
+      </param>
+      <param humanName="ALPHA_AVOIDANCE" name="RemoraRover:ALPHA_AVOIDANCE" documentation="in new avoidance pattern, position below which we first try to go up: alpha = 0 means around MIN_DEPTH, alpha=0.5 means around (MAX_DEPTH+MIN_DEPTH)/2, alpha = 1 means around MAX_DEPTH" user="Standard">
+        <field name="Range">0. 1.</field>
       </param>
       <param humanName="GCS sysid enforcement" name="RemoraRover:SYSID_ENFORCE" documentation="This controls whether packets from other than the expected GCS system ID will be accepted" user="Advanced">
         <values>
@@ -16513,6 +16614,7 @@
           <value code="40">AIS</value>
           <value code="41">CoDevESC</value>
           <value code="42">DisplayPort</value>
+          <value code="43">VESC telemetry</value>
         </values>
         <field name="RebootRequired">True</field>
       </param>
@@ -16579,6 +16681,7 @@
           <value code="40">AIS</value>
           <value code="41">CoDevESC</value>
           <value code="42">DisplayPort</value>
+          <value code="43">VESC telemetry</value>
         </values>
       </param>
       <param humanName="Telemetry 2 Baud Rate" name="SERIAL2_BAUD" documentation="The baud rate of the Telem2 port. Most stm32-based boards can support rates of up to 1500. If you setup a rate you cannot support and then can't connect to your board you should load a firmware from a different vehicle type. That will reset all your parameters to defaults." user="Standard">
@@ -16644,6 +16747,7 @@
           <value code="40">AIS</value>
           <value code="41">CoDevESC</value>
           <value code="42">DisplayPort</value>
+          <value code="43">VESC telemetry</value>
         </values>
       </param>
       <param humanName="Serial 3 (GPS) Baud Rate" name="SERIAL3_BAUD" documentation="The baud rate used for the Serial 3 (GPS). Most stm32-based boards can support rates of up to 1500. If you setup a rate you cannot support and then can't connect to your board you should load a firmware from a different vehicle type. That will reset all your parameters to defaults." user="Standard">
@@ -16709,6 +16813,7 @@
           <value code="40">AIS</value>
           <value code="41">CoDevESC</value>
           <value code="42">DisplayPort</value>
+          <value code="43">VESC telemetry</value>
         </values>
       </param>
       <param humanName="Serial 4 Baud Rate" name="SERIAL4_BAUD" documentation="The baud rate used for Serial4. Most stm32-based boards can support rates of up to 1500. If you setup a rate you cannot support and then can't connect to your board you should load a firmware from a different vehicle type. That will reset all your parameters to defaults." user="Standard">
@@ -16774,6 +16879,7 @@
           <value code="40">AIS</value>
           <value code="41">CoDevESC</value>
           <value code="42">DisplayPort</value>
+          <value code="43">VESC telemetry</value>
         </values>
       </param>
       <param humanName="Serial 5 Baud Rate" name="SERIAL5_BAUD" documentation="The baud rate used for Serial5. Most stm32-based boards can support rates of up to 1500. If you setup a rate you cannot support and then can't connect to your board you should load a firmware from a different vehicle type. That will reset all your parameters to defaults." user="Standard">
@@ -16839,6 +16945,7 @@
           <value code="40">AIS</value>
           <value code="41">CoDevESC</value>
           <value code="42">DisplayPort</value>
+          <value code="43">VESC telemetry</value>
         </values>
       </param>
       <param humanName="Serial 6 Baud Rate" name="SERIAL6_BAUD" documentation="The baud rate used for Serial6. Most stm32-based boards can support rates of up to 1500. If you setup a rate you cannot support and then can't connect to your board you should load a firmware from a different vehicle type. That will reset all your parameters to defaults." user="Standard">
@@ -16957,6 +17064,7 @@
           <value code="40">AIS</value>
           <value code="41">CoDevESC</value>
           <value code="42">DisplayPort</value>
+          <value code="43">VESC telemetry</value>
         </values>
       </param>
       <param humanName="Serial 7 Baud Rate" name="SERIAL7_BAUD" documentation="The baud rate used for Serial7. Most stm32-based boards can support rates of up to 1500. If you setup a rate you cannot support and then can't connect to your board you should load a firmware from a different vehicle type. That will reset all your parameters to defaults." user="Standard">
@@ -17026,6 +17134,7 @@
           <value code="40">AIS</value>
           <value code="41">CoDevESC</value>
           <value code="42">DisplayPort</value>
+          <value code="43">VESC telemetry</value>
         </values>
       </param>
       <param humanName="Serial 8 Baud Rate" name="SERIAL8_BAUD" documentation="The baud rate used for Serial8. Most stm32-based boards can support rates of up to 1500. If you setup a rate you cannot support and then can't connect to your board you should load a firmware from a different vehicle type. That will reset all your parameters to defaults." user="Standard">
@@ -17095,6 +17204,7 @@
           <value code="40">AIS</value>
           <value code="41">CoDevESC</value>
           <value code="42">DisplayPort</value>
+          <value code="43">VESC telemetry</value>
         </values>
       </param>
       <param humanName="Serial 9 Baud Rate" name="SERIAL9_BAUD" documentation="The baud rate used for Serial8. Most stm32-based boards can support rates of up to 1500. If you setup a rate you cannot support and then can't connect to your board you should load a firmware from a different vehicle type. That will reset all your parameters to defaults." user="Standard">
