@@ -1771,6 +1771,25 @@ thruster transition duration for smoothed transitions in ms
 
 
 
+.. _BRUSH_TRANSIT_T:
+
+BRUSH\_TRANSIT\_T: BRUSH\_TRANSIT\_T
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+| *Note: This parameter is for advanced users*
+
+brush transition duration for smoothed transitions in ms
+
+
++----------+--------------+
+| Range    | Units        |
++==========+==============+
+| 0 - 2000 | milliseconds |
++----------+--------------+
+
+
+
+
 .. _ROLL_PRECISION:
 
 ROLL\_PRECISION: ROLL\_PRECISION
@@ -2893,7 +2912,7 @@ BWD\_BRUSH\_TH: BWD\_BRUSH\_TH
 
 | *Note: This parameter is for advanced users*
 
-throttle applied to brush when going backward
+throttle applied to brush when doing backflush
 
 
 +------------+---------+
@@ -4607,6 +4626,42 @@ in new avoidance pattern\, position below which we first try to go up\: alpha \=
 +=========+
 | 0. - 1. |
 +---------+
+
+
+
+
+.. _NB_LAST_STUCK:
+
+NB\_LAST\_STUCK: NB\_LAST\_STUCK
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+maximum number of stuck events allowed during the last TIME\_LAST\_STUCK seconds\. if exceeded\, send a warning message
+
+
++---------+
+| Range   |
++=========+
+| 0 - 255 |
++---------+
+
+
+
+
+.. _TIME_LAST_STUCK:
+
+TIME\_LAST\_STUCK: TIME\_LAST\_STUCK
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+monitoring time period in seconds for stuck events
+
+
++-----------+---------+
+| Range     | Units   |
++===========+=========+
+| 0 - 32767 | seconds |
++-----------+---------+
 
 
 
@@ -35049,6 +35104,60 @@ The angle between steering\'s middle position and maximum position when using ve
 +========+=========+
 | 0 - 90 | degrees |
 +--------+---------+
+
+
+
+
+.. _MOT_THROT_SCAL:
+
+MOT\_THROT\_SCAL: throttle scaling factor
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+throttle scaling factor to have cube v5 \(0\.5\) behaving like cube v4 \(1\.0\)
+
+
++---------+
+| Range   |
++=========+
+| 0. - 1. |
++---------+
+
+
+
+
+.. _MOT_BRUSH_SCAL:
+
+MOT\_BRUSH\_SCAL: brush scaling factor
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+brush scaling factor to have cube v5 \(0\.5\) behaving like cube v4 \(1\.0\)
+
+
++---------+
+| Range   |
++=========+
+| 0. - 1. |
++---------+
+
+
+
+
+.. _MOT_THRUS_SCAL:
+
+MOT\_THRUS\_SCAL: thruster scaling factor
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+thruster scaling factor to have cube v5 \(0\.5\) behaving like cube v4 \(1\.0\)
+
+
++---------+
+| Range   |
++=========+
+| 0. - 1. |
++---------+
 
 
 

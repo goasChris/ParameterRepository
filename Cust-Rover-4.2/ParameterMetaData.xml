@@ -2917,6 +2917,13 @@
       <Units>s</Units>
       <User>Standard</User>
     </BRUSH_THR_TOUT>
+    <BRUSH_TRANSIT_T>
+      <Description>brush transition duration for smoothed transitions in ms</Description>
+      <DisplayName>BRUSH_TRANSIT_T</DisplayName>
+      <Range>0 2000</Range>
+      <Units>ms</Units>
+      <User>Advanced</User>
+    </BRUSH_TRANSIT_T>
     <BTN0_FUNCTION>
       <Description>Set to 0 to disable or choose a function</Description>
       <DisplayName>Function for button</DisplayName>
@@ -3169,7 +3176,7 @@
       <User>Standard</User>
     </BTN_REPORT_SEND>
     <BWD_BRUSH_TH>
-      <Description>throttle applied to brush when going backward</Description>
+      <Description>throttle applied to brush when doing backflush</Description>
       <DisplayName>BWD_BRUSH_TH</DisplayName>
       <Range>-100 100</Range>
       <Units>%</Units>
@@ -7864,6 +7871,12 @@
       <Units>s</Units>
       <User>Standard</User>
     </MON_THRUST_CTRL>
+    <MOT_BRUSH_SCAL>
+      <Description>brush scaling factor to have cube v5 (0.5) behaving like cube v4 (1.0)</Description>
+      <DisplayName>brush scaling factor</DisplayName>
+      <Range>0. 1.</Range>
+      <User>Standard</User>
+    </MOT_BRUSH_SCAL>
     <MOT_I_TIMEOUT>
       <Description>timeout for motor intensity monitoring</Description>
       <DisplayName>MOT_I_TIMEOUT</DisplayName>
@@ -7914,6 +7927,18 @@
       <Range>0.2 1.0</Range>
       <User>Advanced</User>
     </MOT_STR_THR_MIX>
+    <MOT_THROT_SCAL>
+      <Description>throttle scaling factor to have cube v5 (0.5) behaving like cube v4 (1.0)</Description>
+      <DisplayName>throttle scaling factor</DisplayName>
+      <Range>0. 1.</Range>
+      <User>Standard</User>
+    </MOT_THROT_SCAL>
+    <MOT_THRUS_SCAL>
+      <Description>thruster scaling factor to have cube v5 (0.5) behaving like cube v4 (1.0)</Description>
+      <DisplayName>thruster scaling factor</DisplayName>
+      <Range>0. 1.</Range>
+      <User>Standard</User>
+    </MOT_THRUS_SCAL>
     <MOT_THR_MAX>
       <Description>Throttle maximum percentage the autopilot will apply. This can be used to prevent overheating an ESC or motor on an electric rover</Description>
       <DisplayName>Throttle maximum</DisplayName>
@@ -7991,6 +8016,12 @@
       <Range>0 0.1</Range>
       <User>Advanced</User>
     </NAVL1_XTRACK_I>
+    <NB_LAST_STUCK>
+      <Description>maximum number of stuck events allowed during the last TIME_LAST_STUCK seconds. if exceeded, send a warning message</Description>
+      <DisplayName>NB_LAST_STUCK</DisplayName>
+      <Range>0 255</Range>
+      <User>Standard</User>
+    </NB_LAST_STUCK>
     <NB_TURN_MAX>
       <Description>maximum number of turn before abort if &lt;0 no limit + reset current_turn_state to normal useful when too much turns were dealt with and you want to go back to normal</Description>
       <DisplayName>NB_TURN_MAX</DisplayName>
@@ -17611,6 +17642,13 @@
       <Units>ms</Units>
       <User>Advanced</User>
     </THRUS_TRANSIT_T>
+    <TIME_LAST_STUCK>
+      <Description>monitoring time period in seconds for stuck events</Description>
+      <DisplayName>TIME_LAST_STUCK</DisplayName>
+      <Range>0 32767</Range>
+      <Units>s</Units>
+      <User>Standard</User>
+    </TIME_LAST_STUCK>
     <TRANSITION_DURATION>
       <Description>transition duration for smoothed transitions in ms</Description>
       <DisplayName>TRANSITION_DURATION</DisplayName>

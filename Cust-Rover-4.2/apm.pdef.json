@@ -13330,6 +13330,15 @@
     }
   },
   "MOT_": {
+    "MOT_BRUSH_SCAL": {
+      "Description": "brush scaling factor to have cube v5 (0.5) behaving like cube v4 (1.0)",
+      "DisplayName": "brush scaling factor",
+      "Range": {
+        "high": "1.",
+        "low": "0."
+      },
+      "User": "Standard"
+    },
     "MOT_PWM_FREQ": {
       "Description": "Motor Output PWM freq for brushed motors",
       "DisplayName": "Motor Output PWM freq for brushed motors",
@@ -13397,6 +13406,24 @@
         "low": "0.2"
       },
       "User": "Advanced"
+    },
+    "MOT_THROT_SCAL": {
+      "Description": "throttle scaling factor to have cube v5 (0.5) behaving like cube v4 (1.0)",
+      "DisplayName": "throttle scaling factor",
+      "Range": {
+        "high": "1.",
+        "low": "0."
+      },
+      "User": "Standard"
+    },
+    "MOT_THRUS_SCAL": {
+      "Description": "thruster scaling factor to have cube v5 (0.5) behaving like cube v4 (1.0)",
+      "DisplayName": "thruster scaling factor",
+      "Range": {
+        "high": "1.",
+        "low": "0."
+      },
+      "User": "Standard"
     },
     "MOT_THR_MAX": {
       "Description": "Throttle maximum percentage the autopilot will apply. This can be used to prevent overheating an ESC or motor on an electric rover",
@@ -25724,8 +25751,18 @@
       "Units": "s",
       "User": "Standard"
     },
+    "BRUSH_TRANSIT_T": {
+      "Description": "brush transition duration for smoothed transitions in ms",
+      "DisplayName": "BRUSH_TRANSIT_T",
+      "Range": {
+        "high": "2000",
+        "low": "0"
+      },
+      "Units": "ms",
+      "User": "Advanced"
+    },
     "BWD_BRUSH_TH": {
-      "Description": "throttle applied to brush when going backward",
+      "Description": "throttle applied to brush when doing backflush",
       "DisplayName": "BWD_BRUSH_TH",
       "Range": {
         "high": "100",
@@ -26821,6 +26858,15 @@
       "Units": "s",
       "User": "Standard"
     },
+    "NB_LAST_STUCK": {
+      "Description": "maximum number of stuck events allowed during the last TIME_LAST_STUCK seconds. if exceeded, send a warning message",
+      "DisplayName": "NB_LAST_STUCK",
+      "Range": {
+        "high": "255",
+        "low": "0"
+      },
+      "User": "Standard"
+    },
     "NB_TURN_MAX": {
       "Description": "maximum number of turn before abort if <0 no limit + reset current_turn_state to normal useful when too much turns were dealt with and you want to go back to normal",
       "DisplayName": "NB_TURN_MAX",
@@ -27544,6 +27590,16 @@
       },
       "Units": "ms",
       "User": "Advanced"
+    },
+    "TIME_LAST_STUCK": {
+      "Description": "monitoring time period in seconds for stuck events",
+      "DisplayName": "TIME_LAST_STUCK",
+      "Range": {
+        "high": "32767",
+        "low": "0"
+      },
+      "Units": "s",
+      "User": "Standard"
     },
     "TRANSITION_DURATION": {
       "Description": "transition duration for smoothed transitions in ms",
