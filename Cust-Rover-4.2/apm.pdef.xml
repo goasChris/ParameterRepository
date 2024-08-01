@@ -461,6 +461,11 @@
         <field name="UnitText">milliseconds</field>
         <field name="Range">0 500</field>
       </param>
+      <param humanName="BRUSH_TRANSIT_T" name="RemoraRover:BRUSH_TRANSIT_T" documentation="brush transition duration for smoothed transitions in ms" user="Advanced">
+        <field name="Units">ms</field>
+        <field name="UnitText">milliseconds</field>
+        <field name="Range">0 2000</field>
+      </param>
       <param humanName="ROLL_PRECISION" name="RemoraRover:ROLL_PRECISION" documentation="roll precision for initial calibration of roll in centidegrees" user="Advanced">
         <field name="Units">cdeg</field>
         <field name="UnitText">centidegrees</field>
@@ -710,7 +715,7 @@
         <field name="UnitText">percent</field>
         <field name="Range">-100 100</field>
       </param>
-      <param humanName="BWD_BRUSH_TH" name="RemoraRover:BWD_BRUSH_TH" documentation="throttle applied to brush when going backward" user="Advanced">
+      <param humanName="BWD_BRUSH_TH" name="RemoraRover:BWD_BRUSH_TH" documentation="throttle applied to brush when doing backflush" user="Advanced">
         <field name="Units">%</field>
         <field name="UnitText">percent</field>
         <field name="Range">-100 100</field>
@@ -1155,6 +1160,14 @@
       </param>
       <param humanName="ALPHA_AVOIDANCE" name="RemoraRover:ALPHA_AVOIDANCE" documentation="in new avoidance pattern, position below which we first try to go up: alpha = 0 means around MIN_DEPTH, alpha=0.5 means around (MAX_DEPTH+MIN_DEPTH)/2, alpha = 1 means around MAX_DEPTH" user="Standard">
         <field name="Range">0. 1.</field>
+      </param>
+      <param humanName="NB_LAST_STUCK" name="RemoraRover:NB_LAST_STUCK" documentation="maximum number of stuck events allowed during the last TIME_LAST_STUCK seconds. if exceeded, send a warning message" user="Standard">
+        <field name="Range">0 255</field>
+      </param>
+      <param humanName="TIME_LAST_STUCK" name="RemoraRover:TIME_LAST_STUCK" documentation="monitoring time period in seconds for stuck events" user="Standard">
+        <field name="Units">s</field>
+        <field name="UnitText">seconds</field>
+        <field name="Range">0 32767</field>
       </param>
       <param humanName="GCS sysid enforcement" name="RemoraRover:SYSID_ENFORCE" documentation="This controls whether packets from other than the expected GCS system ID will be accepted" user="Advanced">
         <values>
@@ -10021,6 +10034,15 @@
         <field name="Units">deg</field>
         <field name="UnitText">degrees</field>
         <field name="Range">0 90</field>
+      </param>
+      <param humanName="throttle scaling factor" name="MOT_THROT_SCAL" documentation="throttle scaling factor to have cube v5 (0.5) behaving like cube v4 (1.0)" user="Standard">
+        <field name="Range">0. 1.</field>
+      </param>
+      <param humanName="brush scaling factor" name="MOT_BRUSH_SCAL" documentation="brush scaling factor to have cube v5 (0.5) behaving like cube v4 (1.0)" user="Standard">
+        <field name="Range">0. 1.</field>
+      </param>
+      <param humanName="thruster scaling factor" name="MOT_THRUS_SCAL" documentation="thruster scaling factor to have cube v5 (0.5) behaving like cube v4 (1.0)" user="Standard">
+        <field name="Range">0. 1.</field>
       </param>
     </parameters>
     <parameters name="MSP">

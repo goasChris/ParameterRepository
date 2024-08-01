@@ -799,6 +799,16 @@ thruster transition duration for smoothed transitions in ms
 
 - Range: 0 500
 
+## BRUSH_TRANSIT_T: BRUSH_TRANSIT_T
+
+*Note: This parameter is for advanced users*
+
+brush transition duration for smoothed transitions in ms
+
+- Units: ms
+
+- Range: 0 2000
+
 ## ROLL_PRECISION: ROLL_PRECISION
 
 *Note: This parameter is for advanced users*
@@ -1335,7 +1345,7 @@ throttle applied to brush when going forward
 
 *Note: This parameter is for advanced users*
 
-throttle applied to brush when going backward
+throttle applied to brush when doing backflush
 
 - Units: %
 
@@ -2079,6 +2089,20 @@ in new avoidance pattern, speed being applied when trying to go down
 in new avoidance pattern, position below which we first try to go up: alpha = 0 means around MIN_DEPTH, alpha=0.5 means around (MAX_DEPTH+MIN_DEPTH)/2, alpha = 1 means around MAX_DEPTH
 
 - Range: 0. 1.
+
+## NB_LAST_STUCK: NB_LAST_STUCK
+
+maximum number of stuck events allowed during the last TIME_LAST_STUCK seconds. if exceeded, send a warning message
+
+- Range: 0 255
+
+## TIME_LAST_STUCK: TIME_LAST_STUCK
+
+monitoring time period in seconds for stuck events
+
+- Units: s
+
+- Range: 0 32767
 
 ## SYSID_ENFORCE: GCS sysid enforcement
 
@@ -13174,6 +13198,24 @@ The angle between steering's middle position and maximum position when using vec
 - Units: deg
 
 - Range: 0 90
+
+## MOT_THROT_SCAL: throttle scaling factor
+
+throttle scaling factor to have cube v5 (0.5) behaving like cube v4 (1.0)
+
+- Range: 0. 1.
+
+## MOT_BRUSH_SCAL: brush scaling factor
+
+brush scaling factor to have cube v5 (0.5) behaving like cube v4 (1.0)
+
+- Range: 0. 1.
+
+## MOT_THRUS_SCAL: thruster scaling factor
+
+thruster scaling factor to have cube v5 (0.5) behaving like cube v4 (1.0)
+
+- Range: 0. 1.
 
 # MSP Parameters
 

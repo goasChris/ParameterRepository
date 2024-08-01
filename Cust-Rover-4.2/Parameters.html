@@ -812,6 +812,15 @@ DO NOT EDIT
 </ul>
 
 
+<h2>BRUSH_TRANSIT_T (RemoraRover:BRUSH_TRANSIT_T)</h2><em>Note: This parameter is for advanced users</em><br>
+
+<p>brush transition duration for smoothed transitions in ms</p>
+<ul>
+<li>Units: milliseconds</li>
+<li>Range: 0 2000</li>
+</ul>
+
+
 <h2>ROLL_PRECISION (RemoraRover:ROLL_PRECISION)</h2><em>Note: This parameter is for advanced users</em><br>
 
 <p>roll precision for initial calibration of roll in centidegrees</p>
@@ -1322,7 +1331,7 @@ DO NOT EDIT
 
 <h2>BWD_BRUSH_TH (RemoraRover:BWD_BRUSH_TH)</h2><em>Note: This parameter is for advanced users</em><br>
 
-<p>throttle applied to brush when going backward</p>
+<p>throttle applied to brush when doing backflush</p>
 <ul>
 <li>Units: percent</li>
 <li>Range: -100 100</li>
@@ -2153,6 +2162,23 @@ DO NOT EDIT
 <p>in new avoidance pattern, position below which we first try to go up: alpha = 0 means around MIN_DEPTH, alpha=0.5 means around (MAX_DEPTH+MIN_DEPTH)/2, alpha = 1 means around MAX_DEPTH</p>
 <ul>
 <li>Range: 0. 1.</li>
+</ul>
+
+
+<h2>NB_LAST_STUCK (RemoraRover:NB_LAST_STUCK)</h2>
+
+<p>maximum number of stuck events allowed during the last TIME_LAST_STUCK seconds. if exceeded, send a warning message</p>
+<ul>
+<li>Range: 0 255</li>
+</ul>
+
+
+<h2>TIME_LAST_STUCK (RemoraRover:TIME_LAST_STUCK)</h2>
+
+<p>monitoring time period in seconds for stuck events</p>
+<ul>
+<li>Units: seconds</li>
+<li>Range: 0 32767</li>
 </ul>
 
 
@@ -16031,6 +16057,30 @@ DO NOT EDIT
 <ul>
 <li>Units: degrees</li>
 <li>Range: 0 90</li>
+</ul>
+
+
+<h2>throttle scaling factor (MOT_THROT_SCAL)</h2>
+
+<p>throttle scaling factor to have cube v5 (0.5) behaving like cube v4 (1.0)</p>
+<ul>
+<li>Range: 0. 1.</li>
+</ul>
+
+
+<h2>brush scaling factor (MOT_BRUSH_SCAL)</h2>
+
+<p>brush scaling factor to have cube v5 (0.5) behaving like cube v4 (1.0)</p>
+<ul>
+<li>Range: 0. 1.</li>
+</ul>
+
+
+<h2>thruster scaling factor (MOT_THRUS_SCAL)</h2>
+
+<p>thruster scaling factor to have cube v5 (0.5) behaving like cube v4 (1.0)</p>
+<ul>
+<li>Range: 0. 1.</li>
 </ul>
 
 
