@@ -13398,6 +13398,15 @@
       "Units": "m/s",
       "User": "Advanced"
     },
+    "MOT_STEER_SCAL": {
+      "Description": "steering scaling factor to have cube v5 (0.5) behaving like cube v4 (1.0)",
+      "DisplayName": "steering scaling factor",
+      "Range": {
+        "high": "1.",
+        "low": "0."
+      },
+      "User": "Standard"
+    },
     "MOT_STR_THR_MIX": {
       "Description": "Steering vs Throttle priorisation.  Higher numbers prioritise steering, lower numbers prioritise throttle.  Only valid for Skid Steering vehicles",
       "DisplayName": "Motor steering vs throttle prioritisation",
@@ -25372,6 +25381,26 @@
         "1": "rotatePatTargetAngle"
       }
     },
+    "ACRO_THRUS_TH": {
+      "Description": "thruster throttle in acro mode",
+      "DisplayName": "ACRO_THRUS_TH",
+      "Range": {
+        "high": "100.",
+        "low": "-100."
+      },
+      "Units": "%",
+      "User": "Standard"
+    },
+    "ACRO_THRUS_TOUT": {
+      "Description": "when changing mode to acro, time period for the transition to ACRO_THRUS_TH thruster throttle",
+      "DisplayName": "ACRO_THRUS_TOUT",
+      "Range": {
+        "high": "32767",
+        "low": "0"
+      },
+      "Units": "s",
+      "User": "Standard"
+    },
     "ACRO_TURN_RATE": {
       "Description": "Acro mode turn rate maximum",
       "DisplayName": "Acro mode turn rate maximum",
@@ -25663,6 +25692,16 @@
         "low": "0"
       },
       "Units": "deg",
+      "User": "Advanced"
+    },
+    "BF_MONIT_TIME": {
+      "Description": "at the end of the backflush sequence, time period for monitoring depth change",
+      "DisplayName": "BF_MONIT_TIME",
+      "Range": {
+        "high": "10",
+        "low": "0"
+      },
+      "Units": "s",
       "User": "Advanced"
     },
     "BF_NB_REPETITION": {
@@ -26366,6 +26405,26 @@
       "Units": "%",
       "User": "Standard"
     },
+    "LOW_RPM_THRUS": {
+      "Description": "threshold for thruster monitoring of low rpm",
+      "DisplayName": "LOW_RPM_THRUS",
+      "Range": {
+        "high": "32767",
+        "low": "0"
+      },
+      "Units": "rpm",
+      "User": "Standard"
+    },
+    "LRPM_THRUS_TOUT": {
+      "Description": "timeout for thruster monitoring of low rpm",
+      "DisplayName": "LRPM_THRUS_TOUT",
+      "Range": {
+        "high": "32767",
+        "low": "0"
+      },
+      "Units": "s",
+      "User": "Standard"
+    },
     "M33_LIMIT": {
       "Description": "minimum value for the M33 coef to avoid division by 0",
       "DisplayName": "minimum value for the M33 coef to avoid division by 0",
@@ -26896,6 +26955,24 @@
       "Units": "ms",
       "User": "Advanced"
     },
+    "ORIGIN_ALT": {
+      "Description": " Backup EKF origin altitude (MSL) used when not using a positioning system.",
+      "DisplayName": "Backup altitude (MSL) for EKF origin",
+      "Units": "m",
+      "User": "Standard"
+    },
+    "ORIGIN_LAT": {
+      "Description": " Backup EKF origin latitude used when not using a positioning system.",
+      "DisplayName": "Backup latitude for EKF origin",
+      "Units": "deg",
+      "User": "Standard"
+    },
+    "ORIGIN_LON": {
+      "Description": " Backup EKF origin longitude used when not using a positioning system.",
+      "DisplayName": "Backup longitude for EKF origin",
+      "Units": "deg",
+      "User": "Standard"
+    },
     "PARKING_DEPTH": {
       "Description": "parking depth for parking mode in meters",
       "DisplayName": "PARKING_DEPTH",
@@ -27040,26 +27117,6 @@
       "Units": "m",
       "User": "Advanced"
     },
-    "PEN_CENTER_LAT": {
-      "Description": "latitude of the pen center",
-      "DisplayName": "PEN_CENTER_LAT",
-      "Range": {
-        "high": "360",
-        "low": "0"
-      },
-      "Units": "deg",
-      "User": "Advanced"
-    },
-    "PEN_CENTER_LONG": {
-      "Description": "longitude of the pen center",
-      "DisplayName": "PEN_CENTER_LONG",
-      "Range": {
-        "high": "360",
-        "low": "0"
-      },
-      "Units": "deg",
-      "User": "Advanced"
-    },
     "PID_POS_KP": {
       "Description": "kp coefficient for pid POS control algorithm",
       "DisplayName": "PID_POS_KP",
@@ -27188,6 +27245,16 @@
       },
       "User": "Advanced"
     },
+    "ROLL_CORRECTION": {
+      "Description": "correction of the roll angle applied to compute net position",
+      "DisplayName": "ROLL_CORRECTION",
+      "Range": {
+        "high": "90",
+        "low": "0"
+      },
+      "Units": "deg",
+      "User": "Standard"
+    },
     "ROLL_PRECISION": {
       "Description": "roll precision for initial calibration of roll in centidegrees",
       "DisplayName": "ROLL_PRECISION",
@@ -27243,6 +27310,15 @@
         "0": "InitialHeading",
         "1": "CardinalDirections"
       }
+    },
+    "SLID_BELT_ACT": {
+      "Description": "action when sliding belt detection: different from 1 = warning + switch to manual; 1 = info + switch to stuck mode",
+      "DisplayName": "SLID_BELT_ACT",
+      "Range": {
+        "high": "1",
+        "low": "0"
+      },
+      "User": "Standard"
     },
     "SLID_BELT_COEF": {
       "Description": "coef for sliding belt detection; if negative, deactivate sliding belts detection",
@@ -27786,16 +27862,6 @@
         "low": "-100"
       },
       "Units": "m",
-      "User": "Standard"
-    },
-    "min_mon_thrus": {
-      "Description": "min thruster throttle applied when \"stopping\" checking if robot is on net",
-      "DisplayName": "min thruster throttle applied when \"stopping\" checking if robot is on net",
-      "Range": {
-        "high": "100",
-        "low": "0"
-      },
-      "Units": "%",
       "User": "Standard"
     },
     "reinit": {

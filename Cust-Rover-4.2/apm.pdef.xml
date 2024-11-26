@@ -591,15 +591,10 @@
         <field name="UnitText">degrees</field>
         <field name="Range">0 10</field>
       </param>
-      <param humanName="PEN_CENTER_LAT" name="RemoraRover:PEN_CENTER_LAT" documentation="latitude of the pen center" user="Advanced">
-        <field name="Units">deg</field>
-        <field name="UnitText">degrees</field>
-        <field name="Range">0 360</field>
-      </param>
-      <param humanName="PEN_CENTER_LONG" name="RemoraRover:PEN_CENTER_LONG" documentation="longitude of the pen center" user="Advanced">
-        <field name="Units">deg</field>
-        <field name="UnitText">degrees</field>
-        <field name="Range">0 360</field>
+      <param humanName="BF_MONIT_TIME" name="RemoraRover:BF_MONIT_TIME" documentation="at the end of the backflush sequence, time period for monitoring depth change" user="Advanced">
+        <field name="Units">s</field>
+        <field name="UnitText">seconds</field>
+        <field name="Range">0 10</field>
       </param>
       <param humanName="VEL_CALC_TYPE" name="RemoraRover:VEL_CALC_TYPE" documentation="type of calculation for vertical velocity: 1 = baro change over 250 ms, 2 = filtered derivative of baro reading, 3 = ahrs velocity along z" user="Advanced">
         <field name="Range">0 255</field>
@@ -1038,11 +1033,6 @@
         <field name="UnitText">meters</field>
         <field name="Range">-100 100</field>
       </param>
-      <param humanName="min thruster throttle applied when &quot;stopping&quot; checking if robot is on net" name="RemoraRover:min_mon_thrus" documentation="min thruster throttle applied when &quot;stopping&quot; checking if robot is on net" user="Standard">
-        <field name="Units">%</field>
-        <field name="UnitText">percent</field>
-        <field name="Range">0 100</field>
-      </param>
       <param humanName="GPS_STUCK_OFF" name="RemoraRover:gps_stuck_off" documentation="in gps measurment mode, turn off stuck avoidanec at this depth and up" user="Standard">
         <field name="Units">m</field>
         <field name="UnitText">meters</field>
@@ -1096,6 +1086,9 @@
         <field name="Units">m</field>
         <field name="UnitText">meters</field>
         <field name="Range">-50 0</field>
+      </param>
+      <param humanName="SLID_BELT_ACT" name="RemoraRover:SLID_BELT_ACT" documentation="action when sliding belt detection: different from 1 = warning + switch to manual; 1 = info + switch to stuck mode" user="Standard">
+        <field name="Range">0 1</field>
       </param>
       <param humanName="LOW_BRUSH_THROT" name="RemoraRover:LOW_BRUSH_THROT" documentation="limit on brush throttle below which it is considered too low for acro" user="Standard">
         <field name="Units">%</field>
@@ -1167,6 +1160,31 @@
       <param humanName="TIME_LAST_STUCK" name="RemoraRover:TIME_LAST_STUCK" documentation="monitoring time period in seconds for stuck events" user="Standard">
         <field name="Units">s</field>
         <field name="UnitText">seconds</field>
+        <field name="Range">0 32767</field>
+      </param>
+      <param humanName="ROLL_CORRECTION" name="RemoraRover:ROLL_CORRECTION" documentation="correction of the roll angle applied to compute net position" user="Standard">
+        <field name="Units">deg</field>
+        <field name="UnitText">degrees</field>
+        <field name="Range">0 90</field>
+      </param>
+      <param humanName="ACRO_THRUS_TH" name="RemoraRover:ACRO_THRUS_TH" documentation="thruster throttle in acro mode" user="Standard">
+        <field name="Units">%</field>
+        <field name="UnitText">percent</field>
+        <field name="Range">-100. 100.</field>
+      </param>
+      <param humanName="ACRO_THRUS_TOUT" name="RemoraRover:ACRO_THRUS_TOUT" documentation="when changing mode to acro, time period for the transition to ACRO_THRUS_TH thruster throttle" user="Standard">
+        <field name="Units">s</field>
+        <field name="UnitText">seconds</field>
+        <field name="Range">0 32767</field>
+      </param>
+      <param humanName="LRPM_THRUS_TOUT" name="RemoraRover:LRPM_THRUS_TOUT" documentation="timeout for thruster monitoring of low rpm" user="Standard">
+        <field name="Units">s</field>
+        <field name="UnitText">seconds</field>
+        <field name="Range">0 32767</field>
+      </param>
+      <param humanName="LOW_RPM_THRUS" name="RemoraRover:LOW_RPM_THRUS" documentation="threshold for thruster monitoring of low rpm" user="Standard">
+        <field name="Units">rpm</field>
+        <field name="UnitText">round per minute</field>
         <field name="Range">0 32767</field>
       </param>
       <param humanName="GCS sysid enforcement" name="RemoraRover:SYSID_ENFORCE" documentation="This controls whether packets from other than the expected GCS system ID will be accepted" user="Advanced">
@@ -1278,6 +1296,18 @@
           <value code="1">Failsafe enabled in Hold mode</value>
         </values>
         <field name="Bitmask">0:Failsafe enabled in Hold mode</field>
+      </param>
+      <param humanName="Backup latitude for EKF origin" name="RemoraRover:ORIGIN_LAT" documentation=" Backup EKF origin latitude used when not using a positioning system." user="Standard">
+        <field name="Units">deg</field>
+        <field name="UnitText">degrees</field>
+      </param>
+      <param humanName="Backup longitude for EKF origin" name="RemoraRover:ORIGIN_LON" documentation=" Backup EKF origin longitude used when not using a positioning system." user="Standard">
+        <field name="Units">deg</field>
+        <field name="UnitText">degrees</field>
+      </param>
+      <param humanName="Backup altitude (MSL) for EKF origin" name="RemoraRover:ORIGIN_ALT" documentation=" Backup EKF origin altitude (MSL) used when not using a positioning system." user="Standard">
+        <field name="Units">m</field>
+        <field name="UnitText">meters</field>
       </param>
       <param humanName="Channel 7 option" name="RemoraRover:CH7_OPTION" documentation="What to do use channel 7 for" user="Standard">
         <values>
@@ -10042,6 +10072,9 @@
         <field name="Range">0. 1.</field>
       </param>
       <param humanName="thruster scaling factor" name="MOT_THRUS_SCAL" documentation="thruster scaling factor to have cube v5 (0.5) behaving like cube v4 (1.0)" user="Standard">
+        <field name="Range">0. 1.</field>
+      </param>
+      <param humanName="steering scaling factor" name="MOT_STEER_SCAL" documentation="steering scaling factor to have cube v5 (0.5) behaving like cube v4 (1.0)" user="Standard">
         <field name="Range">0. 1.</field>
       </param>
     </parameters>
