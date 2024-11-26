@@ -1072,21 +1072,12 @@ DO NOT EDIT
 </ul>
 
 
-<h2>PEN_CENTER_LAT (RemoraRover:PEN_CENTER_LAT)</h2><em>Note: This parameter is for advanced users</em><br>
+<h2>BF_MONIT_TIME (RemoraRover:BF_MONIT_TIME)</h2><em>Note: This parameter is for advanced users</em><br>
 
-<p>latitude of the pen center</p>
+<p>at the end of the backflush sequence, time period for monitoring depth change</p>
 <ul>
-<li>Units: degrees</li>
-<li>Range: 0 360</li>
-</ul>
-
-
-<h2>PEN_CENTER_LONG (RemoraRover:PEN_CENTER_LONG)</h2><em>Note: This parameter is for advanced users</em><br>
-
-<p>longitude of the pen center</p>
-<ul>
-<li>Units: degrees</li>
-<li>Range: 0 360</li>
+<li>Units: seconds</li>
+<li>Range: 0 10</li>
 </ul>
 
 
@@ -1928,15 +1919,6 @@ DO NOT EDIT
 </ul>
 
 
-<h2>min thruster throttle applied when "stopping" checking if robot is on net (RemoraRover:min_mon_thrus)</h2>
-
-<p>min thruster throttle applied when &quot;stopping&quot; checking if robot is on net</p>
-<ul>
-<li>Units: percent</li>
-<li>Range: 0 100</li>
-</ul>
-
-
 <h2>GPS_STUCK_OFF (RemoraRover:gps_stuck_off)</h2>
 
 <p>in gps measurment mode, turn off stuck avoidanec at this depth and up</p>
@@ -2039,6 +2021,14 @@ DO NOT EDIT
 <ul>
 <li>Units: meters</li>
 <li>Range: -50 0</li>
+</ul>
+
+
+<h2>SLID_BELT_ACT (RemoraRover:SLID_BELT_ACT)</h2>
+
+<p>action when sliding belt detection: different from 1 = warning + switch to manual; 1 = info + switch to stuck mode</p>
+<ul>
+<li>Range: 0 1</li>
 </ul>
 
 
@@ -2178,6 +2168,51 @@ DO NOT EDIT
 <p>monitoring time period in seconds for stuck events</p>
 <ul>
 <li>Units: seconds</li>
+<li>Range: 0 32767</li>
+</ul>
+
+
+<h2>ROLL_CORRECTION (RemoraRover:ROLL_CORRECTION)</h2>
+
+<p>correction of the roll angle applied to compute net position</p>
+<ul>
+<li>Units: degrees</li>
+<li>Range: 0 90</li>
+</ul>
+
+
+<h2>ACRO_THRUS_TH (RemoraRover:ACRO_THRUS_TH)</h2>
+
+<p>thruster throttle in acro mode</p>
+<ul>
+<li>Units: percent</li>
+<li>Range: -100. 100.</li>
+</ul>
+
+
+<h2>ACRO_THRUS_TOUT (RemoraRover:ACRO_THRUS_TOUT)</h2>
+
+<p>when changing mode to acro, time period for the transition to ACRO_THRUS_TH thruster throttle</p>
+<ul>
+<li>Units: seconds</li>
+<li>Range: 0 32767</li>
+</ul>
+
+
+<h2>LRPM_THRUS_TOUT (RemoraRover:LRPM_THRUS_TOUT)</h2>
+
+<p>timeout for thruster monitoring of low rpm</p>
+<ul>
+<li>Units: seconds</li>
+<li>Range: 0 32767</li>
+</ul>
+
+
+<h2>LOW_RPM_THRUS (RemoraRover:LOW_RPM_THRUS)</h2>
+
+<p>threshold for thruster monitoring of low rpm</p>
+<ul>
+<li>Units: round per minute</li>
 <li>Range: 0 32767</li>
 </ul>
 
@@ -2366,6 +2401,30 @@ DO NOT EDIT
 <tr><td>1</td><td>Failsafe enabled in Hold mode</td></tr>
 </table>
 <li>Bitmask: 0:Failsafe enabled in Hold mode</li>
+</ul>
+
+
+<h2>Backup latitude for EKF origin (RemoraRover:ORIGIN_LAT)</h2>
+
+<p> Backup EKF origin latitude used when not using a positioning system.</p>
+<ul>
+<li>Units: degrees</li>
+</ul>
+
+
+<h2>Backup longitude for EKF origin (RemoraRover:ORIGIN_LON)</h2>
+
+<p> Backup EKF origin longitude used when not using a positioning system.</p>
+<ul>
+<li>Units: degrees</li>
+</ul>
+
+
+<h2>Backup altitude (MSL) for EKF origin (RemoraRover:ORIGIN_ALT)</h2>
+
+<p> Backup EKF origin altitude (MSL) used when not using a positioning system.</p>
+<ul>
+<li>Units: meters</li>
 </ul>
 
 
@@ -16079,6 +16138,14 @@ DO NOT EDIT
 <h2>thruster scaling factor (MOT_THRUS_SCAL)</h2>
 
 <p>thruster scaling factor to have cube v5 (0.5) behaving like cube v4 (1.0)</p>
+<ul>
+<li>Range: 0. 1.</li>
+</ul>
+
+
+<h2>steering scaling factor (MOT_STEER_SCAL)</h2>
+
+<p>steering scaling factor to have cube v5 (0.5) behaving like cube v4 (1.0)</p>
 <ul>
 <li>Range: 0. 1.</li>
 </ul>

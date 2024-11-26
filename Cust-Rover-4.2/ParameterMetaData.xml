@@ -21,6 +21,20 @@
       <User>Standard</User>
       <Values>0:nothing,1:rotatePatTargetAngle</Values>
     </ACRO_ROTAT_PAT>
+    <ACRO_THRUS_TH>
+      <Description>thruster throttle in acro mode</Description>
+      <DisplayName>ACRO_THRUS_TH</DisplayName>
+      <Range>-100. 100.</Range>
+      <Units>%</Units>
+      <User>Standard</User>
+    </ACRO_THRUS_TH>
+    <ACRO_THRUS_TOUT>
+      <Description>when changing mode to acro, time period for the transition to ACRO_THRUS_TH thruster throttle</Description>
+      <DisplayName>ACRO_THRUS_TOUT</DisplayName>
+      <Range>0 32767</Range>
+      <Units>s</Units>
+      <User>Standard</User>
+    </ACRO_THRUS_TOUT>
     <ACRO_TURN_RATE>
       <Description>Acro mode turn rate maximum</Description>
       <DisplayName>Acro mode turn rate maximum</DisplayName>
@@ -2571,6 +2585,13 @@
       <Units>deg</Units>
       <User>Advanced</User>
     </BF_DELTA_ROLL>
+    <BF_MONIT_TIME>
+      <Description>at the end of the backflush sequence, time period for monitoring depth change</Description>
+      <DisplayName>BF_MONIT_TIME</DisplayName>
+      <Range>0 10</Range>
+      <Units>s</Units>
+      <User>Advanced</User>
+    </BF_MONIT_TIME>
     <BF_NB_REPETITION>
       <Description>number of repetition of backflush</Description>
       <DisplayName>BF_NB_REPETITION</DisplayName>
@@ -7233,6 +7254,20 @@
       <Units>%</Units>
       <User>Standard</User>
     </LOW_BRUSH_THROT>
+    <LOW_RPM_THRUS>
+      <Description>threshold for thruster monitoring of low rpm</Description>
+      <DisplayName>LOW_RPM_THRUS</DisplayName>
+      <Range>0 32767</Range>
+      <Units>rpm</Units>
+      <User>Standard</User>
+    </LOW_RPM_THRUS>
+    <LRPM_THRUS_TOUT>
+      <Description>timeout for thruster monitoring of low rpm</Description>
+      <DisplayName>LRPM_THRUS_TOUT</DisplayName>
+      <Range>0 32767</Range>
+      <Units>s</Units>
+      <User>Standard</User>
+    </LRPM_THRUS_TOUT>
     <M33_LIMIT>
       <Description>minimum value for the M33 coef to avoid division by 0</Description>
       <DisplayName>minimum value for the M33 coef to avoid division by 0</DisplayName>
@@ -7921,6 +7956,12 @@
       <Units>m/s</Units>
       <User>Advanced</User>
     </MOT_SPD_SCA_BASE>
+    <MOT_STEER_SCAL>
+      <Description>steering scaling factor to have cube v5 (0.5) behaving like cube v4 (1.0)</Description>
+      <DisplayName>steering scaling factor</DisplayName>
+      <Range>0. 1.</Range>
+      <User>Standard</User>
+    </MOT_STEER_SCAL>
     <MOT_STR_THR_MIX>
       <Description>Steering vs Throttle priorisation.  Higher numbers prioritise steering, lower numbers prioritise throttle.  Only valid for Skid Steering vehicles</Description>
       <DisplayName>Motor steering vs throttle prioritisation</DisplayName>
@@ -8189,6 +8230,24 @@
       <User>Standard</User>
       <Values>0:Disabled,1:BendyRuler,2:Dijkstra,3:Dijkstra with BendyRuler</Values>
     </OA_TYPE>
+    <ORIGIN_ALT>
+      <Description> Backup EKF origin altitude (MSL) used when not using a positioning system.</Description>
+      <DisplayName>Backup altitude (MSL) for EKF origin</DisplayName>
+      <Units>m</Units>
+      <User>Standard</User>
+    </ORIGIN_ALT>
+    <ORIGIN_LAT>
+      <Description> Backup EKF origin latitude used when not using a positioning system.</Description>
+      <DisplayName>Backup latitude for EKF origin</DisplayName>
+      <Units>deg</Units>
+      <User>Standard</User>
+    </ORIGIN_LAT>
+    <ORIGIN_LON>
+      <Description> Backup EKF origin longitude used when not using a positioning system.</Description>
+      <DisplayName>Backup longitude for EKF origin</DisplayName>
+      <Units>deg</Units>
+      <User>Standard</User>
+    </ORIGIN_LON>
     <OSD1_ALTITUDE_EN>
       <Description>Enables display of altitude AGL</Description>
       <DisplayName>ALTITUDE_EN</DisplayName>
@@ -12978,20 +13037,6 @@
       <Units>m</Units>
       <User>Advanced</User>
     </PATTERN_min_depth>
-    <PEN_CENTER_LAT>
-      <Description>latitude of the pen center</Description>
-      <DisplayName>PEN_CENTER_LAT</DisplayName>
-      <Range>0 360</Range>
-      <Units>deg</Units>
-      <User>Advanced</User>
-    </PEN_CENTER_LAT>
-    <PEN_CENTER_LONG>
-      <Description>longitude of the pen center</Description>
-      <DisplayName>PEN_CENTER_LONG</DisplayName>
-      <Range>0 360</Range>
-      <Units>deg</Units>
-      <User>Advanced</User>
-    </PEN_CENTER_LONG>
     <PID_POS_KP>
       <Description>kp coefficient for pid POS control algorithm</Description>
       <DisplayName>PID_POS_KP</DisplayName>
@@ -15494,6 +15539,13 @@
       <Range>10 50</Range>
       <User>Advanced</User>
     </ROLL_CALIB_VEL>
+    <ROLL_CORRECTION>
+      <Description>correction of the roll angle applied to compute net position</Description>
+      <DisplayName>ROLL_CORRECTION</DisplayName>
+      <Range>0 90</Range>
+      <Units>deg</Units>
+      <User>Standard</User>
+    </ROLL_CORRECTION>
     <ROLL_PRECISION>
       <Description>roll precision for initial calibration of roll in centidegrees</Description>
       <DisplayName>ROLL_PRECISION</DisplayName>
@@ -16761,6 +16813,12 @@
       <User>Standard</User>
       <Values>0:InitialHeading,1:CardinalDirections</Values>
     </SIMPLE_TYPE>
+    <SLID_BELT_ACT>
+      <Description>action when sliding belt detection: different from 1 = warning + switch to manual; 1 = info + switch to stuck mode</Description>
+      <DisplayName>SLID_BELT_ACT</DisplayName>
+      <Range>0 1</Range>
+      <User>Standard</User>
+    </SLID_BELT_ACT>
     <SLID_BELT_COEF>
       <Description>coef for sliding belt detection; if negative, deactivate sliding belts detection</Description>
       <DisplayName>SLID_BELT_COEF</DisplayName>
@@ -18359,13 +18417,6 @@
       <Units>m</Units>
       <User>Standard</User>
     </min_mon_depth>
-    <min_mon_thrus>
-      <Description>min thruster throttle applied when "stopping" checking if robot is on net</Description>
-      <DisplayName>min thruster throttle applied when "stopping" checking if robot is on net</DisplayName>
-      <Range>0 100</Range>
-      <Units>%</Units>
-      <User>Standard</User>
-    </min_mon_thrus>
     <reinit>
       <Description>reinitialisation of vertical roll. reset is triggered by a change in this value</Description>
       <DisplayName>Reinitialisation of Vertical Roll</DisplayName>

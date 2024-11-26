@@ -1079,25 +1079,15 @@ backflush only when -BF_DELTA_ROLL < roll-VERTICAL_ROLL < BF_DELTA_ROLL
 
 - Range: 0 10
 
-## PEN_CENTER_LAT: PEN_CENTER_LAT
+## BF_MONIT_TIME: BF_MONIT_TIME
 
 *Note: This parameter is for advanced users*
 
-latitude of the pen center
+at the end of the backflush sequence, time period for monitoring depth change
 
-- Units: deg
+- Units: s
 
-- Range: 0 360
-
-## PEN_CENTER_LONG: PEN_CENTER_LONG
-
-*Note: This parameter is for advanced users*
-
-longitude of the pen center
-
-- Units: deg
-
-- Range: 0 360
+- Range: 0 10
 
 ## VEL_CALC_TYPE: VEL_CALC_TYPE
 
@@ -1886,14 +1876,6 @@ Don't stop and monitor if robot is on net above this H
 
 - Range: -100 100
 
-## min_mon_thrus: min thruster throttle applied when "stopping" checking if robot is on net
-
-min thruster throttle applied when "stopping" checking if robot is on net
-
-- Units: %
-
-- Range: 0 100
-
 ## gps_stuck_off: GPS_STUCK_OFF
 
 in gps measurment mode, turn off stuck avoidanec at this depth and up
@@ -1983,6 +1965,12 @@ max depth for sliding belt detection
 - Units: m
 
 - Range: -50 0
+
+## SLID_BELT_ACT: SLID_BELT_ACT
+
+action when sliding belt detection: different from 1 = warning + switch to manual; 1 = info + switch to stuck mode
+
+- Range: 0 1
 
 ## LOW_BRUSH_THROT: LOW_BRUSH_THROT
 
@@ -2101,6 +2089,46 @@ maximum number of stuck events allowed during the last TIME_LAST_STUCK seconds. 
 monitoring time period in seconds for stuck events
 
 - Units: s
+
+- Range: 0 32767
+
+## ROLL_CORRECTION: ROLL_CORRECTION
+
+correction of the roll angle applied to compute net position
+
+- Units: deg
+
+- Range: 0 90
+
+## ACRO_THRUS_TH: ACRO_THRUS_TH
+
+thruster throttle in acro mode
+
+- Units: %
+
+- Range: -100. 100.
+
+## ACRO_THRUS_TOUT: ACRO_THRUS_TOUT
+
+when changing mode to acro, time period for the transition to ACRO_THRUS_TH thruster throttle
+
+- Units: s
+
+- Range: 0 32767
+
+## LRPM_THRUS_TOUT: LRPM_THRUS_TOUT
+
+timeout for thruster monitoring of low rpm
+
+- Units: s
+
+- Range: 0 32767
+
+## LOW_RPM_THRUS: LOW_RPM_THRUS
+
+threshold for thruster monitoring of low rpm
+
+- Units: rpm
 
 - Range: 0 32767
 
@@ -2286,6 +2314,24 @@ Bitmask to enable Rover failsafe options
 |1|Failsafe enabled in Hold mode|
 
 - Bitmask: 0:Failsafe enabled in Hold mode
+
+## ORIGIN_LAT: Backup latitude for EKF origin
+
+ Backup EKF origin latitude used when not using a positioning system.
+
+- Units: deg
+
+## ORIGIN_LON: Backup longitude for EKF origin
+
+ Backup EKF origin longitude used when not using a positioning system.
+
+- Units: deg
+
+## ORIGIN_ALT: Backup altitude (MSL) for EKF origin
+
+ Backup EKF origin altitude (MSL) used when not using a positioning system.
+
+- Units: m
 
 ## CH7_OPTION: Channel 7 option
 
@@ -13214,6 +13260,12 @@ brush scaling factor to have cube v5 (0.5) behaving like cube v4 (1.0)
 ## MOT_THRUS_SCAL: thruster scaling factor
 
 thruster scaling factor to have cube v5 (0.5) behaving like cube v4 (1.0)
+
+- Range: 0. 1.
+
+## MOT_STEER_SCAL: steering scaling factor
+
+steering scaling factor to have cube v5 (0.5) behaving like cube v4 (1.0)
 
 - Range: 0. 1.
 

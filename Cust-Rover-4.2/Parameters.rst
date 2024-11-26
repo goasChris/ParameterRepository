@@ -2341,40 +2341,21 @@ backflush only when \-BF\_DELTA\_ROLL \< roll\-VERTICAL\_ROLL \< BF\_DELTA\_ROLL
 
 
 
-.. _PEN_CENTER_LAT:
+.. _BF_MONIT_TIME:
 
-PEN\_CENTER\_LAT: PEN\_CENTER\_LAT
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-| *Note: This parameter is for advanced users*
-
-latitude of the pen center
-
-
-+---------+---------+
-| Range   | Units   |
-+=========+=========+
-| 0 - 360 | degrees |
-+---------+---------+
-
-
-
-
-.. _PEN_CENTER_LONG:
-
-PEN\_CENTER\_LONG: PEN\_CENTER\_LONG
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+BF\_MONIT\_TIME: BF\_MONIT\_TIME
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 | *Note: This parameter is for advanced users*
 
-longitude of the pen center
+at the end of the backflush sequence\, time period for monitoring depth change
 
 
-+---------+---------+
-| Range   | Units   |
-+=========+=========+
-| 0 - 360 | degrees |
-+---------+---------+
++--------+---------+
+| Range  | Units   |
++========+=========+
+| 0 - 10 | seconds |
++--------+---------+
 
 
 
@@ -4144,24 +4125,6 @@ Don\'t stop and monitor if robot is on net above this H
 
 
 
-.. _min_mon_thrus:
-
-min\_mon\_thrus: min thruster throttle applied when \"stopping\" checking if robot is on net
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-min thruster throttle applied when \"stopping\" checking if robot is on net
-
-
-+---------+---------+
-| Range   | Units   |
-+=========+=========+
-| 0 - 100 | percent |
-+---------+---------+
-
-
-
-
 .. _gps_stuck_off:
 
 gps\_stuck\_off: GPS\_STUCK\_OFF
@@ -4374,6 +4337,24 @@ max depth for sliding belt detection
 +=========+========+
 | -50 - 0 | meters |
 +---------+--------+
+
+
+
+
+.. _SLID_BELT_ACT:
+
+SLID\_BELT\_ACT: SLID\_BELT\_ACT
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+action when sliding belt detection\: different from 1 \= warning \+ switch to manual\; 1 \= info \+ switch to stuck mode
+
+
++-------+
+| Range |
++=======+
+| 0 - 1 |
++-------+
 
 
 
@@ -4662,6 +4643,96 @@ monitoring time period in seconds for stuck events
 +===========+=========+
 | 0 - 32767 | seconds |
 +-----------+---------+
+
+
+
+
+.. _ROLL_CORRECTION:
+
+ROLL\_CORRECTION: ROLL\_CORRECTION
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+correction of the roll angle applied to compute net position
+
+
++--------+---------+
+| Range  | Units   |
++========+=========+
+| 0 - 90 | degrees |
++--------+---------+
+
+
+
+
+.. _ACRO_THRUS_TH:
+
+ACRO\_THRUS\_TH: ACRO\_THRUS\_TH
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+thruster throttle in acro mode
+
+
++--------------+---------+
+| Range        | Units   |
++==============+=========+
+| -100. - 100. | percent |
++--------------+---------+
+
+
+
+
+.. _ACRO_THRUS_TOUT:
+
+ACRO\_THRUS\_TOUT: ACRO\_THRUS\_TOUT
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+when changing mode to acro\, time period for the transition to ACRO\_THRUS\_TH thruster throttle
+
+
++-----------+---------+
+| Range     | Units   |
++===========+=========+
+| 0 - 32767 | seconds |
++-----------+---------+
+
+
+
+
+.. _LRPM_THRUS_TOUT:
+
+LRPM\_THRUS\_TOUT: LRPM\_THRUS\_TOUT
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+timeout for thruster monitoring of low rpm
+
+
++-----------+---------+
+| Range     | Units   |
++===========+=========+
+| 0 - 32767 | seconds |
++-----------+---------+
+
+
+
+
+.. _LOW_RPM_THRUS:
+
+LOW\_RPM\_THRUS: LOW\_RPM\_THRUS
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+threshold for thruster monitoring of low rpm
+
+
++-----------+------------------+
+| Range     | Units            |
++===========+==================+
+| 0 - 32767 | round per minute |
++-----------+------------------+
 
 
 
@@ -5045,6 +5116,60 @@ Bitmask to enable Rover failsafe options
 |                                         | +-------+-------------------------------+ |
 |                                         |                                           |
 +-----------------------------------------+-------------------------------------------+
+
+
+
+
+.. _ORIGIN_LAT:
+
+ORIGIN\_LAT: Backup latitude for EKF origin
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+ Backup EKF origin latitude used when not using a positioning system\.
+
+
++---------+
+| Units   |
++=========+
+| degrees |
++---------+
+
+
+
+
+.. _ORIGIN_LON:
+
+ORIGIN\_LON: Backup longitude for EKF origin
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+ Backup EKF origin longitude used when not using a positioning system\.
+
+
++---------+
+| Units   |
++=========+
+| degrees |
++---------+
+
+
+
+
+.. _ORIGIN_ALT:
+
+ORIGIN\_ALT: Backup altitude \(MSL\) for EKF origin
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+ Backup EKF origin altitude \(MSL\) used when not using a positioning system\.
+
+
++--------+
+| Units  |
++========+
+| meters |
++--------+
 
 
 
@@ -35151,6 +35276,24 @@ MOT\_THRUS\_SCAL: thruster scaling factor
 
 
 thruster scaling factor to have cube v5 \(0\.5\) behaving like cube v4 \(1\.0\)
+
+
++---------+
+| Range   |
++=========+
+| 0. - 1. |
++---------+
+
+
+
+
+.. _MOT_STEER_SCAL:
+
+MOT\_STEER\_SCAL: steering scaling factor
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+steering scaling factor to have cube v5 \(0\.5\) behaving like cube v4 \(1\.0\)
 
 
 +---------+
