@@ -517,7 +517,7 @@ DO NOT EDIT
 
 <h2>STUCK_MAXT (RemoraRover:STUCK_MAXT)</h2><em>Note: This parameter is for advanced users</em><br>
 
-<p>maximum time to try to move when stuck //fixme, what unit/max?</p>
+<p>maximum time to try to move when stuck</p>
 <ul>
 <li>Units: seconds</li>
 <li>Range: 0 10</li>
@@ -695,7 +695,7 @@ DO NOT EDIT
 </ul>
 
 
-<h2>Reinitialisation of Vertical Roll (RemoraRover:reinit)</h2><em>Note: This parameter is for advanced users</em><br>
+<h2>REINIT_ACRO (RemoraRover:REINIT_ACRO)</h2><em>Note: This parameter is for advanced users</em><br>
 
 <p>reinitialisation of vertical roll. reset is triggered by a change in this value</p>
 <ul>
@@ -703,7 +703,7 @@ DO NOT EDIT
 </ul>
 
 
-<h2>cur_posThetaDeg (RemoraRover:cur_posThetaDeg)</h2><em>Note: This parameter is for advanced users</em><br>
+<h2>CUR_POSTHETA_DEG (RemoraRover:CUR_POSTHETA_DEG)</h2><em>Note: This parameter is for advanced users</em><br>
 
 <p>current position along theta in degrees</p>
 <ul>
@@ -2214,6 +2214,15 @@ DO NOT EDIT
 <ul>
 <li>Units: round per minute</li>
 <li>Range: 0 32767</li>
+</ul>
+
+
+<h2>SINK_VELOCITY (RemoraRover:SINK_VELOCITY)</h2>
+
+<p>velocity threshold for sinking detection: for the detection to occur, you have to fall at more than SINK_VELOCITY while trying to go up at more than SINK_VELOCITY</p>
+<ul>
+<li>Units: meters per second</li>
+<li>Range: 0 0.2</li>
 </ul>
 
 

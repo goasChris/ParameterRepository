@@ -4297,6 +4297,13 @@
       <User>Advanced</User>
       <Values>1:verticalOneWay L/R,2:lateral L/R,3:vertTwoWay L/R,4:horizontal,5:horizontal PostContAlgo,6:vert PostContAlgo 2way,7:vert PostContAlgo 1way,8:diagonal</Values>
     </CURRENT_PATTERN>
+    <CUR_POSTHETA_DEG>
+      <Description>current position along theta in degrees</Description>
+      <DisplayName>CUR_POSTHETA_DEG</DisplayName>
+      <Range>0 360</Range>
+      <Units>deg</Units>
+      <User>Advanced</User>
+    </CUR_POSTHETA_DEG>
     <DEAD_THROTTLE>
       <Description>delta throttle under which we can not be stuck as we are not trying to move : if abs(throttle)&lt;dead_throttle</Description>
       <DisplayName>DEAD_THROTTLE</DisplayName>
@@ -13905,6 +13912,12 @@
       <DisplayName>RC protocols enabled</DisplayName>
       <User>Advanced</User>
     </RC_PROTOCOLS>
+    <REINIT_ACRO>
+      <Description>reinitialisation of vertical roll. reset is triggered by a change in this value</Description>
+      <DisplayName>REINIT_ACRO</DisplayName>
+      <Range>-254 255</Range>
+      <User>Advanced</User>
+    </REINIT_ACRO>
     <RELAY_DEFAULT>
       <Description>The state of the relay on boot.</Description>
       <DisplayName>Default relay state</DisplayName>
@@ -16813,6 +16826,13 @@
       <User>Standard</User>
       <Values>0:InitialHeading,1:CardinalDirections</Values>
     </SIMPLE_TYPE>
+    <SINK_VELOCITY>
+      <Description>velocity threshold for sinking detection: for the detection to occur, you have to fall at more than SINK_VELOCITY while trying to go up at more than SINK_VELOCITY</Description>
+      <DisplayName>SINK_VELOCITY</DisplayName>
+      <Range>0 0.2</Range>
+      <Units>m/s</Units>
+      <User>Standard</User>
+    </SINK_VELOCITY>
     <SLID_BELT_ACT>
       <Description>action when sliding belt detection: different from 1 = warning + switch to manual; 1 = info + switch to stuck mode</Description>
       <DisplayName>SLID_BELT_ACT</DisplayName>
@@ -17522,7 +17542,7 @@
       <Values>0:1</Values>
     </STUCK_MANUAL>
     <STUCK_MAXT>
-      <Description>maximum time to try to move when stuck //fixme, what unit/max?</Description>
+      <Description>maximum time to try to move when stuck</Description>
       <DisplayName>STUCK_MAXT</DisplayName>
       <Range>0 10</Range>
       <Units>s</Units>
@@ -18328,13 +18348,6 @@
       <Range>0 200</Range>
       <User>Advanced</User>
     </WRC_RATE_SMAX>
-    <cur_posThetaDeg>
-      <Description>current position along theta in degrees</Description>
-      <DisplayName>cur_posThetaDeg</DisplayName>
-      <Range>0 360</Range>
-      <Units>deg</Units>
-      <User>Advanced</User>
-    </cur_posThetaDeg>
     <disable_mv>
       <Description>1, disable monitoring for velocity spikes</Description>
       <DisplayName>1, disable monitoring for velocity spikes</DisplayName>
@@ -18417,12 +18430,6 @@
       <Units>m</Units>
       <User>Standard</User>
     </min_mon_depth>
-    <reinit>
-      <Description>reinitialisation of vertical roll. reset is triggered by a change in this value</Description>
-      <DisplayName>Reinitialisation of Vertical Roll</DisplayName>
-      <Range>-254 255</Range>
-      <User>Advanced</User>
-    </reinit>
     <stand_still_t>
       <Description>time for the robot to comme to sandstill</Description>
       <DisplayName>time for the robot to comme to sandstill</DisplayName>

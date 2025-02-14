@@ -486,7 +486,7 @@ distance forward after stuck point to decide we are unstuck
 
 *Note: This parameter is for advanced users*
 
-maximum time to try to move when stuck //fixme, what unit/max?
+maximum time to try to move when stuck
 
 - Units: s
 
@@ -673,7 +673,7 @@ Which direction should the passes be offset (left or right); pattern to the left
 |1|Left|
 |2|Right|
 
-## reinit: Reinitialisation of Vertical Roll
+## REINIT_ACRO: REINIT_ACRO
 
 *Note: This parameter is for advanced users*
 
@@ -681,7 +681,7 @@ reinitialisation of vertical roll. reset is triggered by a change in this value
 
 - Range: -254 255
 
-## cur_posThetaDeg: cur_posThetaDeg
+## CUR_POSTHETA_DEG: CUR_POSTHETA_DEG
 
 *Note: This parameter is for advanced users*
 
@@ -2131,6 +2131,14 @@ threshold for thruster monitoring of low rpm
 - Units: rpm
 
 - Range: 0 32767
+
+## SINK_VELOCITY: SINK_VELOCITY
+
+velocity threshold for sinking detection: for the detection to occur, you have to fall at more than SINK_VELOCITY while trying to go up at more than SINK_VELOCITY
+
+- Units: m/s
+
+- Range: 0 0.2
 
 ## SYSID_ENFORCE: GCS sysid enforcement
 

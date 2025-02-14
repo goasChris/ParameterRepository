@@ -25888,6 +25888,16 @@
         "8": "diagonal"
       }
     },
+    "CUR_POSTHETA_DEG": {
+      "Description": "current position along theta in degrees",
+      "DisplayName": "CUR_POSTHETA_DEG",
+      "Range": {
+        "high": "360",
+        "low": "0"
+      },
+      "Units": "deg",
+      "User": "Advanced"
+    },
     "DEAD_THROTTLE": {
       "Description": "delta throttle under which we can not be stuck as we are not trying to move : if abs(throttle)<dead_throttle",
       "DisplayName": "DEAD_THROTTLE",
@@ -27227,6 +27237,15 @@
       "Units": "m",
       "User": "Advanced"
     },
+    "REINIT_ACRO": {
+      "Description": "reinitialisation of vertical roll. reset is triggered by a change in this value",
+      "DisplayName": "REINIT_ACRO",
+      "Range": {
+        "high": "255",
+        "low": "-254"
+      },
+      "User": "Advanced"
+    },
     "RESET_TURN_T": {
       "Description": "reset current nb turn every RESET_TURN_T minutes if <0 no reset",
       "DisplayName": "RESET_TURN_T",
@@ -27310,6 +27329,16 @@
         "0": "InitialHeading",
         "1": "CardinalDirections"
       }
+    },
+    "SINK_VELOCITY": {
+      "Description": "velocity threshold for sinking detection: for the detection to occur, you have to fall at more than SINK_VELOCITY while trying to go up at more than SINK_VELOCITY",
+      "DisplayName": "SINK_VELOCITY",
+      "Range": {
+        "high": "0.2",
+        "low": "0"
+      },
+      "Units": "m/s",
+      "User": "Standard"
     },
     "SLID_BELT_ACT": {
       "Description": "action when sliding belt detection: different from 1 = warning + switch to manual; 1 = info + switch to stuck mode",
@@ -27408,7 +27437,7 @@
       }
     },
     "STUCK_MAXT": {
-      "Description": "maximum time to try to move when stuck //fixme, what unit/max?",
+      "Description": "maximum time to try to move when stuck",
       "DisplayName": "STUCK_MAXT",
       "Range": {
         "high": "10",
@@ -27736,16 +27765,6 @@
       "Units": "m",
       "User": "Advanced"
     },
-    "cur_posThetaDeg": {
-      "Description": "current position along theta in degrees",
-      "DisplayName": "cur_posThetaDeg",
-      "Range": {
-        "high": "360",
-        "low": "0"
-      },
-      "Units": "deg",
-      "User": "Advanced"
-    },
     "disable_mv": {
       "Description": "1, disable monitoring for velocity spikes",
       "DisplayName": "1, disable monitoring for velocity spikes",
@@ -27863,15 +27882,6 @@
       },
       "Units": "m",
       "User": "Standard"
-    },
-    "reinit": {
-      "Description": "reinitialisation of vertical roll. reset is triggered by a change in this value",
-      "DisplayName": "Reinitialisation of Vertical Roll",
-      "Range": {
-        "high": "255",
-        "low": "-254"
-      },
-      "User": "Advanced"
     },
     "stand_still_t": {
       "Description": "time for the robot to comme to sandstill",

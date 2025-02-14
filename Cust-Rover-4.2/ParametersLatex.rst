@@ -1051,7 +1051,7 @@ STUCK\_MAXT: STUCK\_MAXT
 
 | *Note: This parameter is for advanced users*
 
-maximum time to try to move when stuck \/\/fixme\, what unit\/max\?
+maximum time to try to move when stuck
 
 
 +--------+---------+
@@ -1426,10 +1426,10 @@ Which direction should the passes be offset \(left or right\)\; pattern to the l
 
 
 
-.. _reinit:
+.. _REINIT_ACRO:
 
-reinit: Reinitialisation of Vertical Roll
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+REINIT\_ACRO: REINIT\_ACRO
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 | *Note: This parameter is for advanced users*
 
@@ -1445,10 +1445,10 @@ reinitialisation of vertical roll\. reset is triggered by a change in this value
 
 
 
-.. _cur_posThetaDeg:
+.. _CUR_POSTHETA_DEG:
 
-cur\_posThetaDeg: cur\_posThetaDeg
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+CUR\_POSTHETA\_DEG: CUR\_POSTHETA\_DEG
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 | *Note: This parameter is for advanced users*
 
@@ -4607,6 +4607,24 @@ threshold for thruster monitoring of low rpm
 +===========+==================+
 | 0 - 32767 | round per minute |
 +-----------+------------------+
+
+
+
+
+.. _SINK_VELOCITY:
+
+SINK\_VELOCITY: SINK\_VELOCITY
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+velocity threshold for sinking detection\: for the detection to occur\, you have to fall at more than SINK\_VELOCITY while trying to go up at more than SINK\_VELOCITY
+
+
++---------+-------------------+
+| Range   | Units             |
++=========+===================+
+| 0 - 0.2 | meters per second |
++---------+-------------------+
 
 
 
