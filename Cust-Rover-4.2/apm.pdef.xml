@@ -951,6 +951,16 @@
         <field name="UnitText">seconds</field>
         <field name="Range">0 2147483647</field>
       </param>
+      <param humanName="nb seconds of usage of pins  on the left driving belt" name="RemoraRover:MON_DPIN_LEFT" documentation="nb seconds of usage, * 3600 (1000 hours)" user="Standard">
+        <field name="Units">s</field>
+        <field name="UnitText">seconds</field>
+        <field name="Range">0 2147483647</field>
+      </param>
+      <param humanName="nb seconds of usage of pins  on the right driving belt" name="RemoraRover:MON_DPIN_RIGHT" documentation="nb seconds of usage, * 3600 (1000 hours)" user="Standard">
+        <field name="Units">s</field>
+        <field name="UnitText">seconds</field>
+        <field name="Range">0 2147483647</field>
+      </param>
       <param humanName="pwm value for camera #1 angle when entering acro" name="RemoraRover:ACRO_MOUNT_PAN" documentation="pwm value for camera #1 angle when entering acro" user="Standard">
         <field name="Units">PWM</field>
         <field name="UnitText">PWM in microseconds</field>
@@ -1033,7 +1043,7 @@
         <field name="UnitText">meters</field>
         <field name="Range">-100 100</field>
       </param>
-      <param humanName="GPS_STUCK_OFF" name="RemoraRover:gps_stuck_off" documentation="in gps measurment mode, turn off stuck avoidanec at this depth and up" user="Standard">
+      <param humanName="GPS_STUCK_OFF" name="RemoraRover:gps_stuck_off" documentation="in gps measurment mode, turn off stuck avoidance at this depth and up" user="Standard">
         <field name="Units">m</field>
         <field name="UnitText">meters</field>
         <field name="Range">-5 0</field>
@@ -1157,7 +1167,7 @@
       <param humanName="NB_LAST_STUCK" name="RemoraRover:NB_LAST_STUCK" documentation="maximum number of stuck events allowed during the last TIME_LAST_STUCK seconds. if exceeded, send a warning message" user="Standard">
         <field name="Range">0 255</field>
       </param>
-      <param humanName="TIME_LAST_STUCK" name="RemoraRover:TIME_LAST_STUCK" documentation="monitoring time period in seconds for stuck events" user="Standard">
+      <param humanName="TIME_LAST_STUCK" name="RemoraRover:TIME_LAST_STUCK" documentation="monitoring time period in seconds for stuck events (integer)" user="Standard">
         <field name="Units">s</field>
         <field name="UnitText">seconds</field>
         <field name="Range">0 32767</field>
@@ -1192,6 +1202,97 @@
         <field name="UnitText">meters per second</field>
         <field name="Range">0 0.2</field>
       </param>
+      <param humanName="STOP_BELTS_RPM" name="RemoraRover:STOP_BELTS_RPM" documentation="when the robot is trying to stop the belts, RPM below which we consider the belts are not turning anymore." user="Standard">
+        <field name="Units">rpm</field>
+        <field name="UnitText">round per minute</field>
+        <field name="Range">0 100</field>
+      </param>
+      <param humanName="STOP_BELTS_TOUT" name="RemoraRover:STOP_BELTS_TOUT" documentation="when the robot is trying to stop the belts, timeout after which we switch to stop thruster step" user="Standard">
+        <field name="Units">s</field>
+        <field name="UnitText">seconds</field>
+        <field name="Range">0 30</field>
+      </param>
+      <param humanName="MAX_RPM_DIFF" name="RemoraRover:MAX_RPM_DIFF" documentation="when comparing the speed of the brush to the physical model (RPM vs PWM), maximum rpm difference allowed before concluding we are off the model" user="Standard">
+        <field name="Units">rpm</field>
+        <field name="UnitText">round per minute</field>
+        <field name="Range">0 3000</field>
+      </param>
+      <param humanName="BRUSHMODEL_TOUT" name="RemoraRover:BRUSHMODEL_TOUT" documentation="when comparing the speed of the brush to the physical model (RPM vs PWM), maximum timeout allowed before sending a warning" user="Standard">
+        <field name="Units">s</field>
+        <field name="UnitText">seconds</field>
+        <field name="Range">0 100</field>
+      </param>
+      <param humanName="WHEEL_DIR_TOUT" name="RemoraRover:WHEEL_DIR_TOUT" documentation="when trying to determine if the wheel encoders directions are correct, maximum timeout allowed before comparing depth change and count change (and maybe sending a warning). If negative, deactivate feature. Only available for pattern 9 or 10." user="Standard">
+        <field name="Units">s</field>
+        <field name="UnitText">seconds</field>
+        <field name="Range">0 100</field>
+      </param>
+      <param humanName="TMT_DPTH_CHANGE" name="RemoraRover:TMT_DPTH_CHANGE" documentation="when tooManyTurns triggers, maximum depth change allowed before disarming" user="Standard">
+        <field name="Units">m</field>
+        <field name="UnitText">meters</field>
+        <field name="Range">0 100</field>
+      </param>
+      <param humanName="TMT_DPTH_TOUT" name="RemoraRover:TMT_DPTH_TOUT" documentation="when tooManyTurns triggers, maximum time for monitoring depth change allowed before disarming" user="Standard">
+        <field name="Units">s</field>
+        <field name="UnitText">seconds</field>
+        <field name="Range">0 100</field>
+      </param>
+      <param humanName="BARO_CALIB_BOOT" name="RemoraRover:BARO_CALIB_BOOT" documentation="if set to 1, do barometer calibration at boot" user="Standard">
+        <field name="Range">0 1</field>
+      </param>
+      <param humanName="BRUSH_TIMEOUT" name="RemoraRover:BRUSH_TIMEOUT" documentation="when not in Acro mode, timeout before the brush is stopped. If negative, deactivate the feature." user="Standard">
+        <field name="Units">s</field>
+        <field name="UnitText">seconds</field>
+        <field name="Range">-10 10000</field>
+      </param>
+      <param humanName="ST_BACKFLUSH_TH" name="RemoraRover:ST_BACKFLUSH_TH" documentation="when in stuck mode, in the &quot;decrease thruster&quot; step, thruster throttle being applied" user="Standard">
+        <field name="Units">%</field>
+        <field name="UnitText">percent</field>
+        <field name="Range">0 100</field>
+      </param>
+      <param humanName="ST_REFLUSH_TH" name="RemoraRover:ST_REFLUSH_TH" documentation="when in stuck/avoidance mode, thruster throttle being applied during reflush step before depth monitoring" user="Standard">
+        <field name="Units">%</field>
+        <field name="UnitText">percent</field>
+        <field name="Range">-100 0</field>
+      </param>
+      <param humanName="ST_REFLUSH_TOUT" name="RemoraRover:ST_REFLUSH_TOUT" documentation="when in stuck/avoidance mode, timeout for the reflush step before depth monitoring" user="Standard">
+        <field name="Units">ms</field>
+        <field name="UnitText">milliseconds</field>
+        <field name="Range">0 10000</field>
+      </param>
+      <param humanName="ST_BACK_MAXROLL" name="RemoraRover:ST_BACK_MAXROLL" documentation="when in stuck/avoidance mode, maximum roll angle in degrees around vertical to authorize the backflush." user="Standard">
+        <field name="Units">deg</field>
+        <field name="UnitText">degrees</field>
+        <field name="Range">-90 90</field>
+      </param>
+      <param humanName="OUTSIDE_TOUT" name="RemoraRover:OUTSIDE_TOUT" documentation="timeout for outside zone in seconds" user="Standard">
+        <field name="Units">s</field>
+        <field name="UnitText">seconds</field>
+      </param>
+      <param humanName="MAX_ROLL" name="RemoraRover:MAX_ROLL" documentation="when in stuck/avoidance mode, maximum roll angle in degrees around vertical." user="Standard">
+        <field name="Units">deg</field>
+        <field name="UnitText">degrees</field>
+        <field name="Range">0 90</field>
+      </param>
+      <param humanName="FS_THRUSTER_TH" name="RemoraRover:FS_THRUSTER_TH" documentation="when failsafe triggers, thruster throttle being applied in manual" user="Standard">
+        <field name="Units">%</field>
+        <field name="UnitText">percent</field>
+        <field name="Range">-100 0</field>
+      </param>
+      <param humanName="NB_LAST_TMT" name="RemoraRover:NB_LAST_TMT" documentation="maximum number of Too Many Turns events allowed during the last TIME_LAST_TMT seconds. if exceeded, disarms" user="Standard">
+        <field name="Range">0 255</field>
+      </param>
+      <param humanName="TIME_LAST_TMT" name="RemoraRover:TIME_LAST_TMT" documentation="monitoring time period in seconds for Too Many Turns events (integer)" user="Standard">
+        <field name="Units">s</field>
+        <field name="UnitText">seconds</field>
+        <field name="Range">0 32767</field>
+      </param>
+      <param humanName="MAX_TURN_ROLL" name="RemoraRover:MAX_TURN_ROLL" documentation="max number of turn around roll axis" user="Standard">
+</param>
+      <param humanName="MAX_TURN_PITCH" name="RemoraRover:MAX_TURN_PITCH" documentation="max number of turn around pitch axis" user="Standard">
+</param>
+      <param humanName="MAX_TURN_YAW" name="RemoraRover:MAX_TURN_YAW" documentation="max number of turn around yaw axis" user="Standard">
+</param>
       <param humanName="GCS sysid enforcement" name="RemoraRover:SYSID_ENFORCE" documentation="This controls whether packets from other than the expected GCS system ID will be accepted" user="Advanced">
         <values>
           <value code="0">NotEnforced</value>
@@ -2004,13 +2105,6 @@
       </param>
     </parameters>
     <parameters name="BARO">
-      <param humanName="Ground Pressure" name="BARO1_GND_PRESS" documentation="calibrated ground pressure in Pascals" user="Advanced">
-        <field name="Units">Pa</field>
-        <field name="UnitText">pascal</field>
-        <field name="Increment">1</field>
-        <field name="ReadOnly">True</field>
-        <field name="Volatile">True</field>
-      </param>
       <param humanName="ground temperature" name="BARO_GND_TEMP" documentation="User provided ambient ground temperature in degrees Celsius. This is used to improve the calculation of the altitude the vehicle is at. This parameter is not persistent and will be reset to 0 every time the vehicle is rebooted. A value of 0 means use the internal measurement ambient temperature." user="Advanced">
         <field name="Units">degC</field>
         <field name="UnitText">degrees Celsius</field>
@@ -2041,20 +2135,6 @@
           <value code="1.0">Freshwater</value>
           <value code="1.024">Saltwater</value>
         </values>
-      </param>
-      <param humanName="Ground Pressure" name="BARO2_GND_PRESS" documentation="calibrated ground pressure in Pascals" user="Advanced">
-        <field name="Units">Pa</field>
-        <field name="UnitText">pascal</field>
-        <field name="Increment">1</field>
-        <field name="ReadOnly">True</field>
-        <field name="Volatile">True</field>
-      </param>
-      <param humanName="Absolute Pressure" name="BARO3_GND_PRESS" documentation="calibrated ground pressure in Pascals" user="Advanced">
-        <field name="Units">Pa</field>
-        <field name="UnitText">pascal</field>
-        <field name="Increment">1</field>
-        <field name="ReadOnly">True</field>
-        <field name="Volatile">True</field>
       </param>
       <param humanName="Range in which sample is accepted" name="BARO_FLTR_RNG" documentation="This sets the range around the average value that new samples must be within to be accepted. This can help reduce the impact of noise on sensors that are on long I2C cables. The value is a percentage from the average value. A value of zero disables this filter.">
         <field name="Units">%</field>
@@ -16367,6 +16447,7 @@
           <value code="3">EFI</value>
           <value code="4">Harmonic Notch</value>
           <value code="5">ESC Telemetry Motors Bitmask</value>
+          <value code="6">VESC</value>
         </values>
       </param>
       <param humanName="RPM scaling" name="RPM1_SCALING" documentation="Scaling factor between sensor reading and RPM." user="Standard">
@@ -16405,6 +16486,7 @@
           <value code="3">EFI</value>
           <value code="4">Harmonic Notch</value>
           <value code="5">ESC Telemetry Motors Bitmask</value>
+          <value code="6">VESC</value>
         </values>
       </param>
       <param humanName="RPM scaling" name="RPM2_SCALING" documentation="Scaling factor between sensor reading and RPM." user="Standard">
@@ -20482,6 +20564,7 @@
         <values>
           <value code="0">None</value>
           <value code="1">Quadrature</value>
+          <value code="2">VESC</value>
           <value code="10">SITL Quadrature</value>
         </values>
       </param>
@@ -20537,6 +20620,7 @@
         <values>
           <value code="0">None</value>
           <value code="1">Quadrature</value>
+          <value code="2">VESC</value>
           <value code="10">SITL Quadrature</value>
         </values>
       </param>

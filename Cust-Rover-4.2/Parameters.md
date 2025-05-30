@@ -1746,6 +1746,22 @@ nb seconds of usage, * 3600 (1000 hours)
 
 - Range: 0 2147483647
 
+## MON_DPIN_LEFT: nb seconds of usage of pins  on the left driving belt
+
+nb seconds of usage, * 3600 (1000 hours)
+
+- Units: s
+
+- Range: 0 2147483647
+
+## MON_DPIN_RIGHT: nb seconds of usage of pins  on the right driving belt
+
+nb seconds of usage, * 3600 (1000 hours)
+
+- Units: s
+
+- Range: 0 2147483647
+
 ## ACRO_MOUNT_PAN: pwm value for camera #1 angle when entering acro
 
 pwm value for camera #1 angle when entering acro
@@ -1878,7 +1894,7 @@ Don't stop and monitor if robot is on net above this H
 
 ## gps_stuck_off: GPS_STUCK_OFF
 
-in gps measurment mode, turn off stuck avoidanec at this depth and up
+in gps measurment mode, turn off stuck avoidance at this depth and up
 
 - Units: m
 
@@ -2086,7 +2102,7 @@ maximum number of stuck events allowed during the last TIME_LAST_STUCK seconds. 
 
 ## TIME_LAST_STUCK: TIME_LAST_STUCK
 
-monitoring time period in seconds for stuck events
+monitoring time period in seconds for stuck events (integer)
 
 - Units: s
 
@@ -2139,6 +2155,156 @@ velocity threshold for sinking detection: for the detection to occur, you have t
 - Units: m/s
 
 - Range: 0 0.2
+
+## STOP_BELTS_RPM: STOP_BELTS_RPM
+
+when the robot is trying to stop the belts, RPM below which we consider the belts are not turning anymore.
+
+- Units: rpm
+
+- Range: 0 100
+
+## STOP_BELTS_TOUT: STOP_BELTS_TOUT
+
+when the robot is trying to stop the belts, timeout after which we switch to stop thruster step
+
+- Units: s
+
+- Range: 0 30
+
+## MAX_RPM_DIFF: MAX_RPM_DIFF
+
+when comparing the speed of the brush to the physical model (RPM vs PWM), maximum rpm difference allowed before concluding we are off the model
+
+- Units: rpm
+
+- Range: 0 3000
+
+## BRUSHMODEL_TOUT: BRUSHMODEL_TOUT
+
+when comparing the speed of the brush to the physical model (RPM vs PWM), maximum timeout allowed before sending a warning
+
+- Units: s
+
+- Range: 0 100
+
+## WHEEL_DIR_TOUT: WHEEL_DIR_TOUT
+
+when trying to determine if the wheel encoders directions are correct, maximum timeout allowed before comparing depth change and count change (and maybe sending a warning). If negative, deactivate feature. Only available for pattern 9 or 10.
+
+- Units: s
+
+- Range: 0 100
+
+## TMT_DPTH_CHANGE: TMT_DPTH_CHANGE
+
+when tooManyTurns triggers, maximum depth change allowed before disarming
+
+- Units: m
+
+- Range: 0 100
+
+## TMT_DPTH_TOUT: TMT_DPTH_TOUT
+
+when tooManyTurns triggers, maximum time for monitoring depth change allowed before disarming
+
+- Units: s
+
+- Range: 0 100
+
+## BARO_CALIB_BOOT: BARO_CALIB_BOOT
+
+if set to 1, do barometer calibration at boot
+
+- Range: 0 1
+
+## BRUSH_TIMEOUT: BRUSH_TIMEOUT
+
+when not in Acro mode, timeout before the brush is stopped. If negative, deactivate the feature.
+
+- Units: s
+
+- Range: -10 10000
+
+## ST_BACKFLUSH_TH: ST_BACKFLUSH_TH
+
+when in stuck mode, in the "decrease thruster" step, thruster throttle being applied
+
+- Units: %
+
+- Range: 0 100
+
+## ST_REFLUSH_TH: ST_REFLUSH_TH
+
+when in stuck/avoidance mode, thruster throttle being applied during reflush step before depth monitoring
+
+- Units: %
+
+- Range: -100 0
+
+## ST_REFLUSH_TOUT: ST_REFLUSH_TOUT
+
+when in stuck/avoidance mode, timeout for the reflush step before depth monitoring
+
+- Units: ms
+
+- Range: 0 10000
+
+## ST_BACK_MAXROLL: ST_BACK_MAXROLL
+
+when in stuck/avoidance mode, maximum roll angle in degrees around vertical to authorize the backflush.
+
+- Units: deg
+
+- Range: -90 90
+
+## OUTSIDE_TOUT: OUTSIDE_TOUT
+
+timeout for outside zone in seconds
+
+- Units: s
+
+## MAX_ROLL: MAX_ROLL
+
+when in stuck/avoidance mode, maximum roll angle in degrees around vertical.
+
+- Units: deg
+
+- Range: 0 90
+
+## FS_THRUSTER_TH: FS_THRUSTER_TH
+
+when failsafe triggers, thruster throttle being applied in manual
+
+- Units: %
+
+- Range: -100 0
+
+## NB_LAST_TMT: NB_LAST_TMT
+
+maximum number of Too Many Turns events allowed during the last TIME_LAST_TMT seconds. if exceeded, disarms
+
+- Range: 0 255
+
+## TIME_LAST_TMT: TIME_LAST_TMT
+
+monitoring time period in seconds for Too Many Turns events (integer)
+
+- Units: s
+
+- Range: 0 32767
+
+## MAX_TURN_ROLL: MAX_TURN_ROLL
+
+max number of turn around roll axis
+
+## MAX_TURN_PITCH: MAX_TURN_PITCH
+
+max number of turn around pitch axis
+
+## MAX_TURN_YAW: MAX_TURN_YAW
+
+max number of turn around yaw axis
 
 ## SYSID_ENFORCE: GCS sysid enforcement
 
@@ -3574,20 +3740,6 @@ Distance beyond AVOID_MARGIN parameter, after which vehicle will backaway from o
 
 # BARO Parameters
 
-## BARO1_GND_PRESS: Ground Pressure
-
-*Note: This parameter is for advanced users*
-
-calibrated ground pressure in Pascals
-
-- Units: Pa
-
-- Increment: 1
-
-- ReadOnly: True
-
-- Volatile: True
-
 ## BARO_GND_TEMP: ground temperature
 
 *Note: This parameter is for advanced users*
@@ -3642,34 +3794,6 @@ This sets the specific gravity of the fluid when flying an underwater ROV.
 |:---:|:---:|
 |1.0|Freshwater|
 |1.024|Saltwater|
-
-## BARO2_GND_PRESS: Ground Pressure
-
-*Note: This parameter is for advanced users*
-
-calibrated ground pressure in Pascals
-
-- Units: Pa
-
-- Increment: 1
-
-- ReadOnly: True
-
-- Volatile: True
-
-## BARO3_GND_PRESS: Absolute Pressure
-
-*Note: This parameter is for advanced users*
-
-calibrated ground pressure in Pascals
-
-- Units: Pa
-
-- Increment: 1
-
-- ReadOnly: True
-
-- Volatile: True
 
 ## BARO_FLTR_RNG: Range in which sample is accepted
 
@@ -23058,6 +23182,7 @@ What type of RPM sensor is connected
 |3|EFI|
 |4|Harmonic Notch|
 |5|ESC Telemetry Motors Bitmask|
+|6|VESC|
 
 ## RPM1_SCALING: RPM scaling
 
@@ -23121,6 +23246,7 @@ What type of RPM sensor is connected
 |3|EFI|
 |4|Harmonic Notch|
 |5|ESC Telemetry Motors Bitmask|
+|6|VESC|
 
 ## RPM2_SCALING: RPM scaling
 
@@ -25192,6 +25318,7 @@ What type of WheelEncoder is connected
 |:---:|:---:|
 |0|None|
 |1|Quadrature|
+|2|VESC|
 |10|SITL Quadrature|
 
 ## WENC_CPR: WheelEncoder counts per revolution
@@ -25274,6 +25401,7 @@ What type of WheelEncoder sensor is connected
 |:---:|:---:|
 |0|None|
 |1|Quadrature|
+|2|VESC|
 |10|SITL Quadrature|
 
 ## WENC2_CPR: WheelEncoder 2 counts per revolution

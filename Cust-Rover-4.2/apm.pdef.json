@@ -1225,44 +1225,17 @@
       "ReadOnly": "True",
       "User": "Advanced"
     },
-    "BARO1_GND_PRESS": {
-      "Description": "calibrated ground pressure in Pascals",
-      "DisplayName": "Ground Pressure",
-      "Increment": "1",
-      "ReadOnly": "True",
-      "Units": "Pa",
-      "User": "Advanced",
-      "Volatile": "True"
-    },
     "BARO2_DEVID": {
       "Description": "Barometer2 sensor ID, taking into account its type, bus and instance",
       "DisplayName": "Baro ID2",
       "ReadOnly": "True",
       "User": "Advanced"
     },
-    "BARO2_GND_PRESS": {
-      "Description": "calibrated ground pressure in Pascals",
-      "DisplayName": "Ground Pressure",
-      "Increment": "1",
-      "ReadOnly": "True",
-      "Units": "Pa",
-      "User": "Advanced",
-      "Volatile": "True"
-    },
     "BARO3_DEVID": {
       "Description": "Barometer3 sensor ID, taking into account its type, bus and instance",
       "DisplayName": "Baro ID3",
       "ReadOnly": "True",
       "User": "Advanced"
-    },
-    "BARO3_GND_PRESS": {
-      "Description": "calibrated ground pressure in Pascals",
-      "DisplayName": "Absolute Pressure",
-      "Increment": "1",
-      "ReadOnly": "True",
-      "Units": "Pa",
-      "User": "Advanced",
-      "Volatile": "True"
     },
     "BARO_ALT_OFFSET": {
       "Description": "altitude offset in meters added to barometric altitude. This is used to allow for automatic adjustment of the base barometric altitude by a ground station equipped with a barometer. The value is added to the barometric altitude read by the aircraft. It is automatically reset to 0 when the barometer is calibrated on each reboot or when a preflight calibration is performed.",
@@ -25186,7 +25159,8 @@
         "2": "AUXPIN",
         "3": "EFI",
         "4": "Harmonic Notch",
-        "5": "ESC Telemetry Motors Bitmask"
+        "5": "ESC Telemetry Motors Bitmask",
+        "6": "VESC"
       }
     }
   },
@@ -25262,7 +25236,8 @@
         "2": "AUXPIN",
         "3": "EFI",
         "4": "Harmonic Notch",
-        "5": "ESC Telemetry Motors Bitmask"
+        "5": "ESC Telemetry Motors Bitmask",
+        "6": "VESC"
       }
     }
   },
@@ -25654,6 +25629,15 @@
       "Units": "deg",
       "User": "Standard"
     },
+    "BARO_CALIB_BOOT": {
+      "Description": "if set to 1, do barometer calibration at boot",
+      "DisplayName": "BARO_CALIB_BOOT",
+      "Range": {
+        "high": "1",
+        "low": "0"
+      },
+      "User": "Standard"
+    },
     "BF_DELTAT_BACK": {
       "Description": "time period for backflush",
       "DisplayName": "BF_DELTAT_BACK",
@@ -25743,6 +25727,16 @@
       "Units": "%",
       "User": "Advanced"
     },
+    "BRUSHMODEL_TOUT": {
+      "Description": "when comparing the speed of the brush to the physical model (RPM vs PWM), maximum timeout allowed before sending a warning",
+      "DisplayName": "BRUSHMODEL_TOUT",
+      "Range": {
+        "high": "100",
+        "low": "0"
+      },
+      "Units": "s",
+      "User": "Standard"
+    },
     "BRUSH_GAIN_DEF": {
       "Description": "Default gain at boot for brush, must be in range [JS_GAIN_MIN , JS_GAIN_MAX]",
       "DisplayName": "Default gain at boot for brush",
@@ -25786,6 +25780,16 @@
       "Range": {
         "high": "100.",
         "low": "0."
+      },
+      "Units": "s",
+      "User": "Standard"
+    },
+    "BRUSH_TIMEOUT": {
+      "Description": "when not in Acro mode, timeout before the brush is stopped. If negative, deactivate the feature.",
+      "DisplayName": "BRUSH_TIMEOUT",
+      "Range": {
+        "high": "10000",
+        "low": "-10"
       },
       "Units": "s",
       "User": "Standard"
@@ -26076,6 +26080,16 @@
         "0": "None",
         "1": "Failsafe enabled in Hold mode"
       }
+    },
+    "FS_THRUSTER_TH": {
+      "Description": "when failsafe triggers, thruster throttle being applied in manual",
+      "DisplayName": "FS_THRUSTER_TH",
+      "Range": {
+        "high": "0",
+        "low": "-100"
+      },
+      "Units": "%",
+      "User": "Standard"
     },
     "FS_THR_ENABLE": {
       "Description": "The throttle failsafe allows you to configure a software failsafe activated by a setting on the throttle input channel to a low value. This can be used to detect the RC transmitter going out of range. Failsafe will be triggered when the throttle channel goes below the FS_THR_VALUE for FS_TIMEOUT seconds.",
@@ -26523,6 +26537,41 @@
       "Units": "m",
       "User": "Advanced"
     },
+    "MAX_ROLL": {
+      "Description": "when in stuck/avoidance mode, maximum roll angle in degrees around vertical.",
+      "DisplayName": "MAX_ROLL",
+      "Range": {
+        "high": "90",
+        "low": "0"
+      },
+      "Units": "deg",
+      "User": "Standard"
+    },
+    "MAX_RPM_DIFF": {
+      "Description": "when comparing the speed of the brush to the physical model (RPM vs PWM), maximum rpm difference allowed before concluding we are off the model",
+      "DisplayName": "MAX_RPM_DIFF",
+      "Range": {
+        "high": "3000",
+        "low": "0"
+      },
+      "Units": "rpm",
+      "User": "Standard"
+    },
+    "MAX_TURN_PITCH": {
+      "Description": "max number of turn around pitch axis",
+      "DisplayName": "MAX_TURN_PITCH",
+      "User": "Standard"
+    },
+    "MAX_TURN_ROLL": {
+      "Description": "max number of turn around roll axis",
+      "DisplayName": "MAX_TURN_ROLL",
+      "User": "Standard"
+    },
+    "MAX_TURN_YAW": {
+      "Description": "max number of turn around yaw axis",
+      "DisplayName": "MAX_TURN_YAW",
+      "User": "Standard"
+    },
     "MIS_DONE_BEHAVE": {
       "Description": "Behaviour after mission completes",
       "DisplayName": "Mission done behave",
@@ -26757,6 +26806,26 @@
       "Units": "s",
       "User": "Standard"
     },
+    "MON_DPIN_LEFT": {
+      "Description": "nb seconds of usage, * 3600 (1000 hours)",
+      "DisplayName": "nb seconds of usage of pins  on the left driving belt",
+      "Range": {
+        "high": "2147483647",
+        "low": "0"
+      },
+      "Units": "s",
+      "User": "Standard"
+    },
+    "MON_DPIN_RIGHT": {
+      "Description": "nb seconds of usage, * 3600 (1000 hours)",
+      "DisplayName": "nb seconds of usage of pins  on the right driving belt",
+      "Range": {
+        "high": "2147483647",
+        "low": "0"
+      },
+      "Units": "s",
+      "User": "Standard"
+    },
     "MON_FRONT_CAM": {
       "Description": "nb seconds of usage,  * 3600 (1000 hours)",
       "DisplayName": "nb seconds of usage of front camera",
@@ -26936,6 +27005,15 @@
       },
       "User": "Standard"
     },
+    "NB_LAST_TMT": {
+      "Description": "maximum number of Too Many Turns events allowed during the last TIME_LAST_TMT seconds. if exceeded, disarms",
+      "DisplayName": "NB_LAST_TMT",
+      "Range": {
+        "high": "255",
+        "low": "0"
+      },
+      "User": "Standard"
+    },
     "NB_TURN_MAX": {
       "Description": "maximum number of turn before abort if <0 no limit + reset current_turn_state to normal useful when too much turns were dealt with and you want to go back to normal",
       "DisplayName": "NB_TURN_MAX",
@@ -26981,6 +27059,12 @@
       "Description": " Backup EKF origin longitude used when not using a positioning system.",
       "DisplayName": "Backup longitude for EKF origin",
       "Units": "deg",
+      "User": "Standard"
+    },
+    "OUTSIDE_TOUT": {
+      "Description": "timeout for outside zone in seconds",
+      "DisplayName": "OUTSIDE_TOUT",
+      "Units": "s",
       "User": "Standard"
     },
     "PARKING_DEPTH": {
@@ -27418,6 +27502,26 @@
         "1": "Enabled"
       }
     },
+    "STOP_BELTS_RPM": {
+      "Description": "when the robot is trying to stop the belts, RPM below which we consider the belts are not turning anymore.",
+      "DisplayName": "STOP_BELTS_RPM",
+      "Range": {
+        "high": "100",
+        "low": "0"
+      },
+      "Units": "rpm",
+      "User": "Standard"
+    },
+    "STOP_BELTS_TOUT": {
+      "Description": "when the robot is trying to stop the belts, timeout after which we switch to stop thruster step",
+      "DisplayName": "STOP_BELTS_TOUT",
+      "Range": {
+        "high": "30",
+        "low": "0"
+      },
+      "Units": "s",
+      "User": "Standard"
+    },
     "STUCK_DETT": {
       "Description": "maximum time to determine we are really stuck",
       "DisplayName": "STUCK_DETT",
@@ -27463,6 +27567,46 @@
       },
       "Units": "%",
       "User": "Advanced"
+    },
+    "ST_BACKFLUSH_TH": {
+      "Description": "when in stuck mode, in the \"decrease thruster\" step, thruster throttle being applied",
+      "DisplayName": "ST_BACKFLUSH_TH",
+      "Range": {
+        "high": "100",
+        "low": "0"
+      },
+      "Units": "%",
+      "User": "Standard"
+    },
+    "ST_BACK_MAXROLL": {
+      "Description": "when in stuck/avoidance mode, maximum roll angle in degrees around vertical to authorize the backflush.",
+      "DisplayName": "ST_BACK_MAXROLL",
+      "Range": {
+        "high": "90",
+        "low": "-90"
+      },
+      "Units": "deg",
+      "User": "Standard"
+    },
+    "ST_REFLUSH_TH": {
+      "Description": "when in stuck/avoidance mode, thruster throttle being applied during reflush step before depth monitoring",
+      "DisplayName": "ST_REFLUSH_TH",
+      "Range": {
+        "high": "0",
+        "low": "-100"
+      },
+      "Units": "%",
+      "User": "Standard"
+    },
+    "ST_REFLUSH_TOUT": {
+      "Description": "when in stuck/avoidance mode, timeout for the reflush step before depth monitoring",
+      "DisplayName": "ST_REFLUSH_TOUT",
+      "Range": {
+        "high": "10000",
+        "low": "0"
+      },
+      "Units": "ms",
+      "User": "Standard"
     },
     "SYSID_ENFORCE": {
       "Description": "This controls whether packets from other than the expected GCS system ID will be accepted",
@@ -27697,10 +27841,40 @@
       "User": "Advanced"
     },
     "TIME_LAST_STUCK": {
-      "Description": "monitoring time period in seconds for stuck events",
+      "Description": "monitoring time period in seconds for stuck events (integer)",
       "DisplayName": "TIME_LAST_STUCK",
       "Range": {
         "high": "32767",
+        "low": "0"
+      },
+      "Units": "s",
+      "User": "Standard"
+    },
+    "TIME_LAST_TMT": {
+      "Description": "monitoring time period in seconds for Too Many Turns events (integer)",
+      "DisplayName": "TIME_LAST_TMT",
+      "Range": {
+        "high": "32767",
+        "low": "0"
+      },
+      "Units": "s",
+      "User": "Standard"
+    },
+    "TMT_DPTH_CHANGE": {
+      "Description": "when tooManyTurns triggers, maximum depth change allowed before disarming",
+      "DisplayName": "TMT_DPTH_CHANGE",
+      "Range": {
+        "high": "100",
+        "low": "0"
+      },
+      "Units": "m",
+      "User": "Standard"
+    },
+    "TMT_DPTH_TOUT": {
+      "Description": "when tooManyTurns triggers, maximum time for monitoring depth change allowed before disarming",
+      "DisplayName": "TMT_DPTH_TOUT",
+      "Range": {
+        "high": "100",
         "low": "0"
       },
       "Units": "s",
@@ -27755,6 +27929,16 @@
       },
       "User": "Advanced"
     },
+    "WHEEL_DIR_TOUT": {
+      "Description": "when trying to determine if the wheel encoders directions are correct, maximum timeout allowed before comparing depth change and count change (and maybe sending a warning). If negative, deactivate feature. Only available for pattern 9 or 10.",
+      "DisplayName": "WHEEL_DIR_TOUT",
+      "Range": {
+        "high": "100",
+        "low": "0"
+      },
+      "Units": "s",
+      "User": "Standard"
+    },
     "WP_VICINITY": {
       "Description": "maximum distance to detect we are in the neighborhood of a waypoint",
       "DisplayName": "WP_VICINITY",
@@ -27775,7 +27959,7 @@
       }
     },
     "gps_stuck_off": {
-      "Description": "in gps measurment mode, turn off stuck avoidanec at this depth and up",
+      "Description": "in gps measurment mode, turn off stuck avoidance at this depth and up",
       "DisplayName": "GPS_STUCK_OFF",
       "Range": {
         "high": "0",
@@ -33372,7 +33556,8 @@
       "Values": {
         "0": "None",
         "1": "Quadrature",
-        "10": "SITL Quadrature"
+        "10": "SITL Quadrature",
+        "2": "VESC"
       }
     },
     "WENC_CPR": {
@@ -33456,7 +33641,8 @@
       "Values": {
         "0": "None",
         "1": "Quadrature",
-        "10": "SITL Quadrature"
+        "10": "SITL Quadrature",
+        "2": "VESC"
       }
     }
   },

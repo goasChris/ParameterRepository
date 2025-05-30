@@ -3707,6 +3707,42 @@ nb seconds of usage\, \* 3600 \(1000 hours\)
 
 
 
+.. _MON_DPIN_LEFT:
+
+MON\_DPIN\_LEFT: nb seconds of usage of pins  on the left driving belt
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+nb seconds of usage\, \* 3600 \(1000 hours\)
+
+
++----------------+---------+
+| Range          | Units   |
++================+=========+
+| 0 - 2147483647 | seconds |
++----------------+---------+
+
+
+
+
+.. _MON_DPIN_RIGHT:
+
+MON\_DPIN\_RIGHT: nb seconds of usage of pins  on the right driving belt
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+nb seconds of usage\, \* 3600 \(1000 hours\)
+
+
++----------------+---------+
+| Range          | Units   |
++================+=========+
+| 0 - 2147483647 | seconds |
++----------------+---------+
+
+
+
+
 .. _ACRO_MOUNT_PAN:
 
 ACRO\_MOUNT\_PAN: pwm value for camera \#1 angle when entering acro
@@ -4005,7 +4041,7 @@ gps\_stuck\_off: GPS\_STUCK\_OFF
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-in gps measurment mode\, turn off stuck avoidanec at this depth and up
+in gps measurment mode\, turn off stuck avoidance at this depth and up
 
 
 +--------+--------+
@@ -4509,7 +4545,7 @@ TIME\_LAST\_STUCK: TIME\_LAST\_STUCK
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-monitoring time period in seconds for stuck events
+monitoring time period in seconds for stuck events \(integer\)
 
 
 +-----------+---------+
@@ -4627,6 +4663,357 @@ velocity threshold for sinking detection\: for the detection to occur\, you have
 +---------+-------------------+
 
 
+
+
+.. _STOP_BELTS_RPM:
+
+STOP\_BELTS\_RPM: STOP\_BELTS\_RPM
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+when the robot is trying to stop the belts\, RPM below which we consider the belts are not turning anymore\.
+
+
++---------+------------------+
+| Range   | Units            |
++=========+==================+
+| 0 - 100 | round per minute |
++---------+------------------+
+
+
+
+
+.. _STOP_BELTS_TOUT:
+
+STOP\_BELTS\_TOUT: STOP\_BELTS\_TOUT
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+when the robot is trying to stop the belts\, timeout after which we switch to stop thruster step
+
+
++--------+---------+
+| Range  | Units   |
++========+=========+
+| 0 - 30 | seconds |
++--------+---------+
+
+
+
+
+.. _MAX_RPM_DIFF:
+
+MAX\_RPM\_DIFF: MAX\_RPM\_DIFF
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+when comparing the speed of the brush to the physical model \(RPM vs PWM\)\, maximum rpm difference allowed before concluding we are off the model
+
+
++----------+------------------+
+| Range    | Units            |
++==========+==================+
+| 0 - 3000 | round per minute |
++----------+------------------+
+
+
+
+
+.. _BRUSHMODEL_TOUT:
+
+BRUSHMODEL\_TOUT: BRUSHMODEL\_TOUT
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+when comparing the speed of the brush to the physical model \(RPM vs PWM\)\, maximum timeout allowed before sending a warning
+
+
++---------+---------+
+| Range   | Units   |
++=========+=========+
+| 0 - 100 | seconds |
++---------+---------+
+
+
+
+
+.. _WHEEL_DIR_TOUT:
+
+WHEEL\_DIR\_TOUT: WHEEL\_DIR\_TOUT
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+when trying to determine if the wheel encoders directions are correct\, maximum timeout allowed before comparing depth change and count change \(and maybe sending a warning\)\. If negative\, deactivate feature\. Only available for pattern 9 or 10\.
+
+
++---------+---------+
+| Range   | Units   |
++=========+=========+
+| 0 - 100 | seconds |
++---------+---------+
+
+
+
+
+.. _TMT_DPTH_CHANGE:
+
+TMT\_DPTH\_CHANGE: TMT\_DPTH\_CHANGE
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+when tooManyTurns triggers\, maximum depth change allowed before disarming
+
+
++---------+--------+
+| Range   | Units  |
++=========+========+
+| 0 - 100 | meters |
++---------+--------+
+
+
+
+
+.. _TMT_DPTH_TOUT:
+
+TMT\_DPTH\_TOUT: TMT\_DPTH\_TOUT
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+when tooManyTurns triggers\, maximum time for monitoring depth change allowed before disarming
+
+
++---------+---------+
+| Range   | Units   |
++=========+=========+
+| 0 - 100 | seconds |
++---------+---------+
+
+
+
+
+.. _BARO_CALIB_BOOT:
+
+BARO\_CALIB\_BOOT: BARO\_CALIB\_BOOT
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+if set to 1\, do barometer calibration at boot
+
+
++-------+
+| Range |
++=======+
+| 0 - 1 |
++-------+
+
+
+
+
+.. _BRUSH_TIMEOUT:
+
+BRUSH\_TIMEOUT: BRUSH\_TIMEOUT
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+when not in Acro mode\, timeout before the brush is stopped\. If negative\, deactivate the feature\.
+
+
++-------------+---------+
+| Range       | Units   |
++=============+=========+
+| -10 - 10000 | seconds |
++-------------+---------+
+
+
+
+
+.. _ST_BACKFLUSH_TH:
+
+ST\_BACKFLUSH\_TH: ST\_BACKFLUSH\_TH
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+when in stuck mode\, in the \"decrease thruster\" step\, thruster throttle being applied
+
+
++---------+---------+
+| Range   | Units   |
++=========+=========+
+| 0 - 100 | percent |
++---------+---------+
+
+
+
+
+.. _ST_REFLUSH_TH:
+
+ST\_REFLUSH\_TH: ST\_REFLUSH\_TH
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+when in stuck\/avoidance mode\, thruster throttle being applied during reflush step before depth monitoring
+
+
++----------+---------+
+| Range    | Units   |
++==========+=========+
+| -100 - 0 | percent |
++----------+---------+
+
+
+
+
+.. _ST_REFLUSH_TOUT:
+
+ST\_REFLUSH\_TOUT: ST\_REFLUSH\_TOUT
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+when in stuck\/avoidance mode\, timeout for the reflush step before depth monitoring
+
+
++-----------+--------------+
+| Range     | Units        |
++===========+==============+
+| 0 - 10000 | milliseconds |
++-----------+--------------+
+
+
+
+
+.. _ST_BACK_MAXROLL:
+
+ST\_BACK\_MAXROLL: ST\_BACK\_MAXROLL
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+when in stuck\/avoidance mode\, maximum roll angle in degrees around vertical to authorize the backflush\.
+
+
++----------+---------+
+| Range    | Units   |
++==========+=========+
+| -90 - 90 | degrees |
++----------+---------+
+
+
+
+
+.. _OUTSIDE_TOUT:
+
+OUTSIDE\_TOUT: OUTSIDE\_TOUT
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+timeout for outside zone in seconds
+
+
++---------+
+| Units   |
++=========+
+| seconds |
++---------+
+
+
+
+
+.. _MAX_ROLL:
+
+MAX\_ROLL: MAX\_ROLL
+~~~~~~~~~~~~~~~~~~~~
+
+
+when in stuck\/avoidance mode\, maximum roll angle in degrees around vertical\.
+
+
++--------+---------+
+| Range  | Units   |
++========+=========+
+| 0 - 90 | degrees |
++--------+---------+
+
+
+
+
+.. _FS_THRUSTER_TH:
+
+FS\_THRUSTER\_TH: FS\_THRUSTER\_TH
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+when failsafe triggers\, thruster throttle being applied in manual
+
+
++----------+---------+
+| Range    | Units   |
++==========+=========+
+| -100 - 0 | percent |
++----------+---------+
+
+
+
+
+.. _NB_LAST_TMT:
+
+NB\_LAST\_TMT: NB\_LAST\_TMT
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+maximum number of Too Many Turns events allowed during the last TIME\_LAST\_TMT seconds\. if exceeded\, disarms
+
+
++---------+
+| Range   |
++=========+
+| 0 - 255 |
++---------+
+
+
+
+
+.. _TIME_LAST_TMT:
+
+TIME\_LAST\_TMT: TIME\_LAST\_TMT
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+monitoring time period in seconds for Too Many Turns events \(integer\)
+
+
++-----------+---------+
+| Range     | Units   |
++===========+=========+
+| 0 - 32767 | seconds |
++-----------+---------+
+
+
+
+
+.. _MAX_TURN_ROLL:
+
+MAX\_TURN\_ROLL: MAX\_TURN\_ROLL
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+max number of turn around roll axis
+
+
+.. _MAX_TURN_PITCH:
+
+MAX\_TURN\_PITCH: MAX\_TURN\_PITCH
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+max number of turn around pitch axis
+
+
+.. _MAX_TURN_YAW:
+
+MAX\_TURN\_YAW: MAX\_TURN\_YAW
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+max number of turn around yaw axis
 
 
 .. _SYSID_ENFORCE:
@@ -7570,25 +7957,6 @@ BARO Parameters
 ---------------
 
 
-.. _BARO1_GND_PRESS:
-
-BARO1\_GND\_PRESS: Ground Pressure
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-| *Note: This parameter is for advanced users*
-
-calibrated ground pressure in Pascals
-
-
-+-----------+----------+--------+----------+
-| Increment | ReadOnly | Units  | Volatile |
-+===========+==========+========+==========+
-| 1         | True     | pascal | True     |
-+-----------+----------+--------+----------+
-
-
-
-
 .. _BARO_GND_TEMP:
 
 BARO\_GND\_TEMP: ground temperature
@@ -7689,44 +8057,6 @@ This sets the specific gravity of the fluid when flying an underwater ROV\.
 +-------+------------+
 | 1.024 | Saltwater  |
 +-------+------------+
-
-
-
-
-.. _BARO2_GND_PRESS:
-
-BARO2\_GND\_PRESS: Ground Pressure
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-| *Note: This parameter is for advanced users*
-
-calibrated ground pressure in Pascals
-
-
-+-----------+----------+--------+----------+
-| Increment | ReadOnly | Units  | Volatile |
-+===========+==========+========+==========+
-| 1         | True     | pascal | True     |
-+-----------+----------+--------+----------+
-
-
-
-
-.. _BARO3_GND_PRESS:
-
-BARO3\_GND\_PRESS: Absolute Pressure
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-| *Note: This parameter is for advanced users*
-
-calibrated ground pressure in Pascals
-
-
-+-----------+----------+--------+----------+
-| Increment | ReadOnly | Units  | Volatile |
-+===========+==========+========+==========+
-| 1         | True     | pascal | True     |
-+-----------+----------+--------+----------+
 
 
 
@@ -59006,6 +59336,8 @@ What type of RPM sensor is connected
 +-------+------------------------------+
 | 5     | ESC Telemetry Motors Bitmask |
 +-------+------------------------------+
+| 6     | VESC                         |
++-------+------------------------------+
 
 
 
@@ -59192,6 +59524,8 @@ What type of RPM sensor is connected
 | 4     | Harmonic Notch               |
 +-------+------------------------------+
 | 5     | ESC Telemetry Motors Bitmask |
++-------+------------------------------+
+| 6     | VESC                         |
 +-------+------------------------------+
 
 
@@ -70135,6 +70469,8 @@ What type of WheelEncoder is connected
 +-------+-----------------+
 | 1     | Quadrature      |
 +-------+-----------------+
+| 2     | VESC            |
++-------+-----------------+
 | 10    | SITL Quadrature |
 +-------+-----------------+
 
@@ -70306,6 +70642,8 @@ What type of WheelEncoder sensor is connected
 | 0     | None            |
 +-------+-----------------+
 | 1     | Quadrature      |
++-------+-----------------+
+| 2     | VESC            |
 +-------+-----------------+
 | 10    | SITL Quadrature |
 +-------+-----------------+
