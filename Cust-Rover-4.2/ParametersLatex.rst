@@ -1846,25 +1846,6 @@ backflush only when \-BF\_DELTA\_ROLL \< roll\-VERTICAL\_ROLL \< BF\_DELTA\_ROLL
 
 
 
-.. _BF_MONIT_TIME:
-
-BF\_MONIT\_TIME: BF\_MONIT\_TIME
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-| *Note: This parameter is for advanced users*
-
-at the end of the backflush sequence\, time period for monitoring depth change
-
-
-+---------+---------+
-| Range   | Units   |
-+=========+=========+
-| 0 to 10 | seconds |
-+---------+---------+
-
-
-
-
 .. _VEL_CALC_TYPE:
 
 VEL\_CALC\_TYPE: VEL\_CALC\_TYPE
@@ -1899,35 +1880,6 @@ type of calculation for theta\: 1 \= netPosition\.x\/RadiusNet\(z\)\*360\/2pi\, 
 +==========+
 | 0 to 255 |
 +----------+
-
-
-
-
-.. _NB_TURN_MAX:
-
-NB\_TURN\_MAX: NB\_TURN\_MAX
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-| *Note: This parameter is for advanced users*
-
-maximum number of turn before abort if \<0 no limit \+ reset current\_turn\_state to normal useful when too much turns were dealt with and you want to go back to normal
-
-
-.. _RESET_TURN_T:
-
-RESET\_TURN\_T: RESET\_TURN\_T
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-| *Note: This parameter is for advanced users*
-
-reset current nb turn every RESET\_TURN\_T minutes if \<0 no reset
-
-
-+-----------------+
-| Range           |
-+=================+
-| -32768 to 32767 |
-+-----------------+
 
 
 
@@ -2601,10 +2553,10 @@ Number of steps in brightness between minimum and maximum brightness
 
 
 
-.. _ACRO_VERT_ACTION:
+.. _ACRO_VERT_ACT:
 
-ACRO\_VERT\_ACTION: determine what to do in initialisation in acro mode
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ACRO\_VERT\_ACT: determine what to do in initialisation in acro mode
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 \-1 forced 20 degree turn \(dev only\) \, 0 \-\> set vertical roll to 0\, 1 \-\> vertical direction search
@@ -3223,242 +3175,6 @@ safety margin for MIN\_DEPTH and MAX\_DEPTH\, if negative\:disable safety \[mete
 
 
 
-.. _MAX_ROLL_RUN:
-
-MAX\_ROLL\_RUN: max velocity in roll when running before next step in disarming
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-max velocity in roll when running before next step in disarming
-
-
-+--------+--------------------+
-| Range  | Units              |
-+========+====================+
-| 0 to 2 | radians per second |
-+--------+--------------------+
-
-
-
-
-.. _MAX_PITCH_RUN:
-
-MAX\_PITCH\_RUN: max velocity in pitch when running before next step in disarming
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-max velocity in pitch when running before next step in disarming
-
-
-+--------+--------------------+
-| Range  | Units              |
-+========+====================+
-| 0 to 2 | radians per second |
-+--------+--------------------+
-
-
-
-
-.. _MAX_YAW_RUN:
-
-MAX\_YAW\_RUN: max velocity in yaw when running before next step in disarming
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-max velocity in yaw when running before next step in disarming
-
-
-+--------+--------------------+
-| Range  | Units              |
-+========+====================+
-| 0 to 2 | radians per second |
-+--------+--------------------+
-
-
-
-
-.. _MAX_ROLL_STILL:
-
-MAX\_ROLL\_STILL: max velocity in roll at standstill before disarming
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-max velocity in roll at standstill before disarming
-
-
-+--------+--------------------+
-| Range  | Units              |
-+========+====================+
-| 0 to 2 | radians per second |
-+--------+--------------------+
-
-
-
-
-.. _MAX_PITCH_STILL:
-
-MAX\_PITCH\_STILL: max velocity in pitch at standstill before disarming
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-max velocity in pitch at standstill before disarming
-
-
-+--------+--------------------+
-| Range  | Units              |
-+========+====================+
-| 0 to 2 | radians per second |
-+--------+--------------------+
-
-
-
-
-.. _MAX_YAW_STILL:
-
-MAX\_YAW\_STILL: max velocity in yaw at standstill before disarming
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-max velocity in yaw at standstill before disarming
-
-
-+--------+--------------------+
-| Range  | Units              |
-+========+====================+
-| 0 to 2 | radians per second |
-+--------+--------------------+
-
-
-
-
-.. _MAX_MON_T:
-
-MAX\_MON\_T: max time the robot are in monitoring state if on net
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-max time the robot are in monitoring state if on net
-
-
-+---------+---------+
-| Range   | Units   |
-+=========+=========+
-| 0 to 60 | seconds |
-+---------+---------+
-
-
-
-
-.. _STAND_STILL_T:
-
-STAND\_STILL\_T: time for the robot to comme to sandstill
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-time for the robot to comme to sandstill
-
-
-+--------+---------+
-| Range  | Units   |
-+========+=========+
-| 0 to 5 | seconds |
-+--------+---------+
-
-
-
-
-.. _STARTING_T:
-
-STARTING\_T: let the robot have time to accelerate
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-let the robot have time to accelerate
-
-
-+---------+---------+
-| Range   | Units   |
-+=========+=========+
-| 3 to 10 | seconds |
-+---------+---------+
-
-
-
-
-.. _DISABLE_MV:
-
-DISABLE\_MV: 1\, disable monitoring for velocity spikes
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-1\, disable monitoring for velocity spikes
-
-
-+-------+--------------------+
-| Value | Meaning            |
-+=======+====================+
-| 0     | Not Disabled       |
-+-------+--------------------+
-| 1     | Disable Monitoring |
-+-------+--------------------+
-
-
-
-
-.. _MIN_MON_DEPTH:
-
-MIN\_MON\_DEPTH: Don\'t stop and monitor if robot is on net above this H
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Don\'t stop and monitor if robot is on net above this H
-
-
-+-------------+--------+
-| Range       | Units  |
-+=============+========+
-| -100 to 100 | meters |
-+-------------+--------+
-
-
-
-
-.. _GPS_STUCK_OFF:
-
-GPS\_STUCK\_OFF: GPS\_STUCK\_OFF
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-in gps measurment mode\, turn off stuck avoidance at this depth and up
-
-
-+---------+--------+
-| Range   | Units  |
-+=========+========+
-| -5 to 0 | meters |
-+---------+--------+
-
-
-
-
-.. _MAX_DEPTH_CHANGE:
-
-MAX\_DEPTH\_CHANGE: MAX\_DEPTH\_CHANGE
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-when monitoring for off net\, robot will disarm if depth change is more
-
-
-+----------+--------+
-| Range    | Units  |
-+==========+========+
-| 0 to 0.5 | meters |
-+----------+--------+
-
-
-
-
 .. _DEC_THRUS_TH:
 
 DEC\_THRUS\_TH: thruster throttle applied when \"stopping\" the thruster in avoidance
@@ -3576,11 +3292,31 @@ SLID\_BELT\_COEF: SLID\_BELT\_COEF
 coef for sliding belt detection\; if negative\, deactivate sliding belts detection
 
 
-+-------------+
-| Range       |
-+=============+
-| -1. to 999. |
-+-------------+
++-------------+---------+
+| Range       | Units   |
++=============+=========+
+| -1. to 100. | percent |
++-------------+---------+
+
+
+
+
+.. _SLID_BELT_TYP:
+
+SLID\_BELT\_TYP: SLID\_BELT\_TYP
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+type of sliding belt detection \(1\: old\, 2\: new\)
+
+
++-------+--------------+
+| Value | Meaning      |
++=======+==============+
+| 1     | Legacy       |
++-------+--------------+
+| 2     | WithRotation |
++-------+--------------+
 
 
 
@@ -3882,11 +3618,11 @@ ACRO\_THRUS\_TOUT: ACRO\_THRUS\_TOUT
 when changing mode to acro\, time period for the transition to ACRO\_THRUS\_TH thruster throttle
 
 
-+------------+---------+
-| Range      | Units   |
-+============+=========+
-| 0 to 32767 | seconds |
-+------------+---------+
++---------+
+| Units   |
++=========+
+| seconds |
++---------+
 
 
 
@@ -3900,11 +3636,11 @@ LRPM\_THRUS\_TOUT: LRPM\_THRUS\_TOUT
 timeout for thruster monitoring of low rpm
 
 
-+------------+---------+
-| Range      | Units   |
-+============+=========+
-| 0 to 32767 | seconds |
-+------------+---------+
++---------+
+| Units   |
++=========+
+| seconds |
++---------+
 
 
 
@@ -3915,14 +3651,14 @@ LOW\_RPM\_THRUS: LOW\_RPM\_THRUS
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-threshold for thruster monitoring of low rpm
+Maximum allowed deviation of thruster rpm in percent
 
 
-+------------+------------------+
-| Range      | Units            |
-+============+==================+
-| 0 to 32767 | round per minute |
-+------------+------------------+
++----------+---------+
+| Range    | Units   |
++==========+=========+
+| 0 to 100 | percent |
++----------+---------+
 
 
 
@@ -3981,6 +3717,42 @@ when the robot is trying to stop the belts\, timeout after which we switch to st
 
 
 
+.. _STOP_BRUSH_RPM:
+
+STOP\_BRUSH\_RPM: STOP\_BRUSH\_RPM
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+when the robot is trying to stop the brush\, RPM below which we consider the brush are not turning anymore\.
+
+
++----------+------------------+
+| Range    | Units            |
++==========+==================+
+| 0 to 100 | round per minute |
++----------+------------------+
+
+
+
+
+.. _STOP_BRUSH_TOUT:
+
+STOP\_BRUSH\_TOUT: STOP\_BRUSH\_TOUT
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+when the robot is trying to stop the brush\, timeout after which we switch to stop thruster step
+
+
++---------+---------+
+| Range   | Units   |
++=========+=========+
+| 0 to 30 | seconds |
++---------+---------+
+
+
+
+
 .. _MAX_RPM_DIFF:
 
 MAX\_RPM\_DIFF: MAX\_RPM\_DIFF
@@ -4006,42 +3778,6 @@ WHEEL\_DIR\_TOUT: WHEEL\_DIR\_TOUT
 
 
 when trying to determine if the wheel encoders directions are correct\, maximum timeout allowed before comparing depth change and count change \(and maybe sending a warning\)\. If negative\, deactivate feature\. Only available for pattern 9 or 10\.
-
-
-+----------+---------+
-| Range    | Units   |
-+==========+=========+
-| 0 to 100 | seconds |
-+----------+---------+
-
-
-
-
-.. _TMT_DPTH_CHANGE:
-
-TMT\_DPTH\_CHANGE: TMT\_DPTH\_CHANGE
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-when tooManyTurns triggers\, maximum depth change allowed before disarming
-
-
-+----------+--------+
-| Range    | Units  |
-+==========+========+
-| 0 to 100 | meters |
-+----------+--------+
-
-
-
-
-.. _TMT_DPTH_TOUT:
-
-TMT\_DPTH\_TOUT: TMT\_DPTH\_TOUT
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-when tooManyTurns triggers\, maximum time for monitoring depth change allowed before disarming
 
 
 +----------+---------+
@@ -4197,69 +3933,6 @@ when in stuck\/avoidance mode\, maximum roll angle in degrees around vertical\.
 
 
 
-.. _NB_LAST_TMT:
-
-NB\_LAST\_TMT: NB\_LAST\_TMT
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-maximum number of Too Many Turns events allowed during the last TIME\_LAST\_TMT seconds\. if exceeded\, disarms
-
-
-+----------+
-| Range    |
-+==========+
-| 0 to 255 |
-+----------+
-
-
-
-
-.. _TIME_LAST_TMT:
-
-TIME\_LAST\_TMT: TIME\_LAST\_TMT
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-monitoring time period in seconds for Too Many Turns events \(integer\)
-
-
-+------------+---------+
-| Range      | Units   |
-+============+=========+
-| 0 to 32767 | seconds |
-+------------+---------+
-
-
-
-
-.. _MAX_TURN_ROLL:
-
-MAX\_TURN\_ROLL: MAX\_TURN\_ROLL
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-max number of turn around roll axis
-
-
-.. _MAX_TURN_PITCH:
-
-MAX\_TURN\_PITCH: MAX\_TURN\_PITCH
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-max number of turn around pitch axis
-
-
-.. _MAX_TURN_YAW:
-
-MAX\_TURN\_YAW: MAX\_TURN\_YAW
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-max number of turn around yaw axis
-
-
 .. _AVOID_THRUST:
 
 AVOID\_THRUST: AVOID\_THRUST
@@ -4350,26 +4023,6 @@ maximum pitch timeout allowed for safety \(to avoid floating at the surface\)
 
 
 
-.. _TURNCOUNT_TYP:
-
-TURNCOUNT\_TYP: TURNCOUNT\_TYP
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-type of turn counter being used
-
-
-+-------+-------------+
-| Value | Meaning     |
-+=======+=============+
-| 0     | Standard    |
-+-------+-------------+
-| 1     | EulerAngles |
-+-------+-------------+
-
-
-
-
 .. _GEAR_REDUCTION:
 
 GEAR\_REDUCTION: GEAR\_REDUCTION
@@ -4395,6 +4048,24 @@ MON\_GPS: MON\_GPS
 
 
 nb seconds of usage of GPS
+
+
++---------+
+| Units   |
++=========+
+| seconds |
++---------+
+
+
+
+
+.. _MON_VIS_CHECK:
+
+MON\_VIS\_CHECK: MON\_VIS\_CHECK
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+nb seconds of usage since last visual check
 
 
 +---------+
@@ -4665,6 +4336,24 @@ Simple mode types
 
 
 
+.. _DEPTH_THRUS_MON:
+
+DEPTH\_THRUS\_MON: Minimum Depth for Thruster Monitoring
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Minimum depth in meters for thruster monitoring to be active
+
+
++-----------+-----------+--------+
+| Increment | Range     | Units  |
++===========+===========+========+
+| 0.1       | 0 to -100 | meters |
++-----------+-----------+--------+
+
+
+
+
 .. _MIS_DONE_BEHAVE:
 
 MIS\_DONE\_BEHAVE: Mission done behave
@@ -4689,6 +4378,27 @@ Behaviour after mission completes
 
 
 
+.. _THRUST_DISARM:
+
+THRUST\_DISARM: Disarm on Thrust motor Failure
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+| *Note: This parameter is for advanced users*
+
+Disarm the vehicle when a thrust failure is detected
+
+
++-------+----------+
+| Value | Meaning  |
++=======+==========+
+| 0     | Disabled |
++-------+----------+
+| 1     | Enabled  |
++-------+----------+
+
+
+
+
 .. _BAL_PITCH_TRIM:
 
 BAL\_PITCH\_TRIM: Balance Bot pitch trim angle
@@ -4703,6 +4413,24 @@ Balance Bot pitch trim for balancing\. This offsets the tilt of the center of ma
 +===========+=========+=========+
 | 0.1       | -2 to 2 | degrees |
 +-----------+---------+---------+
+
+
+
+
+.. _THRUS_MAX_CV:
+
+THRUS\_MAX\_CV: Thruster RPM Coefficient of Variation Maximum
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Maximum allowed standard deviation from current thruster RPM\.
+
+
++-----------+----------+---------+
+| Increment | Range    | Units   |
++===========+==========+=========+
+| 1         | 0 to 100 | percent |
++-----------+----------+---------+
 
 
 
@@ -5099,402 +4827,489 @@ Lua Script Parameters
 ---------------------
 
 
-.. _VID1_CAMMODEL:
+.. _CGA_RATIO:
 
-VID1\_CAMMODEL: Camera1 Video Stream Camera Model
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+CGA\_RATIO: CoG adjustment ratio
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+| *Note: This parameter is for advanced users*
+
+The ratio between the front and back motor outputs during steady\-state hover\. Positive when the CoG is in front of the motors midpoint \(front motors work harder\)\.
 
 
-Video stream camera model
-
-
-+-------+------------------------+
-| Value | Meaning                |
-+=======+========================+
-| 0     | Unknown                |
-+-------+------------------------+
-| 1     | Siyi A8                |
-+-------+------------------------+
-| 2     | Siyi ZR10              |
-+-------+------------------------+
-| 3     | Siyi ZR30              |
-+-------+------------------------+
-| 4     | Siyi ZT30 Zoom         |
-+-------+------------------------+
-| 5     | Siyi ZT30 Wide         |
-+-------+------------------------+
-| 6     | Siyi ZT30 IR           |
-+-------+------------------------+
-| 7     | Siyi ZT6 RGB           |
-+-------+------------------------+
-| 8     | Siyi ZT6 IR            |
-+-------+------------------------+
-| 9     | Herelink WifiAP        |
-+-------+------------------------+
-| 10    | Herelink USB-tethering |
-+-------+------------------------+
-| 11    | Topotek 1080p          |
-+-------+------------------------+
-| 12    | Topotek 480p           |
-+-------+------------------------+
-| 13    | Viewpro                |
-+-------+------------------------+
++----------+
+| Range    |
++==========+
+| 0.5 to 2 |
++----------+
 
 
 
 
-.. _VID1_ID:
+.. _SLUP_ENABLE:
 
-VID1\_ID: Camera1 Video Stream Id
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Video stream id
+SLUP\_ENABLE: Slung Payload enable
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-+---------+
-| Range   |
-+=========+
-| 0 to 50 |
-+---------+
-
-
-
-
-.. _VID1_TYPE:
-
-VID1\_TYPE: Camera1 Video Stream Type
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Video stream type
+Slung Payload enable
 
 
 +-------+----------+
 | Value | Meaning  |
 +=======+==========+
-| 0     | RTSP     |
+| 0     | Disabled |
 +-------+----------+
-| 1     | RTPUDP   |
-+-------+----------+
-| 2     | TCP_MPEG |
-+-------+----------+
-| 3     | MPEG_TS  |
+| 1     | Enabled  |
 +-------+----------+
 
 
 
 
-.. _VID1_FLAG:
+.. _SLUP_VEL_P:
 
-VID1\_FLAG: Camera1 Video Stream Flags
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Video stream flags
+SLUP\_VEL\_P: Slung Payload Velocity P gain
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-+-----+-----------------------+
-| Bit | Meaning               |
-+=====+=======================+
-| 0   | Running               |
-+-----+-----------------------+
-| 1   | Thermal               |
-+-----+-----------------------+
-| 2   | Thermal Range Enabled |
-+-----+-----------------------+
+Slung Payload Velocity P gain\, higher values will result in faster movements in sync with payload
+
+
++----------+
+| Range    |
++==========+
+| 0 to 0.8 |
++----------+
 
 
 
 
-.. _VID1_FRAME_RATE:
+.. _SLUP_DIST_MAX:
 
-VID1\_FRAME\_RATE: Camera1 Video Stream Frame Rate
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+SLUP\_DIST\_MAX: Slung Payload horizontal distance max
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-Video stream frame rate
+Oscillation is suppressed when vehicle and payload are no more than this distance horizontally\.  Set to 0 to always suppress
 
 
 +---------+
 | Range   |
 +=========+
-| 0 to 50 |
+| 0 to 30 |
 +---------+
 
 
 
 
-.. _VID1_HRES:
+.. _SLUP_SYSID:
 
-VID1\_HRES: Camera1 Video Stream Horizontal Resolution
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Video stream horizontal resolution
+SLUP\_SYSID: Slung Payload mavlink system id
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-+-----------+
-| Range     |
-+===========+
-| 0 to 4096 |
-+-----------+
+Slung Payload mavlink system id\.  0 to use any\/all system ids
 
 
-
-
-.. _VID1_VRES:
-
-VID1\_VRES: Camera1 Video Stream Vertical Resolution
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Video stream vertical resolution
-
-
-+-----------+
-| Range     |
-+===========+
-| 0 to 4096 |
-+-----------+
++----------+
+| Range    |
++==========+
+| 0 to 255 |
++----------+
 
 
 
 
-.. _VID1_BITRATE:
+.. _SLUP_WP_POS_P:
 
-VID1\_BITRATE: Camera1 Video Stream Bitrate
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Video stream bitrate
+SLUP\_WP\_POS\_P: Slung Payload return to WP position P gain
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-+------------+
-| Range      |
-+============+
-| 0 to 10000 |
-+------------+
+WP position P gain\. higher values will result in vehicle moving more quickly back to the original waypoint
+
+
++--------+
+| Range  |
++========+
+| 0 to 1 |
++--------+
 
 
 
 
-.. _VID1_HFOV:
+.. _SLUP_RESTOFS_TC:
 
-VID1\_HFOV: Camera1 Video Stream Horizontal FOV
+SLUP\_RESTOFS\_TC: Slung Payload resting offset estimate filter time constant
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+payload\'s position estimator\'s time constant used to compensate for GPS errors and wind\.  Higher values result in smoother estimate but slower response
+
+
++---------+
+| Range   |
++=========+
+| 1 to 20 |
++---------+
+
+
+
+
+.. _SLUP_DEBUG:
+
+SLUP\_DEBUG: Slung Payload debug output
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Slung payload debug output\, set to 1 to enable debug
+
+
++-------+----------+
+| Value | Meaning  |
++=======+==========+
+| 0     | Disabled |
++-------+----------+
+| 1     | Enabled  |
++-------+----------+
+
+
+
+
+.. _RCK_FORCEHL:
+
+RCK\_FORCEHL: Force enable High Latency mode
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Automatically enables High Latency mode if not already enabled
+
+
++-------+----------+
+| Value | Meaning  |
++=======+==========+
+| 0     | Disabled |
++-------+----------+
+| 1     | Enabled  |
++-------+----------+
+
+
+
+
+.. _RCK_PERIOD:
+
+RCK\_PERIOD: Update rate
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+When in High Latency mode\, send Rockblock updates every N seconds
+
+
++----------+---------+
+| Range    | Units   |
++==========+=========+
+| 0 to 600 | seconds |
++----------+---------+
+
+
+
+
+.. _RCK_DEBUG:
+
+RCK\_DEBUG: Display Rockblock debugging text
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Sends Rockblock debug text to GCS via statustexts
+
+
++-------+----------+
+| Value | Meaning  |
++=======+==========+
+| 0     | Disabled |
++-------+----------+
+| 1     | Enabled  |
++-------+----------+
+
+
+
+
+.. _RCK_ENABLE:
+
+RCK\_ENABLE: Enable Message transmission
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Enables the Rockblock sending and recieving
+
+
++-------+----------+
+| Value | Meaning  |
++=======+==========+
+| 0     | Disabled |
++-------+----------+
+| 1     | Enabled  |
++-------+----------+
+
+
+
+
+.. _TERR_BRK_ENABLE:
+
+TERR\_BRK\_ENABLE: terrain brake enable
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+terrain brake enable
+
+
++-------+----------+
+| Value | Meaning  |
++=======+==========+
+| 0     | Disabled |
++-------+----------+
+| 1     | Enabled  |
++-------+----------+
+
+
+
+
+.. _TERR_BRK_ALT:
+
+TERR\_BRK\_ALT: terrain brake altitude
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+terrain brake altitude\. The altitude above the ground below which BRAKE mode will be engaged if in LOITER mode\.
+
+
++----------+--------+
+| Range    | Units  |
++==========+========+
+| 1 to 100 | meters |
++----------+--------+
+
+
+
+
+.. _TERR_BRK_HDIST:
+
+TERR\_BRK\_HDIST: terrain brake home distance
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+terrain brake home distance\. The distance from home where the auto BRAKE will be enabled\. When within this distance of home the script will not activate
+
+
++-----------+--------+
+| Range     | Units  |
++===========+========+
+| 0 to 1000 | meters |
++-----------+--------+
+
+
+
+
+.. _TERR_BRK_SPD:
+
+TERR\_BRK\_SPD: terrain brake speed threshold
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+terrain brake speed threshold\. Don\'t trigger BRAKE if both horizontal speed and descent rate are below this threshold\. By setting this to a small value this can be used to allow the user to climb up to a safe altitude in LOITER mode\. A value of 0\.5 is recommended if you want to use LOITER to recover from an emergency terrain BRAKE mode change\.
+
+
++--------+-------------------+
+| Range  | Units             |
++========+===================+
+| 0 to 5 | meters per second |
++--------+-------------------+
+
+
+
+
+.. _DR_ENABLE:
+
+DR\_ENABLE: Deadreckoning Enable
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Deadreckoning Enable
+
+
++-------+----------+
+| Value | Meaning  |
++=======+==========+
+| 0     | Disabled |
++-------+----------+
+| 1     | Enabled  |
++-------+----------+
+
+
+
+
+.. _DR_ENABLE_DIST:
+
+DR\_ENABLE\_DIST: Deadreckoning Enable Distance
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-Video stream horizontal FOV
+Distance from home \(in meters\) beyond which the dead reckoning will be enabled
 
 
-+----------+
-| Range    |
-+==========+
-| 0 to 360 |
-+----------+
++--------+
+| Units  |
++========+
+| meters |
++--------+
 
 
 
 
-.. _VID1_ENCODING:
+.. _DR_GPS_SACC_MAX:
 
-VID1\_ENCODING: Camera1 Video Stream Encoding
+DR\_GPS\_SACC\_MAX: Deadreckoning GPS speed accuracy maximum threshold
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+GPS speed accuracy maximum\, above which deadreckoning home will begin \(default is 0\.8\)\.  Lower values trigger with good GPS quality\, higher values will allow poorer GPS before triggering\. Set to 0 to disable use of GPS speed accuracy
+
+
++---------+
+| Range   |
++=========+
+| 0 to 10 |
++---------+
+
+
+
+
+.. _DR_GPS_SAT_MIN:
+
+DR\_GPS\_SAT\_MIN: Deadreckoning GPS satellite count min threshold
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+GPS satellite count threshold below which deadreckoning home will begin \(default is 6\)\.  Higher values trigger with good GPS quality\, Lower values trigger with worse GPS quality\. Set to 0 to disable use of GPS satellite count
+
+
++---------+
+| Range   |
++=========+
+| 0 to 30 |
++---------+
+
+
+
+
+.. _DR_GPS_TRIGG_SEC:
+
+DR\_GPS\_TRIGG\_SEC: Deadreckoning GPS check trigger seconds
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+GPS checks must fail for this many seconds before dead reckoning will be triggered
+
+
++---------+
+| Units   |
++=========+
+| seconds |
++---------+
+
+
+
+
+.. _DR_FLY_ANGLE:
+
+DR\_FLY\_ANGLE: Deadreckoning Lean Angle
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+lean angle \(in degrees\) during deadreckoning
+
+
++---------+---------+
+| Range   | Units   |
++=========+=========+
+| 0 to 45 | degrees |
++---------+---------+
+
+
+
+
+.. _DR_FLY_ALT_MIN:
+
+DR\_FLY\_ALT\_MIN: Deadreckoning Altitude Min
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-Video stream encoding
+Copter will fly at at least this altitude \(in meters\) above home during deadreckoning
 
 
-+-------+---------+
-| Value | Meaning |
-+=======+=========+
-| 0     | Unknown |
-+-------+---------+
-| 1     | H264    |
-+-------+---------+
-| 2     | H265    |
-+-------+---------+
++-----------+--------+
+| Range     | Units  |
++===========+========+
+| 0 to 1000 | meters |
++-----------+--------+
 
 
 
 
-.. _VID1_IPADDR0:
+.. _DR_FLY_TIMEOUT:
 
-VID1\_IPADDR0: Camera1 Video Stream IP Address 0
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+DR\_FLY\_TIMEOUT: Deadreckoning flight timeout
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-Video stream IP Address first octet
+Copter will attempt to switch to NEXT\_MODE after this many seconds of deadreckoning\.  If it cannot switch modes it will continue in Guided\_NoGPS\.  Set to 0 to disable timeout
 
 
-+----------+
-| Range    |
-+==========+
-| 0 to 255 |
-+----------+
++---------+
+| Units   |
++=========+
+| seconds |
++---------+
 
 
 
 
-.. _VID1_IPADDR1:
+.. _DR_NEXT_MODE:
 
-VID1\_IPADDR1: Camera1 Video Stream IP Address 1
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+DR\_NEXT\_MODE: Deadreckoning Next Mode
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-Video stream IP Address second octet
+Copter switch to this mode after GPS recovers or DR\_FLY\_TIMEOUT has elapsed\.  Default is 6\/RTL\.  Set to \-1 to return to mode used before deadreckoning was triggered
 
 
-+----------+
-| Range    |
-+==========+
-| 0 to 255 |
-+----------+
-
-
-
-
-.. _VID1_IPADDR2:
-
-VID1\_IPADDR2: Camera1 Video Stream IP Address 2
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Video stream IP Address third octet
-
-
-+----------+
-| Range    |
-+==========+
-| 0 to 255 |
-+----------+
-
-
-
-
-.. _VID1_IPADDR3:
-
-VID1\_IPADDR3: Camera1 Video Stream IP Address 3
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Video stream IP Address fourth octet
-
-
-+----------+
-| Range    |
-+==========+
-| 0 to 255 |
-+----------+
-
-
-
-
-.. _VID1_IPPORT:
-
-VID1\_IPPORT: Camera1 Video Stream IP Address Port
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Video stream IP Address Port
-
-
-+------------+
-| Range      |
-+============+
-| 0 to 65535 |
-+------------+
-
-
-
-
-.. _ESRC_EXTN_THRESH:
-
-ESRC\_EXTN\_THRESH: EKF Source ExternalNav Innovation Threshold
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-ExternalNav may be used if innovations are below this threshold
-
-
-+--------+
-| Range  |
-+========+
-| 0 to 1 |
-+--------+
-
-
-
-
-.. _ESRC_EXTN_QUAL:
-
-ESRC\_EXTN\_QUAL: EKF Source ExternalNav Quality Threshold
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-ExternalNav may be used if quality is above this threshold
-
-
-+----------+---------+
-| Range    | Units   |
-+==========+=========+
-| 0 to 100 | percent |
-+----------+---------+
-
-
-
-
-.. _ESRC_FLOW_THRESH:
-
-ESRC\_FLOW\_THRESH: EKF Source OpticalFlow Innovation Threshold
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-OpticalFlow may be used if innovations are below this threshold
-
-
-+--------+
-| Range  |
-+========+
-| 0 to 1 |
-+--------+
-
-
-
-
-.. _ESRC_FLOW_QUAL:
-
-ESRC\_FLOW\_QUAL: EKF Source OpticalFlow Quality Threshold
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-OpticalFlow may be used if quality is above this threshold
-
-
-+----------+---------+
-| Range    | Units   |
-+==========+=========+
-| 0 to 100 | percent |
-+----------+---------+
-
-
-
-
-.. _ESRC_RNGFND_MAX:
-
-ESRC\_RNGFND\_MAX: EKF Source Rangefinder Max
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-OpticalFlow may be used if rangefinder distance is below this threshold
-
-
-+---------+--------+
-| Range   | Units  |
-+=========+========+
-| 0 to 50 | meters |
-+---------+--------+
++-------+--------------+
+| Value | Meaning      |
++=======+==============+
+| 2     | AltHold      |
++-------+--------------+
+| 3     | Auto         |
++-------+--------------+
+| 4     | Guided       |
++-------+--------------+
+| 5     | Loiter       |
++-------+--------------+
+| 6     | RTL          |
++-------+--------------+
+| 7     | Circle       |
++-------+--------------+
+| 9     | Land         |
++-------+--------------+
+| 16    | PosHold      |
++-------+--------------+
+| 17    | Brake        |
++-------+--------------+
+| 20    | Guided_NoGPS |
++-------+--------------+
+| 21    | Smart_RTL    |
++-------+--------------+
+| 27    | Auto RTL     |
++-------+--------------+
 
 
 
@@ -5884,31 +5699,13 @@ sendfile is an offloading mechanism for faster file download\. If this is non\-z
 
 
 
-.. _POI_DIST_MAX:
+.. _RTUN_ENABLE:
 
-POI\_DIST\_MAX: Mount POI distance max
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-POI\'s max distance \(in meters\) from the vehicle
+RTUN\_ENABLE: Rover Quicktune enable
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-+------------+
-| Range      |
-+============+
-| 0 to 10000 |
-+------------+
-
-
-
-
-.. _TERR_BRK_ENABLE:
-
-TERR\_BRK\_ENABLE: terrain brake enable
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-terrain brake enable
+Enable quicktune system
 
 
 +-------+----------+
@@ -5922,58 +5719,433 @@ terrain brake enable
 
 
 
-.. _TERR_BRK_ALT:
+.. _RTUN_AXES:
 
-TERR\_BRK\_ALT: terrain brake altitude
+RTUN\_AXES: Rover Quicktune axes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+axes to tune
+
+
++-----+----------+
+| Bit | Meaning  |
++=====+==========+
+| 0   | Steering |
++-----+----------+
+| 1   | Speed    |
++-----+----------+
+
+
+
+
+.. _RTUN_STR_FFRATIO:
+
+RTUN\_STR\_FFRATIO: Rover Quicktune Steering Rate FeedForward ratio
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Ratio between measured response and FF gain\. Raise this to get a higher FF gain
+
+
++----------+
+| Range    |
++==========+
+| 0 to 1.0 |
++----------+
+
+
+
+
+.. _RTUN_STR_P_RATIO:
+
+RTUN\_STR\_P\_RATIO: Rover Quicktune Steering FF to P ratio
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Ratio between steering FF and P gains\. Raise this to get a higher P gain\, 0 to leave P unchanged
+
+
++----------+
+| Range    |
++==========+
+| 0 to 2.0 |
++----------+
+
+
+
+
+.. _RTUN_STR_I_RATIO:
+
+RTUN\_STR\_I\_RATIO: Rover Quicktune Steering FF to I ratio
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Ratio between steering FF and I gains\. Raise this to get a higher I gain\, 0 to leave I unchanged
+
+
++----------+
+| Range    |
++==========+
+| 0 to 2.0 |
++----------+
+
+
+
+
+.. _RTUN_SPD_FFRATIO:
+
+RTUN\_SPD\_FFRATIO: Rover Quicktune Speed FeedForward \(equivalent\) ratio
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Ratio between measured response and CRUISE\_THROTTLE value\. Raise this to get a higher CRUISE\_THROTTLE value
+
+
++----------+
+| Range    |
++==========+
+| 0 to 1.0 |
++----------+
+
+
+
+
+.. _RTUN_SPD_P_RATIO:
+
+RTUN\_SPD\_P\_RATIO: Rover Quicktune Speed FF to P ratio
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Ratio between speed FF and P gain\. Raise this to get a higher P gain\, 0 to leave P unchanged
+
+
++----------+
+| Range    |
++==========+
+| 0 to 2.0 |
++----------+
+
+
+
+
+.. _RTUN_SPD_I_RATIO:
+
+RTUN\_SPD\_I\_RATIO: Rover Quicktune Speed FF to I ratio
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Ratio between speed FF and I gain\. Raise this to get a higher I gain\, 0 to leave I unchanged
+
+
++----------+
+| Range    |
++==========+
+| 0 to 2.0 |
++----------+
+
+
+
+
+.. _RTUN_AUTO_FILTER:
+
+RTUN\_AUTO\_FILTER: Rover Quicktune auto filter enable
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+When enabled the PID filter settings are automatically set based on INS\_GYRO\_FILTER
+
+
++-------+----------+
+| Value | Meaning  |
++=======+==========+
+| 0     | Disabled |
++-------+----------+
+| 1     | Enabled  |
++-------+----------+
+
+
+
+
+.. _RTUN_AUTO_SAVE:
+
+RTUN\_AUTO\_SAVE: Rover Quicktune auto save
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Number of seconds after completion of tune to auto\-save\. This is useful when using a 2 position switch for quicktune
+
+
++---------+
+| Units   |
++=========+
+| seconds |
++---------+
+
+
+
+
+.. _RTUN_RC_FUNC:
+
+RTUN\_RC\_FUNC: Rover Quicktune RC function
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+RCn\_OPTION number to use to control tuning stop\/start\/save
+
+
++-------+------------+
+| Value | Meaning    |
++=======+============+
+| 300   | Scripting1 |
++-------+------------+
+| 301   | Scripting2 |
++-------+------------+
+| 302   | Scripting3 |
++-------+------------+
+| 303   | Scripting4 |
++-------+------------+
+| 304   | Scripting5 |
++-------+------------+
+| 305   | Scripting6 |
++-------+------------+
+| 306   | Scripting7 |
++-------+------------+
+| 307   | Scripting8 |
++-------+------------+
+
+
+
+
+.. _RTUN_SPEED_MIN:
+
+RTUN\_SPEED\_MIN: Rover Quicktune minimum speed for tuning
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+The mimimum speed in m\/s required for tuning to start
+
+
++------------+-------------------+
+| Range      | Units             |
++============+===================+
+| 0.1 to 0.5 | meters per second |
++------------+-------------------+
+
+
+
+
+.. _SHIP_ENABLE:
+
+SHIP\_ENABLE: Ship landing enable
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Enable ship landing system
+
+
++-------+----------+
+| Value | Meaning  |
++=======+==========+
+| 0     | Disabled |
++-------+----------+
+| 1     | Enabled  |
++-------+----------+
+
+
+
+
+.. _SHIP_LAND_ANGLE:
+
+SHIP\_LAND\_ANGLE: Ship landing angle
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Angle from the stern of the ship for landing approach\. Use this to ensure that on a go\-around that ship superstructure and cables are avoided\. A value of zero means to approach from the rear of the ship\. A value of 90 means the landing will approach from the port \(left\) side of the ship\. A value of \-90 will mean approaching from the starboard \(right\) side of the ship\. A value of 180 will approach from the bow of the ship\. This parameter is combined with the sign of the RTL\_RADIUS parameter to determine the holdoff pattern\. If RTL\_RADIUS is positive then a clockwise loiter is performed\, if RTL\_RADIUS is negative then a counter\-clockwise loiter is used\.
+
+
++-------------+---------+
+| Range       | Units   |
++=============+=========+
+| -180 to 180 | degrees |
++-------------+---------+
+
+
+
+
+.. _SHIP_AUTO_OFS:
+
+SHIP\_AUTO\_OFS: Ship automatic offset trigger
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Settings this parameter to one triggers an automatic follow offset calculation based on current position of the vehicle and the landing target\. NOTE\: This parameter will auto\-reset to zero once the offset has been calculated\.
+
+
++-------+----------+
+| Value | Meaning  |
++=======+==========+
+| 0     | Disabled |
++-------+----------+
+| 1     | Trigger  |
++-------+----------+
+
+
+
+
+.. _ESRC_EXTN_THRESH:
+
+ESRC\_EXTN\_THRESH: EKF Source ExternalNav Innovation Threshold
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+ExternalNav may be used if innovations are below this threshold
+
+
++--------+
+| Range  |
++========+
+| 0 to 1 |
++--------+
+
+
+
+
+.. _ESRC_EXTN_QUAL:
+
+ESRC\_EXTN\_QUAL: EKF Source ExternalNav Quality Threshold
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+ExternalNav may be used if quality is above this threshold
+
+
++----------+---------+
+| Range    | Units   |
++==========+=========+
+| 0 to 100 | percent |
++----------+---------+
+
+
+
+
+.. _ESRC_FLOW_THRESH:
+
+ESRC\_FLOW\_THRESH: EKF Source OpticalFlow Innovation Threshold
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+OpticalFlow may be used if innovations are below this threshold
+
+
++--------+
+| Range  |
++========+
+| 0 to 1 |
++--------+
+
+
+
+
+.. _ESRC_FLOW_QUAL:
+
+ESRC\_FLOW\_QUAL: EKF Source OpticalFlow Quality Threshold
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+OpticalFlow may be used if quality is above this threshold
+
+
++----------+---------+
+| Range    | Units   |
++==========+=========+
+| 0 to 100 | percent |
++----------+---------+
+
+
+
+
+.. _ESRC_RNGFND_MAX:
+
+ESRC\_RNGFND\_MAX: EKF Source Rangefinder Max
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+OpticalFlow may be used if rangefinder distance is below this threshold
+
+
++---------+--------+
+| Range   | Units  |
++=========+========+
+| 0 to 50 | meters |
++---------+--------+
+
+
+
+
+.. _PLND_ALT_CUTOFF:
+
+PLND\_ALT\_CUTOFF: Precland altitude cutoff
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+The altitude \(rangefinder distance\) below which we stop using the precision landing sensor and continue landing
+
+
++---------+--------+
+| Range   | Units  |
++=========+========+
+| 0 to 20 | meters |
++---------+--------+
+
+
+
+
+.. _DIST_CUTOFF:
+
+DIST\_CUTOFF: Precland distance cutoff
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-terrain brake altitude\. The altitude above the ground below which BRAKE mode will be engaged if in LOITER mode\.
+The distance from target beyond which the target is ignored
 
 
 +----------+--------+
 | Range    | Units  |
 +==========+========+
-| 1 to 100 | meters |
+| 0 to 100 | meters |
 +----------+--------+
 
 
 
 
-.. _TERR_BRK_HDIST:
+.. _PREV_ENABLE:
 
-TERR\_BRK\_HDIST: terrain brake home distance
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-terrain brake home distance\. The distance from home where the auto BRAKE will be enabled\. When within this distance of home the script will not activate
+PREV\_ENABLE: parameter reversion enable
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-+-----------+--------+
-| Range     | Units  |
-+===========+========+
-| 0 to 1000 | meters |
-+-----------+--------+
+Enable parameter reversion system
+
+
++-------+----------+
+| Value | Meaning  |
++=======+==========+
+| 0     | Disabled |
++-------+----------+
+| 1     | Enabled  |
++-------+----------+
 
 
 
 
-.. _TERR_BRK_SPD:
+.. _PREV_RC_FUNC:
 
-TERR\_BRK\_SPD: terrain brake speed threshold
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-terrain brake speed threshold\. Don\'t trigger BRAKE if both horizontal speed and descent rate are below this threshold\. By setting this to a small value this can be used to allow the user to climb up to a safe altitude in LOITER mode\. A value of 0\.5 is recommended if you want to use LOITER to recover from an emergency terrain BRAKE mode change\.
+PREV\_RC\_FUNC: param reversion RC function
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-+--------+-------------------+
-| Range  | Units             |
-+========+===================+
-| 0 to 5 | meters per second |
-+--------+-------------------+
-
-
+RCn\_OPTION number to used to trigger parameter reversion
 
 
 .. _WINCH_RATE_UP:
@@ -6044,33 +6216,106 @@ RCn\_OPTION number to use to control winch rate
 
 
 
-.. _DR_ENABLE:
+.. _POI_DIST_MAX:
 
-DR\_ENABLE: Deadreckoning Enable
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Deadreckoning Enable
+POI\_DIST\_MAX: Mount POI distance max
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-+-------+----------+
-| Value | Meaning  |
-+=======+==========+
-| 0     | Disabled |
-+-------+----------+
-| 1     | Enabled  |
-+-------+----------+
+POI\'s max distance \(in meters\) from the vehicle
+
+
++------------+
+| Range      |
++============+
+| 0 to 10000 |
++------------+
 
 
 
 
-.. _DR_ENABLE_DIST:
+.. _CAM1_THERM_PAL:
 
-DR\_ENABLE\_DIST: Deadreckoning Enable Distance
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+CAM1\_THERM\_PAL: Camera1 Thermal Palette
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-Distance from home \(in meters\) beyond which the dead reckoning will be enabled
+thermal image colour palette
+
+
++-------+-----------------+
+| Value | Meaning         |
++=======+=================+
+| -1    | Leave Unchanged |
++-------+-----------------+
+| 0     | WhiteHot        |
++-------+-----------------+
+| 2     | Sepia           |
++-------+-----------------+
+| 3     | IronBow         |
++-------+-----------------+
+| 4     | Rainbow         |
++-------+-----------------+
+| 5     | Night           |
++-------+-----------------+
+| 6     | Aurora          |
++-------+-----------------+
+| 7     | RedHot          |
++-------+-----------------+
+| 8     | Jungle          |
++-------+-----------------+
+| 9     | Medical         |
++-------+-----------------+
+| 10    | BlackHot        |
++-------+-----------------+
+| 11    | GloryHot        |
++-------+-----------------+
+
+
+
+
+.. _CAM1_THERM_GAIN:
+
+CAM1\_THERM\_GAIN: Camera1 Thermal Gain
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+thermal image temperature range
+
+
++-------+-------------------------+
+| Value | Meaning                 |
++=======+=========================+
+| -1    | Leave Unchanged         |
++-------+-------------------------+
+| 0     | LowGain (50C to 550C)   |
++-------+-------------------------+
+| 1     | HighGain (-20C to 150C) |
++-------+-------------------------+
+
+
+
+
+.. _CAM1_THERM_RAW:
+
+CAM1\_THERM\_RAW: Camera1 Thermal Raw Data
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+save images with raw temperatures
+
+
++-------+------------------+
+| Value | Meaning          |
++=======+==================+
+| -1    | Leave Unchanged  |
++-------+------------------+
+| 0     | Disabled (30fps) |
++-------+------------------+
+| 1     | Enabled (25 fps) |
++-------+------------------+
+
+
 
 
 +--------+
@@ -6082,217 +6327,233 @@ Distance from home \(in meters\) beyond which the dead reckoning will be enabled
 
 
 
-.. _DR_GPS_SACC_MAX:
+.. _VID1_CAMMODEL:
 
-DR\_GPS\_SACC\_MAX: Deadreckoning GPS speed accuracy maximum threshold
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+VID1\_CAMMODEL: Camera1 Video Stream Camera Model
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-GPS speed accuracy maximum\, above which deadreckoning home will begin \(default is 0\.8\)\.  Lower values trigger with good GPS quality\, higher values will allow poorer GPS before triggering\. Set to 0 to disable use of GPS speed accuracy
+Video stream camera model
+
+
++-------+------------------------+
+| Value | Meaning                |
++=======+========================+
+| 0     | Unknown                |
++-------+------------------------+
+| 1     | Siyi A8                |
++-------+------------------------+
+| 2     | Siyi ZR10              |
++-------+------------------------+
+| 3     | Siyi ZR30              |
++-------+------------------------+
+| 4     | Siyi ZT30 Zoom         |
++-------+------------------------+
+| 5     | Siyi ZT30 Wide         |
++-------+------------------------+
+| 6     | Siyi ZT30 IR           |
++-------+------------------------+
+| 7     | Siyi ZT6 RGB           |
++-------+------------------------+
+| 8     | Siyi ZT6 IR            |
++-------+------------------------+
+| 9     | Herelink WifiAP        |
++-------+------------------------+
+| 10    | Herelink USB-tethering |
++-------+------------------------+
+| 11    | Topotek 1080p          |
++-------+------------------------+
+| 12    | Topotek 480p           |
++-------+------------------------+
+| 13    | Viewpro                |
++-------+------------------------+
+
+
+
+
+.. _VID1_ID:
+
+VID1\_ID: Camera1 Video Stream Id
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Video stream id
 
 
 +---------+
 | Range   |
 +=========+
-| 0 to 10 |
+| 0 to 50 |
 +---------+
 
 
 
 
-.. _DR_GPS_SAT_MIN:
+.. _VID1_TYPE:
 
-DR\_GPS\_SAT\_MIN: Deadreckoning GPS satellite count min threshold
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-GPS satellite count threshold below which deadreckoning home will begin \(default is 6\)\.  Higher values trigger with good GPS quality\, Lower values trigger with worse GPS quality\. Set to 0 to disable use of GPS satellite count
+VID1\_TYPE: Camera1 Video Stream Type
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-+---------+
-| Range   |
-+=========+
-| 0 to 30 |
-+---------+
-
-
-
-
-.. _DR_GPS_TRIGG_SEC:
-
-DR\_GPS\_TRIGG\_SEC: Deadreckoning GPS check trigger seconds
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-GPS checks must fail for this many seconds before dead reckoning will be triggered
-
-
-+---------+
-| Units   |
-+=========+
-| seconds |
-+---------+
-
-
-
-
-.. _DR_FLY_ANGLE:
-
-DR\_FLY\_ANGLE: Deadreckoning Lean Angle
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-lean angle \(in degrees\) during deadreckoning
-
-
-+---------+---------+
-| Range   | Units   |
-+=========+=========+
-| 0 to 45 | degrees |
-+---------+---------+
-
-
-
-
-.. _DR_FLY_ALT_MIN:
-
-DR\_FLY\_ALT\_MIN: Deadreckoning Altitude Min
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Copter will fly at at least this altitude \(in meters\) above home during deadreckoning
-
-
-+-----------+--------+
-| Range     | Units  |
-+===========+========+
-| 0 to 1000 | meters |
-+-----------+--------+
-
-
-
-
-.. _DR_FLY_TIMEOUT:
-
-DR\_FLY\_TIMEOUT: Deadreckoning flight timeout
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Copter will attempt to switch to NEXT\_MODE after this many seconds of deadreckoning\.  If it cannot switch modes it will continue in Guided\_NoGPS\.  Set to 0 to disable timeout
-
-
-+---------+
-| Units   |
-+=========+
-| seconds |
-+---------+
-
-
-
-
-.. _DR_NEXT_MODE:
-
-DR\_NEXT\_MODE: Deadreckoning Next Mode
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Copter switch to this mode after GPS recovers or DR\_FLY\_TIMEOUT has elapsed\.  Default is 6\/RTL\.  Set to \-1 to return to mode used before deadreckoning was triggered
-
-
-+-------+--------------+
-| Value | Meaning      |
-+=======+==============+
-| 2     | AltHold      |
-+-------+--------------+
-| 3     | Auto         |
-+-------+--------------+
-| 4     | Guided       |
-+-------+--------------+
-| 5     | Loiter       |
-+-------+--------------+
-| 6     | RTL          |
-+-------+--------------+
-| 7     | Circle       |
-+-------+--------------+
-| 9     | Land         |
-+-------+--------------+
-| 16    | PosHold      |
-+-------+--------------+
-| 17    | Brake        |
-+-------+--------------+
-| 20    | Guided_NoGPS |
-+-------+--------------+
-| 21    | Smart_RTL    |
-+-------+--------------+
-| 27    | Auto RTL     |
-+-------+--------------+
-
-
-
-
-.. _SLUP_ENABLE:
-
-SLUP\_ENABLE: Slung Payload enable
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Slung Payload enable
+Video stream type
 
 
 +-------+----------+
 | Value | Meaning  |
 +=======+==========+
-| 0     | Disabled |
+| 0     | RTSP     |
 +-------+----------+
-| 1     | Enabled  |
+| 1     | RTPUDP   |
++-------+----------+
+| 2     | TCP_MPEG |
++-------+----------+
+| 3     | MPEG_TS  |
 +-------+----------+
 
 
 
 
-.. _SLUP_VEL_P:
+.. _VID1_FLAG:
 
-SLUP\_VEL\_P: Slung Payload Velocity P gain
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Slung Payload Velocity P gain\, higher values will result in faster movements in sync with payload
+VID1\_FLAG: Camera1 Video Stream Flags
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-+----------+
-| Range    |
-+==========+
-| 0 to 0.8 |
-+----------+
+Video stream flags
+
+
++-----+-----------------------+
+| Bit | Meaning               |
++=====+=======================+
+| 0   | Running               |
++-----+-----------------------+
+| 1   | Thermal               |
++-----+-----------------------+
+| 2   | Thermal Range Enabled |
++-----+-----------------------+
 
 
 
 
-.. _SLUP_DIST_MAX:
+.. _VID1_FRAME_RATE:
 
-SLUP\_DIST\_MAX: Slung Payload horizontal distance max
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+VID1\_FRAME\_RATE: Camera1 Video Stream Frame Rate
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-Oscillation is suppressed when vehicle and payload are no more than this distance horizontally\.  Set to 0 to always suppress
+Video stream frame rate
 
 
 +---------+
 | Range   |
 +=========+
-| 0 to 30 |
+| 0 to 50 |
 +---------+
 
 
 
 
-.. _SLUP_SYSID:
+.. _VID1_HRES:
 
-SLUP\_SYSID: Slung Payload mavlink system id
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+VID1\_HRES: Camera1 Video Stream Horizontal Resolution
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-Slung Payload mavlink system id\.  0 to use any\/all system ids
+Video stream horizontal resolution
+
+
++-----------+
+| Range     |
++===========+
+| 0 to 4096 |
++-----------+
+
+
+
+
+.. _VID1_VRES:
+
+VID1\_VRES: Camera1 Video Stream Vertical Resolution
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Video stream vertical resolution
+
+
++-----------+
+| Range     |
++===========+
+| 0 to 4096 |
++-----------+
+
+
+
+
+.. _VID1_BITRATE:
+
+VID1\_BITRATE: Camera1 Video Stream Bitrate
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Video stream bitrate
+
+
++------------+
+| Range      |
++============+
+| 0 to 10000 |
++------------+
+
+
+
+
+.. _VID1_HFOV:
+
+VID1\_HFOV: Camera1 Video Stream Horizontal FOV
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Video stream horizontal FOV
+
+
++----------+
+| Range    |
++==========+
+| 0 to 360 |
++----------+
+
+
+
+
+.. _VID1_ENCODING:
+
+VID1\_ENCODING: Camera1 Video Stream Encoding
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Video stream encoding
+
+
++-------+---------+
+| Value | Meaning |
++=======+=========+
+| 0     | Unknown |
++-------+---------+
+| 1     | H264    |
++-------+---------+
+| 2     | H265    |
++-------+---------+
+
+
+
+
+.. _VID1_IPADDR0:
+
+VID1\_IPADDR0: Camera1 Video Stream IP Address 0
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Video stream IP Address first octet
 
 
 +----------+
@@ -6304,116 +6565,74 @@ Slung Payload mavlink system id\.  0 to use any\/all system ids
 
 
 
-.. _SLUP_WP_POS_P:
+.. _VID1_IPADDR1:
 
-SLUP\_WP\_POS\_P: Slung Payload return to WP position P gain
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-WP position P gain\. higher values will result in vehicle moving more quickly back to the original waypoint
+VID1\_IPADDR1: Camera1 Video Stream IP Address 1
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-+--------+
-| Range  |
-+========+
-| 0 to 1 |
-+--------+
+Video stream IP Address second octet
 
 
-
-
-.. _SLUP_RESTOFS_TC:
-
-SLUP\_RESTOFS\_TC: Slung Payload resting offset estimate filter time constant
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-payload\'s position estimator\'s time constant used to compensate for GPS errors and wind\.  Higher values result in smoother estimate but slower response
-
-
-+---------+
-| Range   |
-+=========+
-| 1 to 20 |
-+---------+
++----------+
+| Range    |
++==========+
+| 0 to 255 |
++----------+
 
 
 
 
-.. _SLUP_DEBUG:
+.. _VID1_IPADDR2:
 
-SLUP\_DEBUG: Slung Payload debug output
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Slung payload debug output\, set to 1 to enable debug
+VID1\_IPADDR2: Camera1 Video Stream IP Address 2
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-+-------+----------+
-| Value | Meaning  |
-+=======+==========+
-| 0     | Disabled |
-+-------+----------+
-| 1     | Enabled  |
-+-------+----------+
+Video stream IP Address third octet
+
+
++----------+
+| Range    |
++==========+
+| 0 to 255 |
++----------+
 
 
 
 
-.. _SHIP_ENABLE:
+.. _VID1_IPADDR3:
 
-SHIP\_ENABLE: Ship landing enable
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Enable ship landing system
+VID1\_IPADDR3: Camera1 Video Stream IP Address 3
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-+-------+----------+
-| Value | Meaning  |
-+=======+==========+
-| 0     | Disabled |
-+-------+----------+
-| 1     | Enabled  |
-+-------+----------+
+Video stream IP Address fourth octet
+
+
++----------+
+| Range    |
++==========+
+| 0 to 255 |
++----------+
 
 
 
 
-.. _SHIP_LAND_ANGLE:
+.. _VID1_IPPORT:
 
-SHIP\_LAND\_ANGLE: Ship landing angle
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Angle from the stern of the ship for landing approach\. Use this to ensure that on a go\-around that ship superstructure and cables are avoided\. A value of zero means to approach from the rear of the ship\. A value of 90 means the landing will approach from the port \(left\) side of the ship\. A value of \-90 will mean approaching from the starboard \(right\) side of the ship\. A value of 180 will approach from the bow of the ship\. This parameter is combined with the sign of the RTL\_RADIUS parameter to determine the holdoff pattern\. If RTL\_RADIUS is positive then a clockwise loiter is performed\, if RTL\_RADIUS is negative then a counter\-clockwise loiter is used\.
+VID1\_IPPORT: Camera1 Video Stream IP Address Port
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-+-------------+---------+
-| Range       | Units   |
-+=============+=========+
-| -180 to 180 | degrees |
-+-------------+---------+
+Video stream IP Address Port
 
 
-
-
-.. _SHIP_AUTO_OFS:
-
-SHIP\_AUTO\_OFS: Ship automatic offset trigger
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Settings this parameter to one triggers an automatic follow offset calculation based on current position of the vehicle and the landing target\. NOTE\: This parameter will auto\-reset to zero once the offset has been calculated\.
-
-
-+-------+----------+
-| Value | Meaning  |
-+=======+==========+
-| 0     | Disabled |
-+-------+----------+
-| 1     | Trigger  |
-+-------+----------+
++------------+
+| Range      |
++============+
+| 0 to 65535 |
++------------+
 
 
 
@@ -6792,497 +7011,6 @@ Battery estimator coefficient3
 +=============+
 | 0.01 to 0.5 |
 +-------------+
-
-
-
-
-.. _CAM1_THERM_PAL:
-
-CAM1\_THERM\_PAL: Camera1 Thermal Palette
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-thermal image colour palette
-
-
-+-------+-----------------+
-| Value | Meaning         |
-+=======+=================+
-| -1    | Leave Unchanged |
-+-------+-----------------+
-| 0     | WhiteHot        |
-+-------+-----------------+
-| 2     | Sepia           |
-+-------+-----------------+
-| 3     | IronBow         |
-+-------+-----------------+
-| 4     | Rainbow         |
-+-------+-----------------+
-| 5     | Night           |
-+-------+-----------------+
-| 6     | Aurora          |
-+-------+-----------------+
-| 7     | RedHot          |
-+-------+-----------------+
-| 8     | Jungle          |
-+-------+-----------------+
-| 9     | Medical         |
-+-------+-----------------+
-| 10    | BlackHot        |
-+-------+-----------------+
-| 11    | GloryHot        |
-+-------+-----------------+
-
-
-
-
-.. _CAM1_THERM_GAIN:
-
-CAM1\_THERM\_GAIN: Camera1 Thermal Gain
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-thermal image temperature range
-
-
-+-------+-------------------------+
-| Value | Meaning                 |
-+=======+=========================+
-| -1    | Leave Unchanged         |
-+-------+-------------------------+
-| 0     | LowGain (50C to 550C)   |
-+-------+-------------------------+
-| 1     | HighGain (-20C to 150C) |
-+-------+-------------------------+
-
-
-
-
-.. _CAM1_THERM_RAW:
-
-CAM1\_THERM\_RAW: Camera1 Thermal Raw Data
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-save images with raw temperatures
-
-
-+-------+------------------+
-| Value | Meaning          |
-+=======+==================+
-| -1    | Leave Unchanged  |
-+-------+------------------+
-| 0     | Disabled (30fps) |
-+-------+------------------+
-| 1     | Enabled (25 fps) |
-+-------+------------------+
-
-
-
-
-+--------+
-| Units  |
-+========+
-| meters |
-+--------+
-
-
-
-
-.. _RCK_FORCEHL:
-
-RCK\_FORCEHL: Force enable High Latency mode
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Automatically enables High Latency mode if not already enabled
-
-
-+-------+----------+
-| Value | Meaning  |
-+=======+==========+
-| 0     | Disabled |
-+-------+----------+
-| 1     | Enabled  |
-+-------+----------+
-
-
-
-
-.. _RCK_PERIOD:
-
-RCK\_PERIOD: Update rate
-~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-When in High Latency mode\, send Rockblock updates every N seconds
-
-
-+----------+---------+
-| Range    | Units   |
-+==========+=========+
-| 0 to 600 | seconds |
-+----------+---------+
-
-
-
-
-.. _RCK_DEBUG:
-
-RCK\_DEBUG: Display Rockblock debugging text
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Sends Rockblock debug text to GCS via statustexts
-
-
-+-------+----------+
-| Value | Meaning  |
-+=======+==========+
-| 0     | Disabled |
-+-------+----------+
-| 1     | Enabled  |
-+-------+----------+
-
-
-
-
-.. _RCK_ENABLE:
-
-RCK\_ENABLE: Enable Message transmission
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Enables the Rockblock sending and recieving
-
-
-+-------+----------+
-| Value | Meaning  |
-+=======+==========+
-| 0     | Disabled |
-+-------+----------+
-| 1     | Enabled  |
-+-------+----------+
-
-
-
-
-.. _CGA_RATIO:
-
-CGA\_RATIO: CoG adjustment ratio
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-| *Note: This parameter is for advanced users*
-
-The ratio between the front and back motor outputs during steady\-state hover\. Positive when the CoG is in front of the motors midpoint \(front motors work harder\)\.
-
-
-+----------+
-| Range    |
-+==========+
-| 0.5 to 2 |
-+----------+
-
-
-
-
-.. _PREV_ENABLE:
-
-PREV\_ENABLE: parameter reversion enable
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Enable parameter reversion system
-
-
-+-------+----------+
-| Value | Meaning  |
-+=======+==========+
-| 0     | Disabled |
-+-------+----------+
-| 1     | Enabled  |
-+-------+----------+
-
-
-
-
-.. _PREV_RC_FUNC:
-
-PREV\_RC\_FUNC: param reversion RC function
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-RCn\_OPTION number to used to trigger parameter reversion
-
-
-.. _RTUN_ENABLE:
-
-RTUN\_ENABLE: Rover Quicktune enable
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Enable quicktune system
-
-
-+-------+----------+
-| Value | Meaning  |
-+=======+==========+
-| 0     | Disabled |
-+-------+----------+
-| 1     | Enabled  |
-+-------+----------+
-
-
-
-
-.. _RTUN_AXES:
-
-RTUN\_AXES: Rover Quicktune axes
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-axes to tune
-
-
-+-----+----------+
-| Bit | Meaning  |
-+=====+==========+
-| 0   | Steering |
-+-----+----------+
-| 1   | Speed    |
-+-----+----------+
-
-
-
-
-.. _RTUN_STR_FFRATIO:
-
-RTUN\_STR\_FFRATIO: Rover Quicktune Steering Rate FeedForward ratio
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Ratio between measured response and FF gain\. Raise this to get a higher FF gain
-
-
-+----------+
-| Range    |
-+==========+
-| 0 to 1.0 |
-+----------+
-
-
-
-
-.. _RTUN_STR_P_RATIO:
-
-RTUN\_STR\_P\_RATIO: Rover Quicktune Steering FF to P ratio
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Ratio between steering FF and P gains\. Raise this to get a higher P gain\, 0 to leave P unchanged
-
-
-+----------+
-| Range    |
-+==========+
-| 0 to 2.0 |
-+----------+
-
-
-
-
-.. _RTUN_STR_I_RATIO:
-
-RTUN\_STR\_I\_RATIO: Rover Quicktune Steering FF to I ratio
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Ratio between steering FF and I gains\. Raise this to get a higher I gain\, 0 to leave I unchanged
-
-
-+----------+
-| Range    |
-+==========+
-| 0 to 2.0 |
-+----------+
-
-
-
-
-.. _RTUN_SPD_FFRATIO:
-
-RTUN\_SPD\_FFRATIO: Rover Quicktune Speed FeedForward \(equivalent\) ratio
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Ratio between measured response and CRUISE\_THROTTLE value\. Raise this to get a higher CRUISE\_THROTTLE value
-
-
-+----------+
-| Range    |
-+==========+
-| 0 to 1.0 |
-+----------+
-
-
-
-
-.. _RTUN_SPD_P_RATIO:
-
-RTUN\_SPD\_P\_RATIO: Rover Quicktune Speed FF to P ratio
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Ratio between speed FF and P gain\. Raise this to get a higher P gain\, 0 to leave P unchanged
-
-
-+----------+
-| Range    |
-+==========+
-| 0 to 2.0 |
-+----------+
-
-
-
-
-.. _RTUN_SPD_I_RATIO:
-
-RTUN\_SPD\_I\_RATIO: Rover Quicktune Speed FF to I ratio
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Ratio between speed FF and I gain\. Raise this to get a higher I gain\, 0 to leave I unchanged
-
-
-+----------+
-| Range    |
-+==========+
-| 0 to 2.0 |
-+----------+
-
-
-
-
-.. _RTUN_AUTO_FILTER:
-
-RTUN\_AUTO\_FILTER: Rover Quicktune auto filter enable
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-When enabled the PID filter settings are automatically set based on INS\_GYRO\_FILTER
-
-
-+-------+----------+
-| Value | Meaning  |
-+=======+==========+
-| 0     | Disabled |
-+-------+----------+
-| 1     | Enabled  |
-+-------+----------+
-
-
-
-
-.. _RTUN_AUTO_SAVE:
-
-RTUN\_AUTO\_SAVE: Rover Quicktune auto save
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Number of seconds after completion of tune to auto\-save\. This is useful when using a 2 position switch for quicktune
-
-
-+---------+
-| Units   |
-+=========+
-| seconds |
-+---------+
-
-
-
-
-.. _RTUN_RC_FUNC:
-
-RTUN\_RC\_FUNC: Rover Quicktune RC function
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-RCn\_OPTION number to use to control tuning stop\/start\/save
-
-
-+-------+------------+
-| Value | Meaning    |
-+=======+============+
-| 300   | Scripting1 |
-+-------+------------+
-| 301   | Scripting2 |
-+-------+------------+
-| 302   | Scripting3 |
-+-------+------------+
-| 303   | Scripting4 |
-+-------+------------+
-| 304   | Scripting5 |
-+-------+------------+
-| 305   | Scripting6 |
-+-------+------------+
-| 306   | Scripting7 |
-+-------+------------+
-| 307   | Scripting8 |
-+-------+------------+
-
-
-
-
-.. _RTUN_SPEED_MIN:
-
-RTUN\_SPEED\_MIN: Rover Quicktune minimum speed for tuning
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-The mimimum speed in m\/s required for tuning to start
-
-
-+------------+-------------------+
-| Range      | Units             |
-+============+===================+
-| 0.1 to 0.5 | meters per second |
-+------------+-------------------+
-
-
-
-
-.. _PLND_ALT_CUTOFF:
-
-PLND\_ALT\_CUTOFF: Precland altitude cutoff
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-The altitude \(rangefinder distance\) below which we stop using the precision landing sensor and continue landing
-
-
-+---------+--------+
-| Range   | Units  |
-+=========+========+
-| 0 to 20 | meters |
-+---------+--------+
-
-
-
-
-.. _DIST_CUTOFF:
-
-DIST\_CUTOFF: Precland distance cutoff
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-The distance from target beyond which the target is ignored
-
-
-+----------+--------+
-| Range    | Units  |
-+==========+========+
-| 0 to 100 | meters |
-+----------+--------+
 
 
 
@@ -7840,13 +7568,56 @@ Number of tricks which can be selected over the range of the trik selection RC c
 
 
 
-.. _EFI_DLA_ENABLE:
+.. _DJIR_DEBUG:
 
-EFI\_DLA\_ENABLE: EFI DLA enable
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+DJIR\_DEBUG: DJIRS2 debug
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+| *Note: This parameter is for advanced users*
+
+Enable DJIRS2 debug
 
 
-Enable EFI DLA driver
++-------+---------------------------------+
+| Value | Meaning                         |
++=======+=================================+
+| 0     | Disabled                        |
++-------+---------------------------------+
+| 1     | Enabled                         |
++-------+---------------------------------+
+| 2     | Enabled with attitude reporting |
++-------+---------------------------------+
+
+
+
+
+.. _DJIR_UPSIDEDOWN:
+
+DJIR\_UPSIDEDOWN: DJIRS2 upside down
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+DJIRS2 upside down
+
+
++-------+---------------+
+| Value | Meaning       |
++=======+===============+
+| 0     | Right side up |
++-------+---------------+
+| 1     | Upside down   |
++-------+---------------+
+
+
+
+
+.. _ESC_HW_ENABLE:
+
+ESC\_HW\_ENABLE: Hobbywing ESC Enable
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Enable Hobbywing ESC telemetry
 
 
 +-------+----------+
@@ -7860,352 +7631,38 @@ Enable EFI DLA driver
 
 
 
-.. _EFI_DLA_LPS:
+.. _ESC_HW_POLES:
 
-EFI\_DLA\_LPS: EFI DLA fuel scale
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-EFI DLA litres of fuel per second of injection time
+ESC\_HW\_POLES: Hobbywing ESC motor poles
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-+--------------+--------+
-| Range        | Units  |
-+==============+========+
-| 0.00001 to 1 | litres |
-+--------------+--------+
+Number of motor poles for eRPM scaling
+
+
++---------+
+| Range   |
++=========+
+| 1 to 50 |
++---------+
 
 
 
 
-.. _EFI_SVF_ENABLE:
+.. _ESC_HW_OFS:
 
-EFI\_SVF\_ENABLE: Generator SVFFI enable
+ESC\_HW\_OFS: Hobbywing ESC motor offset
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-Enable SVFFI generator support
+Motor number offset of first ESC
 
 
-+-------+----------+
-| Value | Meaning  |
-+=======+==========+
-| 0     | Disabled |
-+-------+----------+
-| 1     | Enabled  |
-+-------+----------+
-
-
-
-
-.. _EFI_SVF_ARMCHECK:
-
-EFI\_SVF\_ARMCHECK: Generator SVFFI arming check
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Check for Generator ARM state before arming
-
-
-+-------+----------+
-| Value | Meaning  |
-+=======+==========+
-| 0     | Disabled |
-+-------+----------+
-| 1     | Enabled  |
-+-------+----------+
-
-
-
-
-.. _UM_SERVO_MASK:
-
-UM\_SERVO\_MASK: Mask of UltraMotion servos
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Mask of UltraMotion servos
-
-
-+-----+---------+
-| Bit | Meaning |
-+=====+=========+
-| 0   | SERVO1  |
-+-----+---------+
-| 1   | SERVO2  |
-+-----+---------+
-| 2   | SERVO3  |
-+-----+---------+
-| 3   | SERVO4  |
-+-----+---------+
-| 4   | SERVO5  |
-+-----+---------+
-| 5   | SERVO6  |
-+-----+---------+
-| 6   | SERVO7  |
-+-----+---------+
-| 7   | SERVO8  |
-+-----+---------+
-| 8   | SERVO9  |
-+-----+---------+
-| 9   | SERVO10 |
-+-----+---------+
-| 10  | SERVO11 |
-+-----+---------+
-| 11  | SERVO12 |
-+-----+---------+
-
-
-
-
-.. _UM_CANDRV:
-
-UM\_CANDRV: Set CAN driver
-~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Set CAN driver
-
-
-+-------+--------------+
-| Value | Meaning      |
-+=======+==============+
-| 0     | None         |
-+-------+--------------+
-| 1     | 1stCANDriver |
-+-------+--------------+
-| 2     | 2ndCanDriver |
-+-------+--------------+
-
-
-
-
-.. _UM_RATE_HZ:
-
-UM\_RATE\_HZ: Update rate for UltraMotion servos
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Update rate for UltraMotion servos
-
-
-+----------+-------+
-| Range    | Units |
-+==========+=======+
-| 1 to 400 | hertz |
-+----------+-------+
-
-
-
-
-.. _UM_OPTIONS:
-
-UM\_OPTIONS: Optional settings
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Optional settings
-
-
-+-----+--------------------------+
-| Bit | Meaning                  |
-+=====+==========================+
-| 0   | LogAllFrames             |
-+-----+--------------------------+
-| 1   | ParseTelemetry           |
-+-----+--------------------------+
-| 2   | SendPosAsNamedValueFloat |
-+-----+--------------------------+
-
-
-
-
-.. _EFI_2K_ENABLE:
-
-EFI\_2K\_ENABLE: Enable NMEA 2000 EFI driver
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Enable NMEA 2000 EFI driver
-
-
-+-------+----------+
-| Value | Meaning  |
-+=======+==========+
-| 0     | Disabled |
-+-------+----------+
-| 1     | Enabled  |
-+-------+----------+
-
-
-
-
-.. _EFI_2K_CANDRV:
-
-EFI\_2K\_CANDRV: NMEA 2000 CAN driver
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-NMEA 2000 CAN driver\. Use 1 for first CAN scripting driver\, 2 for 2nd driver
-
-
-+-------+-----------+
-| Value | Meaning   |
-+=======+===========+
-| 0     | Disabled  |
-+-------+-----------+
-| 1     | FirstCAN  |
-+-------+-----------+
-| 2     | SecondCAN |
-+-------+-----------+
-
-
-
-
-.. _EFI_2K_OPTIONS:
-
-EFI\_2K\_OPTIONS: NMEA 2000 options
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-NMEA 2000 driver options
-
-
-+-----+---------------+
-| Bit | Meaning       |
-+=====+===============+
-| 0   | EnableLogging |
-+-----+---------------+
-
-
-
-
-.. _EFI_H6K_ENABLE:
-
-EFI\_H6K\_ENABLE: Enable Halo6000 EFI driver
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Enable Halo6000 EFI driver
-
-
-+-------+----------+
-| Value | Meaning  |
-+=======+==========+
-| 0     | Disabled |
-+-------+----------+
-| 1     | Enabled  |
-+-------+----------+
-
-
-
-
-.. _EFI_H6K_CANDRV:
-
-EFI\_H6K\_CANDRV: Halo6000 CAN driver
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Halo6000 CAN driver\. Use 1 for first CAN scripting driver\, 2 for 2nd driver
-
-
-+-------+-----------+
-| Value | Meaning   |
-+=======+===========+
-| 0     | Disabled  |
-+-------+-----------+
-| 1     | FirstCAN  |
-+-------+-----------+
-| 2     | SecondCAN |
-+-------+-----------+
-
-
-
-
-.. _EFI_H6K_START_FN:
-
-EFI\_H6K\_START\_FN: Halo6000 start auxilliary function
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-The RC auxilliary function number for start\/stop of the generator\. Zero to disable start function
-
-
-+-------+----------+
-| Value | Meaning  |
-+=======+==========+
-| 0     | Disabled |
-+-------+----------+
-| 300   | 300      |
-+-------+----------+
-| 301   | 301      |
-+-------+----------+
-| 302   | 302      |
-+-------+----------+
-| 303   | 303      |
-+-------+----------+
-| 304   | 304      |
-+-------+----------+
-| 305   | 305      |
-+-------+----------+
-| 306   | 306      |
-+-------+----------+
-| 307   | 307      |
-+-------+----------+
-
-
-
-
-.. _EFI_H6K_TELEM_RT:
-
-EFI\_H6K\_TELEM\_RT: Halo6000 telemetry rate
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-The rate that additional generator telemetry is sent
-
-
-+-------+
-| Units |
-+=======+
-| hertz |
-+-------+
-
-
-
-
-.. _EFI_H6K_FUELTOT:
-
-EFI\_H6K\_FUELTOT: Halo6000 total fuel capacity
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-The capacity of the tank in litres
-
-
-+--------+
-| Units  |
-+========+
-| litres |
-+--------+
-
-
-
-
-.. _EFI_H6K_OPTIONS:
-
-EFI\_H6K\_OPTIONS: Halo6000 options
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Halo6000 options
-
-
-+-----+------------------+
-| Bit | Meaning          |
-+=====+==================+
-| 0   | LogAllCanPackets |
-+-----+------------------+
++---------+
+| Range   |
++=========+
+| 0 to 31 |
++---------+
 
 
 
@@ -8273,6 +7730,46 @@ EFI\_INF\_IGN\_AUX: EFI INF\-Inject ignition aux function
 
 
 EFI INF throttle ignition aux function
+
+
+.. _EFI_SVF_ENABLE:
+
+EFI\_SVF\_ENABLE: Generator SVFFI enable
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Enable SVFFI generator support
+
+
++-------+----------+
+| Value | Meaning  |
++=======+==========+
+| 0     | Disabled |
++-------+----------+
+| 1     | Enabled  |
++-------+----------+
+
+
+
+
+.. _EFI_SVF_ARMCHECK:
+
+EFI\_SVF\_ARMCHECK: Generator SVFFI arming check
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Check for Generator ARM state before arming
+
+
++-------+----------+
+| Value | Meaning  |
++=======+==========+
+| 0     | Disabled |
++-------+----------+
+| 1     | Enabled  |
++-------+----------+
+
+
 
 
 .. _VIEP_DEBUG:
@@ -8430,45 +7927,271 @@ ViewPro Zoom Times Max
 
 
 
-.. _DJIR_DEBUG:
+.. _EFI_2K_ENABLE:
 
-DJIR\_DEBUG: DJIRS2 debug
-~~~~~~~~~~~~~~~~~~~~~~~~~
+EFI\_2K\_ENABLE: Enable NMEA 2000 EFI driver
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Enable NMEA 2000 EFI driver
+
+
++-------+----------+
+| Value | Meaning  |
++=======+==========+
+| 0     | Disabled |
++-------+----------+
+| 1     | Enabled  |
++-------+----------+
+
+
+
+
+.. _EFI_2K_CANDRV:
+
+EFI\_2K\_CANDRV: NMEA 2000 CAN driver
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+NMEA 2000 CAN driver\. Use 1 for first CAN scripting driver\, 2 for 2nd driver
+
+
++-------+-----------+
+| Value | Meaning   |
++=======+===========+
+| 0     | Disabled  |
++-------+-----------+
+| 1     | FirstCAN  |
++-------+-----------+
+| 2     | SecondCAN |
++-------+-----------+
+
+
+
+
+.. _EFI_2K_OPTIONS:
+
+EFI\_2K\_OPTIONS: NMEA 2000 options
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+NMEA 2000 driver options
+
+
++-----+---------------+
+| Bit | Meaning       |
++=====+===============+
+| 0   | EnableLogging |
++-----+---------------+
+
+
+
+
+.. _BATT_ANX_ENABLE:
+
+BATT\_ANX\_ENABLE: Enable ANX battery support
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Enable ANX battery support
+
+
++-------+----------+
+| Value | Meaning  |
++=======+==========+
+| 0     | Disabled |
++-------+----------+
+| 1     | Enabled  |
++-------+----------+
+
+
+
+
+.. _BATT_ANX_CANDRV:
+
+BATT\_ANX\_CANDRV: Set ANX CAN driver
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Set ANX CAN driver
+
+
++-------+--------------+
+| Value | Meaning      |
++=======+==============+
+| 0     | None         |
++-------+--------------+
+| 1     | 1stCANDriver |
++-------+--------------+
+| 2     | 2ndCanDriver |
++-------+--------------+
+
+
+
+
+.. _BATT_ANX_INDEX:
+
+BATT\_ANX\_INDEX: ANX CAN battery index
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+ANX CAN battery index
+
+
++---------+
+| Range   |
++=========+
+| 1 to 10 |
++---------+
+
+
+
+
+.. _BATT_ANX_OPTIONS:
+
+BATT\_ANX\_OPTIONS: ANX CAN battery options
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 | *Note: This parameter is for advanced users*
 
-Enable DJIRS2 debug
+ANX CAN battery options
 
 
-+-------+---------------------------------+
-| Value | Meaning                         |
-+=======+=================================+
-| 0     | Disabled                        |
-+-------+---------------------------------+
-| 1     | Enabled                         |
-+-------+---------------------------------+
-| 2     | Enabled with attitude reporting |
-+-------+---------------------------------+
++-----+--------------+
+| Bit | Meaning      |
++=====+==============+
+| 0   | LogAllFrames |
++-----+--------------+
 
 
 
 
-.. _DJIR_UPSIDEDOWN:
+.. _EFI_H6K_ENABLE:
 
-DJIR\_UPSIDEDOWN: DJIRS2 upside down
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-DJIRS2 upside down
+EFI\_H6K\_ENABLE: Enable Halo6000 EFI driver
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-+-------+---------------+
-| Value | Meaning       |
-+=======+===============+
-| 0     | Right side up |
-+-------+---------------+
-| 1     | Upside down   |
-+-------+---------------+
+Enable Halo6000 EFI driver
+
+
++-------+----------+
+| Value | Meaning  |
++=======+==========+
+| 0     | Disabled |
++-------+----------+
+| 1     | Enabled  |
++-------+----------+
+
+
+
+
+.. _EFI_H6K_CANDRV:
+
+EFI\_H6K\_CANDRV: Halo6000 CAN driver
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Halo6000 CAN driver\. Use 1 for first CAN scripting driver\, 2 for 2nd driver
+
+
++-------+-----------+
+| Value | Meaning   |
++=======+===========+
+| 0     | Disabled  |
++-------+-----------+
+| 1     | FirstCAN  |
++-------+-----------+
+| 2     | SecondCAN |
++-------+-----------+
+
+
+
+
+.. _EFI_H6K_START_FN:
+
+EFI\_H6K\_START\_FN: Halo6000 start auxilliary function
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+The RC auxilliary function number for start\/stop of the generator\. Zero to disable start function
+
+
++-------+----------+
+| Value | Meaning  |
++=======+==========+
+| 0     | Disabled |
++-------+----------+
+| 300   | 300      |
++-------+----------+
+| 301   | 301      |
++-------+----------+
+| 302   | 302      |
++-------+----------+
+| 303   | 303      |
++-------+----------+
+| 304   | 304      |
++-------+----------+
+| 305   | 305      |
++-------+----------+
+| 306   | 306      |
++-------+----------+
+| 307   | 307      |
++-------+----------+
+
+
+
+
+.. _EFI_H6K_TELEM_RT:
+
+EFI\_H6K\_TELEM\_RT: Halo6000 telemetry rate
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+The rate that additional generator telemetry is sent
+
+
++-------+
+| Units |
++=======+
+| hertz |
++-------+
+
+
+
+
+.. _EFI_H6K_FUELTOT:
+
+EFI\_H6K\_FUELTOT: Halo6000 total fuel capacity
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+The capacity of the tank in litres
+
+
++--------+
+| Units  |
++========+
+| litres |
++--------+
+
+
+
+
+.. _EFI_H6K_OPTIONS:
+
+EFI\_H6K\_OPTIONS: Halo6000 options
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Halo6000 options
+
+
++-----+------------------+
+| Bit | Meaning          |
++=====+==================+
+| 0   | LogAllCanPackets |
++-----+------------------+
 
 
 
@@ -8778,89 +8501,53 @@ SkyPower EFI restart time\. If engine should be running and it has stopped for t
 
 
 
-.. _ESC_HW_ENABLE:
+.. _UM_SERVO_MASK:
 
-ESC\_HW\_ENABLE: Hobbywing ESC Enable
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Enable Hobbywing ESC telemetry
+UM\_SERVO\_MASK: Mask of UltraMotion servos
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-+-------+----------+
-| Value | Meaning  |
-+=======+==========+
-| 0     | Disabled |
-+-------+----------+
-| 1     | Enabled  |
-+-------+----------+
+Mask of UltraMotion servos
 
 
-
-
-.. _ESC_HW_POLES:
-
-ESC\_HW\_POLES: Hobbywing ESC motor poles
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Number of motor poles for eRPM scaling
-
-
-+---------+
-| Range   |
-+=========+
-| 1 to 50 |
-+---------+
-
-
-
-
-.. _ESC_HW_OFS:
-
-ESC\_HW\_OFS: Hobbywing ESC motor offset
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Motor number offset of first ESC
-
-
-+---------+
-| Range   |
-+=========+
-| 0 to 31 |
-+---------+
++-----+---------+
+| Bit | Meaning |
++=====+=========+
+| 0   | SERVO1  |
++-----+---------+
+| 1   | SERVO2  |
++-----+---------+
+| 2   | SERVO3  |
++-----+---------+
+| 3   | SERVO4  |
++-----+---------+
+| 4   | SERVO5  |
++-----+---------+
+| 5   | SERVO6  |
++-----+---------+
+| 6   | SERVO7  |
++-----+---------+
+| 7   | SERVO8  |
++-----+---------+
+| 8   | SERVO9  |
++-----+---------+
+| 9   | SERVO10 |
++-----+---------+
+| 10  | SERVO11 |
++-----+---------+
+| 11  | SERVO12 |
++-----+---------+
 
 
 
 
-.. _BATT_ANX_ENABLE:
+.. _UM_CANDRV:
 
-BATT\_ANX\_ENABLE: Enable ANX battery support
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Enable ANX battery support
+UM\_CANDRV: Set CAN driver
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-+-------+----------+
-| Value | Meaning  |
-+=======+==========+
-| 0     | Disabled |
-+-------+----------+
-| 1     | Enabled  |
-+-------+----------+
-
-
-
-
-.. _BATT_ANX_CANDRV:
-
-BATT\_ANX\_CANDRV: Set ANX CAN driver
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Set ANX CAN driver
+Set CAN driver
 
 
 +-------+--------------+
@@ -8876,39 +8563,80 @@ Set ANX CAN driver
 
 
 
-.. _BATT_ANX_INDEX:
+.. _UM_RATE_HZ:
 
-BATT\_ANX\_INDEX: ANX CAN battery index
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-ANX CAN battery index
+UM\_RATE\_HZ: Update rate for UltraMotion servos
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-+---------+
-| Range   |
-+=========+
-| 1 to 10 |
-+---------+
+Update rate for UltraMotion servos
+
+
++----------+-------+
+| Range    | Units |
++==========+=======+
+| 1 to 400 | hertz |
++----------+-------+
 
 
 
 
-.. _BATT_ANX_OPTIONS:
+.. _UM_OPTIONS:
 
-BATT\_ANX\_OPTIONS: ANX CAN battery options
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-| *Note: This parameter is for advanced users*
-
-ANX CAN battery options
+UM\_OPTIONS: Optional settings
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-+-----+--------------+
-| Bit | Meaning      |
-+=====+==============+
-| 0   | LogAllFrames |
-+-----+--------------+
+Optional settings
+
+
++-----+--------------------------+
+| Bit | Meaning                  |
++=====+==========================+
+| 0   | LogAllFrames             |
++-----+--------------------------+
+| 1   | ParseTelemetry           |
++-----+--------------------------+
+| 2   | SendPosAsNamedValueFloat |
++-----+--------------------------+
+
+
+
+
+.. _EFI_DLA_ENABLE:
+
+EFI\_DLA\_ENABLE: EFI DLA enable
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Enable EFI DLA driver
+
+
++-------+----------+
+| Value | Meaning  |
++=======+==========+
+| 0     | Disabled |
++-------+----------+
+| 1     | Enabled  |
++-------+----------+
+
+
+
+
+.. _EFI_DLA_LPS:
+
+EFI\_DLA\_LPS: EFI DLA fuel scale
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+EFI DLA litres of fuel per second of injection time
+
+
++--------------+--------+
+| Range        | Units  |
++==============+========+
+| 0.00001 to 1 | litres |
++--------------+--------+
 
 
 
@@ -9124,6 +8852,419 @@ TOFSENSE\_S1\_BR: TOFSENSE\-M serial port baudrate
 
 
 Serial Port baud rate\. Sensor baud rate can be changed from Nassistant software
+
+
+
+.. _parameters_:
+
+ Parameters
+-----------
+
+
+.. _DISABLE_MV:
+
+DISABLE\_MV: 1\, disable monitoring for velocity spikes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+1\, disable monitoring for velocity spikes
+
+
++-------+--------------------+
+| Value | Meaning            |
++=======+====================+
+| 0     | Not Disabled       |
++-------+--------------------+
+| 1     | Disable Monitoring |
++-------+--------------------+
+
+
+
+
+.. _MIN_MON_DEPTH:
+
+MIN\_MON\_DEPTH: Don\'t stop and monitor if robot is on net above this depth
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Don\'t stop and monitor if robot is on net above this depth
+
+
++-------------+--------+
+| Range       | Units  |
++=============+========+
+| -100 to 100 | meters |
++-------------+--------+
+
+
+
+
+.. _MAX_ROLL_RUN:
+
+MAX\_ROLL\_RUN: max velocity in roll when running before next step in disarming
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+max velocity in roll when running before next step in disarming
+
+
++--------------------+
+| Units              |
++====================+
+| degrees per second |
++--------------------+
+
+
+
+
+.. _MAX_PITCH_RUN:
+
+MAX\_PITCH\_RUN: max velocity in pitch when running before next step in disarming
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+max velocity in pitch when running before next step in disarming
+
+
++--------------------+
+| Units              |
++====================+
+| degrees per second |
++--------------------+
+
+
+
+
+.. _MAX_YAW_RUN:
+
+MAX\_YAW\_RUN: max velocity in yaw when running before next step in disarming
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+max velocity in yaw when running before next step in disarming
+
+
++--------------------+
+| Units              |
++====================+
+| degrees per second |
++--------------------+
+
+
+
+
+
+.. _parameters_:
+
+ Parameters
+-----------
+
+
+.. _NB_TURN_MAX:
+
+NB\_TURN\_MAX: NB\_TURN\_MAX
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+| *Note: This parameter is for advanced users*
+
+turnCounter\: maximum number of turn before abort if \<0 no limit \+ reset current\_turn\_state to normal useful when too much turns were dealt with and you want to go back to normal
+
+
+.. _RESET_TURN_T:
+
+RESET\_TURN\_T: RESET\_TURN\_T
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+| *Note: This parameter is for advanced users*
+
+turnCounter\: reset current nb turn every RESET\_TURN\_T minutes if \<0 no reset
+
+
++---------+
+| Units   |
++=========+
+| minutes |
++---------+
+
+
+
+
+.. _NB_LAST_TMT:
+
+NB\_LAST\_TMT: NB\_LAST\_TMT
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+turnCounter\: maximum number of Too Many Turns events allowed during the last TIME\_LAST\_TMT seconds\. if exceeded\, disarms
+
+
++----------+
+| Range    |
++==========+
+| 0 to 255 |
++----------+
+
+
+
+
+.. _TIME_LAST_TMT:
+
+TIME\_LAST\_TMT: TIME\_LAST\_TMT
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+turnCounter\: monitoring time period in seconds for Too Many Turns events \(integer\)
+
+
++------------+---------+
+| Range      | Units   |
++============+=========+
+| 0 to 32767 | seconds |
++------------+---------+
+
+
+
+
+.. _TURN_SAFETY:
+
+TURN\_SAFETY: TURN Safety
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+| *Note: This parameter is for advanced users*
+
+turnCounter\: Enable TURN safety checks
+
+
++-------+----------+
+| Value | Meaning  |
++=======+==========+
+| 0     | Disabled |
++-------+----------+
+| 1     | Enabled  |
++-------+----------+
+
+
+
+
+.. _TURNCOUNT_TYP:
+
+TURNCOUNT\_TYP: TURNCOUNT\_TYP
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+turnCounter\: type of turn counter being used
+
+
++-------+-------------+
+| Value | Meaning     |
++=======+=============+
+| 0     | Standard    |
++-------+-------------+
+| 1     | EulerAngles |
++-------+-------------+
+
+
+
+
+.. _MAX_TURN_ROLL:
+
+MAX\_TURN\_ROLL: MAX\_TURN\_ROLL
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+turnCounter\: max number of turn around roll axis
+
+
+.. _MAX_TURN_PITCH:
+
+MAX\_TURN\_PITCH: MAX\_TURN\_PITCH
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+turnCounter\: max number of turn around pitch axis
+
+
+.. _MAX_TURN_YAW:
+
+MAX\_TURN\_YAW: MAX\_TURN\_YAW
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+turnCounter\: max number of turn around yaw axis
+
+
+.. _TURN_SFTY_TOUT:
+
+TURN\_SFTY\_TOUT: TURN Safety Timeout
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+| *Note: This parameter is for advanced users*
+
+turnCounter\: timeout in seconds for TURN safety checks to be disabled before re\-enabling
+
+
++---------+
+| Units   |
++=========+
+| seconds |
++---------+
+
+
+
+
+
+.. _parameters_:
+
+ Parameters
+-----------
+
+
+.. _CHECK_NET:
+
+CHECK\_NET: CHECK\_NET
+~~~~~~~~~~~~~~~~~~~~~~
+
+| *Note: This parameter is for advanced users*
+
+checkIfOnNet\: enable\/disable checkIfOnNet
+
+
++-------+----------+
+| Value | Meaning  |
++=======+==========+
+| 0     | Disabled |
++-------+----------+
+| 1     | Enabled  |
++-------+----------+
+
+
+
+
+.. _CHECK_NET_TOUT:
+
+CHECK\_NET\_TOUT: CHECK\_NET\_TOUT
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+| *Note: This parameter is for advanced users*
+
+checkIfOnNet\: maximum duration in seconds that checkIfOnNet can be disabled before being automatically re\-enabled
+
+
++---------+
+| Units   |
++=========+
+| seconds |
++---------+
+
+
+
+
+.. _MAX_ROLL_STILL:
+
+MAX\_ROLL\_STILL: MAX\_ROLL\_STILL
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+max velocity in roll at standstill before disarming
+
+
++--------------------+
+| Units              |
++====================+
+| degrees per second |
++--------------------+
+
+
+
+
+.. _MAX_PITCH_STILL:
+
+MAX\_PITCH\_STILL: MAX\_PITCH\_STILL
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+max velocity in pitch at standstill before disarming
+
+
++--------------------+
+| Units              |
++====================+
+| degrees per second |
++--------------------+
+
+
+
+
+.. _MAX_YAW_STILL:
+
+MAX\_YAW\_STILL: MAX\_YAW\_STILL
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+max velocity in yaw at standstill before disarming
+
+
++--------------------+
+| Units              |
++====================+
+| degrees per second |
++--------------------+
+
+
+
+
+.. _MAX_MON_TIME:
+
+MAX\_MON\_TIME: MAX\_MON\_TIME
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+max time for monitoring when doing a check if on net
+
+
++---------+---------+
+| Range   | Units   |
++=========+=========+
+| 0 to 60 | seconds |
++---------+---------+
+
+
+
+
+.. _MAX_DEPTH_CHANGE:
+
+MAX\_DEPTH\_CHANGE: MAX\_DEPTH\_CHANGE
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+when monitoring for off net\, robot will disarm if depth change is more than this value
+
+
++--------+
+| Units  |
++========+
+| meters |
++--------+
+
+
+
+
+.. _ROT_VEL_TOUT:
+
+ROT\_VEL\_TOUT: ROT\_VEL\_TOUT
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+when preparing for monitoring for off net\, robot will disarm if rotational velocity is not within limits for more than this duration
+
+
++---------+
+| Units   |
++=========+
+| seconds |
++---------+
+
+
 
 
 
@@ -94121,6 +94262,31 @@ RangeFinder Minimum signal strength \(SNR\) to accept distance
 
 
 
+.. _parameters_RPM:
+
+RPM Parameters
+--------------
+
+
+.. _RPMTIMEOUT:
+
+RPMTIMEOUT: RPM Timeout
+~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Timeout in seconds for RPM readings before RPM is considered lost
+
+
++---------+
+| Units   |
++=========+
+| seconds |
++---------+
+
+
+
+
+
 .. _parameters_RPM1_:
 
 RPM1\_ Parameters
@@ -112885,11 +113051,11 @@ SIM\_TURN\_T\_RATE: rotation rate for the one axis turn test
 rotation rate for the one axis turn test
 
 
-+------------------+
-| Units            |
-+==================+
-| round per second |
-+------------------+
++--------------------+
+| Units              |
++====================+
+| degrees per second |
++--------------------+
 
 
 
@@ -113291,11 +113457,11 @@ SIM\_TURN\_T\_RATEX: roll turn rate for the multiaxis turn test
 roll turn rate for the multiaxis turn test
 
 
-+------------------+
-| Units            |
-+==================+
-| round per second |
-+------------------+
++--------------------+
+| Units              |
++====================+
+| degrees per second |
++--------------------+
 
 
 
@@ -113309,11 +113475,11 @@ SIM\_TURN\_T\_RATEY: pitch turn rate for the multiaxis turn test
 pitch turn rate for the multiaxis turn test
 
 
-+------------------+
-| Units            |
-+==================+
-| round per second |
-+------------------+
++--------------------+
+| Units              |
++====================+
+| degrees per second |
++--------------------+
 
 
 
@@ -113327,11 +113493,11 @@ SIM\_TURN\_T\_RATEZ: yaw turn rate for the multiaxis turn test
 yaw turn rate for the multiaxis turn test
 
 
-+------------------+
-| Units            |
-+==================+
-| round per second |
-+------------------+
++--------------------+
+| Units              |
++====================+
+| degrees per second |
++--------------------+
 
 
 
@@ -121990,13 +122156,13 @@ VESC\_P\_PAIRS\_4: number of pairs of poles in fourth motor
 number of pairs of poles in fourth motor
 
 
-.. _VESC_TMOUT:
+.. _VESC_TIMEOUT:
 
-VESC\_TMOUT: VESC protocol timeout
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+VESC\_TIMEOUT: VESC protocol timeout
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-This sets the inactivity timeout for the VESC protocol in seconds\. If no packets are received in this time normal MAVLink operations are resumed\. A value of 0 means no timeout
+This sets the inactivity timeout for the VESC protocol in seconds\.
 
 
 +----------+---------+
@@ -122791,6 +122957,24 @@ Second Encoder Input Pin B
 +-------+----------+
 | 55    | AUX6     |
 +-------+----------+
+
+
+
+
+.. _WENCTIMEOUT:
+
+WENCTIMEOUT: WENC Timeout
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Timeout in seconds for Wheel encoder readings before wenc is considered lost
+
+
++---------+
+| Units   |
++=========+
+| seconds |
++---------+
 
 
 

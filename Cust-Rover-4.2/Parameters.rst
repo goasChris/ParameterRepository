@@ -1951,25 +1951,6 @@ backflush only when \-BF\_DELTA\_ROLL \< roll\-VERTICAL\_ROLL \< BF\_DELTA\_ROLL
 
 
 
-.. _BF_MONIT_TIME:
-
-BF\_MONIT\_TIME: BF\_MONIT\_TIME
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-| *Note: This parameter is for advanced users*
-
-at the end of the backflush sequence\, time period for monitoring depth change
-
-
-+---------+---------+
-| Range   | Units   |
-+=========+=========+
-| 0 to 10 | seconds |
-+---------+---------+
-
-
-
-
 .. _VEL_CALC_TYPE:
 
 VEL\_CALC\_TYPE: VEL\_CALC\_TYPE
@@ -2004,35 +1985,6 @@ type of calculation for theta\: 1 \= netPosition\.x\/RadiusNet\(z\)\*360\/2pi\, 
 +==========+
 | 0 to 255 |
 +----------+
-
-
-
-
-.. _NB_TURN_MAX:
-
-NB\_TURN\_MAX: NB\_TURN\_MAX
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-| *Note: This parameter is for advanced users*
-
-maximum number of turn before abort if \<0 no limit \+ reset current\_turn\_state to normal useful when too much turns were dealt with and you want to go back to normal
-
-
-.. _RESET_TURN_T:
-
-RESET\_TURN\_T: RESET\_TURN\_T
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-| *Note: This parameter is for advanced users*
-
-reset current nb turn every RESET\_TURN\_T minutes if \<0 no reset
-
-
-+-----------------+
-| Range           |
-+=================+
-| -32768 to 32767 |
-+-----------------+
 
 
 
@@ -2706,10 +2658,10 @@ Number of steps in brightness between minimum and maximum brightness
 
 
 
-.. _ACRO_VERT_ACTION:
+.. _ACRO_VERT_ACT:
 
-ACRO\_VERT\_ACTION: determine what to do in initialisation in acro mode
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ACRO\_VERT\_ACT: determine what to do in initialisation in acro mode
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 \-1 forced 20 degree turn \(dev only\) \, 0 \-\> set vertical roll to 0\, 1 \-\> vertical direction search
@@ -3343,247 +3295,6 @@ safety margin for MIN\_DEPTH and MAX\_DEPTH\, if negative\:disable safety \[mete
 
 
 
-.. _MAX_ROLL_RUN:
-
-MAX\_ROLL\_RUN: max velocity in roll when running before next step in disarming
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-max velocity in roll when running before next step in disarming
-
-
-+--------+--------------------+
-| Range  | Units              |
-+========+====================+
-| 0 to 2 | radians per second |
-+--------+--------------------+
-
-
-
-
-.. _MAX_PITCH_RUN:
-
-MAX\_PITCH\_RUN: max velocity in pitch when running before next step in disarming
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-max velocity in pitch when running before next step in disarming
-
-
-+--------+--------------------+
-| Range  | Units              |
-+========+====================+
-| 0 to 2 | radians per second |
-+--------+--------------------+
-
-
-
-
-.. _MAX_YAW_RUN:
-
-MAX\_YAW\_RUN: max velocity in yaw when running before next step in disarming
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-max velocity in yaw when running before next step in disarming
-
-
-+--------+--------------------+
-| Range  | Units              |
-+========+====================+
-| 0 to 2 | radians per second |
-+--------+--------------------+
-
-
-
-
-.. _MAX_ROLL_STILL:
-
-MAX\_ROLL\_STILL: max velocity in roll at standstill before disarming
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-max velocity in roll at standstill before disarming
-
-
-+--------+--------------------+
-| Range  | Units              |
-+========+====================+
-| 0 to 2 | radians per second |
-+--------+--------------------+
-
-
-
-
-.. _MAX_PITCH_STILL:
-
-MAX\_PITCH\_STILL: max velocity in pitch at standstill before disarming
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-max velocity in pitch at standstill before disarming
-
-
-+--------+--------------------+
-| Range  | Units              |
-+========+====================+
-| 0 to 2 | radians per second |
-+--------+--------------------+
-
-
-
-
-.. _MAX_YAW_STILL:
-
-MAX\_YAW\_STILL: max velocity in yaw at standstill before disarming
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-max velocity in yaw at standstill before disarming
-
-
-+--------+--------------------+
-| Range  | Units              |
-+========+====================+
-| 0 to 2 | radians per second |
-+--------+--------------------+
-
-
-
-
-.. _MAX_MON_T:
-
-MAX\_MON\_T: max time the robot are in monitoring state if on net
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-max time the robot are in monitoring state if on net
-
-
-+---------+---------+
-| Range   | Units   |
-+=========+=========+
-| 0 to 60 | seconds |
-+---------+---------+
-
-
-
-
-.. _STAND_STILL_T:
-
-STAND\_STILL\_T: time for the robot to comme to sandstill
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-time for the robot to comme to sandstill
-
-
-+--------+---------+
-| Range  | Units   |
-+========+=========+
-| 0 to 5 | seconds |
-+--------+---------+
-
-
-
-
-.. _STARTING_T:
-
-STARTING\_T: let the robot have time to accelerate
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-let the robot have time to accelerate
-
-
-+---------+---------+
-| Range   | Units   |
-+=========+=========+
-| 3 to 10 | seconds |
-+---------+---------+
-
-
-
-
-.. _DISABLE_MV:
-
-DISABLE\_MV: 1\, disable monitoring for velocity spikes
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-1\, disable monitoring for velocity spikes
-
-
-+--------------------------------+
-| Values                         |
-+================================+
-| +-------+--------------------+ |
-| | Value | Meaning            | |
-| +=======+====================+ |
-| | 0     | Not Disabled       | |
-| +-------+--------------------+ |
-| | 1     | Disable Monitoring | |
-| +-------+--------------------+ |
-|                                |
-+--------------------------------+
-
-
-
-
-.. _MIN_MON_DEPTH:
-
-MIN\_MON\_DEPTH: Don\'t stop and monitor if robot is on net above this H
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Don\'t stop and monitor if robot is on net above this H
-
-
-+-------------+--------+
-| Range       | Units  |
-+=============+========+
-| -100 to 100 | meters |
-+-------------+--------+
-
-
-
-
-.. _GPS_STUCK_OFF:
-
-GPS\_STUCK\_OFF: GPS\_STUCK\_OFF
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-in gps measurment mode\, turn off stuck avoidance at this depth and up
-
-
-+---------+--------+
-| Range   | Units  |
-+=========+========+
-| -5 to 0 | meters |
-+---------+--------+
-
-
-
-
-.. _MAX_DEPTH_CHANGE:
-
-MAX\_DEPTH\_CHANGE: MAX\_DEPTH\_CHANGE
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-when monitoring for off net\, robot will disarm if depth change is more
-
-
-+----------+--------+
-| Range    | Units  |
-+==========+========+
-| 0 to 0.5 | meters |
-+----------+--------+
-
-
-
-
 .. _DEC_THRUS_TH:
 
 DEC\_THRUS\_TH: thruster throttle applied when \"stopping\" the thruster in avoidance
@@ -3701,11 +3412,36 @@ SLID\_BELT\_COEF: SLID\_BELT\_COEF
 coef for sliding belt detection\; if negative\, deactivate sliding belts detection
 
 
-+-------------+
-| Range       |
-+=============+
-| -1. to 999. |
-+-------------+
++-------------+---------+
+| Range       | Units   |
++=============+=========+
+| -1. to 100. | percent |
++-------------+---------+
+
+
+
+
+.. _SLID_BELT_TYP:
+
+SLID\_BELT\_TYP: SLID\_BELT\_TYP
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+type of sliding belt detection \(1\: old\, 2\: new\)
+
+
++--------------------------+
+| Values                   |
++==========================+
+| +-------+--------------+ |
+| | Value | Meaning      | |
+| +=======+==============+ |
+| | 1     | Legacy       | |
+| +-------+--------------+ |
+| | 2     | WithRotation | |
+| +-------+--------------+ |
+|                          |
++--------------------------+
 
 
 
@@ -4007,11 +3743,11 @@ ACRO\_THRUS\_TOUT: ACRO\_THRUS\_TOUT
 when changing mode to acro\, time period for the transition to ACRO\_THRUS\_TH thruster throttle
 
 
-+------------+---------+
-| Range      | Units   |
-+============+=========+
-| 0 to 32767 | seconds |
-+------------+---------+
++---------+
+| Units   |
++=========+
+| seconds |
++---------+
 
 
 
@@ -4025,11 +3761,11 @@ LRPM\_THRUS\_TOUT: LRPM\_THRUS\_TOUT
 timeout for thruster monitoring of low rpm
 
 
-+------------+---------+
-| Range      | Units   |
-+============+=========+
-| 0 to 32767 | seconds |
-+------------+---------+
++---------+
+| Units   |
++=========+
+| seconds |
++---------+
 
 
 
@@ -4040,14 +3776,14 @@ LOW\_RPM\_THRUS: LOW\_RPM\_THRUS
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-threshold for thruster monitoring of low rpm
+Maximum allowed deviation of thruster rpm in percent
 
 
-+------------+------------------+
-| Range      | Units            |
-+============+==================+
-| 0 to 32767 | round per minute |
-+------------+------------------+
++----------+---------+
+| Range    | Units   |
++==========+=========+
+| 0 to 100 | percent |
++----------+---------+
 
 
 
@@ -4106,6 +3842,42 @@ when the robot is trying to stop the belts\, timeout after which we switch to st
 
 
 
+.. _STOP_BRUSH_RPM:
+
+STOP\_BRUSH\_RPM: STOP\_BRUSH\_RPM
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+when the robot is trying to stop the brush\, RPM below which we consider the brush are not turning anymore\.
+
+
++----------+------------------+
+| Range    | Units            |
++==========+==================+
+| 0 to 100 | round per minute |
++----------+------------------+
+
+
+
+
+.. _STOP_BRUSH_TOUT:
+
+STOP\_BRUSH\_TOUT: STOP\_BRUSH\_TOUT
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+when the robot is trying to stop the brush\, timeout after which we switch to stop thruster step
+
+
++---------+---------+
+| Range   | Units   |
++=========+=========+
+| 0 to 30 | seconds |
++---------+---------+
+
+
+
+
 .. _MAX_RPM_DIFF:
 
 MAX\_RPM\_DIFF: MAX\_RPM\_DIFF
@@ -4131,42 +3903,6 @@ WHEEL\_DIR\_TOUT: WHEEL\_DIR\_TOUT
 
 
 when trying to determine if the wheel encoders directions are correct\, maximum timeout allowed before comparing depth change and count change \(and maybe sending a warning\)\. If negative\, deactivate feature\. Only available for pattern 9 or 10\.
-
-
-+----------+---------+
-| Range    | Units   |
-+==========+=========+
-| 0 to 100 | seconds |
-+----------+---------+
-
-
-
-
-.. _TMT_DPTH_CHANGE:
-
-TMT\_DPTH\_CHANGE: TMT\_DPTH\_CHANGE
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-when tooManyTurns triggers\, maximum depth change allowed before disarming
-
-
-+----------+--------+
-| Range    | Units  |
-+==========+========+
-| 0 to 100 | meters |
-+----------+--------+
-
-
-
-
-.. _TMT_DPTH_TOUT:
-
-TMT\_DPTH\_TOUT: TMT\_DPTH\_TOUT
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-when tooManyTurns triggers\, maximum time for monitoring depth change allowed before disarming
 
 
 +----------+---------+
@@ -4322,69 +4058,6 @@ when in stuck\/avoidance mode\, maximum roll angle in degrees around vertical\.
 
 
 
-.. _NB_LAST_TMT:
-
-NB\_LAST\_TMT: NB\_LAST\_TMT
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-maximum number of Too Many Turns events allowed during the last TIME\_LAST\_TMT seconds\. if exceeded\, disarms
-
-
-+----------+
-| Range    |
-+==========+
-| 0 to 255 |
-+----------+
-
-
-
-
-.. _TIME_LAST_TMT:
-
-TIME\_LAST\_TMT: TIME\_LAST\_TMT
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-monitoring time period in seconds for Too Many Turns events \(integer\)
-
-
-+------------+---------+
-| Range      | Units   |
-+============+=========+
-| 0 to 32767 | seconds |
-+------------+---------+
-
-
-
-
-.. _MAX_TURN_ROLL:
-
-MAX\_TURN\_ROLL: MAX\_TURN\_ROLL
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-max number of turn around roll axis
-
-
-.. _MAX_TURN_PITCH:
-
-MAX\_TURN\_PITCH: MAX\_TURN\_PITCH
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-max number of turn around pitch axis
-
-
-.. _MAX_TURN_YAW:
-
-MAX\_TURN\_YAW: MAX\_TURN\_YAW
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-max number of turn around yaw axis
-
-
 .. _AVOID_THRUST:
 
 AVOID\_THRUST: AVOID\_THRUST
@@ -4475,31 +4148,6 @@ maximum pitch timeout allowed for safety \(to avoid floating at the surface\)
 
 
 
-.. _TURNCOUNT_TYP:
-
-TURNCOUNT\_TYP: TURNCOUNT\_TYP
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-type of turn counter being used
-
-
-+-------------------------+
-| Values                  |
-+=========================+
-| +-------+-------------+ |
-| | Value | Meaning     | |
-| +=======+=============+ |
-| | 0     | Standard    | |
-| +-------+-------------+ |
-| | 1     | EulerAngles | |
-| +-------+-------------+ |
-|                         |
-+-------------------------+
-
-
-
-
 .. _GEAR_REDUCTION:
 
 GEAR\_REDUCTION: GEAR\_REDUCTION
@@ -4525,6 +4173,24 @@ MON\_GPS: MON\_GPS
 
 
 nb seconds of usage of GPS
+
+
++---------+
+| Units   |
++=========+
+| seconds |
++---------+
+
+
+
+
+.. _MON_VIS_CHECK:
+
+MON\_VIS\_CHECK: MON\_VIS\_CHECK
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+nb seconds of usage since last visual check
 
 
 +---------+
@@ -4820,6 +4486,24 @@ Simple mode types
 
 
 
+.. _DEPTH_THRUS_MON:
+
+DEPTH\_THRUS\_MON: Minimum Depth for Thruster Monitoring
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Minimum depth in meters for thruster monitoring to be active
+
+
++-----------+-----------+--------+
+| Increment | Range     | Units  |
++===========+===========+========+
+| 0.1       | 0 to -100 | meters |
++-----------+-----------+--------+
+
+
+
+
 .. _MIS_DONE_BEHAVE:
 
 MIS\_DONE\_BEHAVE: Mission done behave
@@ -4849,6 +4533,32 @@ Behaviour after mission completes
 
 
 
+.. _THRUST_DISARM:
+
+THRUST\_DISARM: Disarm on Thrust motor Failure
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+| *Note: This parameter is for advanced users*
+
+Disarm the vehicle when a thrust failure is detected
+
+
++----------------------+
+| Values               |
++======================+
+| +-------+----------+ |
+| | Value | Meaning  | |
+| +=======+==========+ |
+| | 0     | Disabled | |
+| +-------+----------+ |
+| | 1     | Enabled  | |
+| +-------+----------+ |
+|                      |
++----------------------+
+
+
+
+
 .. _BAL_PITCH_TRIM:
 
 BAL\_PITCH\_TRIM: Balance Bot pitch trim angle
@@ -4863,6 +4573,24 @@ Balance Bot pitch trim for balancing\. This offsets the tilt of the center of ma
 +===========+=========+=========+
 | 0.1       | -2 to 2 | degrees |
 +-----------+---------+---------+
+
+
+
+
+.. _THRUS_MAX_CV:
+
+THRUS\_MAX\_CV: Thruster RPM Coefficient of Variation Maximum
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Maximum allowed standard deviation from current thruster RPM\.
+
+
++-----------+----------+---------+
+| Increment | Range    | Units   |
++===========+==========+=========+
+| 1         | 0 to 100 | percent |
++-----------+----------+---------+
 
 
 
@@ -5269,6 +4997,439 @@ Desired pivot turn rate in deg\/s\.
 +===========+==========+====================+
 | 1         | 0 to 360 | degrees per second |
 +-----------+----------+--------------------+
+
+
+
+
+
+.. _parameters_:
+
+ Parameters
+-----------
+
+
+.. _DISABLE_MV:
+
+DISABLE\_MV: 1\, disable monitoring for velocity spikes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+1\, disable monitoring for velocity spikes
+
+
++--------------------------------+
+| Values                         |
++================================+
+| +-------+--------------------+ |
+| | Value | Meaning            | |
+| +=======+====================+ |
+| | 0     | Not Disabled       | |
+| +-------+--------------------+ |
+| | 1     | Disable Monitoring | |
+| +-------+--------------------+ |
+|                                |
++--------------------------------+
+
+
+
+
+.. _MIN_MON_DEPTH:
+
+MIN\_MON\_DEPTH: Don\'t stop and monitor if robot is on net above this depth
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Don\'t stop and monitor if robot is on net above this depth
+
+
++-------------+--------+
+| Range       | Units  |
++=============+========+
+| -100 to 100 | meters |
++-------------+--------+
+
+
+
+
+.. _MAX_ROLL_RUN:
+
+MAX\_ROLL\_RUN: max velocity in roll when running before next step in disarming
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+max velocity in roll when running before next step in disarming
+
+
++--------------------+
+| Units              |
++====================+
+| degrees per second |
++--------------------+
+
+
+
+
+.. _MAX_PITCH_RUN:
+
+MAX\_PITCH\_RUN: max velocity in pitch when running before next step in disarming
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+max velocity in pitch when running before next step in disarming
+
+
++--------------------+
+| Units              |
++====================+
+| degrees per second |
++--------------------+
+
+
+
+
+.. _MAX_YAW_RUN:
+
+MAX\_YAW\_RUN: max velocity in yaw when running before next step in disarming
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+max velocity in yaw when running before next step in disarming
+
+
++--------------------+
+| Units              |
++====================+
+| degrees per second |
++--------------------+
+
+
+
+
+
+.. _parameters_:
+
+ Parameters
+-----------
+
+
+.. _NB_TURN_MAX:
+
+NB\_TURN\_MAX: NB\_TURN\_MAX
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+| *Note: This parameter is for advanced users*
+
+turnCounter\: maximum number of turn before abort if \<0 no limit \+ reset current\_turn\_state to normal useful when too much turns were dealt with and you want to go back to normal
+
+
+.. _RESET_TURN_T:
+
+RESET\_TURN\_T: RESET\_TURN\_T
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+| *Note: This parameter is for advanced users*
+
+turnCounter\: reset current nb turn every RESET\_TURN\_T minutes if \<0 no reset
+
+
++---------+
+| Units   |
++=========+
+| minutes |
++---------+
+
+
+
+
+.. _NB_LAST_TMT:
+
+NB\_LAST\_TMT: NB\_LAST\_TMT
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+turnCounter\: maximum number of Too Many Turns events allowed during the last TIME\_LAST\_TMT seconds\. if exceeded\, disarms
+
+
++----------+
+| Range    |
++==========+
+| 0 to 255 |
++----------+
+
+
+
+
+.. _TIME_LAST_TMT:
+
+TIME\_LAST\_TMT: TIME\_LAST\_TMT
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+turnCounter\: monitoring time period in seconds for Too Many Turns events \(integer\)
+
+
++------------+---------+
+| Range      | Units   |
++============+=========+
+| 0 to 32767 | seconds |
++------------+---------+
+
+
+
+
+.. _TURN_SAFETY:
+
+TURN\_SAFETY: TURN Safety
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+| *Note: This parameter is for advanced users*
+
+turnCounter\: Enable TURN safety checks
+
+
++----------------------+
+| Values               |
++======================+
+| +-------+----------+ |
+| | Value | Meaning  | |
+| +=======+==========+ |
+| | 0     | Disabled | |
+| +-------+----------+ |
+| | 1     | Enabled  | |
+| +-------+----------+ |
+|                      |
++----------------------+
+
+
+
+
+.. _TURNCOUNT_TYP:
+
+TURNCOUNT\_TYP: TURNCOUNT\_TYP
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+turnCounter\: type of turn counter being used
+
+
++-------------------------+
+| Values                  |
++=========================+
+| +-------+-------------+ |
+| | Value | Meaning     | |
+| +=======+=============+ |
+| | 0     | Standard    | |
+| +-------+-------------+ |
+| | 1     | EulerAngles | |
+| +-------+-------------+ |
+|                         |
++-------------------------+
+
+
+
+
+.. _MAX_TURN_ROLL:
+
+MAX\_TURN\_ROLL: MAX\_TURN\_ROLL
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+turnCounter\: max number of turn around roll axis
+
+
+.. _MAX_TURN_PITCH:
+
+MAX\_TURN\_PITCH: MAX\_TURN\_PITCH
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+turnCounter\: max number of turn around pitch axis
+
+
+.. _MAX_TURN_YAW:
+
+MAX\_TURN\_YAW: MAX\_TURN\_YAW
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+turnCounter\: max number of turn around yaw axis
+
+
+.. _TURN_SFTY_TOUT:
+
+TURN\_SFTY\_TOUT: TURN Safety Timeout
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+| *Note: This parameter is for advanced users*
+
+turnCounter\: timeout in seconds for TURN safety checks to be disabled before re\-enabling
+
+
++---------+
+| Units   |
++=========+
+| seconds |
++---------+
+
+
+
+
+
+.. _parameters_:
+
+ Parameters
+-----------
+
+
+.. _CHECK_NET:
+
+CHECK\_NET: CHECK\_NET
+~~~~~~~~~~~~~~~~~~~~~~
+
+| *Note: This parameter is for advanced users*
+
+checkIfOnNet\: enable\/disable checkIfOnNet
+
+
++----------------------+
+| Values               |
++======================+
+| +-------+----------+ |
+| | Value | Meaning  | |
+| +=======+==========+ |
+| | 0     | Disabled | |
+| +-------+----------+ |
+| | 1     | Enabled  | |
+| +-------+----------+ |
+|                      |
++----------------------+
+
+
+
+
+.. _CHECK_NET_TOUT:
+
+CHECK\_NET\_TOUT: CHECK\_NET\_TOUT
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+| *Note: This parameter is for advanced users*
+
+checkIfOnNet\: maximum duration in seconds that checkIfOnNet can be disabled before being automatically re\-enabled
+
+
++---------+
+| Units   |
++=========+
+| seconds |
++---------+
+
+
+
+
+.. _MAX_ROLL_STILL:
+
+MAX\_ROLL\_STILL: MAX\_ROLL\_STILL
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+max velocity in roll at standstill before disarming
+
+
++--------------------+
+| Units              |
++====================+
+| degrees per second |
++--------------------+
+
+
+
+
+.. _MAX_PITCH_STILL:
+
+MAX\_PITCH\_STILL: MAX\_PITCH\_STILL
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+max velocity in pitch at standstill before disarming
+
+
++--------------------+
+| Units              |
++====================+
+| degrees per second |
++--------------------+
+
+
+
+
+.. _MAX_YAW_STILL:
+
+MAX\_YAW\_STILL: MAX\_YAW\_STILL
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+max velocity in yaw at standstill before disarming
+
+
++--------------------+
+| Units              |
++====================+
+| degrees per second |
++--------------------+
+
+
+
+
+.. _MAX_MON_TIME:
+
+MAX\_MON\_TIME: MAX\_MON\_TIME
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+max time for monitoring when doing a check if on net
+
+
++---------+---------+
+| Range   | Units   |
++=========+=========+
+| 0 to 60 | seconds |
++---------+---------+
+
+
+
+
+.. _MAX_DEPTH_CHANGE:
+
+MAX\_DEPTH\_CHANGE: MAX\_DEPTH\_CHANGE
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+when monitoring for off net\, robot will disarm if depth change is more than this value
+
+
++--------+
+| Units  |
++========+
+| meters |
++--------+
+
+
+
+
+.. _ROT_VEL_TOUT:
+
+ROT\_VEL\_TOUT: ROT\_VEL\_TOUT
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+when preparing for monitoring for off net\, robot will disarm if rotational velocity is not within limits for more than this duration
+
+
++---------+
+| Units   |
++=========+
+| seconds |
++---------+
 
 
 
@@ -95012,6 +95173,31 @@ RangeFinder Minimum signal strength \(SNR\) to accept distance
 
 
 
+.. _parameters_RPM:
+
+RPM Parameters
+--------------
+
+
+.. _RPMTIMEOUT:
+
+RPMTIMEOUT: RPM Timeout
+~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Timeout in seconds for RPM readings before RPM is considered lost
+
+
++---------+
+| Units   |
++=========+
+| seconds |
++---------+
+
+
+
+
+
 .. _parameters_RPM1_:
 
 RPM1\_ Parameters
@@ -118837,11 +119023,11 @@ SIM\_TURN\_T\_RATE: rotation rate for the one axis turn test
 rotation rate for the one axis turn test
 
 
-+------------------+
-| Units            |
-+==================+
-| round per second |
-+------------------+
++--------------------+
+| Units              |
++====================+
+| degrees per second |
++--------------------+
 
 
 
@@ -118855,11 +119041,11 @@ SIM\_TURN\_T\_RATEX: roll turn rate for the multiaxis turn test
 roll turn rate for the multiaxis turn test
 
 
-+------------------+
-| Units            |
-+==================+
-| round per second |
-+------------------+
++--------------------+
+| Units              |
++====================+
+| degrees per second |
++--------------------+
 
 
 
@@ -118873,11 +119059,11 @@ SIM\_TURN\_T\_RATEY: pitch turn rate for the multiaxis turn test
 pitch turn rate for the multiaxis turn test
 
 
-+------------------+
-| Units            |
-+==================+
-| round per second |
-+------------------+
++--------------------+
+| Units              |
++====================+
+| degrees per second |
++--------------------+
 
 
 
@@ -118891,11 +119077,11 @@ SIM\_TURN\_T\_RATEZ: yaw turn rate for the multiaxis turn test
 yaw turn rate for the multiaxis turn test
 
 
-+------------------+
-| Units            |
-+==================+
-| round per second |
-+------------------+
++--------------------+
+| Units              |
++====================+
+| degrees per second |
++--------------------+
 
 
 
@@ -124103,13 +124289,13 @@ VESC\_P\_PAIRS\_4: number of pairs of poles in fourth motor
 number of pairs of poles in fourth motor
 
 
-.. _VESC_TMOUT:
+.. _VESC_TIMEOUT:
 
-VESC\_TMOUT: VESC protocol timeout
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+VESC\_TIMEOUT: VESC protocol timeout
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-This sets the inactivity timeout for the VESC protocol in seconds\. If no packets are received in this time normal MAVLink operations are resumed\. A value of 0 means no timeout
+This sets the inactivity timeout for the VESC protocol in seconds\.
 
 
 +----------+---------+
@@ -124964,6 +125150,24 @@ Second Encoder Input Pin B
 | +-------+----------+ |
 |                      |
 +----------------------+
+
+
+
+
+.. _WENCTIMEOUT:
+
+WENCTIMEOUT: WENC Timeout
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Timeout in seconds for Wheel encoder readings before wenc is considered lost
+
+
++---------+
+| Units   |
++=========+
+| seconds |
++---------+
 
 
 
