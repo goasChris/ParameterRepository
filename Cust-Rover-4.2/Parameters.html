@@ -514,24 +514,6 @@ DO NOT EDIT
 </ul>
 
 
-<h2>NO_TH_MAXT (RemoraRover:NO_TH_MAXT)</h2><em>Note: This parameter is for advanced users</em><br>
-
-<p>max time in milli seconds during which we stop thruster when trying to get unstuck</p>
-<ul>
-<li>Units: milliseconds</li>
-<li>Range: 0 999999</li>
-</ul>
-
-
-<h2>NO_TH_MAXT_AVOID (RemoraRover:NO_TH_MAXT_AVOID)</h2><em>Note: This parameter is for advanced users</em><br>
-
-<p>max time in milli seconds during which we stop thruster when trying to avoid</p>
-<ul>
-<li>Units: milliseconds</li>
-<li>Range: 0 999999</li>
-</ul>
-
-
 <h2>STUCK_DETT (RemoraRover:STUCK_DETT)</h2><em>Note: This parameter is for advanced users</em><br>
 
 <p>maximum time to determine we are really stuck</p>
@@ -699,15 +681,6 @@ DO NOT EDIT
 </ul>
 
 
-<h2>THRUS_TRANSIT_T (RemoraRover:THRUS_TRANSIT_T)</h2><em>Note: This parameter is for advanced users</em><br>
-
-<p>thruster transition duration for smoothed transitions in ms</p>
-<ul>
-<li>Units: milliseconds</li>
-<li>Range: 0 500</li>
-</ul>
-
-
 <h2>BRUSH_TRANSIT_T (RemoraRover:BRUSH_TRANSIT_T)</h2><em>Note: This parameter is for advanced users</em><br>
 
 <p>brush transition duration for smoothed transitions in ms</p>
@@ -855,24 +828,6 @@ DO NOT EDIT
 </ul>
 
 
-<h2>BF_SPEED_TOP_B (RemoraRover:BF_SPEED_TOP_B)</h2><em>Note: This parameter is for advanced users</em><br>
-
-<p>throttle applied during backflush</p>
-<ul>
-<li>Units: percent</li>
-<li>Range: -100 0</li>
-</ul>
-
-
-<h2>BF_SPEED_TOP_R (RemoraRover:BF_SPEED_TOP_R)</h2><em>Note: This parameter is for advanced users</em><br>
-
-<p>throttle applied during reflush</p>
-<ul>
-<li>Units: percent</li>
-<li>Range: 0 100</li>
-</ul>
-
-
 <h2>BF_DELTA_DEPTH (RemoraRover:BF_DELTA_DEPTH)</h2><em>Note: This parameter is for advanced users</em><br>
 
 <p>depth interval to backflush depth to allow backflush -BF_DELTA_DEPTH &lt; current_depth- ( ALPHA_BACKFLUSH * MAX_DEPTH + (1-ALPHA_BACKFLUSH)* MIN_DEPTH ) ) &lt; BF_DELTA_DEPTH</p>
@@ -1012,42 +967,6 @@ DO NOT EDIT
 </ul>
 
 
-<h2>GPS_DEPTH (RemoraRover:GPS_DEPTH)</h2><em>Note: This parameter is for advanced users</em><br>
-
-<p>target depth for GPS mode</p>
-<ul>
-<li>Units: meters</li>
-<li>Range: -200 200</li>
-</ul>
-
-
-<h2>GPS_DISTANCE (RemoraRover:GPS_DISTANCE)</h2><em>Note: This parameter is for advanced users</em><br>
-
-<p>for GPS mode, distance at which we apply 0 throttle</p>
-<ul>
-<li>Units: meters</li>
-<li>Range: -200 200</li>
-</ul>
-
-
-<h2>GPS_FAR_DISTANCE (RemoraRover:GPS_FAR_DISTANCE)</h2><em>Note: This parameter is for advanced users</em><br>
-
-<p>for GPS mode, distance at which we apply PARK_THROTTLE and GPS_THRUS_TH</p>
-<ul>
-<li>Units: meters</li>
-<li>Range: -200 200</li>
-</ul>
-
-
-<h2>GPS_THRUS_TH (RemoraRover:GPS_THRUS_TH)</h2><em>Note: This parameter is for advanced users</em><br>
-
-<p>thruster throttle for measurement in GPS mode</p>
-<ul>
-<li>Units: percent</li>
-<li>Range: -100 100</li>
-</ul>
-
-
 <h2>Default gain at boot (RemoraRover:JS_GAIN_DEFAULT)</h2>
 
 <p>Default gain at boot, must be in range [JS_GAIN_MIN , JS_GAIN_MAX]</p>
@@ -1142,41 +1061,6 @@ DO NOT EDIT
 <h2>Brush Gain steps (RemoraRover:BRUSH_GAIN_STEP)</h2>
 
 <p>Controls the number of steps between minimum and maximum brush gain when the gain is adjusted using buttons. Set to 1 to always use BRUSH_GAIN_DEF.</p>
-<ul>
-<li>Range: 1 10</li>
-</ul>
-
-
-<h2>MAN_THRUSTER_TH (RemoraRover:MAN_THRUSTER_TH)</h2><em>Note: This parameter is for advanced users</em><br>
-
-<p>throttle applied to the thruster when in manual mode</p>
-<ul>
-<li>Units: percent</li>
-<li>Range: -100 100</li>
-</ul>
-
-
-<h2>Default gain at boot for thruster (RemoraRover:THRUST_GAIN_DEF)</h2>
-
-<p>Default gain at boot for thruster, must be in range [-THRUST_GAIN_MAX , THRUST_GAIN_MAX]</p>
-<ul>
-<li>Units: percent</li>
-<li>Range: -100 100</li>
-</ul>
-
-
-<h2>Maximum thruster gain when in manual (RemoraRover:THRUST_GAIN_MAX)</h2>
-
-<p>Maximum thruster gain when in manual</p>
-<ul>
-<li>Units: percent</li>
-<li>Range: 0 100</li>
-</ul>
-
-
-<h2>Thruster Gain steps (RemoraRover:THRUSTER_G_STEP)</h2>
-
-<p>Controls the number of steps between minimum and maximum thruster gain when the gain is adjusted using buttons. Set to 1 to always use THRUST_GAIN_DEF.</p>
 <ul>
 <li>Range: 1 10</li>
 </ul>
@@ -1532,15 +1416,6 @@ DO NOT EDIT
 </ul>
 
 
-<h2>thruster throttle applied when "stopping" the thruster in avoidance (RemoraRover:DEC_THRUS_TH)</h2>
-
-<p>thruster throttle applied when &quot;stopping&quot; the thruster in avoidance</p>
-<ul>
-<li>Units: percent</li>
-<li>Range: 0 100</li>
-</ul>
-
-
 <h2>cutoff frequency in the filtering of speed for VEL_CALC_TYP = 6 (RemoraRover:SPEED_FREQ_CUTOF)</h2>
 
 <p>speed is smoothed by a low pass filter whose frequency is SPEED_FREQ_CUTOF</p>
@@ -1619,15 +1494,6 @@ DO NOT EDIT
 <ul>
 <li>Units: seconds</li>
 <li>Range: -1. 999.</li>
-</ul>
-
-
-<h2>MIN_BR_MON_RPM (RemoraRover:MIN_BR_MON_RPM)</h2>
-
-<p>Min start of brush monitor.</p>
-<ul>
-<li>Units: round per minute</li>
-<li>Range: 0. 3000.</li>
 </ul>
 
 
@@ -1735,40 +1601,6 @@ DO NOT EDIT
 </ul>
 
 
-<h2>ACRO_THRUS_TH (RemoraRover:ACRO_THRUS_TH)</h2>
-
-<p>thruster throttle in acro mode</p>
-<ul>
-<li>Units: percent</li>
-<li>Range: -100. 100.</li>
-</ul>
-
-
-<h2>ACRO_THRUS_TOUT (RemoraRover:ACRO_THRUS_TOUT)</h2>
-
-<p>when changing mode to acro, time period for the transition to ACRO_THRUS_TH thruster throttle</p>
-<ul>
-<li>Units: seconds</li>
-</ul>
-
-
-<h2>LRPM_THRUS_TOUT (RemoraRover:LRPM_THRUS_TOUT)</h2>
-
-<p>timeout for thruster monitoring of low rpm</p>
-<ul>
-<li>Units: seconds</li>
-</ul>
-
-
-<h2>LOW_RPM_THRUS (RemoraRover:LOW_RPM_THRUS)</h2>
-
-<p>Maximum allowed deviation of thruster rpm in percent</p>
-<ul>
-<li>Units: percent</li>
-<li>Range: 0 100</li>
-</ul>
-
-
 <h2>SINK_VELOCITY (RemoraRover:SINK_VELOCITY)</h2>
 
 <p>velocity threshold for sinking detection: for the detection to occur, you have to fall at more than SINK_VELOCITY while trying to go up at more than SINK_VELOCITY</p>
@@ -1814,15 +1646,6 @@ DO NOT EDIT
 </ul>
 
 
-<h2>MAX_RPM_DIFF (RemoraRover:MAX_RPM_DIFF)</h2>
-
-<p>when comparing the speed of the brush to the physical model (RPM vs PWM), maximum rpm difference allowed before concluding we are off the model</p>
-<ul>
-<li>Units: percent</li>
-<li>Range: 0 100</li>
-</ul>
-
-
 <h2>WHEEL_DIR_TOUT (RemoraRover:WHEEL_DIR_TOUT)</h2>
 
 <p>when trying to determine if the wheel encoders directions are correct, maximum timeout allowed before comparing depth change and count change (and maybe sending a warning). If negative, deactivate feature. Only available for pattern 9 or 10.</p>
@@ -1849,33 +1672,6 @@ DO NOT EDIT
 </ul>
 
 
-<h2>ST_BACKFLUSH_TH (RemoraRover:ST_BACKFLUSH_TH)</h2>
-
-<p>when in stuck mode, in the &quot;decrease thruster&quot; step, thruster throttle being applied</p>
-<ul>
-<li>Units: percent</li>
-<li>Range: 0 100</li>
-</ul>
-
-
-<h2>ST_REFLUSH_TH (RemoraRover:ST_REFLUSH_TH)</h2>
-
-<p>when in stuck/avoidance mode, thruster throttle being applied during reflush step before depth monitoring</p>
-<ul>
-<li>Units: percent</li>
-<li>Range: -100 0</li>
-</ul>
-
-
-<h2>ST_REFLUSH_TOUT (RemoraRover:ST_REFLUSH_TOUT)</h2>
-
-<p>when in stuck/avoidance mode, timeout for the reflush step before depth monitoring</p>
-<ul>
-<li>Units: milliseconds</li>
-<li>Range: 0 10000</li>
-</ul>
-
-
 <h2>ST_BACK_MAXROLL (RemoraRover:ST_BACK_MAXROLL)</h2>
 
 <p>when in stuck/avoidance mode, maximum roll angle in degrees around vertical to authorize the backflush.</p>
@@ -1899,15 +1695,6 @@ DO NOT EDIT
 <ul>
 <li>Units: degrees</li>
 <li>Range: 0 90</li>
-</ul>
-
-
-<h2>AVOID_THRUST (RemoraRover:AVOID_THRUST)</h2>
-
-<p>thruster throttle being applied in stuck and avoidance</p>
-<ul>
-<li>Units: percent</li>
-<li>Range: -100 100</li>
 </ul>
 
 
@@ -2043,7 +1830,7 @@ DO NOT EDIT
 
 <h2>GETPOS_MAXT (RemoraRover:GETPOS_MAXT)</h2>
 
-<p>type of smoothing being used for roll angles</p>
+<p>maximum duration of GETPOS mode in minutes. If exceeded, send a warning message.</p>
 <ul>
 <li>Units: minutes</li>
 </ul>
@@ -2108,16 +1895,6 @@ DO NOT EDIT
 </ul>
 
 
-<h2>Minimum Depth for Thruster Monitoring (RemoraRover:DEPTH_THRUS_MON)</h2>
-
-<p>Minimum depth in meters for thruster monitoring to be active</p>
-<ul>
-<li>Units: meters</li>
-<li>Range: 0 -100</li>
-<li>Increment: 0.1</li>
-</ul>
-
-
 <h2>Mission done behave (RemoraRover:MIS_DONE_BEHAVE)</h2>
 
 <p>Behaviour after mission completes</p>
@@ -2131,17 +1908,6 @@ DO NOT EDIT
 </ul>
 
 
-<h2>Disarm on Thrust motor Failure (RemoraRover:THRUST_DISARM)</h2><em>Note: This parameter is for advanced users</em><br>
-
-<p>Disarm the vehicle when a thrust failure is detected</p>
-<ul>
-<table><th>Value</th><th>Meaning</th>
-<tr><td>0</td><td>Disabled</td></tr>
-<tr><td>1</td><td>Enabled</td></tr>
-</table>
-</ul>
-
-
 <h2>Balance Bot pitch trim angle (RemoraRover:BAL_PITCH_TRIM)</h2>
 
 <p>Balance Bot pitch trim for balancing. This offsets the tilt of the center of mass.</p>
@@ -2149,16 +1915,6 @@ DO NOT EDIT
 <li>Units: degrees</li>
 <li>Range: -2 2</li>
 <li>Increment: 0.1</li>
-</ul>
-
-
-<h2>Thruster RPM Coefficient of Variation Maximum (RemoraRover:THRUS_MAX_CV)</h2>
-
-<p>Maximum allowed standard deviation from current thruster RPM.</p>
-<ul>
-<li>Units: percent</li>
-<li>Range: 0 100</li>
-<li>Increment: 1</li>
 </ul>
 
 
@@ -2196,14 +1952,6 @@ DO NOT EDIT
 <p>Bitmask to enable failsafe options</p>
 <ul>
 <li>Bitmask: 0:Failsafe enabled in Hold mode</li>
-</ul>
-
-
-<h2>PERM_BRUSH_DEV (RemoraRover:PERM_BRUSH_DEV)</h2>
-
-<p>maximum permitted brush deviation in percent from predicted model.</p>
-<ul>
-<li>Units: percent</li>
 </ul>
 
 
@@ -4492,6 +4240,411 @@ DO NOT EDIT
 <p>when preparing for monitoring for off net, robot will disarm if rotational velocity is not within limits for more than this duration</p>
 <ul>
 <li>Units: seconds</li>
+</ul>
+
+
+<h1> Parameters</h1>
+
+
+<h2>PERM_BRUSH_DEV (PERM_BRUSH_DEV)</h2>
+
+<p>maximum permitted brush deviation in percent from predicted model.</p>
+<ul>
+<li>Units: percent</li>
+</ul>
+
+
+<h2>MIN_BR_MON_RPM (MIN_BR_MON_RPM)</h2>
+
+<p>Min start of brush monitor.</p>
+<ul>
+<li>Units: round per minute</li>
+<li>Range: 0. 3000.</li>
+</ul>
+
+
+<h2>MAX_RPM_DIFF (MAX_RPM_DIFF)</h2>
+
+<p>when comparing the speed of the brush to the physical model (RPM vs PWM), maximum rpm difference allowed before concluding we are off the model</p>
+<ul>
+<li>Units: percent</li>
+<li>Range: 0 100</li>
+</ul>
+
+
+<h2>LOW_RES_DUR (LOW_RES_DUR)</h2>
+
+<p>Duration of low resistance before reporting it, in seconds. This is to avoid false positives.</p>
+<ul>
+<li>Units: seconds</li>
+<li>Range: 0 100</li>
+</ul>
+
+
+<h2>BR_LRPM_DUR (BR_LRPM_DUR)</h2>
+
+<p>Number of seconds with low RPM before reporting it. This is to avoid false positives.</p>
+<ul>
+<li>Units: seconds</li>
+<li>Range: 0 100</li>
+</ul>
+
+
+<h1> Parameters</h1>
+
+
+<h2>Minimum Depth for Thruster Monitoring (DEPTH_THRUS_MON)</h2>
+
+<p>Minimum depth in meters for thruster monitoring to be active</p>
+<ul>
+<li>Units: meters</li>
+<li>Range: 0 -100</li>
+<li>Increment: 0.1</li>
+</ul>
+
+
+<h2>Thruster RPM Coefficient of Variation Maximum (THRUS_MAX_CV)</h2>
+
+<p>Maximum allowed standard deviation from current thruster RPM.</p>
+<ul>
+<li>Units: percent</li>
+<li>Range: 0 100</li>
+<li>Increment: 1</li>
+</ul>
+
+
+<h2>Disarm on Thrust motor Failure (THRUST_DISARM)</h2><em>Note: This parameter is for advanced users</em><br>
+
+<p>Disarm the vehicle when a thrust failure is detected</p>
+<ul>
+<table><th>Value</th><th>Meaning</th>
+<tr><td>0</td><td>Disabled</td></tr>
+<tr><td>1</td><td>Enabled</td></tr>
+</table>
+</ul>
+
+
+<h2>LOW_RPM_THRUS (LOW_RPM_THRUS)</h2>
+
+<p>Maximum allowed deviation of thruster rpm in percent</p>
+<ul>
+<li>Units: percent</li>
+<li>Range: 0 100</li>
+</ul>
+
+
+<h1> Parameters</h1>
+
+
+<h2>THRUS_TRANSIT_T (THRUS_TRANSIT_T)</h2><em>Note: This parameter is for advanced users</em><br>
+
+<p>thruster transition duration for smoothed transitions in ms</p>
+<ul>
+<li>Units: milliseconds</li>
+<li>Range: 0 500</li>
+</ul>
+
+
+<h2>NO_TH_MAXT (NO_TH_MAXT)</h2><em>Note: This parameter is for advanced users</em><br>
+
+<p>max time in milli seconds during which we stop thruster when trying to get unstuck</p>
+<ul>
+<li>Units: milliseconds</li>
+<li>Range: 0 999999</li>
+</ul>
+
+
+<h2>NO_TH_MAXT_AVOID (NO_TH_MAXT_AVOID)</h2><em>Note: This parameter is for advanced users</em><br>
+
+<p>max time in milli seconds during which we stop thruster when trying to avoid</p>
+<ul>
+<li>Units: milliseconds</li>
+<li>Range: 0 999999</li>
+</ul>
+
+
+<h2>ACRO_THRUS_TOUT (ACRO_THRUS_TOUT)</h2>
+
+<p>when changing mode to acro, time period for the transition to ACRO_THRUS_TH thruster throttle</p>
+<ul>
+<li>Units: seconds</li>
+</ul>
+
+
+<h2>ST_REFLUSH_TOUT (ST_REFLUSH_TOUT)</h2>
+
+<p>when in stuck/avoidance mode, timeout for the reflush step before depth monitoring</p>
+<ul>
+<li>Units: milliseconds</li>
+<li>Range: 0 10000</li>
+</ul>
+
+
+<h2>Servo output function for thruster 1 (THRUS_FUNCTION)</h2>
+
+<p>Servo output function for thruster 1</p>
+<ul>
+<table><th>Value</th><th>Meaning</th>
+<tr><td>0</td><td>Disabled</td></tr>
+<tr><td>35</td><td>Thruster1</td></tr>
+<tr><td>37</td><td>Thruster2</td></tr>
+</table>
+</ul>
+
+
+<h2>GPS_THRUS_TH (GPS_THRUS_TH)</h2><em>Note: This parameter is for advanced users</em><br>
+
+<p>thruster throttle for measurement in GPS mode</p>
+<ul>
+<li>Units: percent</li>
+<li>Range: -100 100</li>
+</ul>
+
+
+<h2>MAN_THRUSTER_TH (MAN_THRUSTER_TH)</h2><em>Note: This parameter is for advanced users</em><br>
+
+<p>throttle applied to the thruster when in manual mode</p>
+<ul>
+<li>Units: percent</li>
+<li>Range: -100 100</li>
+</ul>
+
+
+<h2>Default gain at boot for thruster (THRUST_GAIN_DEF)</h2>
+
+<p>Default gain at boot for thruster, must be in range [-THRUST_GAIN_MAX , THRUST_GAIN_MAX]</p>
+<ul>
+<li>Units: percent</li>
+<li>Range: -100 100</li>
+</ul>
+
+
+<h2>Maximum thruster gain when in manual (THRUST_GAIN_MAX)</h2>
+
+<p>Maximum thruster gain when in manual</p>
+<ul>
+<li>Units: percent</li>
+<li>Range: 0 100</li>
+</ul>
+
+
+<h2>Thruster Gain steps (THRUSTER_G_STEP)</h2>
+
+<p>Controls the number of steps between minimum and maximum thruster gain when the gain is adjusted using buttons. Set to 1 to always use THRUST_GAIN_DEF.</p>
+<ul>
+<li>Range: 1 10</li>
+</ul>
+
+
+<h2>thruster throttle applied when "stopping" the thruster in avoidance (DEC_THRUS_TH)</h2>
+
+<p>thruster throttle applied when &quot;stopping&quot; the thruster in avoidance</p>
+<ul>
+<li>Units: percent</li>
+<li>Range: 0 100</li>
+</ul>
+
+
+<h2>ACRO_THRUS_TH (ACRO_THRUS_TH)</h2>
+
+<p>thruster throttle in acro mode</p>
+<ul>
+<li>Units: percent</li>
+<li>Range: -100. 100.</li>
+</ul>
+
+
+<h2>ST_BACKFLUSH_TH (ST_BACKFLUSH_TH)</h2>
+
+<p>when in stuck mode, in the &quot;decrease thruster&quot; step, thruster throttle being applied</p>
+<ul>
+<li>Units: percent</li>
+<li>Range: 0 100</li>
+</ul>
+
+
+<h2>ST_REFLUSH_TH (ST_REFLUSH_TH)</h2>
+
+<p>when in stuck/avoidance mode, thruster throttle being applied during reflush step before depth monitoring</p>
+<ul>
+<li>Units: percent</li>
+<li>Range: -100 0</li>
+</ul>
+
+
+<h2>AVOID_THRUST (AVOID_THRUST)</h2>
+
+<p>thruster throttle being applied in stuck and avoidance</p>
+<ul>
+<li>Units: percent</li>
+<li>Range: -100 100</li>
+</ul>
+
+
+<h2>BF_SPEED_TOP_B (BF_SPEED_TOP_B)</h2><em>Note: This parameter is for advanced users</em><br>
+
+<p>throttle applied during backflush</p>
+<ul>
+<li>Units: percent</li>
+<li>Range: -100 0</li>
+</ul>
+
+
+<h2>BF_SPEED_TOP_R (BF_SPEED_TOP_R)</h2><em>Note: This parameter is for advanced users</em><br>
+
+<p>throttle applied during reflush</p>
+<ul>
+<li>Units: percent</li>
+<li>Range: 0 100</li>
+</ul>
+
+
+<h2>Servo output function for thruster 2 (THRUS2FUNCTION)</h2>
+
+<p>Servo output function for thruster 2</p>
+<ul>
+<table><th>Value</th><th>Meaning</th>
+<tr><td>0</td><td>Disabled</td></tr>
+<tr><td>35</td><td>Thruster1</td></tr>
+<tr><td>37</td><td>Thruster2</td></tr>
+</table>
+</ul>
+
+
+<h2>GPS_THRUS2TH (GPS_THRUS2TH)</h2><em>Note: This parameter is for advanced users</em><br>
+
+<p>thruster throttle for measurement in GPS mode</p>
+<ul>
+<li>Units: percent</li>
+<li>Range: -100 100</li>
+</ul>
+
+
+<h2>MAN_THRUS2TH (MAN_THRUS2TH)</h2><em>Note: This parameter is for advanced users</em><br>
+
+<p>throttle applied to the thruster when in manual mode</p>
+<ul>
+<li>Units: percent</li>
+<li>Range: -100 100</li>
+</ul>
+
+
+<h2>Default gain at boot for thruster (THRUS2GAIN_DEF)</h2>
+
+<p>Default gain at boot for thruster, must be in range [-THRUS2GAIN_MAX , THRUS2GAIN_MAX]</p>
+<ul>
+<li>Units: percent</li>
+<li>Range: -100 100</li>
+</ul>
+
+
+<h2>Maximum thruster gain when in manual (THRUS2GAIN_MAX)</h2>
+
+<p>Maximum thruster gain when in manual</p>
+<ul>
+<li>Units: percent</li>
+<li>Range: 0 100</li>
+</ul>
+
+
+<h2>Thruster Gain steps (THRUS2G_STEP)</h2>
+
+<p>Controls the number of steps between minimum and maximum thruster gain when the gain is adjusted using buttons. Set to 1 to always use THRUS2GAIN_DEF.</p>
+<ul>
+<li>Range: 1 10</li>
+</ul>
+
+
+<h2>thruster throttle applied when "stopping" the thruster in avoidance (DEC_THRUS2TH)</h2>
+
+<p>thruster throttle applied when &quot;stopping&quot; the thruster in avoidance</p>
+<ul>
+<li>Units: percent</li>
+<li>Range: 0 100</li>
+</ul>
+
+
+<h2>ACRO_THRUS2TH (ACRO_THRUS2TH)</h2>
+
+<p>thruster throttle in acro mode</p>
+<ul>
+<li>Units: percent</li>
+<li>Range: -100. 100.</li>
+</ul>
+
+
+<h2>ST_BACKFLUSH2_TH (ST_BACKFLUSH2_TH)</h2>
+
+<p>when in stuck mode, in the &quot;decrease thruster&quot; step, thruster throttle being applied</p>
+<ul>
+<li>Units: percent</li>
+<li>Range: 0 100</li>
+</ul>
+
+
+<h2>ST_REFLUSH2_TH (ST_REFLUSH2_TH)</h2>
+
+<p>when in stuck/avoidance mode, thruster throttle being applied during reflush step before depth monitoring</p>
+<ul>
+<li>Units: percent</li>
+<li>Range: -100 0</li>
+</ul>
+
+
+<h2>AVOID_THRUS2 (AVOID_THRUS2)</h2>
+
+<p>thruster throttle being applied in stuck and avoidance</p>
+<ul>
+<li>Units: percent</li>
+<li>Range: -100 100</li>
+</ul>
+
+
+<h2>BF_SPEED_TOP_B2 (BF_SPEED_TOP_B2)</h2><em>Note: This parameter is for advanced users</em><br>
+
+<p>throttle applied during backflush</p>
+<ul>
+<li>Units: percent</li>
+<li>Range: -100 0</li>
+</ul>
+
+
+<h2>BF_SPEED_TOP_R2 (BF_SPEED_TOP_R2)</h2><em>Note: This parameter is for advanced users</em><br>
+
+<p>throttle applied during reflush</p>
+<ul>
+<li>Units: percent</li>
+<li>Range: 0 100</li>
+</ul>
+
+
+<h1> Parameters</h1>
+
+
+<h2>GPS_DEPTH (GPS_DEPTH)</h2><em>Note: This parameter is for advanced users</em><br>
+
+<p>target depth for GPS mode</p>
+<ul>
+<li>Units: meters</li>
+<li>Range: -200 200</li>
+</ul>
+
+
+<h2>GPS_DISTANCE (GPS_DISTANCE)</h2><em>Note: This parameter is for advanced users</em><br>
+
+<p>for GPS mode, distance at which we apply 0 throttle</p>
+<ul>
+<li>Units: meters</li>
+<li>Range: -200 200</li>
+</ul>
+
+
+<h2>GPS_FAR_DISTANCE (GPS_FAR_DISTANCE)</h2><em>Note: This parameter is for advanced users</em><br>
+
+<p>for GPS mode, distance at which we apply PARK_THROTTLE and GPS_THRUS_TH</p>
+<ul>
+<li>Units: meters</li>
+<li>Range: -200 200</li>
 </ul>
 
 
@@ -28358,6 +28511,24 @@ DO NOT EDIT
 <li>Range: 2 500</li>
 <li>Increment: 1</li>
 <li>RebootRequired: True</li>
+</ul>
+
+
+<h2>Maximum size for each log file (LOG_FILE_MB_MAX)</h2>
+
+<p>Set this to the maximum size you want each log file to reach</p>
+<ul>
+<li>Units: megabyte</li>
+<li>Range: 0.1 1000</li>
+</ul>
+
+
+<h2>Maximum time for each log file (LOG_TIME_MAX)</h2>
+
+<p>Set this to the maximum duration you want each log file to reach</p>
+<ul>
+<li>Units: minutes</li>
+<li>Range: 0.1 1000</li>
 </ul>
 
 
@@ -59273,11 +59444,47 @@ DO NOT EDIT
 </ul>
 
 
-<h2>index of first motor (VESC_MOT_1)</h2>
+<h2>VESC protocol timeout (VESC_TIMEOUT)</h2>
 
-<p>index of first motor</p>
+<p>This sets the inactivity timeout for the VESC protocol in seconds.</p>
 <ul>
-<li>Range: 0 255</li>
+<li>Units: seconds</li>
+<li>Range: 0 300</li>
+</ul>
+
+
+<h2>VESC telemetry rate (VESC_TRATE)</h2>
+
+<p>This sets the rate in Hz for requesting telemetry from VESC motor controllers. It is the rate per VESC. Setting to zero disables telemetry requests</p>
+<ul>
+<li>Units: hertz</li>
+<li>Range: 0 500</li>
+</ul>
+
+
+<h2>VESC debug level (VESC_DEBUG)</h2>
+
+<p>When set to 1 this enabled verbose debugging output over MAVLink when the VESC protocol is active. This can be used to diagnose failures.</p>
+<ul>
+<table><th>Value</th><th>Meaning</th>
+<tr><td>0</td><td>Disabled</td></tr>
+<tr><td>1</td><td>Enabled</td></tr>
+</table>
+</ul>
+
+
+<h2>FUNCTION_1 (VESC_FUNCTION_1)</h2>
+
+<p>function associated with first VESCTelemetry serial port</p>
+<ul>
+<table><th>Value</th><th>Meaning</th>
+<tr><td>0</td><td>Disabled</td></tr>
+<tr><td>35</td><td>Thruster1</td></tr>
+<tr><td>36</td><td>Brush</td></tr>
+<tr><td>37</td><td>Thruster2</td></tr>
+<tr><td>73</td><td>ThrottleLeft</td></tr>
+<tr><td>74</td><td>ThrottleRight</td></tr>
+</table>
 </ul>
 
 
@@ -59308,11 +59515,18 @@ DO NOT EDIT
 </ul>
 
 
-<h2>index of second motor (VESC_MOT_2)</h2>
+<h2>FUNCTION_2 (VESC_FUNCTION_2)</h2>
 
-<p>index of second motor</p>
+<p>function associated with second VESCTelemetry serial port</p>
 <ul>
-<li>Range: 0 255</li>
+<table><th>Value</th><th>Meaning</th>
+<tr><td>0</td><td>Disabled</td></tr>
+<tr><td>35</td><td>Thruster1</td></tr>
+<tr><td>36</td><td>Brush</td></tr>
+<tr><td>37</td><td>Thruster2</td></tr>
+<tr><td>73</td><td>ThrottleLeft</td></tr>
+<tr><td>74</td><td>ThrottleRight</td></tr>
+</table>
 </ul>
 
 
@@ -59343,11 +59557,18 @@ DO NOT EDIT
 </ul>
 
 
-<h2>index of third motor (VESC_MOT_3)</h2>
+<h2>FUNCTION_3 (VESC_FUNCTION_3)</h2>
 
-<p>index of third motor</p>
+<p>function associated with third VESCTelemetry serial port</p>
 <ul>
-<li>Range: 0 255</li>
+<table><th>Value</th><th>Meaning</th>
+<tr><td>0</td><td>Disabled</td></tr>
+<tr><td>35</td><td>Thruster1</td></tr>
+<tr><td>36</td><td>Brush</td></tr>
+<tr><td>37</td><td>Thruster2</td></tr>
+<tr><td>73</td><td>ThrottleLeft</td></tr>
+<tr><td>74</td><td>ThrottleRight</td></tr>
+</table>
 </ul>
 
 
@@ -59378,11 +59599,18 @@ DO NOT EDIT
 </ul>
 
 
-<h2>index of fourth motor (VESC_MOT_4)</h2>
+<h2>FUNCTION_4 (VESC_FUNCTION_4)</h2>
 
-<p>index of fourth motor</p>
+<p>function associated with fourth VESCTelemetry serial port</p>
 <ul>
-<li>Range: 0 255</li>
+<table><th>Value</th><th>Meaning</th>
+<tr><td>0</td><td>Disabled</td></tr>
+<tr><td>35</td><td>Thruster1</td></tr>
+<tr><td>36</td><td>Brush</td></tr>
+<tr><td>37</td><td>Thruster2</td></tr>
+<tr><td>73</td><td>ThrottleLeft</td></tr>
+<tr><td>74</td><td>ThrottleRight</td></tr>
+</table>
 </ul>
 
 
@@ -59413,32 +59641,45 @@ DO NOT EDIT
 </ul>
 
 
-<h2>VESC protocol timeout (VESC_TIMEOUT)</h2>
+<h2>FUNCTION_5 (VESC_FUNCTION_5)</h2>
 
-<p>This sets the inactivity timeout for the VESC protocol in seconds.</p>
-<ul>
-<li>Units: seconds</li>
-<li>Range: 0 300</li>
-</ul>
-
-
-<h2>VESC telemetry rate (VESC_TRATE)</h2>
-
-<p>This sets the rate in Hz for requesting telemetry from VESC motor controllers. It is the rate per VESC. Setting to zero disables telemetry requests</p>
-<ul>
-<li>Units: hertz</li>
-<li>Range: 0 500</li>
-</ul>
-
-
-<h2>VESC debug level (VESC_DEBUG)</h2>
-
-<p>When set to 1 this enabled verbose debugging output over MAVLink when the VESC protocol is active. This can be used to diagnose failures.</p>
+<p>function associated with fifth VESCTelemetry serial port</p>
 <ul>
 <table><th>Value</th><th>Meaning</th>
 <tr><td>0</td><td>Disabled</td></tr>
-<tr><td>1</td><td>Enabled</td></tr>
+<tr><td>35</td><td>Thruster1</td></tr>
+<tr><td>36</td><td>Brush</td></tr>
+<tr><td>37</td><td>Thruster2</td></tr>
+<tr><td>73</td><td>ThrottleLeft</td></tr>
+<tr><td>74</td><td>ThrottleRight</td></tr>
 </table>
+</ul>
+
+
+<h2>maximum intensity for fifth motor (VESC_IMAX_5)</h2>
+
+<p>maximum intensity for fifth motor</p>
+<ul>
+<li>Units: ampere</li>
+<li>Range: 0 100</li>
+</ul>
+
+
+<h2>Reversed fifth motor (VESC_REVERSED_5)</h2>
+
+<p>Reversed fifth motor</p>
+<ul>
+<table><th>Value</th><th>Meaning</th>
+<tr><td>0</td><td>NotReversed</td></tr>
+<tr><td>1</td><td>Reversed</td></tr>
+</table>
+</ul>
+
+
+<h2>number of pairs of poles in fifth motor (VESC_P_PAIRS_5)</h2>
+
+<p>number of pairs of poles in fifth motor</p>
+<ul>
 </ul>
 
 

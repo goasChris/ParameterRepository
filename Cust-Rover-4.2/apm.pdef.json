@@ -1,59 +1,34 @@
 {
   "": {
-    "CHECK_NET": {
-      "Description": "checkIfOnNet: enable/disable checkIfOnNet",
-      "DisplayName": "CHECK_NET",
-      "User": "Advanced",
-      "Values": {
-        "0": "Disabled",
-        "1": "Enabled"
-      }
-    },
-    "CHECK_NET_TOUT": {
-      "Description": "checkIfOnNet: maximum duration in seconds that checkIfOnNet can be disabled before being automatically re-enabled",
-      "DisplayName": "CHECK_NET_TOUT",
-      "Units": "s",
+    "GPS_DEPTH": {
+      "Description": "target depth for GPS mode",
+      "DisplayName": "GPS_DEPTH",
+      "Range": {
+        "high": "200",
+        "low": "-200"
+      },
+      "Units": "m",
       "User": "Advanced"
     },
-    "MAX_DEPTH_CHANGE": {
-      "Description": "when monitoring for off net, robot will disarm if depth change is more than this value",
-      "DisplayName": "MAX_DEPTH_CHANGE",
-      "Units": "m",
-      "User": "Standard"
-    },
-    "MAX_MON_TIME": {
-      "Description": "max time for monitoring when doing a check if on net",
-      "DisplayName": "MAX_MON_TIME",
+    "GPS_DISTANCE": {
+      "Description": "for GPS mode, distance at which we apply 0 throttle",
+      "DisplayName": "GPS_DISTANCE",
       "Range": {
-        "high": "60",
-        "low": "0"
+        "high": "200",
+        "low": "-200"
       },
-      "Units": "s",
-      "User": "Standard"
+      "Units": "m",
+      "User": "Advanced"
     },
-    "MAX_PITCH_STILL": {
-      "Description": "max velocity in pitch at standstill before disarming",
-      "DisplayName": "MAX_PITCH_STILL",
-      "Units": "deg/s",
-      "User": "Standard"
-    },
-    "MAX_ROLL_STILL": {
-      "Description": "max velocity in roll at standstill before disarming",
-      "DisplayName": "MAX_ROLL_STILL",
-      "Units": "deg/s",
-      "User": "Standard"
-    },
-    "MAX_YAW_STILL": {
-      "Description": "max velocity in yaw at standstill before disarming",
-      "DisplayName": "MAX_YAW_STILL",
-      "Units": "deg/s",
-      "User": "Standard"
-    },
-    "ROT_VEL_TOUT": {
-      "Description": "when preparing for monitoring for off net, robot will disarm if rotational velocity is not within limits for more than this duration",
-      "DisplayName": "ROT_VEL_TOUT",
-      "Units": "s",
-      "User": "Standard"
+    "GPS_FAR_DISTANCE": {
+      "Description": "for GPS mode, distance at which we apply PARK_THROTTLE and GPS_THRUS_TH",
+      "DisplayName": "GPS_FAR_DISTANCE",
+      "Range": {
+        "high": "200",
+        "low": "-200"
+      },
+      "Units": "m",
+      "User": "Advanced"
     }
   },
   "AFS_": {
@@ -24130,6 +24105,16 @@
       "Units": "MB",
       "User": "Standard"
     },
+    "LOG_FILE_MB_MAX": {
+      "Description": "Set this to the maximum size you want each log file to reach",
+      "DisplayName": "Maximum size for each log file",
+      "Range": {
+        "high": "1000",
+        "low": "0.1"
+      },
+      "Units": "MB",
+      "User": "Standard"
+    },
     "LOG_FILE_RATEMAX": {
       "Description": "This sets the maximum rate that streaming log messages will be logged to the file backend. A value of zero means that rate limiting is disabled.",
       "DisplayName": "Maximum logging rate for file backend",
@@ -24183,6 +24168,16 @@
         "0": "Disabled",
         "1": "Enabled"
       }
+    },
+    "LOG_TIME_MAX": {
+      "Description": "Set this to the maximum duration you want each log file to reach",
+      "DisplayName": "Maximum time for each log file",
+      "Range": {
+        "high": "1000",
+        "low": "0.1"
+      },
+      "Units": "min",
+      "User": "Standard"
     }
   },
   "MIS_": {
@@ -40464,22 +40459,6 @@
         "1": "rotatePatTargetAngle"
       }
     },
-    "ACRO_THRUS_TH": {
-      "Description": "thruster throttle in acro mode",
-      "DisplayName": "ACRO_THRUS_TH",
-      "Range": {
-        "high": "100.",
-        "low": "-100."
-      },
-      "Units": "%",
-      "User": "Standard"
-    },
-    "ACRO_THRUS_TOUT": {
-      "Description": "when changing mode to acro, time period for the transition to ACRO_THRUS_TH thruster throttle",
-      "DisplayName": "ACRO_THRUS_TOUT",
-      "Units": "s",
-      "User": "Standard"
-    },
     "ACRO_TURN_RATE": {
       "Description": "Acro mode turn rate maximum",
       "DisplayName": "Acro mode turn rate maximum",
@@ -40654,16 +40633,6 @@
       "Units": "%",
       "User": "Standard"
     },
-    "AVOID_THRUST": {
-      "Description": "thruster throttle being applied in stuck and avoidance",
-      "DisplayName": "AVOID_THRUST",
-      "Range": {
-        "high": "100",
-        "low": "-100"
-      },
-      "Units": "%",
-      "User": "Standard"
-    },
     "BAL_PITCH_MAX": {
       "Description": "Pitch angle in degrees at 100% throttle",
       "DisplayName": "BalanceBot Maximum Pitch",
@@ -40758,26 +40727,6 @@
         "low": "0"
       },
       "Units": "min",
-      "User": "Advanced"
-    },
-    "BF_SPEED_TOP_B": {
-      "Description": "throttle applied during backflush",
-      "DisplayName": "BF_SPEED_TOP_B",
-      "Range": {
-        "high": "0",
-        "low": "-100"
-      },
-      "Units": "%",
-      "User": "Advanced"
-    },
-    "BF_SPEED_TOP_R": {
-      "Description": "throttle applied during reflush",
-      "DisplayName": "BF_SPEED_TOP_R",
-      "Range": {
-        "high": "100",
-        "low": "0"
-      },
-      "Units": "%",
       "User": "Advanced"
     },
     "BRUSH_GAIN_DEF": {
@@ -40921,16 +40870,6 @@
       "Units": "deg",
       "User": "Advanced"
     },
-    "DEC_THRUS_TH": {
-      "Description": "thruster throttle applied when \"stopping\" the thruster in avoidance",
-      "DisplayName": "thruster throttle applied when \"stopping\" the thruster in avoidance",
-      "Range": {
-        "high": "100",
-        "low": "0"
-      },
-      "Units": "%",
-      "User": "Standard"
-    },
     "DEPTH_1": {
       "Description": "depth corresponding to RADIUS_NET_1",
       "DisplayName": "DEPTH_1",
@@ -40950,17 +40889,6 @@
       },
       "Units": "m",
       "User": "Advanced"
-    },
-    "DEPTH_THRUS_MON": {
-      "Description": "Minimum depth in meters for thruster monitoring to be active",
-      "DisplayName": "Minimum Depth for Thruster Monitoring",
-      "Increment": "0.1",
-      "Range": {
-        "high": "-100",
-        "low": "0"
-      },
-      "Units": "m",
-      "User": "Standard"
     },
     "DIAG_TYPE": {
       "Description": "type of diagonal : 0 = diag-up-diag, 1 = up-diag-up",
@@ -41185,50 +41113,10 @@
       "User": "Standard"
     },
     "GETPOS_MAXT": {
-      "Description": "type of smoothing being used for roll angles",
+      "Description": "maximum duration of GETPOS mode in minutes. If exceeded, send a warning message.",
       "DisplayName": "GETPOS_MAXT",
       "Units": "min",
       "User": "Standard"
-    },
-    "GPS_DEPTH": {
-      "Description": "target depth for GPS mode",
-      "DisplayName": "GPS_DEPTH",
-      "Range": {
-        "high": "200",
-        "low": "-200"
-      },
-      "Units": "m",
-      "User": "Advanced"
-    },
-    "GPS_DISTANCE": {
-      "Description": "for GPS mode, distance at which we apply 0 throttle",
-      "DisplayName": "GPS_DISTANCE",
-      "Range": {
-        "high": "200",
-        "low": "-200"
-      },
-      "Units": "m",
-      "User": "Advanced"
-    },
-    "GPS_FAR_DISTANCE": {
-      "Description": "for GPS mode, distance at which we apply PARK_THROTTLE and GPS_THRUS_TH",
-      "DisplayName": "GPS_FAR_DISTANCE",
-      "Range": {
-        "high": "200",
-        "low": "-200"
-      },
-      "Units": "m",
-      "User": "Advanced"
-    },
-    "GPS_THRUS_TH": {
-      "Description": "thruster throttle for measurement in GPS mode",
-      "DisplayName": "GPS_THRUS_TH",
-      "Range": {
-        "high": "100",
-        "low": "-100"
-      },
-      "Units": "%",
-      "User": "Advanced"
     },
     "GUID_OPTIONS": {
       "Bitmask": {
@@ -41391,16 +41279,6 @@
         "2": "Always face stern towards target point"
       }
     },
-    "LOW_RPM_THRUS": {
-      "Description": "Maximum allowed deviation of thruster rpm in percent",
-      "DisplayName": "LOW_RPM_THRUS",
-      "Range": {
-        "high": "100",
-        "low": "0"
-      },
-      "Units": "%",
-      "User": "Standard"
-    },
     "LOW_THROTTLE": {
       "Description": "delta throttle under which we can not be stuck as we are not trying to move : if abs(throttle)<dead_throttle",
       "DisplayName": "LOW_THROTTLE",
@@ -41410,12 +41288,6 @@
       },
       "Units": "%",
       "User": "Advanced"
-    },
-    "LRPM_THRUS_TOUT": {
-      "Description": "timeout for thruster monitoring of low rpm",
-      "DisplayName": "LRPM_THRUS_TOUT",
-      "Units": "s",
-      "User": "Standard"
     },
     "M33_LIMIT": {
       "Description": "minimum value for the M33 coef to avoid division by 0",
@@ -41500,16 +41372,6 @@
       "Units": "%",
       "User": "Advanced"
     },
-    "MAN_THRUSTER_TH": {
-      "Description": "throttle applied to the thruster when in manual mode",
-      "DisplayName": "MAN_THRUSTER_TH",
-      "Range": {
-        "high": "100",
-        "low": "-100"
-      },
-      "Units": "%",
-      "User": "Advanced"
-    },
     "MAX_ANGLE_COR": {
       "Description": "maximum angle (degrees) correction for position algorithm",
       "DisplayName": "MAX_ANGLE_COR",
@@ -41558,26 +41420,6 @@
         "low": "0"
       },
       "Units": "deg",
-      "User": "Standard"
-    },
-    "MAX_RPM_DIFF": {
-      "Description": "when comparing the speed of the brush to the physical model (RPM vs PWM), maximum rpm difference allowed before concluding we are off the model",
-      "DisplayName": "MAX_RPM_DIFF",
-      "Range": {
-        "high": "100",
-        "low": "0"
-      },
-      "Units": "%",
-      "User": "Standard"
-    },
-    "MIN_BR_MON_RPM": {
-      "Description": "Min start of brush monitor.",
-      "DisplayName": "MIN_BR_MON_RPM",
-      "Range": {
-        "high": "3000.",
-        "low": "0."
-      },
-      "Units": "rpm",
       "User": "Standard"
     },
     "MIN_DEPTH": {
@@ -42037,26 +41879,6 @@
       },
       "User": "Standard"
     },
-    "NO_TH_MAXT": {
-      "Description": "max time in milli seconds during which we stop thruster when trying to get unstuck",
-      "DisplayName": "NO_TH_MAXT",
-      "Range": {
-        "high": "999999",
-        "low": "0"
-      },
-      "Units": "ms",
-      "User": "Advanced"
-    },
-    "NO_TH_MAXT_AVOID": {
-      "Description": "max time in milli seconds during which we stop thruster when trying to avoid",
-      "DisplayName": "NO_TH_MAXT_AVOID",
-      "Range": {
-        "high": "999999",
-        "low": "0"
-      },
-      "Units": "ms",
-      "User": "Advanced"
-    },
     "ORIGIN_ALT": {
       "Description": " Backup EKF origin altitude (MSL) used when not using a positioning system.",
       "DisplayName": "Backup altitude (MSL) for EKF origin",
@@ -42139,12 +41961,6 @@
         "low": "0"
       },
       "User": "Advanced"
-    },
-    "PERM_BRUSH_DEV": {
-      "Description": "maximum permitted brush deviation in percent from predicted model.",
-      "DisplayName": "PERM_BRUSH_DEV",
-      "Units": "%",
-      "User": "Standard"
     },
     "PILOT_STEER_TYPE": {
       "Description": "Pilot RC input interpretation",
@@ -42488,16 +42304,6 @@
       "Units": "%",
       "User": "Advanced"
     },
-    "ST_BACKFLUSH_TH": {
-      "Description": "when in stuck mode, in the \"decrease thruster\" step, thruster throttle being applied",
-      "DisplayName": "ST_BACKFLUSH_TH",
-      "Range": {
-        "high": "100",
-        "low": "0"
-      },
-      "Units": "%",
-      "User": "Standard"
-    },
     "ST_BACK_MAXROLL": {
       "Description": "when in stuck/avoidance mode, maximum roll angle in degrees around vertical to authorize the backflush.",
       "DisplayName": "ST_BACK_MAXROLL",
@@ -42506,26 +42312,6 @@
         "low": "-90"
       },
       "Units": "deg",
-      "User": "Standard"
-    },
-    "ST_REFLUSH_TH": {
-      "Description": "when in stuck/avoidance mode, thruster throttle being applied during reflush step before depth monitoring",
-      "DisplayName": "ST_REFLUSH_TH",
-      "Range": {
-        "high": "0",
-        "low": "-100"
-      },
-      "Units": "%",
-      "User": "Standard"
-    },
-    "ST_REFLUSH_TOUT": {
-      "Description": "when in stuck/avoidance mode, timeout for the reflush step before depth monitoring",
-      "DisplayName": "ST_REFLUSH_TOUT",
-      "Range": {
-        "high": "10000",
-        "low": "0"
-      },
-      "Units": "ms",
       "User": "Standard"
     },
     "SYSID_ENFORCE": {
@@ -42718,65 +42504,6 @@
       "DisplayName": "THROT_TRANSIT_T",
       "Range": {
         "high": "5000",
-        "low": "0"
-      },
-      "Units": "ms",
-      "User": "Advanced"
-    },
-    "THRUSTER_G_STEP": {
-      "Description": "Controls the number of steps between minimum and maximum thruster gain when the gain is adjusted using buttons. Set to 1 to always use THRUST_GAIN_DEF.",
-      "DisplayName": "Thruster Gain steps",
-      "Range": {
-        "high": "10",
-        "low": "1"
-      },
-      "User": "Standard"
-    },
-    "THRUST_DISARM": {
-      "Description": "Disarm the vehicle when a thrust failure is detected",
-      "DisplayName": "Disarm on Thrust motor Failure",
-      "User": "Advanced",
-      "Values": {
-        "0": "Disabled",
-        "1": "Enabled"
-      }
-    },
-    "THRUST_GAIN_DEF": {
-      "Description": "Default gain at boot for thruster, must be in range [-THRUST_GAIN_MAX , THRUST_GAIN_MAX]",
-      "DisplayName": "Default gain at boot for thruster",
-      "Range": {
-        "high": "100",
-        "low": "-100"
-      },
-      "Units": "%",
-      "User": "Standard"
-    },
-    "THRUST_GAIN_MAX": {
-      "Description": "Maximum thruster gain when in manual",
-      "DisplayName": "Maximum thruster gain when in manual",
-      "Range": {
-        "high": "100",
-        "low": "0"
-      },
-      "Units": "%",
-      "User": "Standard"
-    },
-    "THRUS_MAX_CV": {
-      "Description": "Maximum allowed standard deviation from current thruster RPM.",
-      "DisplayName": "Thruster RPM Coefficient of Variation Maximum",
-      "Increment": "1",
-      "Range": {
-        "high": "100",
-        "low": "0"
-      },
-      "Units": "%",
-      "User": "Standard"
-    },
-    "THRUS_TRANSIT_T": {
-      "Description": "thruster transition duration for smoothed transitions in ms",
-      "DisplayName": "THRUS_TRANSIT_T",
-      "Range": {
-        "high": "500",
         "low": "0"
       },
       "Units": "ms",
@@ -55567,6 +55294,71 @@
         "1": "Enabled"
       }
     },
+    "VESC_FUNCTION_1": {
+      "Description": "function associated with first VESCTelemetry serial port",
+      "DisplayName": "FUNCTION_1",
+      "User": "Standard",
+      "Values": {
+        "0": "Disabled",
+        "35": "Thruster1",
+        "36": "Brush",
+        "37": "Thruster2",
+        "73": "ThrottleLeft",
+        "74": "ThrottleRight"
+      }
+    },
+    "VESC_FUNCTION_2": {
+      "Description": "function associated with second VESCTelemetry serial port",
+      "DisplayName": "FUNCTION_2",
+      "User": "Standard",
+      "Values": {
+        "0": "Disabled",
+        "35": "Thruster1",
+        "36": "Brush",
+        "37": "Thruster2",
+        "73": "ThrottleLeft",
+        "74": "ThrottleRight"
+      }
+    },
+    "VESC_FUNCTION_3": {
+      "Description": "function associated with third VESCTelemetry serial port",
+      "DisplayName": "FUNCTION_3",
+      "User": "Standard",
+      "Values": {
+        "0": "Disabled",
+        "35": "Thruster1",
+        "36": "Brush",
+        "37": "Thruster2",
+        "73": "ThrottleLeft",
+        "74": "ThrottleRight"
+      }
+    },
+    "VESC_FUNCTION_4": {
+      "Description": "function associated with fourth VESCTelemetry serial port",
+      "DisplayName": "FUNCTION_4",
+      "User": "Standard",
+      "Values": {
+        "0": "Disabled",
+        "35": "Thruster1",
+        "36": "Brush",
+        "37": "Thruster2",
+        "73": "ThrottleLeft",
+        "74": "ThrottleRight"
+      }
+    },
+    "VESC_FUNCTION_5": {
+      "Description": "function associated with fifth VESCTelemetry serial port",
+      "DisplayName": "FUNCTION_5",
+      "User": "Standard",
+      "Values": {
+        "0": "Disabled",
+        "35": "Thruster1",
+        "36": "Brush",
+        "37": "Thruster2",
+        "73": "ThrottleLeft",
+        "74": "ThrottleRight"
+      }
+    },
     "VESC_IMAX_1": {
       "Description": "maximum intensity for first motor",
       "DisplayName": "maximum intensity for first motor",
@@ -55607,40 +55399,14 @@
       "Units": "A",
       "User": "Standard"
     },
-    "VESC_MOT_1": {
-      "Description": "index of first motor",
-      "DisplayName": "index of first motor",
+    "VESC_IMAX_5": {
+      "Description": "maximum intensity for fifth motor",
+      "DisplayName": "maximum intensity for fifth motor",
       "Range": {
-        "high": "255",
+        "high": "100",
         "low": "0"
       },
-      "User": "Standard"
-    },
-    "VESC_MOT_2": {
-      "Description": "index of second motor",
-      "DisplayName": "index of second motor",
-      "Range": {
-        "high": "255",
-        "low": "0"
-      },
-      "User": "Standard"
-    },
-    "VESC_MOT_3": {
-      "Description": "index of third motor",
-      "DisplayName": "index of third motor",
-      "Range": {
-        "high": "255",
-        "low": "0"
-      },
-      "User": "Standard"
-    },
-    "VESC_MOT_4": {
-      "Description": "index of fourth motor",
-      "DisplayName": "index of fourth motor",
-      "Range": {
-        "high": "255",
-        "low": "0"
-      },
+      "Units": "A",
       "User": "Standard"
     },
     "VESC_P_PAIRS_1": {
@@ -55661,6 +55427,11 @@
     "VESC_P_PAIRS_4": {
       "Description": "number of pairs of poles in fourth motor",
       "DisplayName": "number of pairs of poles in fourth motor",
+      "User": "Standard"
+    },
+    "VESC_P_PAIRS_5": {
+      "Description": "number of pairs of poles in fifth motor",
+      "DisplayName": "number of pairs of poles in fifth motor",
       "User": "Standard"
     },
     "VESC_REVERSED_1": {
@@ -55693,6 +55464,15 @@
     "VESC_REVERSED_4": {
       "Description": "Reversed fourth motor",
       "DisplayName": "Reversed fourth motor",
+      "User": "Standard",
+      "Values": {
+        "0": "NotReversed",
+        "1": "Reversed"
+      }
+    },
+    "VESC_REVERSED_5": {
+      "Description": "Reversed fifth motor",
+      "DisplayName": "Reversed fifth motor",
       "User": "Standard",
       "Values": {
         "0": "NotReversed",

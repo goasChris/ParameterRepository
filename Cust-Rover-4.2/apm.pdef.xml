@@ -337,16 +337,6 @@
         <field name="UnitText">percent</field>
         <field name="Range">0 100</field>
       </param>
-      <param humanName="NO_TH_MAXT" name="RemoraRover:NO_TH_MAXT" documentation="max time in milli seconds during which we stop thruster when trying to get unstuck" user="Advanced">
-        <field name="Units">ms</field>
-        <field name="UnitText">milliseconds</field>
-        <field name="Range">0 999999</field>
-      </param>
-      <param humanName="NO_TH_MAXT_AVOID" name="RemoraRover:NO_TH_MAXT_AVOID" documentation="max time in milli seconds during which we stop thruster when trying to avoid" user="Advanced">
-        <field name="Units">ms</field>
-        <field name="UnitText">milliseconds</field>
-        <field name="Range">0 999999</field>
-      </param>
       <param humanName="STUCK_DETT" name="RemoraRover:STUCK_DETT" documentation="maximum time to determine we are really stuck" user="Advanced">
         <field name="Units">s</field>
         <field name="UnitText">seconds</field>
@@ -436,11 +426,6 @@
         <field name="UnitText">milliseconds</field>
         <field name="Range">0 5000</field>
       </param>
-      <param humanName="THRUS_TRANSIT_T" name="RemoraRover:THRUS_TRANSIT_T" documentation="thruster transition duration for smoothed transitions in ms" user="Advanced">
-        <field name="Units">ms</field>
-        <field name="UnitText">milliseconds</field>
-        <field name="Range">0 500</field>
-      </param>
       <param humanName="BRUSH_TRANSIT_T" name="RemoraRover:BRUSH_TRANSIT_T" documentation="brush transition duration for smoothed transitions in ms" user="Advanced">
         <field name="Units">ms</field>
         <field name="UnitText">milliseconds</field>
@@ -514,16 +499,6 @@
         <field name="UnitText">seconds</field>
         <field name="Range">0 100</field>
       </param>
-      <param humanName="BF_SPEED_TOP_B" name="RemoraRover:BF_SPEED_TOP_B" documentation="throttle applied during backflush" user="Advanced">
-        <field name="Units">%</field>
-        <field name="UnitText">percent</field>
-        <field name="Range">-100 0</field>
-      </param>
-      <param humanName="BF_SPEED_TOP_R" name="RemoraRover:BF_SPEED_TOP_R" documentation="throttle applied during reflush" user="Advanced">
-        <field name="Units">%</field>
-        <field name="UnitText">percent</field>
-        <field name="Range">0 100</field>
-      </param>
       <param humanName="BF_DELTA_DEPTH" name="RemoraRover:BF_DELTA_DEPTH" documentation="depth interval to backflush depth to allow backflush -BF_DELTA_DEPTH &lt; current_depth- ( ALPHA_BACKFLUSH * MAX_DEPTH + (1-ALPHA_BACKFLUSH)* MIN_DEPTH ) ) &lt; BF_DELTA_DEPTH" user="Advanced">
         <field name="Units">m</field>
         <field name="UnitText">meters</field>
@@ -594,26 +569,6 @@
       <param humanName="TEST_BRUSH_NBPER" name="RemoraRover:TEST_BRUSH_NBPER" documentation="maximum number of period for brush test if &lt;0 no limit" user="Advanced">
         <field name="Range">-1 100000</field>
       </param>
-      <param humanName="GPS_DEPTH" name="RemoraRover:GPS_DEPTH" documentation="target depth for GPS mode" user="Advanced">
-        <field name="Units">m</field>
-        <field name="UnitText">meters</field>
-        <field name="Range">-200 200</field>
-      </param>
-      <param humanName="GPS_DISTANCE" name="RemoraRover:GPS_DISTANCE" documentation="for GPS mode, distance at which we apply 0 throttle" user="Advanced">
-        <field name="Units">m</field>
-        <field name="UnitText">meters</field>
-        <field name="Range">-200 200</field>
-      </param>
-      <param humanName="GPS_FAR_DISTANCE" name="RemoraRover:GPS_FAR_DISTANCE" documentation="for GPS mode, distance at which we apply PARK_THROTTLE and GPS_THRUS_TH" user="Advanced">
-        <field name="Units">m</field>
-        <field name="UnitText">meters</field>
-        <field name="Range">-200 200</field>
-      </param>
-      <param humanName="GPS_THRUS_TH" name="RemoraRover:GPS_THRUS_TH" documentation="thruster throttle for measurement in GPS mode" user="Advanced">
-        <field name="Units">%</field>
-        <field name="UnitText">percent</field>
-        <field name="Range">-100 100</field>
-      </param>
       <param humanName="Default gain at boot" name="RemoraRover:JS_GAIN_DEFAULT" documentation="Default gain at boot, must be in range [JS_GAIN_MIN , JS_GAIN_MAX]" user="Standard">
         <field name="Range">0.1 1.0</field>
       </param>
@@ -654,24 +609,6 @@
         <field name="Range">0.2 1.0</field>
       </param>
       <param humanName="Brush Gain steps" name="RemoraRover:BRUSH_GAIN_STEP" documentation="Controls the number of steps between minimum and maximum brush gain when the gain is adjusted using buttons. Set to 1 to always use BRUSH_GAIN_DEF." user="Standard">
-        <field name="Range">1 10</field>
-      </param>
-      <param humanName="MAN_THRUSTER_TH" name="RemoraRover:MAN_THRUSTER_TH" documentation="throttle applied to the thruster when in manual mode" user="Advanced">
-        <field name="Units">%</field>
-        <field name="UnitText">percent</field>
-        <field name="Range">-100 100</field>
-      </param>
-      <param humanName="Default gain at boot for thruster" name="RemoraRover:THRUST_GAIN_DEF" documentation="Default gain at boot for thruster, must be in range [-THRUST_GAIN_MAX , THRUST_GAIN_MAX]" user="Standard">
-        <field name="Units">%</field>
-        <field name="UnitText">percent</field>
-        <field name="Range">-100 100</field>
-      </param>
-      <param humanName="Maximum thruster gain when in manual" name="RemoraRover:THRUST_GAIN_MAX" documentation="Maximum thruster gain when in manual" user="Standard">
-        <field name="Units">%</field>
-        <field name="UnitText">percent</field>
-        <field name="Range">0 100</field>
-      </param>
-      <param humanName="Thruster Gain steps" name="RemoraRover:THRUSTER_G_STEP" documentation="Controls the number of steps between minimum and maximum thruster gain when the gain is adjusted using buttons. Set to 1 to always use THRUST_GAIN_DEF." user="Standard">
         <field name="Range">1 10</field>
       </param>
       <param humanName="WP_VICINITY" name="RemoraRover:WP_VICINITY" documentation="maximum distance to detect we are in the neighborhood of a waypoint" user="Advanced">
@@ -869,11 +806,6 @@
         <field name="UnitText">meters</field>
         <field name="Range">-1 10000</field>
       </param>
-      <param humanName="thruster throttle applied when &quot;stopping&quot; the thruster in avoidance" name="RemoraRover:DEC_THRUS_TH" documentation="thruster throttle applied when &quot;stopping&quot; the thruster in avoidance" user="Standard">
-        <field name="Units">%</field>
-        <field name="UnitText">percent</field>
-        <field name="Range">0 100</field>
-      </param>
       <param humanName="cutoff frequency in the filtering of speed for VEL_CALC_TYP = 6" name="RemoraRover:SPEED_FREQ_CUTOF" documentation="speed is smoothed by a low pass filter whose frequency is SPEED_FREQ_CUTOF" user="Standard">
         <field name="Units">Hz</field>
         <field name="UnitText">hertz</field>
@@ -915,11 +847,6 @@
         <field name="Units">s</field>
         <field name="UnitText">seconds</field>
         <field name="Range">-1. 999.</field>
-      </param>
-      <param humanName="MIN_BR_MON_RPM" name="RemoraRover:MIN_BR_MON_RPM" documentation="Min start of brush monitor." user="Standard">
-        <field name="Units">rpm</field>
-        <field name="UnitText">round per minute</field>
-        <field name="Range">0. 3000.</field>
       </param>
       <param humanName="pwm value for camera #1 angle when in manual" name="RemoraRover:MANU_MOUNT_PAN" documentation="pwm value for camera #1 angle when in manual" user="Standard">
         <field name="Units">PWM</field>
@@ -973,24 +900,6 @@
         <field name="UnitText">seconds</field>
         <field name="Range">0 32767</field>
       </param>
-      <param humanName="ACRO_THRUS_TH" name="RemoraRover:ACRO_THRUS_TH" documentation="thruster throttle in acro mode" user="Standard">
-        <field name="Units">%</field>
-        <field name="UnitText">percent</field>
-        <field name="Range">-100. 100.</field>
-      </param>
-      <param humanName="ACRO_THRUS_TOUT" name="RemoraRover:ACRO_THRUS_TOUT" documentation="when changing mode to acro, time period for the transition to ACRO_THRUS_TH thruster throttle" user="Standard">
-        <field name="Units">s</field>
-        <field name="UnitText">seconds</field>
-      </param>
-      <param humanName="LRPM_THRUS_TOUT" name="RemoraRover:LRPM_THRUS_TOUT" documentation="timeout for thruster monitoring of low rpm" user="Standard">
-        <field name="Units">s</field>
-        <field name="UnitText">seconds</field>
-      </param>
-      <param humanName="LOW_RPM_THRUS" name="RemoraRover:LOW_RPM_THRUS" documentation="Maximum allowed deviation of thruster rpm in percent" user="Standard">
-        <field name="Units">%</field>
-        <field name="UnitText">percent</field>
-        <field name="Range">0 100</field>
-      </param>
       <param humanName="SINK_VELOCITY" name="RemoraRover:SINK_VELOCITY" documentation="velocity threshold for sinking detection: for the detection to occur, you have to fall at more than SINK_VELOCITY while trying to go up at more than SINK_VELOCITY" user="Standard">
         <field name="Units">m/s</field>
         <field name="UnitText">meters per second</field>
@@ -1016,11 +925,6 @@
         <field name="UnitText">seconds</field>
         <field name="Range">0 30</field>
       </param>
-      <param humanName="MAX_RPM_DIFF" name="RemoraRover:MAX_RPM_DIFF" documentation="when comparing the speed of the brush to the physical model (RPM vs PWM), maximum rpm difference allowed before concluding we are off the model" user="Standard">
-        <field name="Units">%</field>
-        <field name="UnitText">percent</field>
-        <field name="Range">0 100</field>
-      </param>
       <param humanName="WHEEL_DIR_TOUT" name="RemoraRover:WHEEL_DIR_TOUT" documentation="when trying to determine if the wheel encoders directions are correct, maximum timeout allowed before comparing depth change and count change (and maybe sending a warning). If negative, deactivate feature. Only available for pattern 9 or 10." user="Standard">
         <field name="Units">s</field>
         <field name="UnitText">seconds</field>
@@ -1033,21 +937,6 @@
         <field name="Units">s</field>
         <field name="UnitText">seconds</field>
         <field name="Range">-10 10000</field>
-      </param>
-      <param humanName="ST_BACKFLUSH_TH" name="RemoraRover:ST_BACKFLUSH_TH" documentation="when in stuck mode, in the &quot;decrease thruster&quot; step, thruster throttle being applied" user="Standard">
-        <field name="Units">%</field>
-        <field name="UnitText">percent</field>
-        <field name="Range">0 100</field>
-      </param>
-      <param humanName="ST_REFLUSH_TH" name="RemoraRover:ST_REFLUSH_TH" documentation="when in stuck/avoidance mode, thruster throttle being applied during reflush step before depth monitoring" user="Standard">
-        <field name="Units">%</field>
-        <field name="UnitText">percent</field>
-        <field name="Range">-100 0</field>
-      </param>
-      <param humanName="ST_REFLUSH_TOUT" name="RemoraRover:ST_REFLUSH_TOUT" documentation="when in stuck/avoidance mode, timeout for the reflush step before depth monitoring" user="Standard">
-        <field name="Units">ms</field>
-        <field name="UnitText">milliseconds</field>
-        <field name="Range">0 10000</field>
       </param>
       <param humanName="ST_BACK_MAXROLL" name="RemoraRover:ST_BACK_MAXROLL" documentation="when in stuck/avoidance mode, maximum roll angle in degrees around vertical to authorize the backflush." user="Standard">
         <field name="Units">deg</field>
@@ -1062,11 +951,6 @@
         <field name="Units">deg</field>
         <field name="UnitText">degrees</field>
         <field name="Range">0 90</field>
-      </param>
-      <param humanName="AVOID_THRUST" name="RemoraRover:AVOID_THRUST" documentation="thruster throttle being applied in stuck and avoidance" user="Standard">
-        <field name="Units">%</field>
-        <field name="UnitText">percent</field>
-        <field name="Range">-100 100</field>
       </param>
       <param humanName="STUCK_BRUSH_TH" name="RemoraRover:STUCK_BRUSH_TH" documentation="brush throttle being applied in stuck and avoidance" user="Standard">
         <field name="Units">%</field>
@@ -1138,7 +1022,7 @@
           <value code="3">BalanceBot</value>
         </values>
       </param>
-      <param humanName="GETPOS_MAXT" name="RemoraRover:GETPOS_MAXT" documentation="type of smoothing being used for roll angles" user="Standard">
+      <param humanName="GETPOS_MAXT" name="RemoraRover:GETPOS_MAXT" documentation="maximum duration of GETPOS mode in minutes. If exceeded, send a warning message." user="Standard">
         <field name="Units">min</field>
         <field name="UnitText">minutes</field>
       </param>
@@ -1178,12 +1062,6 @@
         </values>
         <field name="RebootRequired">True</field>
       </param>
-      <param humanName="Minimum Depth for Thruster Monitoring" name="RemoraRover:DEPTH_THRUS_MON" documentation="Minimum depth in meters for thruster monitoring to be active" user="Standard">
-        <field name="Units">m</field>
-        <field name="UnitText">meters</field>
-        <field name="Range">0 -100</field>
-        <field name="Increment">0.1</field>
-      </param>
       <param humanName="Mission done behave" name="RemoraRover:MIS_DONE_BEHAVE" documentation="Behaviour after mission completes" user="Standard">
         <values>
           <value code="0">Hold in Auto Mode</value>
@@ -1192,23 +1070,11 @@
           <value code="3">Manual Mode</value>
         </values>
       </param>
-      <param humanName="Disarm on Thrust motor Failure" name="RemoraRover:THRUST_DISARM" documentation="Disarm the vehicle when a thrust failure is detected" user="Advanced">
-        <values>
-          <value code="0">Disabled</value>
-          <value code="1">Enabled</value>
-        </values>
-      </param>
       <param humanName="Balance Bot pitch trim angle" name="RemoraRover:BAL_PITCH_TRIM" documentation="Balance Bot pitch trim for balancing. This offsets the tilt of the center of mass." user="Standard">
         <field name="Units">deg</field>
         <field name="UnitText">degrees</field>
         <field name="Range">-2 2</field>
         <field name="Increment">0.1</field>
-      </param>
-      <param humanName="Thruster RPM Coefficient of Variation Maximum" name="RemoraRover:THRUS_MAX_CV" documentation="Maximum allowed standard deviation from current thruster RPM." user="Standard">
-        <field name="Units">%</field>
-        <field name="UnitText">percent</field>
-        <field name="Range">0 100</field>
-        <field name="Increment">1</field>
       </param>
       <param humanName="Stick Mixing" name="RemoraRover:STICK_MIXING" documentation="When enabled, this adds steering user stick input in auto modes, allowing the user to have some degree of control without changing modes." user="Advanced">
         <values>
@@ -1231,10 +1097,6 @@
           <bit code="0">Failsafe enabled in Hold mode</bit>
         </bitmask>
         <field name="Bitmask">0:Failsafe enabled in Hold mode</field>
-      </param>
-      <param humanName="PERM_BRUSH_DEV" name="RemoraRover:PERM_BRUSH_DEV" documentation="maximum permitted brush deviation in percent from predicted model." user="Standard">
-        <field name="Units">%</field>
-        <field name="UnitText">percent</field>
       </param>
       <param humanName="Guided mode options" name="RemoraRover:GUID_OPTIONS" documentation="Options that can be applied to change guided mode behaviour" user="Advanced">
         <bitmask>
@@ -2435,6 +2297,230 @@
       <param humanName="ROT_VEL_TOUT" name="ROT_VEL_TOUT" documentation="when preparing for monitoring for off net, robot will disarm if rotational velocity is not within limits for more than this duration" user="Standard">
         <field name="Units">s</field>
         <field name="UnitText">seconds</field>
+      </param>
+    </parameters>
+    <parameters name="">
+      <param humanName="PERM_BRUSH_DEV" name="PERM_BRUSH_DEV" documentation="maximum permitted brush deviation in percent from predicted model." user="Standard">
+        <field name="Units">%</field>
+        <field name="UnitText">percent</field>
+      </param>
+      <param humanName="MIN_BR_MON_RPM" name="MIN_BR_MON_RPM" documentation="Min start of brush monitor." user="Standard">
+        <field name="Units">rpm</field>
+        <field name="UnitText">round per minute</field>
+        <field name="Range">0. 3000.</field>
+      </param>
+      <param humanName="MAX_RPM_DIFF" name="MAX_RPM_DIFF" documentation="when comparing the speed of the brush to the physical model (RPM vs PWM), maximum rpm difference allowed before concluding we are off the model" user="Standard">
+        <field name="Units">%</field>
+        <field name="UnitText">percent</field>
+        <field name="Range">0 100</field>
+      </param>
+      <param humanName="LOW_RES_DUR" name="LOW_RES_DUR" documentation="Duration of low resistance before reporting it, in seconds. This is to avoid false positives." user="Standard">
+        <field name="Units">s</field>
+        <field name="UnitText">seconds</field>
+        <field name="Range">0 100</field>
+      </param>
+      <param humanName="BR_LRPM_DUR" name="BR_LRPM_DUR" documentation="Number of seconds with low RPM before reporting it. This is to avoid false positives." user="Standard">
+        <field name="Units">s</field>
+        <field name="UnitText">seconds</field>
+        <field name="Range">0 100</field>
+      </param>
+    </parameters>
+    <parameters name="">
+      <param humanName="Minimum Depth for Thruster Monitoring" name="DEPTH_THRUS_MON" documentation="Minimum depth in meters for thruster monitoring to be active" user="Standard">
+        <field name="Units">m</field>
+        <field name="UnitText">meters</field>
+        <field name="Range">0 -100</field>
+        <field name="Increment">0.1</field>
+      </param>
+      <param humanName="Thruster RPM Coefficient of Variation Maximum" name="THRUS_MAX_CV" documentation="Maximum allowed standard deviation from current thruster RPM." user="Standard">
+        <field name="Units">%</field>
+        <field name="UnitText">percent</field>
+        <field name="Range">0 100</field>
+        <field name="Increment">1</field>
+      </param>
+      <param humanName="Disarm on Thrust motor Failure" name="THRUST_DISARM" documentation="Disarm the vehicle when a thrust failure is detected" user="Advanced">
+        <values>
+          <value code="0">Disabled</value>
+          <value code="1">Enabled</value>
+        </values>
+      </param>
+      <param humanName="LOW_RPM_THRUS" name="LOW_RPM_THRUS" documentation="Maximum allowed deviation of thruster rpm in percent" user="Standard">
+        <field name="Units">%</field>
+        <field name="UnitText">percent</field>
+        <field name="Range">0 100</field>
+      </param>
+    </parameters>
+    <parameters name="">
+      <param humanName="THRUS_TRANSIT_T" name="THRUS_TRANSIT_T" documentation="thruster transition duration for smoothed transitions in ms" user="Advanced">
+        <field name="Units">ms</field>
+        <field name="UnitText">milliseconds</field>
+        <field name="Range">0 500</field>
+      </param>
+      <param humanName="NO_TH_MAXT" name="NO_TH_MAXT" documentation="max time in milli seconds during which we stop thruster when trying to get unstuck" user="Advanced">
+        <field name="Units">ms</field>
+        <field name="UnitText">milliseconds</field>
+        <field name="Range">0 999999</field>
+      </param>
+      <param humanName="NO_TH_MAXT_AVOID" name="NO_TH_MAXT_AVOID" documentation="max time in milli seconds during which we stop thruster when trying to avoid" user="Advanced">
+        <field name="Units">ms</field>
+        <field name="UnitText">milliseconds</field>
+        <field name="Range">0 999999</field>
+      </param>
+      <param humanName="ACRO_THRUS_TOUT" name="ACRO_THRUS_TOUT" documentation="when changing mode to acro, time period for the transition to ACRO_THRUS_TH thruster throttle" user="Standard">
+        <field name="Units">s</field>
+        <field name="UnitText">seconds</field>
+      </param>
+      <param humanName="ST_REFLUSH_TOUT" name="ST_REFLUSH_TOUT" documentation="when in stuck/avoidance mode, timeout for the reflush step before depth monitoring" user="Standard">
+        <field name="Units">ms</field>
+        <field name="UnitText">milliseconds</field>
+        <field name="Range">0 10000</field>
+      </param>
+      <param humanName="Servo output function for thruster 1" name="THRUS_FUNCTION" documentation="Servo output function for thruster 1" user="Standard">
+        <values>
+          <value code="0">Disabled</value>
+          <value code="35">Thruster1</value>
+          <value code="37">Thruster2</value>
+        </values>
+      </param>
+      <param humanName="GPS_THRUS_TH" name="GPS_THRUS_TH" documentation="thruster throttle for measurement in GPS mode" user="Advanced">
+        <field name="Units">%</field>
+        <field name="UnitText">percent</field>
+        <field name="Range">-100 100</field>
+      </param>
+      <param humanName="MAN_THRUSTER_TH" name="MAN_THRUSTER_TH" documentation="throttle applied to the thruster when in manual mode" user="Advanced">
+        <field name="Units">%</field>
+        <field name="UnitText">percent</field>
+        <field name="Range">-100 100</field>
+      </param>
+      <param humanName="Default gain at boot for thruster" name="THRUST_GAIN_DEF" documentation="Default gain at boot for thruster, must be in range [-THRUST_GAIN_MAX , THRUST_GAIN_MAX]" user="Standard">
+        <field name="Units">%</field>
+        <field name="UnitText">percent</field>
+        <field name="Range">-100 100</field>
+      </param>
+      <param humanName="Maximum thruster gain when in manual" name="THRUST_GAIN_MAX" documentation="Maximum thruster gain when in manual" user="Standard">
+        <field name="Units">%</field>
+        <field name="UnitText">percent</field>
+        <field name="Range">0 100</field>
+      </param>
+      <param humanName="Thruster Gain steps" name="THRUSTER_G_STEP" documentation="Controls the number of steps between minimum and maximum thruster gain when the gain is adjusted using buttons. Set to 1 to always use THRUST_GAIN_DEF." user="Standard">
+        <field name="Range">1 10</field>
+      </param>
+      <param humanName="thruster throttle applied when &quot;stopping&quot; the thruster in avoidance" name="DEC_THRUS_TH" documentation="thruster throttle applied when &quot;stopping&quot; the thruster in avoidance" user="Standard">
+        <field name="Units">%</field>
+        <field name="UnitText">percent</field>
+        <field name="Range">0 100</field>
+      </param>
+      <param humanName="ACRO_THRUS_TH" name="ACRO_THRUS_TH" documentation="thruster throttle in acro mode" user="Standard">
+        <field name="Units">%</field>
+        <field name="UnitText">percent</field>
+        <field name="Range">-100. 100.</field>
+      </param>
+      <param humanName="ST_BACKFLUSH_TH" name="ST_BACKFLUSH_TH" documentation="when in stuck mode, in the &quot;decrease thruster&quot; step, thruster throttle being applied" user="Standard">
+        <field name="Units">%</field>
+        <field name="UnitText">percent</field>
+        <field name="Range">0 100</field>
+      </param>
+      <param humanName="ST_REFLUSH_TH" name="ST_REFLUSH_TH" documentation="when in stuck/avoidance mode, thruster throttle being applied during reflush step before depth monitoring" user="Standard">
+        <field name="Units">%</field>
+        <field name="UnitText">percent</field>
+        <field name="Range">-100 0</field>
+      </param>
+      <param humanName="AVOID_THRUST" name="AVOID_THRUST" documentation="thruster throttle being applied in stuck and avoidance" user="Standard">
+        <field name="Units">%</field>
+        <field name="UnitText">percent</field>
+        <field name="Range">-100 100</field>
+      </param>
+      <param humanName="BF_SPEED_TOP_B" name="BF_SPEED_TOP_B" documentation="throttle applied during backflush" user="Advanced">
+        <field name="Units">%</field>
+        <field name="UnitText">percent</field>
+        <field name="Range">-100 0</field>
+      </param>
+      <param humanName="BF_SPEED_TOP_R" name="BF_SPEED_TOP_R" documentation="throttle applied during reflush" user="Advanced">
+        <field name="Units">%</field>
+        <field name="UnitText">percent</field>
+        <field name="Range">0 100</field>
+      </param>
+      <param humanName="Servo output function for thruster 2" name="THRUS2FUNCTION" documentation="Servo output function for thruster 2" user="Standard">
+        <values>
+          <value code="0">Disabled</value>
+          <value code="35">Thruster1</value>
+          <value code="37">Thruster2</value>
+        </values>
+      </param>
+      <param humanName="GPS_THRUS2TH" name="GPS_THRUS2TH" documentation="thruster throttle for measurement in GPS mode" user="Advanced">
+        <field name="Units">%</field>
+        <field name="UnitText">percent</field>
+        <field name="Range">-100 100</field>
+      </param>
+      <param humanName="MAN_THRUS2TH" name="MAN_THRUS2TH" documentation="throttle applied to the thruster when in manual mode" user="Advanced">
+        <field name="Units">%</field>
+        <field name="UnitText">percent</field>
+        <field name="Range">-100 100</field>
+      </param>
+      <param humanName="Default gain at boot for thruster" name="THRUS2GAIN_DEF" documentation="Default gain at boot for thruster, must be in range [-THRUS2GAIN_MAX , THRUS2GAIN_MAX]" user="Standard">
+        <field name="Units">%</field>
+        <field name="UnitText">percent</field>
+        <field name="Range">-100 100</field>
+      </param>
+      <param humanName="Maximum thruster gain when in manual" name="THRUS2GAIN_MAX" documentation="Maximum thruster gain when in manual" user="Standard">
+        <field name="Units">%</field>
+        <field name="UnitText">percent</field>
+        <field name="Range">0 100</field>
+      </param>
+      <param humanName="Thruster Gain steps" name="THRUS2G_STEP" documentation="Controls the number of steps between minimum and maximum thruster gain when the gain is adjusted using buttons. Set to 1 to always use THRUS2GAIN_DEF." user="Standard">
+        <field name="Range">1 10</field>
+      </param>
+      <param humanName="thruster throttle applied when &quot;stopping&quot; the thruster in avoidance" name="DEC_THRUS2TH" documentation="thruster throttle applied when &quot;stopping&quot; the thruster in avoidance" user="Standard">
+        <field name="Units">%</field>
+        <field name="UnitText">percent</field>
+        <field name="Range">0 100</field>
+      </param>
+      <param humanName="ACRO_THRUS2TH" name="ACRO_THRUS2TH" documentation="thruster throttle in acro mode" user="Standard">
+        <field name="Units">%</field>
+        <field name="UnitText">percent</field>
+        <field name="Range">-100. 100.</field>
+      </param>
+      <param humanName="ST_BACKFLUSH2_TH" name="ST_BACKFLUSH2_TH" documentation="when in stuck mode, in the &quot;decrease thruster&quot; step, thruster throttle being applied" user="Standard">
+        <field name="Units">%</field>
+        <field name="UnitText">percent</field>
+        <field name="Range">0 100</field>
+      </param>
+      <param humanName="ST_REFLUSH2_TH" name="ST_REFLUSH2_TH" documentation="when in stuck/avoidance mode, thruster throttle being applied during reflush step before depth monitoring" user="Standard">
+        <field name="Units">%</field>
+        <field name="UnitText">percent</field>
+        <field name="Range">-100 0</field>
+      </param>
+      <param humanName="AVOID_THRUS2" name="AVOID_THRUS2" documentation="thruster throttle being applied in stuck and avoidance" user="Standard">
+        <field name="Units">%</field>
+        <field name="UnitText">percent</field>
+        <field name="Range">-100 100</field>
+      </param>
+      <param humanName="BF_SPEED_TOP_B2" name="BF_SPEED_TOP_B2" documentation="throttle applied during backflush" user="Advanced">
+        <field name="Units">%</field>
+        <field name="UnitText">percent</field>
+        <field name="Range">-100 0</field>
+      </param>
+      <param humanName="BF_SPEED_TOP_R2" name="BF_SPEED_TOP_R2" documentation="throttle applied during reflush" user="Advanced">
+        <field name="Units">%</field>
+        <field name="UnitText">percent</field>
+        <field name="Range">0 100</field>
+      </param>
+    </parameters>
+    <parameters name="">
+      <param humanName="GPS_DEPTH" name="GPS_DEPTH" documentation="target depth for GPS mode" user="Advanced">
+        <field name="Units">m</field>
+        <field name="UnitText">meters</field>
+        <field name="Range">-200 200</field>
+      </param>
+      <param humanName="GPS_DISTANCE" name="GPS_DISTANCE" documentation="for GPS mode, distance at which we apply 0 throttle" user="Advanced">
+        <field name="Units">m</field>
+        <field name="UnitText">meters</field>
+        <field name="Range">-200 200</field>
+      </param>
+      <param humanName="GPS_FAR_DISTANCE" name="GPS_FAR_DISTANCE" documentation="for GPS mode, distance at which we apply PARK_THROTTLE and GPS_THRUS_TH" user="Advanced">
+        <field name="Units">m</field>
+        <field name="UnitText">meters</field>
+        <field name="Range">-200 200</field>
       </param>
     </parameters>
     <parameters name="AFS_">
@@ -20106,6 +20192,16 @@
         <field name="Range">2 500</field>
         <field name="Increment">1</field>
         <field name="RebootRequired">True</field>
+      </param>
+      <param humanName="Maximum size for each log file" name="LOG_FILE_MB_MAX" documentation="Set this to the maximum size you want each log file to reach" user="Standard">
+        <field name="Units">MB</field>
+        <field name="UnitText">megabyte</field>
+        <field name="Range">0.1 1000</field>
+      </param>
+      <param humanName="Maximum time for each log file" name="LOG_TIME_MAX" documentation="Set this to the maximum duration you want each log file to reach" user="Standard">
+        <field name="Units">min</field>
+        <field name="UnitText">minutes</field>
+        <field name="Range">0.1 1000</field>
       </param>
     </parameters>
     <parameters name="MIS_">
@@ -39324,70 +39420,6 @@
         </values>
         <field name="RebootRequired">True</field>
       </param>
-      <param humanName="index of first motor" name="VESC_MOT_1" documentation="index of first motor" user="Standard">
-        <field name="Range">0 255</field>
-      </param>
-      <param humanName="maximum intensity for first motor" name="VESC_IMAX_1" documentation="maximum intensity for first motor" user="Standard">
-        <field name="Units">A</field>
-        <field name="UnitText">ampere</field>
-        <field name="Range">0 100</field>
-      </param>
-      <param humanName="Reversed first motor" name="VESC_REVERSED_1" documentation="Reversed first motor" user="Standard">
-        <values>
-          <value code="0">NotReversed</value>
-          <value code="1">Reversed</value>
-        </values>
-      </param>
-      <param humanName="number of pairs of poles in first motor" name="VESC_P_PAIRS_1" documentation="number of pairs of poles in first motor" user="Standard">
-</param>
-      <param humanName="index of second motor" name="VESC_MOT_2" documentation="index of second motor" user="Standard">
-        <field name="Range">0 255</field>
-      </param>
-      <param humanName="maximum intensity for second motor" name="VESC_IMAX_2" documentation="maximum intensity for second motor" user="Standard">
-        <field name="Units">A</field>
-        <field name="UnitText">ampere</field>
-        <field name="Range">0 100</field>
-      </param>
-      <param humanName="Reversed second motor" name="VESC_REVERSED_2" documentation="Reversed second motor" user="Standard">
-        <values>
-          <value code="0">NotReversed</value>
-          <value code="1">Reversed</value>
-        </values>
-      </param>
-      <param humanName="number of pairs of poles in second motor" name="VESC_P_PAIRS_2" documentation="number of pairs of poles in second motor" user="Standard">
-</param>
-      <param humanName="index of third motor" name="VESC_MOT_3" documentation="index of third motor" user="Standard">
-        <field name="Range">0 255</field>
-      </param>
-      <param humanName="maximum intensity for third motor" name="VESC_IMAX_3" documentation="maximum intensity for third motor" user="Standard">
-        <field name="Units">A</field>
-        <field name="UnitText">ampere</field>
-        <field name="Range">0 100</field>
-      </param>
-      <param humanName="Reversed third motor" name="VESC_REVERSED_3" documentation="Reversed third motor" user="Standard">
-        <values>
-          <value code="0">NotReversed</value>
-          <value code="1">Reversed</value>
-        </values>
-      </param>
-      <param humanName="number of pairs of poles in third motor" name="VESC_P_PAIRS_3" documentation="number of pairs of poles in third motor" user="Standard">
-</param>
-      <param humanName="index of fourth motor" name="VESC_MOT_4" documentation="index of fourth motor" user="Standard">
-        <field name="Range">0 255</field>
-      </param>
-      <param humanName="maximum intensity for fourth motor" name="VESC_IMAX_4" documentation="maximum intensity for fourth motor" user="Standard">
-        <field name="Units">A</field>
-        <field name="UnitText">ampere</field>
-        <field name="Range">0 100</field>
-      </param>
-      <param humanName="Reversed fourth motor" name="VESC_REVERSED_4" documentation="Reversed fourth motor" user="Standard">
-        <values>
-          <value code="0">NotReversed</value>
-          <value code="1">Reversed</value>
-        </values>
-      </param>
-      <param humanName="number of pairs of poles in fourth motor" name="VESC_P_PAIRS_4" documentation="number of pairs of poles in fourth motor" user="Standard">
-</param>
       <param humanName="VESC protocol timeout" name="VESC_TIMEOUT" documentation="This sets the inactivity timeout for the VESC protocol in seconds." user="Standard">
         <field name="Units">s</field>
         <field name="UnitText">seconds</field>
@@ -39404,6 +39436,121 @@
           <value code="1">Enabled</value>
         </values>
       </param>
+      <param humanName="FUNCTION_1" name="VESC_FUNCTION_1" documentation="function associated with first VESCTelemetry serial port" user="Standard">
+        <values>
+          <value code="0">Disabled</value>
+          <value code="35">Thruster1</value>
+          <value code="36">Brush</value>
+          <value code="37">Thruster2</value>
+          <value code="73">ThrottleLeft</value>
+          <value code="74">ThrottleRight</value>
+        </values>
+      </param>
+      <param humanName="maximum intensity for first motor" name="VESC_IMAX_1" documentation="maximum intensity for first motor" user="Standard">
+        <field name="Units">A</field>
+        <field name="UnitText">ampere</field>
+        <field name="Range">0 100</field>
+      </param>
+      <param humanName="Reversed first motor" name="VESC_REVERSED_1" documentation="Reversed first motor" user="Standard">
+        <values>
+          <value code="0">NotReversed</value>
+          <value code="1">Reversed</value>
+        </values>
+      </param>
+      <param humanName="number of pairs of poles in first motor" name="VESC_P_PAIRS_1" documentation="number of pairs of poles in first motor" user="Standard">
+</param>
+      <param humanName="FUNCTION_2" name="VESC_FUNCTION_2" documentation="function associated with second VESCTelemetry serial port" user="Standard">
+        <values>
+          <value code="0">Disabled</value>
+          <value code="35">Thruster1</value>
+          <value code="36">Brush</value>
+          <value code="37">Thruster2</value>
+          <value code="73">ThrottleLeft</value>
+          <value code="74">ThrottleRight</value>
+        </values>
+      </param>
+      <param humanName="maximum intensity for second motor" name="VESC_IMAX_2" documentation="maximum intensity for second motor" user="Standard">
+        <field name="Units">A</field>
+        <field name="UnitText">ampere</field>
+        <field name="Range">0 100</field>
+      </param>
+      <param humanName="Reversed second motor" name="VESC_REVERSED_2" documentation="Reversed second motor" user="Standard">
+        <values>
+          <value code="0">NotReversed</value>
+          <value code="1">Reversed</value>
+        </values>
+      </param>
+      <param humanName="number of pairs of poles in second motor" name="VESC_P_PAIRS_2" documentation="number of pairs of poles in second motor" user="Standard">
+</param>
+      <param humanName="FUNCTION_3" name="VESC_FUNCTION_3" documentation="function associated with third VESCTelemetry serial port" user="Standard">
+        <values>
+          <value code="0">Disabled</value>
+          <value code="35">Thruster1</value>
+          <value code="36">Brush</value>
+          <value code="37">Thruster2</value>
+          <value code="73">ThrottleLeft</value>
+          <value code="74">ThrottleRight</value>
+        </values>
+      </param>
+      <param humanName="maximum intensity for third motor" name="VESC_IMAX_3" documentation="maximum intensity for third motor" user="Standard">
+        <field name="Units">A</field>
+        <field name="UnitText">ampere</field>
+        <field name="Range">0 100</field>
+      </param>
+      <param humanName="Reversed third motor" name="VESC_REVERSED_3" documentation="Reversed third motor" user="Standard">
+        <values>
+          <value code="0">NotReversed</value>
+          <value code="1">Reversed</value>
+        </values>
+      </param>
+      <param humanName="number of pairs of poles in third motor" name="VESC_P_PAIRS_3" documentation="number of pairs of poles in third motor" user="Standard">
+</param>
+      <param humanName="FUNCTION_4" name="VESC_FUNCTION_4" documentation="function associated with fourth VESCTelemetry serial port" user="Standard">
+        <values>
+          <value code="0">Disabled</value>
+          <value code="35">Thruster1</value>
+          <value code="36">Brush</value>
+          <value code="37">Thruster2</value>
+          <value code="73">ThrottleLeft</value>
+          <value code="74">ThrottleRight</value>
+        </values>
+      </param>
+      <param humanName="maximum intensity for fourth motor" name="VESC_IMAX_4" documentation="maximum intensity for fourth motor" user="Standard">
+        <field name="Units">A</field>
+        <field name="UnitText">ampere</field>
+        <field name="Range">0 100</field>
+      </param>
+      <param humanName="Reversed fourth motor" name="VESC_REVERSED_4" documentation="Reversed fourth motor" user="Standard">
+        <values>
+          <value code="0">NotReversed</value>
+          <value code="1">Reversed</value>
+        </values>
+      </param>
+      <param humanName="number of pairs of poles in fourth motor" name="VESC_P_PAIRS_4" documentation="number of pairs of poles in fourth motor" user="Standard">
+</param>
+      <param humanName="FUNCTION_5" name="VESC_FUNCTION_5" documentation="function associated with fifth VESCTelemetry serial port" user="Standard">
+        <values>
+          <value code="0">Disabled</value>
+          <value code="35">Thruster1</value>
+          <value code="36">Brush</value>
+          <value code="37">Thruster2</value>
+          <value code="73">ThrottleLeft</value>
+          <value code="74">ThrottleRight</value>
+        </values>
+      </param>
+      <param humanName="maximum intensity for fifth motor" name="VESC_IMAX_5" documentation="maximum intensity for fifth motor" user="Standard">
+        <field name="Units">A</field>
+        <field name="UnitText">ampere</field>
+        <field name="Range">0 100</field>
+      </param>
+      <param humanName="Reversed fifth motor" name="VESC_REVERSED_5" documentation="Reversed fifth motor" user="Standard">
+        <values>
+          <value code="0">NotReversed</value>
+          <value code="1">Reversed</value>
+        </values>
+      </param>
+      <param humanName="number of pairs of poles in fifth motor" name="VESC_P_PAIRS_5" documentation="number of pairs of poles in fifth motor" user="Standard">
+</param>
     </parameters>
     <parameters name="VISO">
       <param humanName="Visual odometry camera connection type" name="VISO_TYPE" documentation="Visual odometry camera connection type" user="Advanced">

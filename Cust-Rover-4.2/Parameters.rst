@@ -1128,44 +1128,6 @@ maximum throttle to try to move when stuck
 
 
 
-.. _NO_TH_MAXT:
-
-NO\_TH\_MAXT: NO\_TH\_MAXT
-~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-| *Note: This parameter is for advanced users*
-
-max time in milli seconds during which we stop thruster when trying to get unstuck
-
-
-+-------------+--------------+
-| Range       | Units        |
-+=============+==============+
-| 0 to 999999 | milliseconds |
-+-------------+--------------+
-
-
-
-
-.. _NO_TH_MAXT_AVOID:
-
-NO\_TH\_MAXT\_AVOID: NO\_TH\_MAXT\_AVOID
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-| *Note: This parameter is for advanced users*
-
-max time in milli seconds during which we stop thruster when trying to avoid
-
-
-+-------------+--------------+
-| Range       | Units        |
-+=============+==============+
-| 0 to 999999 | milliseconds |
-+-------------+--------------+
-
-
-
-
 .. _STUCK_DETT:
 
 STUCK\_DETT: STUCK\_DETT
@@ -1533,25 +1495,6 @@ transition duration for smoothed transitions of throttle in ms
 
 
 
-.. _THRUS_TRANSIT_T:
-
-THRUS\_TRANSIT\_T: THRUS\_TRANSIT\_T
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-| *Note: This parameter is for advanced users*
-
-thruster transition duration for smoothed transitions in ms
-
-
-+----------+--------------+
-| Range    | Units        |
-+==========+==============+
-| 0 to 500 | milliseconds |
-+----------+--------------+
-
-
-
-
 .. _BRUSH_TRANSIT_T:
 
 BRUSH\_TRANSIT\_T: BRUSH\_TRANSIT\_T
@@ -1875,44 +1818,6 @@ time period for reflush
 
 
 
-.. _BF_SPEED_TOP_B:
-
-BF\_SPEED\_TOP\_B: BF\_SPEED\_TOP\_B
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-| *Note: This parameter is for advanced users*
-
-throttle applied during backflush
-
-
-+-----------+---------+
-| Range     | Units   |
-+===========+=========+
-| -100 to 0 | percent |
-+-----------+---------+
-
-
-
-
-.. _BF_SPEED_TOP_R:
-
-BF\_SPEED\_TOP\_R: BF\_SPEED\_TOP\_R
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-| *Note: This parameter is for advanced users*
-
-throttle applied during reflush
-
-
-+----------+---------+
-| Range    | Units   |
-+==========+=========+
-| 0 to 100 | percent |
-+----------+---------+
-
-
-
-
 .. _BF_DELTA_DEPTH:
 
 BF\_DELTA\_DEPTH: BF\_DELTA\_DEPTH
@@ -2217,82 +2122,6 @@ maximum number of period for brush test if \<0 no limit
 
 
 
-.. _GPS_DEPTH:
-
-GPS\_DEPTH: GPS\_DEPTH
-~~~~~~~~~~~~~~~~~~~~~~
-
-| *Note: This parameter is for advanced users*
-
-target depth for GPS mode
-
-
-+-------------+--------+
-| Range       | Units  |
-+=============+========+
-| -200 to 200 | meters |
-+-------------+--------+
-
-
-
-
-.. _GPS_DISTANCE:
-
-GPS\_DISTANCE: GPS\_DISTANCE
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-| *Note: This parameter is for advanced users*
-
-for GPS mode\, distance at which we apply 0 throttle
-
-
-+-------------+--------+
-| Range       | Units  |
-+=============+========+
-| -200 to 200 | meters |
-+-------------+--------+
-
-
-
-
-.. _GPS_FAR_DISTANCE:
-
-GPS\_FAR\_DISTANCE: GPS\_FAR\_DISTANCE
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-| *Note: This parameter is for advanced users*
-
-for GPS mode\, distance at which we apply PARK\_THROTTLE and GPS\_THRUS\_TH
-
-
-+-------------+--------+
-| Range       | Units  |
-+=============+========+
-| -200 to 200 | meters |
-+-------------+--------+
-
-
-
-
-.. _GPS_THRUS_TH:
-
-GPS\_THRUS\_TH: GPS\_THRUS\_TH
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-| *Note: This parameter is for advanced users*
-
-thruster throttle for measurement in GPS mode
-
-
-+-------------+---------+
-| Range       | Units   |
-+=============+=========+
-| -100 to 100 | percent |
-+-------------+---------+
-
-
-
-
 .. _JS_GAIN_DEFAULT:
 
 JS\_GAIN\_DEFAULT: Default gain at boot
@@ -2501,79 +2330,6 @@ BRUSH\_GAIN\_STEP: Brush Gain steps
 
 
 Controls the number of steps between minimum and maximum brush gain when the gain is adjusted using buttons\. Set to 1 to always use BRUSH\_GAIN\_DEF\.
-
-
-+---------+
-| Range   |
-+=========+
-| 1 to 10 |
-+---------+
-
-
-
-
-.. _MAN_THRUSTER_TH:
-
-MAN\_THRUSTER\_TH: MAN\_THRUSTER\_TH
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-| *Note: This parameter is for advanced users*
-
-throttle applied to the thruster when in manual mode
-
-
-+-------------+---------+
-| Range       | Units   |
-+=============+=========+
-| -100 to 100 | percent |
-+-------------+---------+
-
-
-
-
-.. _THRUST_GAIN_DEF:
-
-THRUST\_GAIN\_DEF: Default gain at boot for thruster
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Default gain at boot for thruster\, must be in range \[\-THRUST\_GAIN\_MAX \, THRUST\_GAIN\_MAX\]
-
-
-+-------------+---------+
-| Range       | Units   |
-+=============+=========+
-| -100 to 100 | percent |
-+-------------+---------+
-
-
-
-
-.. _THRUST_GAIN_MAX:
-
-THRUST\_GAIN\_MAX: Maximum thruster gain when in manual
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Maximum thruster gain when in manual
-
-
-+----------+---------+
-| Range    | Units   |
-+==========+=========+
-| 0 to 100 | percent |
-+----------+---------+
-
-
-
-
-.. _THRUSTER_G_STEP:
-
-THRUSTER\_G\_STEP: Thruster Gain steps
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Controls the number of steps between minimum and maximum thruster gain when the gain is adjusted using buttons\. Set to 1 to always use THRUST\_GAIN\_DEF\.
 
 
 +---------+
@@ -3295,24 +3051,6 @@ safety margin for MIN\_DEPTH and MAX\_DEPTH\, if negative\:disable safety \[mete
 
 
 
-.. _DEC_THRUS_TH:
-
-DEC\_THRUS\_TH: thruster throttle applied when \"stopping\" the thruster in avoidance
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-thruster throttle applied when \"stopping\" the thruster in avoidance
-
-
-+----------+---------+
-| Range    | Units   |
-+==========+=========+
-| 0 to 100 | percent |
-+----------+---------+
-
-
-
-
 .. _SPEED_FREQ_CUTOF:
 
 SPEED\_FREQ\_CUTOF: cutoff frequency in the filtering of speed for VEL\_CALC\_TYP \= 6
@@ -3478,24 +3216,6 @@ timeout for sliding belt detection
 +=============+=========+
 | -1. to 999. | seconds |
 +-------------+---------+
-
-
-
-
-.. _MIN_BR_MON_RPM:
-
-MIN\_BR\_MON\_RPM: MIN\_BR\_MON\_RPM
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Min start of brush monitor\.
-
-
-+-------------+------------------+
-| Range       | Units            |
-+=============+==================+
-| 0. to 3000. | round per minute |
-+-------------+------------------+
 
 
 
@@ -3716,78 +3436,6 @@ monitoring time period in seconds for stuck events \(integer\)
 
 
 
-.. _ACRO_THRUS_TH:
-
-ACRO\_THRUS\_TH: ACRO\_THRUS\_TH
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-thruster throttle in acro mode
-
-
-+---------------+---------+
-| Range         | Units   |
-+===============+=========+
-| -100. to 100. | percent |
-+---------------+---------+
-
-
-
-
-.. _ACRO_THRUS_TOUT:
-
-ACRO\_THRUS\_TOUT: ACRO\_THRUS\_TOUT
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-when changing mode to acro\, time period for the transition to ACRO\_THRUS\_TH thruster throttle
-
-
-+---------+
-| Units   |
-+=========+
-| seconds |
-+---------+
-
-
-
-
-.. _LRPM_THRUS_TOUT:
-
-LRPM\_THRUS\_TOUT: LRPM\_THRUS\_TOUT
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-timeout for thruster monitoring of low rpm
-
-
-+---------+
-| Units   |
-+=========+
-| seconds |
-+---------+
-
-
-
-
-.. _LOW_RPM_THRUS:
-
-LOW\_RPM\_THRUS: LOW\_RPM\_THRUS
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Maximum allowed deviation of thruster rpm in percent
-
-
-+----------+---------+
-| Range    | Units   |
-+==========+=========+
-| 0 to 100 | percent |
-+----------+---------+
-
-
-
-
 .. _SINK_VELOCITY:
 
 SINK\_VELOCITY: SINK\_VELOCITY
@@ -3878,24 +3526,6 @@ when the robot is trying to stop the brush\, timeout after which we switch to st
 
 
 
-.. _MAX_RPM_DIFF:
-
-MAX\_RPM\_DIFF: MAX\_RPM\_DIFF
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-when comparing the speed of the brush to the physical model \(RPM vs PWM\)\, maximum rpm difference allowed before concluding we are off the model
-
-
-+----------+---------+
-| Range    | Units   |
-+==========+=========+
-| 0 to 100 | percent |
-+----------+---------+
-
-
-
-
 .. _WHEEL_DIR_TOUT:
 
 WHEEL\_DIR\_TOUT: WHEEL\_DIR\_TOUT
@@ -3950,60 +3580,6 @@ when not in Acro mode\, timeout before the brush is stopped\. If negative\, deac
 
 
 
-.. _ST_BACKFLUSH_TH:
-
-ST\_BACKFLUSH\_TH: ST\_BACKFLUSH\_TH
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-when in stuck mode\, in the \"decrease thruster\" step\, thruster throttle being applied
-
-
-+----------+---------+
-| Range    | Units   |
-+==========+=========+
-| 0 to 100 | percent |
-+----------+---------+
-
-
-
-
-.. _ST_REFLUSH_TH:
-
-ST\_REFLUSH\_TH: ST\_REFLUSH\_TH
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-when in stuck\/avoidance mode\, thruster throttle being applied during reflush step before depth monitoring
-
-
-+-----------+---------+
-| Range     | Units   |
-+===========+=========+
-| -100 to 0 | percent |
-+-----------+---------+
-
-
-
-
-.. _ST_REFLUSH_TOUT:
-
-ST\_REFLUSH\_TOUT: ST\_REFLUSH\_TOUT
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-when in stuck\/avoidance mode\, timeout for the reflush step before depth monitoring
-
-
-+------------+--------------+
-| Range      | Units        |
-+============+==============+
-| 0 to 10000 | milliseconds |
-+------------+--------------+
-
-
-
-
 .. _ST_BACK_MAXROLL:
 
 ST\_BACK\_MAXROLL: ST\_BACK\_MAXROLL
@@ -4054,24 +3630,6 @@ when in stuck\/avoidance mode\, maximum roll angle in degrees around vertical\.
 +=========+=========+
 | 0 to 90 | degrees |
 +---------+---------+
-
-
-
-
-.. _AVOID_THRUST:
-
-AVOID\_THRUST: AVOID\_THRUST
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-thruster throttle being applied in stuck and avoidance
-
-
-+-------------+---------+
-| Range       | Units   |
-+=============+=========+
-| -100 to 100 | percent |
-+-------------+---------+
 
 
 
@@ -4353,7 +3911,7 @@ GETPOS\_MAXT: GETPOS\_MAXT
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-type of smoothing being used for roll angles
+maximum duration of GETPOS mode in minutes\. If exceeded\, send a warning message\.
 
 
 +---------+
@@ -4486,24 +4044,6 @@ Simple mode types
 
 
 
-.. _DEPTH_THRUS_MON:
-
-DEPTH\_THRUS\_MON: Minimum Depth for Thruster Monitoring
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Minimum depth in meters for thruster monitoring to be active
-
-
-+-----------+-----------+--------+
-| Increment | Range     | Units  |
-+===========+===========+========+
-| 0.1       | 0 to -100 | meters |
-+-----------+-----------+--------+
-
-
-
-
 .. _MIS_DONE_BEHAVE:
 
 MIS\_DONE\_BEHAVE: Mission done behave
@@ -4533,32 +4073,6 @@ Behaviour after mission completes
 
 
 
-.. _THRUST_DISARM:
-
-THRUST\_DISARM: Disarm on Thrust motor Failure
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-| *Note: This parameter is for advanced users*
-
-Disarm the vehicle when a thrust failure is detected
-
-
-+----------------------+
-| Values               |
-+======================+
-| +-------+----------+ |
-| | Value | Meaning  | |
-| +=======+==========+ |
-| | 0     | Disabled | |
-| +-------+----------+ |
-| | 1     | Enabled  | |
-| +-------+----------+ |
-|                      |
-+----------------------+
-
-
-
-
 .. _BAL_PITCH_TRIM:
 
 BAL\_PITCH\_TRIM: Balance Bot pitch trim angle
@@ -4573,24 +4087,6 @@ Balance Bot pitch trim for balancing\. This offsets the tilt of the center of ma
 +===========+=========+=========+
 | 0.1       | -2 to 2 | degrees |
 +-----------+---------+---------+
-
-
-
-
-.. _THRUS_MAX_CV:
-
-THRUS\_MAX\_CV: Thruster RPM Coefficient of Variation Maximum
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Maximum allowed standard deviation from current thruster RPM\.
-
-
-+-----------+----------+---------+
-| Increment | Range    | Units   |
-+===========+==========+=========+
-| 1         | 0 to 100 | percent |
-+-----------+----------+---------+
 
 
 
@@ -4678,24 +4174,6 @@ Bitmask to enable failsafe options
 | +-----+-------------------------------+ |
 |                                         |
 +-----------------------------------------+
-
-
-
-
-.. _PERM_BRUSH_DEV:
-
-PERM\_BRUSH\_DEV: PERM\_BRUSH\_DEV
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-maximum permitted brush deviation in percent from predicted model\.
-
-
-+---------+
-| Units   |
-+=========+
-| percent |
-+---------+
 
 
 
@@ -5430,6 +4908,848 @@ when preparing for monitoring for off net\, robot will disarm if rotational velo
 +=========+
 | seconds |
 +---------+
+
+
+
+
+
+.. _parameters_:
+
+ Parameters
+-----------
+
+
+.. _PERM_BRUSH_DEV:
+
+PERM\_BRUSH\_DEV: PERM\_BRUSH\_DEV
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+maximum permitted brush deviation in percent from predicted model\.
+
+
++---------+
+| Units   |
++=========+
+| percent |
++---------+
+
+
+
+
+.. _MIN_BR_MON_RPM:
+
+MIN\_BR\_MON\_RPM: MIN\_BR\_MON\_RPM
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Min start of brush monitor\.
+
+
++-------------+------------------+
+| Range       | Units            |
++=============+==================+
+| 0. to 3000. | round per minute |
++-------------+------------------+
+
+
+
+
+.. _MAX_RPM_DIFF:
+
+MAX\_RPM\_DIFF: MAX\_RPM\_DIFF
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+when comparing the speed of the brush to the physical model \(RPM vs PWM\)\, maximum rpm difference allowed before concluding we are off the model
+
+
++----------+---------+
+| Range    | Units   |
++==========+=========+
+| 0 to 100 | percent |
++----------+---------+
+
+
+
+
+.. _LOW_RES_DUR:
+
+LOW\_RES\_DUR: LOW\_RES\_DUR
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Duration of low resistance before reporting it\, in seconds\. This is to avoid false positives\.
+
+
++----------+---------+
+| Range    | Units   |
++==========+=========+
+| 0 to 100 | seconds |
++----------+---------+
+
+
+
+
+.. _BR_LRPM_DUR:
+
+BR\_LRPM\_DUR: BR\_LRPM\_DUR
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Number of seconds with low RPM before reporting it\. This is to avoid false positives\.
+
+
++----------+---------+
+| Range    | Units   |
++==========+=========+
+| 0 to 100 | seconds |
++----------+---------+
+
+
+
+
+
+.. _parameters_:
+
+ Parameters
+-----------
+
+
+.. _DEPTH_THRUS_MON:
+
+DEPTH\_THRUS\_MON: Minimum Depth for Thruster Monitoring
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Minimum depth in meters for thruster monitoring to be active
+
+
++-----------+-----------+--------+
+| Increment | Range     | Units  |
++===========+===========+========+
+| 0.1       | 0 to -100 | meters |
++-----------+-----------+--------+
+
+
+
+
+.. _THRUS_MAX_CV:
+
+THRUS\_MAX\_CV: Thruster RPM Coefficient of Variation Maximum
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Maximum allowed standard deviation from current thruster RPM\.
+
+
++-----------+----------+---------+
+| Increment | Range    | Units   |
++===========+==========+=========+
+| 1         | 0 to 100 | percent |
++-----------+----------+---------+
+
+
+
+
+.. _THRUST_DISARM:
+
+THRUST\_DISARM: Disarm on Thrust motor Failure
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+| *Note: This parameter is for advanced users*
+
+Disarm the vehicle when a thrust failure is detected
+
+
++----------------------+
+| Values               |
++======================+
+| +-------+----------+ |
+| | Value | Meaning  | |
+| +=======+==========+ |
+| | 0     | Disabled | |
+| +-------+----------+ |
+| | 1     | Enabled  | |
+| +-------+----------+ |
+|                      |
++----------------------+
+
+
+
+
+.. _LOW_RPM_THRUS:
+
+LOW\_RPM\_THRUS: LOW\_RPM\_THRUS
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Maximum allowed deviation of thruster rpm in percent
+
+
++----------+---------+
+| Range    | Units   |
++==========+=========+
+| 0 to 100 | percent |
++----------+---------+
+
+
+
+
+
+.. _parameters_:
+
+ Parameters
+-----------
+
+
+.. _THRUS_TRANSIT_T:
+
+THRUS\_TRANSIT\_T: THRUS\_TRANSIT\_T
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+| *Note: This parameter is for advanced users*
+
+thruster transition duration for smoothed transitions in ms
+
+
++----------+--------------+
+| Range    | Units        |
++==========+==============+
+| 0 to 500 | milliseconds |
++----------+--------------+
+
+
+
+
+.. _NO_TH_MAXT:
+
+NO\_TH\_MAXT: NO\_TH\_MAXT
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+| *Note: This parameter is for advanced users*
+
+max time in milli seconds during which we stop thruster when trying to get unstuck
+
+
++-------------+--------------+
+| Range       | Units        |
++=============+==============+
+| 0 to 999999 | milliseconds |
++-------------+--------------+
+
+
+
+
+.. _NO_TH_MAXT_AVOID:
+
+NO\_TH\_MAXT\_AVOID: NO\_TH\_MAXT\_AVOID
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+| *Note: This parameter is for advanced users*
+
+max time in milli seconds during which we stop thruster when trying to avoid
+
+
++-------------+--------------+
+| Range       | Units        |
++=============+==============+
+| 0 to 999999 | milliseconds |
++-------------+--------------+
+
+
+
+
+.. _ACRO_THRUS_TOUT:
+
+ACRO\_THRUS\_TOUT: ACRO\_THRUS\_TOUT
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+when changing mode to acro\, time period for the transition to ACRO\_THRUS\_TH thruster throttle
+
+
++---------+
+| Units   |
++=========+
+| seconds |
++---------+
+
+
+
+
+.. _ST_REFLUSH_TOUT:
+
+ST\_REFLUSH\_TOUT: ST\_REFLUSH\_TOUT
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+when in stuck\/avoidance mode\, timeout for the reflush step before depth monitoring
+
+
++------------+--------------+
+| Range      | Units        |
++============+==============+
+| 0 to 10000 | milliseconds |
++------------+--------------+
+
+
+
+
+.. _THRUS_FUNCTION:
+
+THRUS\_FUNCTION: Servo output function for thruster 1
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Servo output function for thruster 1
+
+
++-----------------------+
+| Values                |
++=======================+
+| +-------+-----------+ |
+| | Value | Meaning   | |
+| +=======+===========+ |
+| | 0     | Disabled  | |
+| +-------+-----------+ |
+| | 35    | Thruster1 | |
+| +-------+-----------+ |
+| | 37    | Thruster2 | |
+| +-------+-----------+ |
+|                       |
++-----------------------+
+
+
+
+
+.. _GPS_THRUS_TH:
+
+GPS\_THRUS\_TH: GPS\_THRUS\_TH
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+| *Note: This parameter is for advanced users*
+
+thruster throttle for measurement in GPS mode
+
+
++-------------+---------+
+| Range       | Units   |
++=============+=========+
+| -100 to 100 | percent |
++-------------+---------+
+
+
+
+
+.. _MAN_THRUSTER_TH:
+
+MAN\_THRUSTER\_TH: MAN\_THRUSTER\_TH
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+| *Note: This parameter is for advanced users*
+
+throttle applied to the thruster when in manual mode
+
+
++-------------+---------+
+| Range       | Units   |
++=============+=========+
+| -100 to 100 | percent |
++-------------+---------+
+
+
+
+
+.. _THRUST_GAIN_DEF:
+
+THRUST\_GAIN\_DEF: Default gain at boot for thruster
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Default gain at boot for thruster\, must be in range \[\-THRUST\_GAIN\_MAX \, THRUST\_GAIN\_MAX\]
+
+
++-------------+---------+
+| Range       | Units   |
++=============+=========+
+| -100 to 100 | percent |
++-------------+---------+
+
+
+
+
+.. _THRUST_GAIN_MAX:
+
+THRUST\_GAIN\_MAX: Maximum thruster gain when in manual
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Maximum thruster gain when in manual
+
+
++----------+---------+
+| Range    | Units   |
++==========+=========+
+| 0 to 100 | percent |
++----------+---------+
+
+
+
+
+.. _THRUSTER_G_STEP:
+
+THRUSTER\_G\_STEP: Thruster Gain steps
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Controls the number of steps between minimum and maximum thruster gain when the gain is adjusted using buttons\. Set to 1 to always use THRUST\_GAIN\_DEF\.
+
+
++---------+
+| Range   |
++=========+
+| 1 to 10 |
++---------+
+
+
+
+
+.. _DEC_THRUS_TH:
+
+DEC\_THRUS\_TH: thruster throttle applied when \"stopping\" the thruster in avoidance
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+thruster throttle applied when \"stopping\" the thruster in avoidance
+
+
++----------+---------+
+| Range    | Units   |
++==========+=========+
+| 0 to 100 | percent |
++----------+---------+
+
+
+
+
+.. _ACRO_THRUS_TH:
+
+ACRO\_THRUS\_TH: ACRO\_THRUS\_TH
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+thruster throttle in acro mode
+
+
++---------------+---------+
+| Range         | Units   |
++===============+=========+
+| -100. to 100. | percent |
++---------------+---------+
+
+
+
+
+.. _ST_BACKFLUSH_TH:
+
+ST\_BACKFLUSH\_TH: ST\_BACKFLUSH\_TH
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+when in stuck mode\, in the \"decrease thruster\" step\, thruster throttle being applied
+
+
++----------+---------+
+| Range    | Units   |
++==========+=========+
+| 0 to 100 | percent |
++----------+---------+
+
+
+
+
+.. _ST_REFLUSH_TH:
+
+ST\_REFLUSH\_TH: ST\_REFLUSH\_TH
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+when in stuck\/avoidance mode\, thruster throttle being applied during reflush step before depth monitoring
+
+
++-----------+---------+
+| Range     | Units   |
++===========+=========+
+| -100 to 0 | percent |
++-----------+---------+
+
+
+
+
+.. _AVOID_THRUST:
+
+AVOID\_THRUST: AVOID\_THRUST
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+thruster throttle being applied in stuck and avoidance
+
+
++-------------+---------+
+| Range       | Units   |
++=============+=========+
+| -100 to 100 | percent |
++-------------+---------+
+
+
+
+
+.. _BF_SPEED_TOP_B:
+
+BF\_SPEED\_TOP\_B: BF\_SPEED\_TOP\_B
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+| *Note: This parameter is for advanced users*
+
+throttle applied during backflush
+
+
++-----------+---------+
+| Range     | Units   |
++===========+=========+
+| -100 to 0 | percent |
++-----------+---------+
+
+
+
+
+.. _BF_SPEED_TOP_R:
+
+BF\_SPEED\_TOP\_R: BF\_SPEED\_TOP\_R
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+| *Note: This parameter is for advanced users*
+
+throttle applied during reflush
+
+
++----------+---------+
+| Range    | Units   |
++==========+=========+
+| 0 to 100 | percent |
++----------+---------+
+
+
+
+
+.. _THRUS2FUNCTION:
+
+THRUS2FUNCTION: Servo output function for thruster 2
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Servo output function for thruster 2
+
+
++-----------------------+
+| Values                |
++=======================+
+| +-------+-----------+ |
+| | Value | Meaning   | |
+| +=======+===========+ |
+| | 0     | Disabled  | |
+| +-------+-----------+ |
+| | 35    | Thruster1 | |
+| +-------+-----------+ |
+| | 37    | Thruster2 | |
+| +-------+-----------+ |
+|                       |
++-----------------------+
+
+
+
+
+.. _GPS_THRUS2TH:
+
+GPS\_THRUS2TH: GPS\_THRUS2TH
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+| *Note: This parameter is for advanced users*
+
+thruster throttle for measurement in GPS mode
+
+
++-------------+---------+
+| Range       | Units   |
++=============+=========+
+| -100 to 100 | percent |
++-------------+---------+
+
+
+
+
+.. _MAN_THRUS2TH:
+
+MAN\_THRUS2TH: MAN\_THRUS2TH
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+| *Note: This parameter is for advanced users*
+
+throttle applied to the thruster when in manual mode
+
+
++-------------+---------+
+| Range       | Units   |
++=============+=========+
+| -100 to 100 | percent |
++-------------+---------+
+
+
+
+
+.. _THRUS2GAIN_DEF:
+
+THRUS2GAIN\_DEF: Default gain at boot for thruster
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Default gain at boot for thruster\, must be in range \[\-THRUS2GAIN\_MAX \, THRUS2GAIN\_MAX\]
+
+
++-------------+---------+
+| Range       | Units   |
++=============+=========+
+| -100 to 100 | percent |
++-------------+---------+
+
+
+
+
+.. _THRUS2GAIN_MAX:
+
+THRUS2GAIN\_MAX: Maximum thruster gain when in manual
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Maximum thruster gain when in manual
+
+
++----------+---------+
+| Range    | Units   |
++==========+=========+
+| 0 to 100 | percent |
++----------+---------+
+
+
+
+
+.. _THRUS2G_STEP:
+
+THRUS2G\_STEP: Thruster Gain steps
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Controls the number of steps between minimum and maximum thruster gain when the gain is adjusted using buttons\. Set to 1 to always use THRUS2GAIN\_DEF\.
+
+
++---------+
+| Range   |
++=========+
+| 1 to 10 |
++---------+
+
+
+
+
+.. _DEC_THRUS2TH:
+
+DEC\_THRUS2TH: thruster throttle applied when \"stopping\" the thruster in avoidance
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+thruster throttle applied when \"stopping\" the thruster in avoidance
+
+
++----------+---------+
+| Range    | Units   |
++==========+=========+
+| 0 to 100 | percent |
++----------+---------+
+
+
+
+
+.. _ACRO_THRUS2TH:
+
+ACRO\_THRUS2TH: ACRO\_THRUS2TH
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+thruster throttle in acro mode
+
+
++---------------+---------+
+| Range         | Units   |
++===============+=========+
+| -100. to 100. | percent |
++---------------+---------+
+
+
+
+
+.. _ST_BACKFLUSH2_TH:
+
+ST\_BACKFLUSH2\_TH: ST\_BACKFLUSH2\_TH
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+when in stuck mode\, in the \"decrease thruster\" step\, thruster throttle being applied
+
+
++----------+---------+
+| Range    | Units   |
++==========+=========+
+| 0 to 100 | percent |
++----------+---------+
+
+
+
+
+.. _ST_REFLUSH2_TH:
+
+ST\_REFLUSH2\_TH: ST\_REFLUSH2\_TH
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+when in stuck\/avoidance mode\, thruster throttle being applied during reflush step before depth monitoring
+
+
++-----------+---------+
+| Range     | Units   |
++===========+=========+
+| -100 to 0 | percent |
++-----------+---------+
+
+
+
+
+.. _AVOID_THRUS2:
+
+AVOID\_THRUS2: AVOID\_THRUS2
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+thruster throttle being applied in stuck and avoidance
+
+
++-------------+---------+
+| Range       | Units   |
++=============+=========+
+| -100 to 100 | percent |
++-------------+---------+
+
+
+
+
+.. _BF_SPEED_TOP_B2:
+
+BF\_SPEED\_TOP\_B2: BF\_SPEED\_TOP\_B2
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+| *Note: This parameter is for advanced users*
+
+throttle applied during backflush
+
+
++-----------+---------+
+| Range     | Units   |
++===========+=========+
+| -100 to 0 | percent |
++-----------+---------+
+
+
+
+
+.. _BF_SPEED_TOP_R2:
+
+BF\_SPEED\_TOP\_R2: BF\_SPEED\_TOP\_R2
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+| *Note: This parameter is for advanced users*
+
+throttle applied during reflush
+
+
++----------+---------+
+| Range    | Units   |
++==========+=========+
+| 0 to 100 | percent |
++----------+---------+
+
+
+
+
+
+.. _parameters_:
+
+ Parameters
+-----------
+
+
+.. _GPS_DEPTH:
+
+GPS\_DEPTH: GPS\_DEPTH
+~~~~~~~~~~~~~~~~~~~~~~
+
+| *Note: This parameter is for advanced users*
+
+target depth for GPS mode
+
+
++-------------+--------+
+| Range       | Units  |
++=============+========+
+| -200 to 200 | meters |
++-------------+--------+
+
+
+
+
+.. _GPS_DISTANCE:
+
+GPS\_DISTANCE: GPS\_DISTANCE
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+| *Note: This parameter is for advanced users*
+
+for GPS mode\, distance at which we apply 0 throttle
+
+
++-------------+--------+
+| Range       | Units  |
++=============+========+
+| -200 to 200 | meters |
++-------------+--------+
+
+
+
+
+.. _GPS_FAR_DISTANCE:
+
+GPS\_FAR\_DISTANCE: GPS\_FAR\_DISTANCE
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+| *Note: This parameter is for advanced users*
+
+for GPS mode\, distance at which we apply PARK\_THROTTLE and GPS\_THRUS\_TH
+
+
++-------------+--------+
+| Range       | Units  |
++=============+========+
+| -200 to 200 | meters |
++-------------+--------+
 
 
 
@@ -58810,6 +59130,42 @@ This sets the maximum number of log file that will be written on dataflash or sd
 +===========+==========+
 | 1         | 2 to 500 |
 +-----------+----------+
+
+
+
+
+.. _LOG_FILE_MB_MAX:
+
+LOG\_FILE\_MB\_MAX: Maximum size for each log file
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Set this to the maximum size you want each log file to reach
+
+
++-------------+----------+
+| Range       | Units    |
++=============+==========+
+| 0.1 to 1000 | megabyte |
++-------------+----------+
+
+
+
+
+.. _LOG_TIME_MAX:
+
+LOG\_TIME\_MAX: Maximum time for each log file
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Set this to the maximum duration you want each log file to reach
+
+
++-------------+---------+
+| Range       | Units   |
++=============+=========+
+| 0.1 to 1000 | minutes |
++-------------+---------+
 
 
 
@@ -124009,286 +124365,6 @@ type of VESC driver
 
 
 
-.. _VESC_MOT_1:
-
-VESC\_MOT\_1: index of first motor
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-index of first motor
-
-
-+----------+
-| Range    |
-+==========+
-| 0 to 255 |
-+----------+
-
-
-
-
-.. _VESC_IMAX_1:
-
-VESC\_IMAX\_1: maximum intensity for first motor
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-maximum intensity for first motor
-
-
-+----------+--------+
-| Range    | Units  |
-+==========+========+
-| 0 to 100 | ampere |
-+----------+--------+
-
-
-
-
-.. _VESC_REVERSED_1:
-
-VESC\_REVERSED\_1: Reversed first motor
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Reversed first motor
-
-
-+-------------------------+
-| Values                  |
-+=========================+
-| +-------+-------------+ |
-| | Value | Meaning     | |
-| +=======+=============+ |
-| | 0     | NotReversed | |
-| +-------+-------------+ |
-| | 1     | Reversed    | |
-| +-------+-------------+ |
-|                         |
-+-------------------------+
-
-
-
-
-.. _VESC_P_PAIRS_1:
-
-VESC\_P\_PAIRS\_1: number of pairs of poles in first motor
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-number of pairs of poles in first motor
-
-
-.. _VESC_MOT_2:
-
-VESC\_MOT\_2: index of second motor
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-index of second motor
-
-
-+----------+
-| Range    |
-+==========+
-| 0 to 255 |
-+----------+
-
-
-
-
-.. _VESC_IMAX_2:
-
-VESC\_IMAX\_2: maximum intensity for second motor
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-maximum intensity for second motor
-
-
-+----------+--------+
-| Range    | Units  |
-+==========+========+
-| 0 to 100 | ampere |
-+----------+--------+
-
-
-
-
-.. _VESC_REVERSED_2:
-
-VESC\_REVERSED\_2: Reversed second motor
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Reversed second motor
-
-
-+-------------------------+
-| Values                  |
-+=========================+
-| +-------+-------------+ |
-| | Value | Meaning     | |
-| +=======+=============+ |
-| | 0     | NotReversed | |
-| +-------+-------------+ |
-| | 1     | Reversed    | |
-| +-------+-------------+ |
-|                         |
-+-------------------------+
-
-
-
-
-.. _VESC_P_PAIRS_2:
-
-VESC\_P\_PAIRS\_2: number of pairs of poles in second motor
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-number of pairs of poles in second motor
-
-
-.. _VESC_MOT_3:
-
-VESC\_MOT\_3: index of third motor
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-index of third motor
-
-
-+----------+
-| Range    |
-+==========+
-| 0 to 255 |
-+----------+
-
-
-
-
-.. _VESC_IMAX_3:
-
-VESC\_IMAX\_3: maximum intensity for third motor
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-maximum intensity for third motor
-
-
-+----------+--------+
-| Range    | Units  |
-+==========+========+
-| 0 to 100 | ampere |
-+----------+--------+
-
-
-
-
-.. _VESC_REVERSED_3:
-
-VESC\_REVERSED\_3: Reversed third motor
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Reversed third motor
-
-
-+-------------------------+
-| Values                  |
-+=========================+
-| +-------+-------------+ |
-| | Value | Meaning     | |
-| +=======+=============+ |
-| | 0     | NotReversed | |
-| +-------+-------------+ |
-| | 1     | Reversed    | |
-| +-------+-------------+ |
-|                         |
-+-------------------------+
-
-
-
-
-.. _VESC_P_PAIRS_3:
-
-VESC\_P\_PAIRS\_3: number of pairs of poles in third motor
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-number of pairs of poles in third motor
-
-
-.. _VESC_MOT_4:
-
-VESC\_MOT\_4: index of fourth motor
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-index of fourth motor
-
-
-+----------+
-| Range    |
-+==========+
-| 0 to 255 |
-+----------+
-
-
-
-
-.. _VESC_IMAX_4:
-
-VESC\_IMAX\_4: maximum intensity for fourth motor
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-maximum intensity for fourth motor
-
-
-+----------+--------+
-| Range    | Units  |
-+==========+========+
-| 0 to 100 | ampere |
-+----------+--------+
-
-
-
-
-.. _VESC_REVERSED_4:
-
-VESC\_REVERSED\_4: Reversed fourth motor
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Reversed fourth motor
-
-
-+-------------------------+
-| Values                  |
-+=========================+
-| +-------+-------------+ |
-| | Value | Meaning     | |
-| +=======+=============+ |
-| | 0     | NotReversed | |
-| +-------+-------------+ |
-| | 1     | Reversed    | |
-| +-------+-------------+ |
-|                         |
-+-------------------------+
-
-
-
-
-.. _VESC_P_PAIRS_4:
-
-VESC\_P\_PAIRS\_4: number of pairs of poles in fourth motor
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-number of pairs of poles in fourth motor
-
-
 .. _VESC_TIMEOUT:
 
 VESC\_TIMEOUT: VESC protocol timeout
@@ -124348,6 +124424,431 @@ When set to 1 this enabled verbose debugging output over MAVLink when the VESC p
 +----------------------+
 
 
+
+
+.. _VESC_FUNCTION_1:
+
+VESC\_FUNCTION\_1: FUNCTION\_1
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+function associated with first VESCTelemetry serial port
+
+
++---------------------------+
+| Values                    |
++===========================+
+| +-------+---------------+ |
+| | Value | Meaning       | |
+| +=======+===============+ |
+| | 0     | Disabled      | |
+| +-------+---------------+ |
+| | 35    | Thruster1     | |
+| +-------+---------------+ |
+| | 36    | Brush         | |
+| +-------+---------------+ |
+| | 37    | Thruster2     | |
+| +-------+---------------+ |
+| | 73    | ThrottleLeft  | |
+| +-------+---------------+ |
+| | 74    | ThrottleRight | |
+| +-------+---------------+ |
+|                           |
++---------------------------+
+
+
+
+
+.. _VESC_IMAX_1:
+
+VESC\_IMAX\_1: maximum intensity for first motor
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+maximum intensity for first motor
+
+
++----------+--------+
+| Range    | Units  |
++==========+========+
+| 0 to 100 | ampere |
++----------+--------+
+
+
+
+
+.. _VESC_REVERSED_1:
+
+VESC\_REVERSED\_1: Reversed first motor
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Reversed first motor
+
+
++-------------------------+
+| Values                  |
++=========================+
+| +-------+-------------+ |
+| | Value | Meaning     | |
+| +=======+=============+ |
+| | 0     | NotReversed | |
+| +-------+-------------+ |
+| | 1     | Reversed    | |
+| +-------+-------------+ |
+|                         |
++-------------------------+
+
+
+
+
+.. _VESC_P_PAIRS_1:
+
+VESC\_P\_PAIRS\_1: number of pairs of poles in first motor
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+number of pairs of poles in first motor
+
+
+.. _VESC_FUNCTION_2:
+
+VESC\_FUNCTION\_2: FUNCTION\_2
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+function associated with second VESCTelemetry serial port
+
+
++---------------------------+
+| Values                    |
++===========================+
+| +-------+---------------+ |
+| | Value | Meaning       | |
+| +=======+===============+ |
+| | 0     | Disabled      | |
+| +-------+---------------+ |
+| | 35    | Thruster1     | |
+| +-------+---------------+ |
+| | 36    | Brush         | |
+| +-------+---------------+ |
+| | 37    | Thruster2     | |
+| +-------+---------------+ |
+| | 73    | ThrottleLeft  | |
+| +-------+---------------+ |
+| | 74    | ThrottleRight | |
+| +-------+---------------+ |
+|                           |
++---------------------------+
+
+
+
+
+.. _VESC_IMAX_2:
+
+VESC\_IMAX\_2: maximum intensity for second motor
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+maximum intensity for second motor
+
+
++----------+--------+
+| Range    | Units  |
++==========+========+
+| 0 to 100 | ampere |
++----------+--------+
+
+
+
+
+.. _VESC_REVERSED_2:
+
+VESC\_REVERSED\_2: Reversed second motor
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Reversed second motor
+
+
++-------------------------+
+| Values                  |
++=========================+
+| +-------+-------------+ |
+| | Value | Meaning     | |
+| +=======+=============+ |
+| | 0     | NotReversed | |
+| +-------+-------------+ |
+| | 1     | Reversed    | |
+| +-------+-------------+ |
+|                         |
++-------------------------+
+
+
+
+
+.. _VESC_P_PAIRS_2:
+
+VESC\_P\_PAIRS\_2: number of pairs of poles in second motor
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+number of pairs of poles in second motor
+
+
+.. _VESC_FUNCTION_3:
+
+VESC\_FUNCTION\_3: FUNCTION\_3
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+function associated with third VESCTelemetry serial port
+
+
++---------------------------+
+| Values                    |
++===========================+
+| +-------+---------------+ |
+| | Value | Meaning       | |
+| +=======+===============+ |
+| | 0     | Disabled      | |
+| +-------+---------------+ |
+| | 35    | Thruster1     | |
+| +-------+---------------+ |
+| | 36    | Brush         | |
+| +-------+---------------+ |
+| | 37    | Thruster2     | |
+| +-------+---------------+ |
+| | 73    | ThrottleLeft  | |
+| +-------+---------------+ |
+| | 74    | ThrottleRight | |
+| +-------+---------------+ |
+|                           |
++---------------------------+
+
+
+
+
+.. _VESC_IMAX_3:
+
+VESC\_IMAX\_3: maximum intensity for third motor
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+maximum intensity for third motor
+
+
++----------+--------+
+| Range    | Units  |
++==========+========+
+| 0 to 100 | ampere |
++----------+--------+
+
+
+
+
+.. _VESC_REVERSED_3:
+
+VESC\_REVERSED\_3: Reversed third motor
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Reversed third motor
+
+
++-------------------------+
+| Values                  |
++=========================+
+| +-------+-------------+ |
+| | Value | Meaning     | |
+| +=======+=============+ |
+| | 0     | NotReversed | |
+| +-------+-------------+ |
+| | 1     | Reversed    | |
+| +-------+-------------+ |
+|                         |
++-------------------------+
+
+
+
+
+.. _VESC_P_PAIRS_3:
+
+VESC\_P\_PAIRS\_3: number of pairs of poles in third motor
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+number of pairs of poles in third motor
+
+
+.. _VESC_FUNCTION_4:
+
+VESC\_FUNCTION\_4: FUNCTION\_4
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+function associated with fourth VESCTelemetry serial port
+
+
++---------------------------+
+| Values                    |
++===========================+
+| +-------+---------------+ |
+| | Value | Meaning       | |
+| +=======+===============+ |
+| | 0     | Disabled      | |
+| +-------+---------------+ |
+| | 35    | Thruster1     | |
+| +-------+---------------+ |
+| | 36    | Brush         | |
+| +-------+---------------+ |
+| | 37    | Thruster2     | |
+| +-------+---------------+ |
+| | 73    | ThrottleLeft  | |
+| +-------+---------------+ |
+| | 74    | ThrottleRight | |
+| +-------+---------------+ |
+|                           |
++---------------------------+
+
+
+
+
+.. _VESC_IMAX_4:
+
+VESC\_IMAX\_4: maximum intensity for fourth motor
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+maximum intensity for fourth motor
+
+
++----------+--------+
+| Range    | Units  |
++==========+========+
+| 0 to 100 | ampere |
++----------+--------+
+
+
+
+
+.. _VESC_REVERSED_4:
+
+VESC\_REVERSED\_4: Reversed fourth motor
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Reversed fourth motor
+
+
++-------------------------+
+| Values                  |
++=========================+
+| +-------+-------------+ |
+| | Value | Meaning     | |
+| +=======+=============+ |
+| | 0     | NotReversed | |
+| +-------+-------------+ |
+| | 1     | Reversed    | |
+| +-------+-------------+ |
+|                         |
++-------------------------+
+
+
+
+
+.. _VESC_P_PAIRS_4:
+
+VESC\_P\_PAIRS\_4: number of pairs of poles in fourth motor
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+number of pairs of poles in fourth motor
+
+
+.. _VESC_FUNCTION_5:
+
+VESC\_FUNCTION\_5: FUNCTION\_5
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+function associated with fifth VESCTelemetry serial port
+
+
++---------------------------+
+| Values                    |
++===========================+
+| +-------+---------------+ |
+| | Value | Meaning       | |
+| +=======+===============+ |
+| | 0     | Disabled      | |
+| +-------+---------------+ |
+| | 35    | Thruster1     | |
+| +-------+---------------+ |
+| | 36    | Brush         | |
+| +-------+---------------+ |
+| | 37    | Thruster2     | |
+| +-------+---------------+ |
+| | 73    | ThrottleLeft  | |
+| +-------+---------------+ |
+| | 74    | ThrottleRight | |
+| +-------+---------------+ |
+|                           |
++---------------------------+
+
+
+
+
+.. _VESC_IMAX_5:
+
+VESC\_IMAX\_5: maximum intensity for fifth motor
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+maximum intensity for fifth motor
+
+
++----------+--------+
+| Range    | Units  |
++==========+========+
+| 0 to 100 | ampere |
++----------+--------+
+
+
+
+
+.. _VESC_REVERSED_5:
+
+VESC\_REVERSED\_5: Reversed fifth motor
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Reversed fifth motor
+
+
++-------------------------+
+| Values                  |
++=========================+
+| +-------+-------------+ |
+| | Value | Meaning     | |
+| +=======+=============+ |
+| | 0     | NotReversed | |
+| +-------+-------------+ |
+| | 1     | Reversed    | |
+| +-------+-------------+ |
+|                         |
++-------------------------+
+
+
+
+
+.. _VESC_P_PAIRS_5:
+
+VESC\_P\_PAIRS\_5: number of pairs of poles in fifth motor
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+number of pairs of poles in fifth motor
 
 
 
